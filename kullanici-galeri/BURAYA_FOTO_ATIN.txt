@@ -1,0 +1,8 @@
+Merhaba!
+
+Eklemek istediğiniz yeni nakliye ve galeri fotoğraflarını doğrudan bu klasörün ("kullanici-galeri") içerisine sürükleyip bırakabilirsiniz (veya yapıştırabilirsiniz).
+
+Klasöre fotoğrafları ekledikten sonra bana sadece:
+"Kanka, klasöre yeni fotoğrafları yükledim. Bunları galeriye ekle." demeniz yeterli.
+
+Ben fotoğrafları otomatik olarak işleyecek, isimlerini düzenleyecek, galeri koduna (başlık ve açıklamalarıyla birlikte) ekleyecek ve sitenizi sıfırdan derleyip güncelleyeceğim!
