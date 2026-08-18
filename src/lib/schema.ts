@@ -204,13 +204,24 @@ export function faqSchema(faqsList: { question: string; answer: string }[]) {
   };
 }
 
-// 2f) localBusinessSchema() -> only for /iletisim, mainEntity organization @id
 export function localBusinessSchema() {
+  const org = { ...organizationSchema() } as any;
+  delete org['@context'];
+
   return {
     '@context': 'https://schema.org',
-    '@type': 'ContactPage',
-    'mainEntity': {
-      '@id': `${SITE.url}/#organization`
-    }
+    '@graph': [
+      org,
+      {
+        '@type': 'ContactPage',
+        '@id': `${SITE.url}/iletisim/#webpage`,
+        'url': `${SITE.url}/iletisim`,
+        'name': `İletişim | ${SITE.name}`,
+        'description': `Konya Lider Nakliyat Selçuklu ofis iletişim bilgileri. Fiyat teklifi almak, rezervasyon yapmak veya bilgi edinmek için bize ulaşın.`,
+        'mainEntity': {
+          '@id': `${SITE.url}/#organization`
+        }
+      }
+    ]
   };
 }
