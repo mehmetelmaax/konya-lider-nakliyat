@@ -23,6 +23,15 @@ Emin olunmayan hiçbir uydurma veri kullanılmamış, eksik alanlar kodda `// DO
 - **Doğrulanacak Bilgi:** Firmada sigortalı çalışan ortalama kadrolu personel sayısı kaçtır?
 - **Neden Önemli:** `numberOfEmployees` şeması, markanın kurumsal ölçeğini yansıtır.
 
+### 1.4 Fiziki Ofis Adresi Tutarlılığı
+- **Mevcut Kod Durumu:** `site-config.ts` içinde `Nişantaş Mahallesi, Doktor Mehmet Hulusi Baybal Caddesi, No:31/F D:1` olarak ayarlanmıştır.
+- **Doğrulanacak Bilgi:** Firmanın tescilli vergi ve resmi ofis adresi bu mudur, yoksa `Fatih Mahallesi 73258 Sk. No:9/1 Selçuklu` adresi midir?
+- **Neden Önemli:** NAP (İsim-Adres-Telefon) tutarlılığı, Google Local Pack (Harita 3'lü paket) sıralamalarında en kritik 1. derece sinyaldir.
+
+### 1.5 KVKK Veri Saklama ve Sorumlusu
+- **Mevcut Kod Durumu:** `/yasal/kvkk` aydınlatma metninde veri saklama süresi kanuni limit olan 10 yıl, veri sorumlusu bilgileri ise mevcut adres ve unvan olarak listelenmiştir.
+- **Doğrulanacak Bilgi:** Hukuk müşaviriniz veya mali müşaviriniz tarafından eklenen 10 yıllık genel zamanaşımı süresi ve veri sorumlusu bilgileri KVKK politikalarınızla uyumlu mudur?
+
 ---
 
 ## 2. API Entegrasyonları ve Linkler
@@ -42,3 +51,4 @@ Emin olunmayan hiçbir uydurma veri kullanılmamış, eksik alanlar kodda `// DO
   - Instagram Profil Linki: ?
   - YouTube Kanal Linki: ?
 - **Neden Önemli:** Sosyal medya hesapları `sameAs` şeması ile markayla ilişkilendirilerek Google Bilgi Paneli'nde (Knowledge Graph) çıkmasını sağlar.
+

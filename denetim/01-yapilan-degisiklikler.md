@@ -88,3 +88,23 @@ Bu rapor, Next.js 16 App Router altyapısı üzerinde gerçekleştirilen tüm te
   - XSS koruması için `next.config.ts`'e sıkı CSP header'ları tanımlandı.
 - **KVKK Onay Kutusu:**
   - Teklif formu gönderiminin KVKK onay şartı checkbox'ı işaretlenmeden yapılması engellendi.
+
+## 8. Son Otomasyon ve Teknik Düzeltmeler (Yeni Seans İyileştirmeleri)
+- **KVKK Günlük Güvenliği ve İspat Yükümlülüğü (`src/app/api/teklif/route.ts`):**
+  - Sunucu Redis ve Webhook veri kayıtlarına rıza onay zaman damgası (`kvkkOnayTimestamp`) ve istemci IP adresi (`ipAddress`) eklenerek ispat yükümlülüğü yerine getirildi.
+  - `/yasal/kvkk` sayfası, toplanan ad, telefon, ilçeler, oda sayısı ve asansör verilerini açıkça listeleyen, 10 yıllık saklama süresini belirten ve veri sorumlusu ofis adresini içeren yasal standartlara taşındı.
+- **Fiyatlandırma Motoru ve İlçe Listesi Dinamikleştirilmesi (`src/lib/pricing.ts` & `src/components/QuoteForm.tsx`):**
+  - Mükerrer hesaplama fonksiyonları tamamen silindi; `estimatePrice()` tek veri ve mantık kaynağına dönüştürüldü.
+  - İlçeler arası taşımalarda, `site-config.ts` içinde bulunan `distanceKm` verileri dinamik olarak fiyat motoruna enjekte edilerek dış ilçe fiyat kayıpları engellendi.
+  - İki şehir/nokta arasındaki hesaplama çıktısı `tests/pricing.test.ts` entegrasyon testi ile doğrulandı.
+  - Formdaki ilçe seçim listesi, statik diziden arındırılarak doğrudan `site-config.ts` içindeki `DISTRICTS` sabitinden dinamik beslenecek hale getirildi.
+- **Marka Kimliği ve Renk Paleti Otomasyonu (Forest/Gold):**
+  - globals.css marka paleti renk değişken isimleri yeşil-altın kimliğine (forest/gold) uyarlandı; tüm codebase üzerindeki Tailwind renk sınıfları (`navy` -> `forest`, `orange` -> `gold`, `orange-text` -> `gold-text`) otomatik mjs scripti ile 54 dosyada başarıyla güncellendi.
+  -globals.css'ten `overflow-x: hidden` body yara bandı temizlendi, viewport `themeColor` ve e-posta rengi yeni yeşil-altın kodlarına bağlandı.
+- **Hero Slider DOM ve LCP Performansı:**
+  - Slider bileşeninde DOM boyutunu ve LCP süresini düşürmek amacıyla sadece aktif, bir sonraki ve LCP SEO `h1` taşıyan ilk slaytın DOM'da render edilmesi sağlandı.
+- **Güvenlik Sıkılaştırması (CSP Frame-src):**
+  - `next.config.ts` CSP direktiflerine `frame-src 'self' https://www.google.com https://*.google.com; frame-ancestors 'self';` eklenerek Google Haritalar iframe'inin engellenmesi önlendi.
+- **Dry Rota Mimarisi:**
+  - `ROUTES` config listesi, `routesDatabase` nesnesinden dinamik olarak türetilerek mükerrer rota tanımları engellendi. Faulty `konya-konya` rotası `konya-adana` olarak tüm alt içerikleriyle birlikte düzeltildi.
+
