@@ -1,3 +1,5 @@
+import { routesDatabase } from './routes-data';
+
 export const SITE = {
   name: 'Konya Lider Nakliyat',
   legalName: 'Konya Lider Evden Eve Nakliyat',
@@ -236,88 +238,16 @@ export interface RouteConfig {
   notes: string;
 }
 
-export const ROUTES: readonly RouteConfig[] = [
-  {
-    slug: 'konya-istanbul-evden-eve-nakliyat',
-    city: 'İstanbul',
-    distanceKm: 700,
-    durationHours: 8,
-    priceRangeMin: 24500,
-    priceRangeMax: 34000,
-    viaRoute: 'D-300, Ankara-Niğde Otoyolu ve Kuzey Marmara Otoyolu',
-    notes: 'İstanbul girişinde nakliye kamyonları için uygulanan Yavuz Sultan Selim Köprüsü zorunluluğu ve şehir içi saat kısıtlamaları dikkate alınmalıdır.'
-  },
-  {
-    slug: 'konya-ankara-evden-eve-nakliyat',
-    city: 'Ankara',
-    distanceKm: 260,
-    durationHours: 3.5,
-    priceRangeMin: 12000,
-    priceRangeMax: 18000,
-    viaRoute: 'D-715 (Konya-Ankara Yolu üzerinden doğrudan hat)',
-    notes: 'Ankara merkezinde yüksek katlı konutlarda asansörlü taşımacılık yaygın olarak tercih edilmektedir.'
-  },
-  {
-    slug: 'konya-izmir-evden-eve-nakliyat',
-    city: 'İzmir',
-    distanceKm: 550,
-    durationHours: 6.5,
-    priceRangeMin: 21500,
-    priceRangeMax: 29500,
-    viaRoute: 'D-300 Afyonkarahisar - Uşak - Manisa - İzmir hattı',
-    notes: 'İzmir merkezindeki dar sokaklar için hidrolik teleskopik asansör araçlarımız hazır tutulur.'
-  },
-  {
-    slug: 'konya-antalya-evden-eve-nakliyat',
-    city: 'Antalya',
-    distanceKm: 300,
-    durationHours: 4.5,
-    priceRangeMin: 13500,
-    priceRangeMax: 19500,
-    viaRoute: 'D-696 Seydişehir - Akseki - Manavgat üzerinden Antalya geçişi',
-    notes: 'Toros dağ yolları geçişi nedeniyle araçlarımızın fren ve motor kontrolleri her sefer öncesi titizlikle yapılır.'
-  },
-  {
-    slug: 'konya-bursa-evden-eve-nakliyat',
-    city: 'Bursa',
-    distanceKm: 480,
-    durationHours: 5.5,
-    priceRangeMin: 18500,
-    priceRangeMax: 26500,
-    viaRoute: 'D-300 ve D-650 Afyonkarahisar - Kütahya - Bozüyük geçişli hat',
-    notes: 'Bursa İnegöl mobilya nakliyat trafiği yoğun olduğu için güvenli sürüş kurallarına dikkat edilmektedir.'
-  },
-  {
-    slug: 'konya-adana-evden-eve-nakliyat',
-    city: 'Adana', // DOĞRULANACAK: Konya-Konya olarak kalmış hatalı rota Adana olarak düzeltildi.
-    distanceKm: 350,
-    durationHours: 4.5,
-    priceRangeMin: 14500,
-    priceRangeMax: 21000,
-    viaRoute: 'D-330 Konya - Karaman - Ereğli - Adana otoyol bağlantısı',
-    notes: 'Adana geçişindeki Toros rampalarında araçlarımızın fren ve motor kontrolleri her sefer öncesi titizlikle yapılır.'
-  },
-  {
-    slug: 'konya-kayseri-evden-eve-nakliyat',
-    city: 'Kayseri',
-    distanceKm: 300,
-    durationHours: 4,
-    priceRangeMin: 12500,
-    priceRangeMax: 18500,
-    viaRoute: 'D-300 Aksaray - Nevşehir üzerinden Kayseri hattı',
-    notes: 'İç Anadolu düz hattında sarsıntısız taşıma için eşyalarınız araç içi sabitleme sistemleriyle korunur.'
-  },
-  {
-    slug: 'konya-eskisehir-evden-eve-nakliyat',
-    city: 'Eskişehir',
-    distanceKm: 330,
-    durationHours: 4,
-    priceRangeMin: 13000,
-    priceRangeMax: 19000,
-    viaRoute: 'Yunak - Polatlı veya Afyonkarahisar geçişli kuzey hattı',
-    notes: 'Eskişehir Tepebaşı ve Odunpazarı dar sokaklarında küçük nakliye kamyonetlerimizle hizmet sunmaktayız.'
-  }
-] as const;
+export const ROUTES: readonly RouteConfig[] = Object.values(routesDatabase).map((r) => ({
+  slug: r.slug,
+  city: r.city,
+  distanceKm: r.distanceKm,
+  durationHours: r.durationHours,
+  priceRangeMin: r.priceRangeMin,
+  priceRangeMax: r.priceRangeMax,
+  viaRoute: r.viaRoute,
+  notes: r.notes
+}));
 
 // Rota doğrulama filtresi: Başlangıç şehri (Konya) ile varış şehri aynı olan rotaları engeller
 const invalidRoute = ROUTES.find(r => r.city.toLowerCase() === 'konya');

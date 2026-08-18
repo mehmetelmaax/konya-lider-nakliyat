@@ -191,29 +191,29 @@ export const routesDatabase: Record<string, RouteData> = {
       }
     ]
   },
-  'konya-konya-evden-eve-nakliyat': {
-    slug: 'konya-konya-evden-eve-nakliyat',
-    city: 'Konya',
+  'konya-adana-evden-eve-nakliyat': {
+    slug: 'konya-adana-evden-eve-nakliyat',
+    city: 'Adana',
     distanceKm: 350,
     durationHours: 4.5,
     priceRangeMin: 14500,
     priceRangeMax: 21000,
-    viaRoute: 'D-330 Konya - Karaman - Ereğli - Ilgın otoyol bağlantısı',
-    notes: 'Ilgın geçişindeki dik Toros rampalarında kontrollü sürüş sağlanmaktadır.',
-    introText: "Konya Lider Nakliyat, Konya'dan Konya'nın tüm ilçelerine (Selçuklu, Meram, Karatay, Ereğli dahil) profesyonel asansörlü evden eve nakliyat hizmeti sağlamaktadır. Güvenilir ve uygun fiyatlı taşımacılık ağımız sayesinde eşyalarınızı özenle paketliyor, yüklüyor ve yeni adresinizde montajını tamamlayarak teslim ediyoruz. Lider Nakliyat olarak, Konya-Konya hattındaki günlük seferlerimiz sayesinde müşterilerimize hem ekonomik fiyatlar sunuyor hem de asansörlü taşıma kolaylığı sağlıyoruz.",
-    distanceText: "Konya ile Konya arası karayolu mesafesi yaklaşık 350 kilometredir ve ev eşyası taşımacılığında teslimat süresi ortalama 1 gündür. Taşınma sabahı saat 08:00'de başlayan yükleme işlemi sonrasında kamyonumuz yola çıkarak yaklaşık 4.5 saatlik sürüşle Konya'ya ulaşır. Konya'daki yeni adresinizde eşyaların indirilmesi ve kurulmasıyla birlikte tüm taşınma süreci aynı gün tamamlanmış olur.",
-    pricingText: "Konya ile Konya arası nakliyat fiyatları Konya Lider Nakliyat tarafından 14.500 TL'den başlayarak hesaplanmaktadır. Fiyat teklifimize kapalı kasa kamyon, paketleme malzemeleri, de-montaj ve montaj hizmetleri, sigorta poliçesi ve asansör kurulumu dahildir. 1+1 daire taşıma fiyatı 14.500 TL ile 16.000 TL arasında değişirken; 2+1 daire taşıma 16.500 TL ile 18.500 TL, 3+1 daire taşıma ise 19.000 TL ile 21.000 TL arasında bütçelendirilir.",
-    routeText: "Konya'dan Konya'ya giden nakliye araçlarımız D-330 ve ardından Ilgın otoyolunu kullanır. Konya'dan yola çıkan araçlarımız sırasıyla Karapınar - Ereğli - Ulukışla - Ilgın güzergâhını geçerek Konya merkeze ulaşır. Ilgın Toros geçişindeki dik rampalarda araçlarımızın güvenliği için hız sınırlarına tam olarak uyulmaktadır.",
-    insuranceText: "Konya Lider Nakliyat şehirlerarası nakliyat seferlerinin tamamını geniş kapsamlı emtia taşıma sigortası ile koruma altına almaktadır. Eşyalarınız Konya'dan yüklendiği andan itibaren Konya'daki yeni evinize teslim edilip kurulana kadar yaşanabilecek tüm kazalara karşı güvence altındadır.",
-    tipsText: "Konya'ya taşınırken dikkat edilmesi gereken husus, yaz aylarındaki aşırı sıcaklık nedeniyle ambalajlama kalitesidir. Ayrıca Selçuklu ve Meram ilçelerindeki yüksek katlı sitelerde asansör kurulum alanının bina yönetimiyle görüşülerek önceden rezerve edilmesi sürecin aksamasını önler.",
+    viaRoute: 'D-330 Konya - Karaman - Ereğli - Adana otoyol bağlantısı',
+    notes: 'Adana geçişindeki Toros rampalarında araçlarımızın fren ve motor kontrolleri her sefer öncesi titizlikle yapılır.',
+    introText: "Konya Lider Nakliyat, Konya'dan Adana'nın tüm ilçelerine (Çukurova, Seyhan, Yüreğir, Sarıçam dahil) profesyonel asansörlü evden eve nakliyat hizmeti sağlamaktadır. Güvenilir ve uygun fiyatlı taşımacılık ağımız sayesinde eşyalarınızı özenle paketliyor, yüklüyor ve yeni adresinizde montajını tamamlayarak teslim ediyoruz. Lider Nakliyat olarak, Konya-Adana hattındaki günlük seferlerimiz sayesinde müşterilerimize hem ekonomik fiyatlar sunuyor hem de asansörlü taşıma kolaylığı sağlıyoruz.",
+    distanceText: "Konya ile Adana arası karayolu mesafesi yaklaşık 350 kilometredir ve ev eşyası taşımacılığında teslimat süresi ortalama 1 gündür. Taşınma sabahı saat 08:00'de başlayan yükleme işlemi sonrasında kamyonumuz yola çıkarak yaklaşık 4.5 saatlik sürüşle Adana'ya ulaşır. Adana'daki yeni adresinizde eşyaların indirilmesi ve kurulmasıyla birlikte tüm taşınma süreci aynı gün tamamlanmış olur.",
+    pricingText: "Konya ile Adana arası nakliyat fiyatları Konya Lider Nakliyat tarafından 14.500 TL'den başlayarak hesaplanmaktadır. Fiyat teklifimize kapalı kasa kamyon, paketleme malzemeleri, de-montaj ve montaj hizmetleri, sigorta poliçesi ve asansör kurulumu dahildir. 1+1 daire taşıma fiyatı 14.500 TL ile 16.000 TL arasında değişirken; 2+1 daire taşıma 16.500 TL ile 18.500 TL, 3+1 daire taşıma ise 19.000 TL ile 21.000 TL arasında bütçelendirilir.",
+    routeText: "Konya'dan Adana'ya giden nakliye araçlarımız D-330 ve varışta Adana otoyolunu kullanır. Konya'dan yola çıkan araçlarımız sırasıyla Karaman - Ereğli - Pozantı güzergâhını geçerek Adana merkeze ulaşır. Pozantı Toros geçişindeki dik rampalarda araçlarımızın güvenliği için hız sınırlarına tam olarak uyulmaktadır.",
+    insuranceText: "Konya Lider Nakliyat şehirlerarası nakliyat seferlerinin tamamını geniş kapsamlı emtia taşıma sigortası ile koruma altına almaktadır. Eşyalarınız Konya'dan yüklendiği andan itibaren Adana'daki yeni evinize teslim edilip kurulana kadar yaşanabilecek tüm kazalara karşı güvence altındadır.",
+    tipsText: "Adana'ya taşınırken dikkat edilmesi gereken husus, yaz aylarındaki aşırı sıcaklık nedeniyle ambalajlama kalitesidir. Ayrıca Çukurova ve Seyhan ilçelerindeki yüksek katlı sitelerde asansör kurulum alanının bina yönetimiyle görüşülerek önceden rezerve edilmesi sürecin aksamasını önler.",
     faq: [
       {
-        question: "Konya'dan Konya'ya taşınma kaç saat sürer?",
+        question: "Konya'dan Adana'ya taşınma kaç saat sürer?",
         answer: "Tüm süreç (paketleme, yükleme, yol ve montaj dahil) ortalama 8 ila 10 saat arasında tamamen bitmektedir."
       },
       {
-        question: "Konya'da asansör kuruyor musunuz?",
-        answer: "Evet, Konya'daki yeni dairenizde balkon veya pencere açısı asansör kurulumuna uygunsa mobil asansör sistemimizi kuruyoruz."
+        question: "Adana'da asansör kuruyor musunuz?",
+        answer: "Evet, Adana'daki yeni dairenizde balkon veya pencere açısı asansör kurulumuna uygunsa mobil asansör sistemimizi kuruyoruz."
       },
       {
         question: "Klima söküm ve montajı fiyata dahil mi?",
