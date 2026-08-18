@@ -5,7 +5,8 @@ import { Send, Phone, CheckCircle, AlertCircle, MessageCircle } from 'lucide-rea
 import Link from 'next/link';
 import { SITE } from '@/lib/site-config';
 import { QuoteFormSchema } from '@/lib/validation';
-import { trackEvent } from '@/lib/analytics';
+import { trackEvent, trackConversion } from '@/lib/analytics';
+import { getEstimateFromForm } from '@/lib/pricing';
 
 interface QuoteFormProps {
   isInline?: boolean;
@@ -64,22 +65,12 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
   };
 
   const calculateEstimate = () => {
-    let basePrice = 12000;
-    
-    if (formData.rooms === '2+1') basePrice = 15000;
-    if (formData.rooms === '3+1') basePrice = 18000;
-    if (formData.rooms === '4+1+') basePrice = 22000;
-    if (formData.rooms === 'ofis') basePrice = 12000;
-
-    if (formData.elevator === 'evet') {
-      basePrice += 2500;
-    }
-
-    if (formData.toDistrict === 'Şehirlerarası (İl Dışı)' || formData.fromDistrict === 'Şehirlerarası (İl Dışı)') {
-      return { min: basePrice + 17500, max: basePrice + 32000 };
-    }
-
-    return { min: basePrice, max: basePrice + 5000 };
+    return getEstimateFromForm(
+      formData.rooms,
+      formData.elevator,
+      formData.fromDistrict,
+      formData.toDistrict
+    );
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -133,6 +124,7 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
           rooms: formData.rooms,
           tahminiFiyat: `${priceRange.min}-${priceRange.max}`
         });
+        trackConversion();
 
       } else {
         setStatus('error');

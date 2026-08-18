@@ -102,3 +102,68 @@ export function estimatePrice(input: PriceInput): PriceEstimate {
     disclaimer
   };
 }
+
+/**
+ * Form verilerini PriceInput tipine dönüştürerek tek tip tahmini fiyat aralığı hesaplar.
+ * Hem istemci tarafındaki QuoteForm hem de sunucu tarafındaki API route bu fonksiyonu ortak kullanır.
+ */
+export function getEstimateFromForm(
+  rooms: string,
+  elevator: string,
+  fromDistrict: string,
+  toDistrict: string
+): { min: number; max: number } {
+  // Oda sayısının PriceInput tipine eşlenmesi (ofis durumunda 1+1 taban fiyatı kullanılır)
+  let roomsMapped: '1+1' | '2+1' | '3+1' | '4+1+' = '1+1';
+  if (rooms === '2+1') roomsMapped = '2+1';
+  else if (rooms === '3+1') roomsMapped = '3+1';
+  else if (rooms === '4+1+') roomsMapped = '4+1+';
+
+  // İstemci formunda toplanmayan detaylar için varsayılan değerler:
+  // - Kat bilgisi: 1. kat (çıkış) ve 1. kat (varış) olarak taban hesaplanır (kat farkı zammı eklenmez)
+  // - Tek asansör: formdan asansör 'evet' gelirse tek yönlü asansör ücreti (2.500 TL) eklenir
+  // - Paketleme/Montaj/Depolama: Temel fiyatta kapalı/seçilmemiş kabul edilir
+  const fromElevator = elevator === 'evet';
+
+  // Mesafe tipinin belirlenmesi
+  let distanceType: 'sehirici' | 'ilceler' | 'sehirlerarasi' = 'sehirici';
+
+  const isIntercity =
+    fromDistrict.includes('Şehirlerarası') ||
+    toDistrict.includes('Şehirlerarası') ||
+    fromDistrict.includes('İl Dışı') ||
+    toDistrict.includes('İl Dışı') ||
+    fromDistrict === 'sehirlerarasi-evden-eve-nakliyat' ||
+    toDistrict === 'sehirlerarasi-evden-eve-nakliyat';
+
+  if (isIntercity) {
+    distanceType = 'sehirlerarasi';
+  } else {
+    // İlçeler arası gidiş-dönüş yakıt farkı kontrolü
+    const fromSlug = fromDistrict.toLowerCase().replace(/\s/g, '-');
+    const toSlug = toDistrict.toLowerCase().replace(/\s/g, '-');
+    const outerSlugs = ['eregli', 'aksehir', 'seydisehir', 'ilgin', 'cumra', 'kadinhani', 'beysehir', 'sarayonu', 'karapinar', 'kulu', 'cihanbeyli'];
+    const isOuter = outerSlugs.some(slug => fromSlug.includes(slug) || toSlug.includes(slug));
+    if (isOuter) {
+      distanceType = 'ilceler';
+    }
+  }
+
+  const estimate = estimatePrice({
+    rooms: roomsMapped,
+    fromFloor: 1,
+    toFloor: 1,
+    fromElevator,
+    toElevator: false,
+    distanceType,
+    distanceKm: 500, // Varsayılan şehirlerarası km mesafesi
+    packing: false,
+    carpentry: false,
+    storage: false
+  });
+
+  return {
+    min: estimate.min,
+    max: estimate.max
+  };
+}

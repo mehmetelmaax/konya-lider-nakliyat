@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { QuoteFormSchema } from '@/lib/validation';
+import { getEstimateFromForm } from '@/lib/pricing';
 
-// Simple in-memory cache for IP rate limiting
+// Simple in-memory cache for IP rate limiting fallback
 const ipCache = new Map<string, { count: number; expiresAt: number }>();
 
 function cleanOldCache() {
@@ -13,58 +14,115 @@ function cleanOldCache() {
   }
 }
 
-function calculateServerEstimate(rooms: string, elevator: string, fromDistrict: string, toDistrict: string) {
-  let basePrice = 12000;
-  if (rooms === '2+1') basePrice = 15000;
-  if (rooms === '3+1') basePrice = 18000;
-  if (rooms === '4+1+') basePrice = 22000;
-  if (rooms === 'ofis') basePrice = 12000;
+// Helper to escape HTML tags to prevent HTML injection in emails
+function escapeHtml(unsafe: string): string {
+  if (!unsafe) return '';
+  return unsafe
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
 
-  if (elevator === 'evet') {
-    basePrice += 2500;
+// Helper to mask PII in console logs for KVKK compliance
+function maskName(name: string): string {
+  if (!name) return '';
+  const parts = name.trim().split(/\s+/);
+  if (parts.length === 1) {
+    const p = parts[0];
+    return p.length <= 1 ? p : p[0] + '*'.repeat(p.length - 1);
   }
+  const first = parts[0];
+  const last = parts[parts.length - 1];
+  return `${first[0]}${'*'.repeat(first.length - 1)} ${last[0]}${'*'.repeat(last.length - 1)}`;
+}
 
-  if (
-    toDistrict.includes('Şehirlerarası') || 
-    fromDistrict.includes('Şehirlerarası') ||
-    toDistrict.includes('İl Dışı') ||
-    fromDistrict.includes('İl Dışı')
-  ) {
-    return { min: basePrice + 17500, max: basePrice + 32000 };
+function maskPhone(phone: string): string {
+  if (!phone) return '';
+  const clean = phone.replace(/\D/g, '');
+  if (clean.length === 11) {
+    return `${clean.substring(0, 4)}***${clean.substring(7, 9)}*${clean.substring(10)}`;
   }
+  if (clean.length === 10) {
+    return `0${clean.substring(0, 3)}***${clean.substring(6, 8)}*${clean.substring(9)}`;
+  }
+  return '***';
+}
 
-  return { min: basePrice, max: basePrice + 5000 };
+// Upstash Redis / Vercel KV REST API wrapper (Zero-dependency serverless helper)
+async function redisCmd(cmd: string[]) {
+  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(cmd)
+    });
+    if (res.ok) {
+      const data = await res.json();
+      return data.result;
+    }
+  } catch (err) {
+    console.error('KV_REDIS_ERROR:', err);
+  }
+  return null;
 }
 
 export async function POST(req: NextRequest) {
   try {
     // 1. Rate Limiting Check
-    cleanOldCache();
     const forwarded = req.headers.get('x-forwarded-for');
     const ip = forwarded ? forwarded.split(',')[0].trim() : (req.headers.get('x-real-ip') || '127.0.0.1');
     
-    const now = Date.now();
-    const ipData = ipCache.get(ip);
+    let isRateLimited = false;
+
+    // Try KV/Redis rate limiting first
+    const limitKey = `rate_limit:${ip}`;
+    const count = await redisCmd(['INCR', limitKey]);
     
-    if (!ipData || now > ipData.expiresAt) {
-      ipCache.set(ip, { count: 1, expiresAt: now + 60000 }); // 60s window
-    } else {
-      if (ipData.count >= 3) {
-        return NextResponse.json(
-          { ok: false, message: 'Çok fazla istek gönderdiniz. Lütfen bir dakika sonra tekrar deneyin.' },
-          { status: 429 }
-        );
+    if (count !== null) {
+      const numCount = Number(count);
+      if (numCount === 1) {
+        await redisCmd(['EXPIRE', limitKey, '60']); // 60s window
       }
-      ipData.count++;
+      if (numCount > 3) {
+        isRateLimited = true;
+      }
+    } else {
+      // In-Memory Fallback (Note: In serverless/lambdas, this is unreliable due to stateless execution instances)
+      cleanOldCache();
+      const now = Date.now();
+      const ipData = ipCache.get(ip);
+      
+      if (!ipData || now > ipData.expiresAt) {
+        ipCache.set(ip, { count: 1, expiresAt: now + 60000 });
+      } else {
+        if (ipData.count >= 3) {
+          isRateLimited = true;
+        }
+        ipData.count++;
+      }
+    }
+
+    if (isRateLimited) {
+      return NextResponse.json(
+        { ok: false, message: 'Çok fazla istek gönderdiniz. Lütfen bir dakika sonra tekrar deneyin.' },
+        { status: 429 }
+      );
     }
 
     // 2. Parse request body
     const body = await req.json().catch(() => ({}));
 
-    // 3. Honeypot check (website must be empty)
+    // 3. Honeypot check
     if (body.website && body.website.trim().length > 0) {
       console.warn('BOT_DETECTION: Honeypot filled by bot:', body.website);
-      // Return 200 silently to deceive the bot
       return NextResponse.json({ ok: true });
     }
 
@@ -72,7 +130,6 @@ export async function POST(req: NextRequest) {
     const validationResult = QuoteFormSchema.safeParse(body);
     if (!validationResult.success) {
       const fieldErrors = validationResult.error.flatten().fieldErrors;
-      // Get the first error message to display
       const firstErrorKey = Object.keys(fieldErrors)[0];
       const errorMessage = (fieldErrors as any)[firstErrorKey]?.[0] || 'Lütfen bilgilerinizi kontrol edin.';
       
@@ -85,53 +142,117 @@ export async function POST(req: NextRequest) {
     const leadData = validationResult.data;
     const referrer = req.headers.get('referer') || '/teklif-al';
     const timestamp = new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' });
-    const est = calculateServerEstimate(leadData.rooms, leadData.elevator, leadData.fromDistrict, leadData.toDistrict);
+    
+    // Unified Price Calculation Engine
+    const est = getEstimateFromForm(leadData.rooms, leadData.elevator, leadData.fromDistrict, leadData.toDistrict);
 
-    // 5. Log lead as JSON (Vercel backup)
+    // 5. Masked PII logging for KVKK compliance
     console.log('LEAD_CAPTURE:', JSON.stringify({
-      ...leadData,
+      name: maskName(leadData.name),
+      phone: maskPhone(leadData.phone),
+      fromDistrict: leadData.fromDistrict,
+      toDistrict: leadData.toDistrict,
+      rooms: leadData.rooms,
+      elevator: leadData.elevator,
       referrer,
       timestamp,
       estimate: est
     }));
 
-    // 6. Send email notification via Resend
+    // 6. Persistent Lead Capture (Vercel KV or Upstash Redis)
+    const randomId = Math.random().toString(36).substring(2, 8);
+    const redisKey = `lead:${Date.now()}:${randomId}`;
+    const redisValue = JSON.stringify({
+      ...leadData,
+      referrer,
+      timestamp,
+      estimate: est
+    });
+    
+    const kvSaved = await redisCmd(['SET', redisKey, redisValue]);
+    if (kvSaved) {
+      // Set lead expiration to 90 days to avoid storage bloat while keeping records
+      await redisCmd(['EXPIRE', redisKey, '7776000']);
+    }
+
+    // 7. Secondary Backup Channel (Lead Webhook URL)
+    const webhookUrl = process.env.LEAD_WEBHOOK_URL;
+    let webhookSuccess = false;
+    if (webhookUrl) {
+      try {
+        const webhookResponse = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event: 'lead_captured',
+            data: {
+              ...leadData,
+              referrer,
+              timestamp,
+              estimate: est
+            }
+          })
+        });
+        if (webhookResponse.ok) {
+          webhookSuccess = true;
+        } else {
+          console.error('WEBHOOK_ERROR: Webhook notification delivery failed:', await webhookResponse.text());
+        }
+      } catch (err) {
+        console.error('WEBHOOK_FATAL_ERROR: Unexpected error posting lead to webhook:', err);
+      }
+    }
+
+    // 8. Email Notification via Resend
     const apiKey = process.env.RESEND_API_KEY;
     const notifyEmail = process.env.NOTIFY_EMAIL;
+    const resendFrom = process.env.RESEND_FROM || 'Lider Nakliyat <onboarding@resend.dev>';
+
+    if (!process.env.RESEND_FROM) {
+      console.warn('RESEND_FROM is not configured in process.env. Falling back to default onboarding@resend.dev.');
+    }
+
+    let emailSuccess = false;
 
     if (apiKey && notifyEmail) {
+      const escapedName = escapeHtml(leadData.name);
+      const escapedPhone = escapeHtml(leadData.phone);
+      const escapedFrom = escapeHtml(leadData.fromDistrict);
+      const escapedTo = escapeHtml(leadData.toDistrict);
+      const escapedRooms = escapeHtml(leadData.rooms);
+      const escapedElevator = leadData.elevator === 'evet' ? 'Asansör Kurulsun' : 'Asansör İstenmiyor';
+      
       const emailContent = {
-        // TODO: Bu gönderici adresi (onboarding@resend.dev) Resend'in test adresidir ve sadece kendi doğrulanmış e-postanıza gönderim yapar. Canlı ortamda doğrulanmış kurumsal domain adresinizle değiştirilmelidir.
-        from: 'Lider Nakliyat <onboarding@resend.dev>',
+        from: resendFrom,
         to: notifyEmail,
-        subject: `Yeni Teklif Talebi - ${leadData.name}`,
+        subject: `Yeni Teklif Talebi - ${escapedName}`,
         html: `
-          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e9eef2; rounded: 10px;">
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e9eef2; border-radius: 10px;">
             <h2 style="color: #102a43; border-bottom: 2px solid #f7931e; padding-bottom: 10px;">Yeni Teklif Talebi Alındı</h2>
             <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
               <tr style="background: #f9fafb;">
                 <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #e9eef2; width: 180px;">Ad Soyad:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #e9eef2;">${leadData.name}</td>
+                <td style="padding: 10px; border-bottom: 1px solid #e9eef2;">${escapedName}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #e9eef2;">Telefon:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #e9eef2;"><a href="tel:${leadData.phone}">${leadData.phone}</a></td>
+                <td style="padding: 10px; border-bottom: 1px solid #e9eef2;"><a href="tel:${escapedPhone}">${escapedPhone}</a></td>
               </tr>
               <tr style="background: #f9fafb;">
                 <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #e9eef2;">Nereden:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #e9eef2;">${leadData.fromDistrict}</td>
+                <td style="padding: 10px; border-bottom: 1px solid #e9eef2;">${escapedFrom}</td>
               </tr>
               <tr>
                 <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #e9eef2;">Nereye:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #e9eef2;">${leadData.toDistrict}</td>
+                <td style="padding: 10px; border-bottom: 1px solid #e9eef2;">${escapedTo}</td>
               </tr>
               <tr style="background: #f9fafb;">
                 <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #e9eef2;">Oda Sayısı:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #e9eef2;">${leadData.rooms} Daire</td>
+                <td style="padding: 10px; border-bottom: 1px solid #e9eef2;">${escapedRooms} Daire</td>
               </tr>
               <tr>
                 <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #e9eef2;">Asansör Kurulumu:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #e9eef2;">${leadData.elevator === 'evet' ? 'Asansör Kurulsun' : 'Asansör İstenmiyor'}</td>
+                <td style="padding: 10px; border-bottom: 1px solid #e9eef2;">${escapedElevator}</td>
               </tr>
               <tr style="background: #fff8e7;">
                 <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #e9eef2; color: #a85b00;">Tahmini Fiyat:</td>
@@ -165,26 +286,30 @@ export async function POST(req: NextRequest) {
           body: JSON.stringify(emailContent)
         });
 
-        if (!response.ok) {
-          const errText = await response.text();
-          console.error('RESEND_ERROR: Email notification delivery failed:', errText);
+        if (response.ok) {
+          emailSuccess = true;
         } else {
-          console.log('RESEND_SUCCESS: Email notification sent successfully to:', notifyEmail);
+          console.error('RESEND_ERROR: Email notification delivery failed:', await response.text());
         }
       } catch (err) {
         console.error('RESEND_FATAL_ERROR: Unexpected error sending email notification:', err);
       }
     } else {
-      console.warn('RESEND_WARNING: RESEND_API_KEY or NOTIFY_EMAIL is not set in env. Skipping email notification.');
+      console.warn('RESEND_WARNING: RESEND_API_KEY or NOTIFY_EMAIL is not set. Email notification skipped.');
     }
 
-    // Return success to the user even if email delivery fails (the log backup is safe)
+    // Lead is successfully captured if it is saved to KV/Redis, sent via Email, OR sent via Webhook
+    const isCaptured = !!kvSaved || emailSuccess || webhookSuccess;
+    if (!isCaptured) {
+      throw new Error('Lead could not be saved to any channel (Email, Webhook, or KV Storage)');
+    }
+
     return NextResponse.json({ ok: true });
 
   } catch (error: any) {
     console.error('API_TEKLIF_ERROR:', error);
     return NextResponse.json(
-      { ok: false, message: 'İstek işlenirken sunucuda bir hata oluştu.' },
+      { ok: false, message: 'Teklif talebiniz işlenirken bir sunucu hatası oluştu.' },
       { status: 500 }
     );
   }

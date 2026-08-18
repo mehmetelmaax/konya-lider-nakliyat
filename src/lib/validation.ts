@@ -4,7 +4,7 @@ export const QuoteFormSchema = z.object({
   name: z.string()
     .min(2, { message: 'Ad soyad en az 2 karakter olmalıdır.' })
     .max(60, { message: 'Ad soyad en fazla 60 karakter olmalıdır.' })
-    .regex(/^[a-zA-ZÇŞĞÜÖİçşğüöı\s]+$/, { message: 'Ad soyad yalnızca harf ve boşluk içerebilir.' }),
+    .regex(/^[a-zA-ZÇŞĞÜÖİçşğüöı\s'-]+$/, { message: 'Ad soyad yalnızca harf, boşluk, tire ve kesme işareti içerebilir.' }),
     
   phone: z.string()
     .refine(val => {
