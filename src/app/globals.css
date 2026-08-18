@@ -14,6 +14,20 @@
   
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
+
+  --scale-98: 0.98;
+
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-slide-up: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
 }
 
 :root {
@@ -57,4 +71,26 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+  }
+  header, footer, button, form, iframe, .floating-ctas, .sticky-cta, [role="button"] {
+    display: none !important;
+  }
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+    color: #555;
+  }
 }

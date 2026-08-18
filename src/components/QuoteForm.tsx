@@ -44,6 +44,7 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
   
   // Track if form started event has been fired
   const formStartedRef = useRef(false);
+  const uid = React.useId();
 
   const districts = [
     ...DISTRICTS.map((d) => d.name),
@@ -112,9 +113,9 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
       const errorKeys = Object.keys(newErrors);
       trackEvent('teklif_formu_hata', { hataAlani: errorKeys.join(', ') });
 
-      // Focus on the first invalid field
+      // Focus on the first invalid field (instance-specific ID)
       if (errorKeys.length > 0) {
-        document.getElementById(errorKeys[0])?.focus();
+        document.getElementById(`${uid}-${errorKeys[0]}`)?.focus();
       }
       return;
     }
@@ -167,6 +168,7 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
         type="text"
         name="website"
         tabIndex={-1}
+        aria-hidden="true"
         autoComplete="off"
         style={{ position: 'absolute', opacity: 0, top: 0, left: 0, height: 0, width: 0, zIndex: -1 }}
         value={formData.website}
@@ -176,15 +178,15 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
       {/* Row 1: Name & Tel */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
         <div className="space-y-1">
-          <label htmlFor="name" className="text-[10px] font-bold text-navy uppercase tracking-wider block">Adınız Soyadınız *</label>
+          <label htmlFor={`${uid}-name`} className="text-[10px] font-bold text-navy uppercase tracking-wider block">Adınız Soyadınız *</label>
           <input
             type="text"
-            id="name"
+            id={`${uid}-name`}
             name="name"
             required
             aria-required="true"
             aria-invalid={!!errors.name}
-            aria-describedby={errors.name ? 'err-name' : undefined}
+            aria-describedby={errors.name ? `${uid}-err-name` : undefined}
             value={formData.name}
             onChange={handleInputChange}
             placeholder="Örn: Ahmet Yılmaz"
@@ -192,20 +194,20 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
               errors.name ? 'border-rose-500 bg-rose-50' : 'border-gray-light'
             }`}
           />
-          {errors.name && <span id="err-name" role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.name}</span>}
+          {errors.name && <span id={`${uid}-err-name`} role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.name}</span>}
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="phone" className="text-[10px] font-bold text-navy uppercase tracking-wider block">Telefon Numaranız *</label>
+          <label htmlFor={`${uid}-phone`} className="text-[10px] font-bold text-navy uppercase tracking-wider block">Telefon Numaranız *</label>
           <input
             type="tel"
-            id="phone"
+            id={`${uid}-phone`}
             name="phone"
             inputMode="tel"
             required
             aria-required="true"
             aria-invalid={!!errors.phone}
-            aria-describedby={errors.phone ? 'err-phone' : undefined}
+            aria-describedby={errors.phone ? `${uid}-err-phone` : undefined}
             value={formData.phone}
             onChange={handleInputChange}
             placeholder="Örn: 532 123 45 67"
@@ -213,21 +215,21 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
               errors.phone ? 'border-rose-500 bg-rose-50' : 'border-gray-light'
             }`}
           />
-          {errors.phone && <span id="err-phone" role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.phone}</span>}
+          {errors.phone && <span id={`${uid}-err-phone`} role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.phone}</span>}
         </div>
       </div>
 
       {/* Row 2: Nereden & Nereye */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
         <div className="space-y-1">
-          <label htmlFor="fromDistrict" className="text-[10px] font-bold text-navy uppercase tracking-wider block">Nereden Taşınacaksınız? *</label>
+          <label htmlFor={`${uid}-fromDistrict`} className="text-[10px] font-bold text-navy uppercase tracking-wider block">Nereden Taşınacaksınız? *</label>
           <select
-            id="fromDistrict"
+            id={`${uid}-fromDistrict`}
             name="fromDistrict"
             required
             aria-required="true"
             aria-invalid={!!errors.fromDistrict}
-            aria-describedby={errors.fromDistrict ? 'err-fromDistrict' : undefined}
+            aria-describedby={errors.fromDistrict ? `${uid}-err-fromDistrict` : undefined}
             value={formData.fromDistrict}
             onChange={handleInputChange}
             className={`w-full border rounded px-2.5 py-2 text-xs bg-off-white focus:outline-none ${
@@ -239,18 +241,18 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
               <option key={i} value={d}>{d}</option>
             ))}
           </select>
-          {errors.fromDistrict && <span id="err-fromDistrict" role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.fromDistrict}</span>}
+          {errors.fromDistrict && <span id={`${uid}-err-fromDistrict`} role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.fromDistrict}</span>}
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="toDistrict" className="text-[10px] font-bold text-navy uppercase tracking-wider block">Nereye Taşınacaksınız? *</label>
+          <label htmlFor={`${uid}-toDistrict`} className="text-[10px] font-bold text-navy uppercase tracking-wider block">Nereye Taşınacaksınız? *</label>
           <select
-            id="toDistrict"
+            id={`${uid}-toDistrict`}
             name="toDistrict"
             required
             aria-required="true"
             aria-invalid={!!errors.toDistrict}
-            aria-describedby={errors.toDistrict ? 'err-toDistrict' : undefined}
+            aria-describedby={errors.toDistrict ? `${uid}-err-toDistrict` : undefined}
             value={formData.toDistrict}
             onChange={handleInputChange}
             className={`w-full border rounded px-2.5 py-2 text-xs bg-off-white focus:outline-none ${
@@ -262,21 +264,21 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
               <option key={i} value={d}>{d}</option>
             ))}
           </select>
-          {errors.toDistrict && <span id="err-toDistrict" role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.toDistrict}</span>}
+          {errors.toDistrict && <span id={`${uid}-err-toDistrict`} role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.toDistrict}</span>}
         </div>
       </div>
 
       {/* Row 3: Oda Sayısı & Asansör */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
         <div className="space-y-1">
-          <label htmlFor="rooms" className="text-[10px] font-bold text-navy uppercase tracking-wider block">Ev Boyutu (Oda Sayısı) *</label>
+          <label htmlFor={`${uid}-rooms`} className="text-[10px] font-bold text-navy uppercase tracking-wider block">Ev Boyutu (Oda Sayısı) *</label>
           <select
-            id="rooms"
+            id={`${uid}-rooms`}
             name="rooms"
             required
             aria-required="true"
             aria-invalid={!!errors.rooms}
-            aria-describedby={errors.rooms ? 'err-rooms' : undefined}
+            aria-describedby={errors.rooms ? `${uid}-err-rooms` : undefined}
             value={formData.rooms}
             onChange={handleInputChange}
             className={`w-full border rounded px-2.5 py-2 text-xs bg-off-white focus:outline-none ${
@@ -290,7 +292,7 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
             <option value="4+1+">4+1 veya Daha Büyük</option>
             <option value="ofis">Ofis / İşyeri</option>
           </select>
-          {errors.rooms && <span id="err-rooms" role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.rooms}</span>}
+          {errors.rooms && <span id={`${uid}-err-rooms`} role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.rooms}</span>}
         </div>
 
         <div className="space-y-1">
@@ -327,7 +329,7 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
         <label className="flex items-start gap-2.5 cursor-pointer select-none">
           <input
             type="checkbox"
-            id="kvkk"
+            id={`${uid}-kvkk`}
             name="kvkk"
             required
             checked={kvkkChecked}
@@ -338,7 +340,7 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
             6698 sayılı <Link href="/yasal/kvkk" target="_blank" className="text-orange hover:underline font-bold">KVKK</Link> kapsamında kişisel verilerimin işlenmesini ve resmi tarafıma iletişim kurulmasını kabul ediyorum. *
           </span>
         </label>
-        {errors.kvkk && <span id="err-kvkk" role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.kvkk}</span>}
+        {errors.kvkk && <span id={`${uid}-err-kvkk`} role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.kvkk}</span>}
       </div>
 
       {/* Submit button */}

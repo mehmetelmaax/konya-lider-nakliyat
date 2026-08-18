@@ -11,6 +11,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, MapPin, Shield, ClipboardList, Coins, HelpCircle } from 'lucide-react';
+import { dativeSuffix } from '@/lib/turkish';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `Konya ${route.city} Evden Eve Nakliyat | Lider Nakliyat`,
-    description: `Konya'dan ${route.city}'e sigortalı, marangozlu ve K3 belgeli şehirlerarası evden eve nakliyat. Sabit fiyat garantisiyle güvenle taşının.`,
+    description: `Konya'dan ${route.city}'${dativeSuffix(route.city)} sigortalı, marangozlu ve K3 belgeli şehirlerarası evden eve nakliyat. Sabit fiyat garantisiyle güvenle taşının.`,
     alternates: {
       canonical: `/rotalar/${route.slug}`,
     },
@@ -52,7 +53,7 @@ export default async function RoutePage({ params }: PageProps) {
         '@type': 'Service',
         'serviceType': 'Moving Services',
         'name': `Konya ${route.city} Evden Eve Nakliyat`,
-        'description': `Konya'dan ${route.city}'e sigortalı, marangozlu ve K3 belgeli şehirlerarası evden eve nakliyat. Sabit fiyat garantisiyle güvenle taşının.`,
+        'description': `Konya'dan ${route.city}'${dativeSuffix(route.city)} sigortalı, marangozlu ve K3 belgeli şehirlerarası evden eve nakliyat. Sabit fiyat garantisiyle güvenle taşının.`,
         'provider': {
           '@id': `${SITE.url}/#organization`
         },
