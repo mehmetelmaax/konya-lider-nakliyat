@@ -12,6 +12,7 @@ export const SITE = {
   whatsappHref: 'https://wa.me/905546400205',
   email: 'info@konyaliderevdeneve.com',
   address: {
+    // DOĞRULANACAK: Nişantaş Mahallesi, Dr. M. Hulusi Baybal Cd. No:31/F Selçuklu mu, yoksa Fatih Mahallesi 73258 Sk. No:9/1 Selçuklu mu?
     street: 'Nişantaş Mahallesi, Doktor Mehmet Hulusi Baybal Caddesi, No:31/F D:1',
     locality: 'Selçuklu',
     region: 'Konya',
@@ -19,7 +20,9 @@ export const SITE = {
     country: 'TR',
   },
   geo: { lat: 37.8837, lng: 32.4896 },
-  hours: { opens: '08:00', closes: '22:00' },
+  // DOĞRULANACAK: 08:00 – 22:00 mü yoksa 07:00 – 22:00 mi?
+  // DOĞRULANACAK: WhatsApp hattı gerçekten 7/24 aktif mi?
+  hours: { opens: '08:00', closes: '22:00', whatsapp: '7/24' },
   priceRange: '₺₺',
   googleMapsUrl: 'https://share.google/YoiHqgk0tx65LVd0H', // HeroSlider.tsx içerisinden taşındı
   social: {

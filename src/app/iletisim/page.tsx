@@ -50,7 +50,7 @@ export default function IletisimPage() {
                     <MapPin className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />
                     <div>
                       <span className="font-bold text-navy block mb-0.5">Adres:</span>
-                      <p>Fatih Mahallesi, 73258 Sokak, No:9/1, Selçuklu / Konya</p>
+                      <p>{SITE.address.street}, {SITE.address.locality} / {SITE.address.region}</p>
                     </div>
                   </div>
 
@@ -59,7 +59,7 @@ export default function IletisimPage() {
                     <div>
                       <span className="font-bold text-navy block mb-0.5">Telefon / GSM:</span>
                       <a href={SITE.phoneHref} className="hover:text-orange transition-colors font-bold">
-                        0554 640 02 05
+                        {SITE.phoneDisplay}
                       </a>
                     </div>
                   </div>
@@ -78,7 +78,7 @@ export default function IletisimPage() {
                     <Clock className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />
                     <div>
                       <span className="font-bold text-navy block mb-0.5">Çalışma Saatleri:</span>
-                      <p>Hafta İçi ve Hafta Sonu: 07:00 – 22:00</p>
+                      <p>Hafta İçi ve Hafta Sonu: {SITE.hours.opens} – {SITE.hours.closes}</p>
                     </div>
                   </div>
                 </div>

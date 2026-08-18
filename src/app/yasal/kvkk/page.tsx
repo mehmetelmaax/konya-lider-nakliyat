@@ -28,24 +28,40 @@ export default function KVKKPage() {
           KVKK Aydınlatma Metni
         </h1>
         <p className="text-sm leading-relaxed text-charcoal">
-          {SITE.legalName} olarak, 6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca, veri sorumlusu sıfatıyla, kişisel verilerinizi aşağıda açıklanan amaçlar kapsamında işleyeceğimizi bildiririz.
+          <strong>{SITE.legalName}</strong> (Veri Sorumlusu; Adres: {SITE.address.street}, {SITE.address.locality} / {SITE.address.region}) olarak, 6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca, veri sorumlusu sıfatıyla, kişisel verilerinizi aşağıda açıklanan amaçlar kapsamında işleyeceğimizi bildiririz.
         </p>
         <div className="space-y-4 text-sm text-charcoal">
           <h2 className="font-display font-bold text-navy text-lg">1. İşlenen Kişisel Verileriniz</h2>
           <p className="leading-relaxed">
-            Teklif formu veya telefon aramaları üzerinden bizimle paylaştığınız adınız, soyadınız, telefon numaranız, taşınma kaynak ve hedef adresleri gibi verileriniz lojistik hizmetin kurulması amacıyla işlenmektedir.
+            Sitemizdeki fiyat teklif formu üzerinden bizimle paylaştığınız şu verileriniz işlenmektedir:
           </p>
-          <h2 className="font-display font-bold text-navy text-lg">2. Verilerin İşlenme Amacı</h2>
+          <ul className="list-disc pl-5 space-y-1.5 text-xs font-semibold">
+            <li>Ad ve Soyad</li>
+            <li>Telefon Numarası</li>
+            <li>Çıkış İlçesi (Nereden Taşınacaksınız?)</li>
+            <li>Varış İlçesi / İli (Nereye Taşınacaksınız?)</li>
+            <li>Ev Boyutu (Oda Sayısı / Ofis)</li>
+            <li>Eşya Asansörü Tercihi</li>
+          </ul>
+          
+          <h2 className="font-display font-bold text-navy text-lg">2. Verilerin İşlenme Amacı ve Hukuki Sebebi</h2>
           <p className="leading-relaxed">
-            Kişisel verileriniz, yalnızca evden eve nakliye hizmetleri sözleşmesinin ifa edilmesi, fiyat teklifinin hazırlanması ve taşınma gününün organize edilmesi amacıyla sınırlı olarak işlenmektedir.
+            Kişisel verileriniz, Kanun'un 5/2-c maddesinde düzenlenen "bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması kaydıyla, sözleşmenin taraflarına ait kişisel verilerin işlenmesinin gerekli olması" hukuki sebebine dayanarak, evden eve nakliye hizmetleri sözleşmesinin kurulması, fiyat teklifinin hazırlanması ve taşınma gününün organize edilmesi amacıyla işlenmektedir.
           </p>
-          <h2 className="font-display font-bold text-navy text-lg">3. Üçüncü Kişilerle Paylaşım</h2>
+          
+          <h2 className="font-display font-bold text-navy text-lg">3. Verilerin Saklanma Süresi</h2>
           <p className="leading-relaxed">
-            Eşyalarınızın güvenli nakledilmesi amacıyla yapılan zorunlu sigorta poliçesi düzenleme işlemleri (Anadolu Sigorta vb.) hariç, verileriniz üçüncü şahıslarla asla paylaşılmamakta ve satılmamaktadır.
+            Kişisel verileriniz, taşıma sözleşmesinin kurulması, ifası ve olası uyuşmazlıkların çözümü amacıyla, Türk Borçlar Kanunu ve Türk Ticaret Kanunu uyarınca tabi olduğumuz <strong>10 yıllık genel zamanaşımı süresi</strong> boyunca güvenli bir şekilde saklanacaktır.
           </p>
-          <h2 className="font-display font-bold text-navy text-lg">4. İletişim ve Hak Talepleri</h2>
+          
+          <h2 className="font-display font-bold text-navy text-lg">4. Üçüncü Kişilerle Paylaşım</h2>
           <p className="leading-relaxed">
-            Kişisel verilerinizin silinmesini, düzeltilmesini veya güncellenmesini talep etmek için doğrudan veri sorumlusu e-posta adresimiz olan <a href={`mailto:${SITE.email}`} className="text-orange-text hover:underline">{SITE.email}</a> adresi üzerinden bizimle iletişime geçebilirsiniz.
+            Eşyalarınızın güvenli nakledilmesi amacıyla yapılan zorunlu sigorta poliçesi düzenleme işlemleri (nakliyat emtea sigortası ortak acentelerimiz) hariç, verileriniz üçüncü şahıslarla asla paylaşılmamakta ve ticari amaçla satılmamaktadır.
+          </p>
+          
+          <h2 className="font-display font-bold text-navy text-lg">5. İletişim ve Hak Talepleri</h2>
+          <p className="leading-relaxed">
+            Kanun'un 11. maddesi kapsamındaki haklarınızı (silme, düzeltme, bilgi alma, güncelleme) kullanmak için doğrudan veri sorumlusu e-posta adresimiz olan <a href={`mailto:${SITE.email}`} className="text-orange hover:underline font-bold">{SITE.email}</a> veya fiziki ofis adresimiz üzerinden yazılı olarak bizimle iletişime geçebilirsiniz.
           </p>
         </div>
       </div>

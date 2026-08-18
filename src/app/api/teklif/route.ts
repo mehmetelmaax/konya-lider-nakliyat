@@ -166,7 +166,9 @@ export async function POST(req: NextRequest) {
       ...leadData,
       referrer,
       timestamp,
-      estimate: est
+      estimate: est,
+      ipAddress: ip,
+      kvkkOnayTimestamp: new Date().toISOString()
     });
     
     const kvSaved = await redisCmd(['SET', redisKey, redisValue]);
@@ -189,7 +191,9 @@ export async function POST(req: NextRequest) {
               ...leadData,
               referrer,
               timestamp,
-              estimate: est
+              estimate: est,
+              ipAddress: ip,
+              kvkkOnayTimestamp: new Date().toISOString()
             }
           })
         });

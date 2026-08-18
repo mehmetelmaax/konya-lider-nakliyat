@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Send, Phone, CheckCircle, AlertCircle, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 import { SITE } from '@/lib/site-config';
@@ -29,6 +29,18 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
   const [errorMessage, setErrorMessage] = useState('');
   const [estimate, setEstimate] = useState<{ min: number; max: number } | null>(null);
   const [kvkkChecked, setKvkkChecked] = useState(false);
+  const [inWorkingHours, setInWorkingHours] = useState(true);
+
+  useEffect(() => {
+    const checkTime = () => {
+      const now = new Date();
+      const currentHour = now.getHours();
+      const opensHour = parseInt(SITE.hours.opens.split(':')[0], 10);
+      const closesHour = parseInt(SITE.hours.closes.split(':')[0], 10);
+      setInWorkingHours(currentHour >= opensHour && currentHour < closesHour);
+    };
+    checkTime();
+  }, []);
   
   // Track if form started event has been fired
   const formStartedRef = useRef(false);
@@ -86,7 +98,7 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
     setErrorMessage('');
 
     // Zod Client-side Validation
-    const validation = QuoteFormSchema.safeParse(formData);
+    const validation = QuoteFormSchema.safeParse({ ...formData, kvkkOnay: kvkkChecked });
     if (!validation.success) {
       const fieldErrors = validation.error.flatten().fieldErrors;
       const newErrors: { [key: string]: string } = {};
@@ -113,7 +125,7 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
       const response = await fetch('/api/teklif', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, kvkkOnay: kvkkChecked }),
       });
 
       const data = await response.json();
@@ -363,7 +375,11 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
       
       <div className="space-y-1">
         <h3 className="font-display font-black text-navy text-xl">Talebiniz Alındı!</h3>
-        <p className="text-charcoal text-xs font-semibold">Müşteri temsilcimiz 15 dakika içinde sizi arayacaktır.</p>
+        <p className="text-charcoal text-xs font-semibold">
+          {inWorkingHours 
+            ? 'Müşteri temsilcimiz 15 dakika içinde sizi arayacaktır.' 
+            : `Talebiniz alındı. Çalışma saatlerimiz (${SITE.hours.opens} – ${SITE.hours.closes}) içinde sizi en kısa sürede arayacağız. Acil durumlar için WhatsApp hattımız açıktır.`}
+        </p>
         <p className="text-charcoal text-[11px] font-medium pt-1">Tahmini taşınma maliyet aralığınız:</p>
       </div>
 

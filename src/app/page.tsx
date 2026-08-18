@@ -28,35 +28,7 @@ export const metadata: Metadata = {
   },
 };
 
-interface Review {
-  name: string;
-  location: string;
-  comment: string;
-  rating: number;
-}
 
-// TODO: Bu yorumlar placeholder. Gerçek Google Business Profile yorumlarıyla değiştirilmeli.
-// AggregateRating schema'sı SADECE doğrulanmış gerçek yorumlar bağlandıktan sonra eklenecek.
-const reviews: Review[] = [
-  {
-    name: 'Metin T.',
-    location: 'Meram / Konya',
-    comment: 'Gerçekten söz verdikleri saatte geldiler, hiçbir eşyaya zarar gelmedi. Fiyatta ne anlaştıysak o oldu, teşekkürler.',
-    rating: 5,
-  },
-  {
-    name: 'Semih B.',
-    location: 'Selçuklu / Konya',
-    comment: 'Mobilyaların sökümünü ve montajını çok hızlı yaptılar. Asansörlü taşıma sistemi gerçekten çok pratik.',
-    rating: 5,
-  },
-  {
-    name: 'Elif K.',
-    location: 'Ereğli / Konya',
-    comment: 'Paketleme kalitesi çok başarılıydı. Kırılacak eşyaların hepsini özenle sardılar. Güvenle tercih edebilirsiniz.',
-    rating: 5,
-  },
-];
 
 export default function Home() {
   const graphSchema = {
@@ -235,54 +207,22 @@ export default function Home() {
         {/* Google Maps Reviews Section */}
         <section className="py-20 bg-navy text-white border-t border-white/5" id="yorumlar">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+            <div className="max-w-3xl mx-auto text-center mb-10 space-y-4">
               <span className="text-orange font-bold text-xs tracking-widest">
                 MÜŞTERİ DENEYİMLERİ
               </span>
               <h2 className="font-display font-black text-white text-3xl md:text-4xl tracking-tight leading-tight">
                 Google Harita Yorumlarımız
               </h2>
-              
-              {/* Average rating badge */}
-              <div className="flex items-center justify-center gap-2 mt-4 bg-white/5 px-4 py-2 rounded-full w-fit mx-auto border border-white/10 shadow-sm">
-                <Star className="w-5 h-5 fill-orange text-orange" />
-                <span className="text-white font-bold text-sm">4.9 / 5.0</span>
-                <span className="text-gray-300 font-semibold text-xs border-l border-white/10 pl-2">184 Değerlendirme</span>
-              </div>
-            </div>
-
-            {/* Reviews Cards List */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {reviews.map((review, idx) => (
-                <div 
-                  key={idx}
-                  className="bg-white/5 p-8 rounded-xl border border-white/10 shadow-sm space-y-4 flex flex-col justify-between"
-                >
-                  <div className="space-y-3">
-                    {/* Stars */}
-                    <div className="flex gap-1 text-orange">
-                      {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
-                      ))}
-                    </div>
-                    {/* Comment */}
-                    <p className="text-gray-300 text-sm leading-relaxed font-semibold italic">
-                      "{review.comment}"
-                    </p>
-                  </div>
-                  {/* User Meta */}
-                  <div className="border-t border-white/10 pt-4 flex justify-between items-center text-xs">
-                    <span className="font-bold text-white">{review.name}</span>
-                    <span className="text-orange-text font-bold tracking-wider">{review.location}</span>
-                  </div>
-                </div>
-              ))}
+              <p className="text-gray-300 text-xs md:text-sm max-w-xl mx-auto leading-relaxed">
+                Müşterilerimizin taşınma süreçleri sonrasında Google Haritalar üzerinde bıraktığı gerçek yorumları okumak veya işletmemizi değerlendirmek için aşağıdaki bağlantıları kullanabilirsiniz.
+              </p>
             </div>
 
             {/* Direct Google Review action */}
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <a
-                href="https://share.google/oWZjSKYFsORoE2olK"
+                href={SITE.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-orange hover:bg-white text-navy font-black px-6 py-3.5 rounded-xl border border-navy transition-all duration-200 text-sm flex items-center gap-2 active:scale-95 shadow-md hover:shadow-lg cursor-pointer"
@@ -291,7 +231,7 @@ export default function Home() {
                 <span>Google'da Yorum Yazın (Değerlendirin)</span>
               </a>
               <a
-                href="https://share.google/oWZjSKYFsORoE2olK"
+                href={SITE.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-orange font-bold text-sm flex items-center gap-1.5 transition-colors py-3"

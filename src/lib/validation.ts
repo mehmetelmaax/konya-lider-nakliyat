@@ -4,7 +4,7 @@ export const QuoteFormSchema = z.object({
   name: z.string()
     .min(2, { message: 'Ad soyad en az 2 karakter olmalıdır.' })
     .max(60, { message: 'Ad soyad en fazla 60 karakter olmalıdır.' })
-    .regex(/^[a-zA-ZÇŞĞÜÖİçşğüöı\s'-]+$/, { message: 'Ad soyad yalnızca harf, boşluk, tire ve kesme işareti içerebilir.' }),
+    .regex(/^[\p{L}\s'’-]+$/u, { message: 'Ad soyad yalnızca harf, boşluk, tire ve kesme işareti içerebilir.' }),
     
   phone: z.string()
     .refine(val => {
@@ -21,6 +21,10 @@ export const QuoteFormSchema = z.object({
   
   elevator: z.enum(['evet', 'hayir'], {
     message: 'Lütfen asansör seçeneği seçin.'
+  }),
+  
+  kvkkOnay: z.literal(true, {
+    message: 'Devam etmek için KVKK onay kutusunu işaretlemelisiniz.'
   }),
   
   website: z.string().max(0, { message: 'Bot protection triggered.' }).optional().default('') // honeypot

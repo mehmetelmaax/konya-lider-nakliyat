@@ -166,7 +166,7 @@ export default function Footer() {
             <div className="space-y-4 text-xs md:text-sm text-gray-300 pt-2 lg:pt-0">
               <div className="flex gap-2 items-center">
                 <Clock className="w-4 h-4 text-orange" />
-                <span>07:00 – 22:00 (Her Gün)</span>
+                <span>{SITE.hours.opens} – {SITE.hours.closes} (Her Gün)</span>
               </div>
               <a 
                 href={SITE.phoneHref} 

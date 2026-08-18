@@ -39,9 +39,9 @@ export default function FloatingCTAs() {
             <div className="space-y-1">
               <span className="text-[10px] font-bold text-orange tracking-wider block">MERKEZ OFİSİMİZ</span>
               <h4 className="font-display font-bold text-xs leading-snug">Yol Tarifi Alın</h4>
-              <p className="text-[10px] text-gray-300 leading-relaxed">Fatih Mh. Selçuklu/Konya adresimize Google Haritalar ile ulaşın.</p>
+              <p className="text-[10px] text-gray-300 leading-relaxed">{SITE.address.locality} / {SITE.address.region} adresimize Google Haritalar ile ulaşın.</p>
               <a 
-                href="https://share.google/YoiHqgk0tx65LVd0H"
+                href={SITE.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackEvent('harita_tikla', { konum: 'floating', sayfa: window.location.pathname })}
@@ -70,7 +70,7 @@ export default function FloatingCTAs() {
               <MessageCircle className="w-5 h-5 fill-current" />
             </div>
             <div className="space-y-1">
-              <span className="text-[10px] font-bold text-emerald-600 tracking-wider block">7/24 AKTİF HAT</span>
+              <span className="text-[10px] font-bold text-emerald-600 tracking-wider block">WHATSAPP {SITE.hours.whatsapp}</span>
               <h4 className="font-display font-bold text-navy text-xs leading-snug">WhatsApp Destek</h4>
               <p className="text-[10px] text-charcoal leading-relaxed">Eşya fotoğraflarınızı atıp anında hızlı fiyat teklifi alabilirsiniz.</p>
               <a 
