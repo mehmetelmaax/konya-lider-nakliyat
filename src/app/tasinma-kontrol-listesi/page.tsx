@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import MovingChecklist from '@/components/geo/MovingChecklist';
+import MovingAssistant from '@/components/geo/MovingAssistant';
 import JsonLd from '@/components/JsonLd';
 import { faqSchema, breadcrumbSchema, serviceSchema } from '@/lib/schema';
 import { SITE } from '@/lib/site-config';
@@ -10,8 +10,8 @@ import Breadcrumb from '@/components/Breadcrumb';
 import RelatedLinks from '@/components/RelatedLinks';
 
 export const metadata: Metadata = {
-  title: 'İnteraktif Taşınma Kontrol Listesi ve Planlayıcı | Lider',
-  description: "Konya'da sorunsuz taşınmak için 30 günlük interaktif kontrol listesi. Adres değişikliği, internet, elektrik ve su abonelik nakil prosedürleri rehberi.",
+  title: 'Yapay Zeka Destekli Taşınma Asistanı ve Planlayıcı | Lider',
+  description: "Konya Lider Nakliyat'tan yapay zeka destekli interaktif taşınma asistanı. Ev tipinize, taşınma gününüze, çocuk ve evcil hayvan durumunuza göre kişiselleştirilmiş gün bazlı takvim ve abonelik iptal/nakil yapılacaklar listesi oluşturun.",
   alternates: {
     canonical: '/tasinma-kontrol-listesi',
   },
@@ -58,7 +58,24 @@ export default function TasinmaListesiPage() {
         { name: 'Ana Sayfa', url: '/' },
         { name: 'Taşınma Listesi', url: '/tasinma-kontrol-listesi' }
       ]),
-      faqSchema(checklistFaqs)
+      faqSchema(checklistFaqs),
+      {
+        '@type': 'WebApplication',
+        '@id': `${SITE.url}/tasinma-kontrol-listesi/#webapplication`,
+        'name': 'Yapay Zeka Destekli Taşınma Asistanı ve Planlayıcı',
+        'url': `${SITE.url}/tasinma-kontrol-listesi`,
+        'applicationCategory': 'BusinessApplication',
+        'operatingSystem': 'All',
+        'browserRequirements': 'Requires JavaScript. Requires HTML5.',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'TRY'
+        },
+        'publisher': {
+          '@id': `${SITE.url}/#organization`
+        }
+      }
     ]
   };
 
@@ -98,7 +115,7 @@ export default function TasinmaListesiPage() {
 
           {/* Checklist Widget */}
           <section className="print:m-0">
-            <MovingChecklist />
+            <MovingAssistant />
           </section>
 
           {/* Section 3: Abonelik İptal ve Nakil Süreçleri */}
