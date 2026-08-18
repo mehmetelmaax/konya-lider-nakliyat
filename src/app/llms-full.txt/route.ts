@@ -19,7 +19,7 @@ export function GET() {
 - Merkez: ${SITE.address.locality}, ${SITE.address.region}
 - Telefon: ${SITE.phoneDisplay}
 - Çalışma Saatleri: ${SITE.hours.opens} - ${SITE.hours.closes}
-- Hizmet Kapsamı: ${FACTS.districtCount} Adet Konya İlçesi ve 81 İle Şehirlerarası Nakliye
+- Hizmet Kapsamı: ${DISTRICTS.length} Adet Konya İlçesi ve 81 İle Şehirlerarası Nakliye
 - Asansör Kapasitesi: Maksimum ${FACTS.maxFloor}. Kat Seviyesi
 - Şehiriçi Taşıma Süresi: Ortalama ${FACTS.cityMoveHours} Saat
 - Şehiriçi Fiyat Aralığı: ₺${FACTS.priceMin} - ₺${FACTS.priceMax}

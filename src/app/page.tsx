@@ -172,7 +172,7 @@ export default function Home() {
                 Konya'nın Tüm İlçelerinde Hizmetteyiz
               </h2>
               <p className="text-charcoal text-base leading-relaxed">
-                Konya merkezli araç filomuzla Selçuklu'dan Cihanbeyli'ye kadar 16 ilçenin tamamında asansörlü ve sigortalı ev taşıma desteği sağlıyoruz.
+                Konya merkezli araç filomuzla Selçuklu'dan Cihanbeyli'ye kadar {DISTRICTS.length} ilçenin tamamında asansörlü ve sigortalı ev taşıma desteği sağlıyoruz.
               </p>
             </div>
 

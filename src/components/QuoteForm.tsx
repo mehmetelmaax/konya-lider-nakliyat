@@ -3,10 +3,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Phone, CheckCircle, AlertCircle, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
-import { SITE } from '@/lib/site-config';
+import { SITE, DISTRICTS } from '@/lib/site-config';
 import { QuoteFormSchema } from '@/lib/validation';
 import { trackEvent, trackConversion } from '@/lib/analytics';
-import { getEstimateFromForm } from '@/lib/pricing';
+import { estimatePrice } from '@/lib/pricing';
 
 interface QuoteFormProps {
   isInline?: boolean;
@@ -46,14 +46,7 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
   const formStartedRef = useRef(false);
 
   const districts = [
-    'Selçuklu',
-    'Meram',
-    'Karatay',
-    'Ereğli',
-    'Akşehir',
-    'Seydişehir',
-    'Ilgın',
-    'Diğer (İlçe)',
+    ...DISTRICTS.map((d) => d.name),
     'Şehirlerarası (İl Dışı)',
   ];
 
@@ -78,12 +71,17 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
   };
 
   const calculateEstimate = () => {
-    return getEstimateFromForm(
-      formData.rooms,
-      formData.elevator,
-      formData.fromDistrict,
-      formData.toDistrict
-    );
+    const res = estimatePrice({
+      rooms: formData.rooms as any,
+      fromElevator: formData.elevator === 'evet',
+      toElevator: false,
+      fromDistrict: formData.fromDistrict,
+      toDistrict: formData.toDistrict,
+      packing: false,
+      carpentry: false,
+      storage: false
+    });
+    return { min: res.min, max: res.max };
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

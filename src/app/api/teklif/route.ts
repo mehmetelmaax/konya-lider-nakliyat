@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { QuoteFormSchema } from '@/lib/validation';
-import { getEstimateFromForm } from '@/lib/pricing';
+import { estimatePrice } from '@/lib/pricing';
 
 // Simple in-memory cache for IP rate limiting fallback
 const ipCache = new Map<string, { count: number; expiresAt: number }>();
@@ -144,7 +144,16 @@ export async function POST(req: NextRequest) {
     const timestamp = new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' });
     
     // Unified Price Calculation Engine
-    const est = getEstimateFromForm(leadData.rooms, leadData.elevator, leadData.fromDistrict, leadData.toDistrict);
+    const est = estimatePrice({
+      rooms: leadData.rooms as any,
+      fromElevator: leadData.elevator === 'evet',
+      toElevator: false,
+      fromDistrict: leadData.fromDistrict,
+      toDistrict: leadData.toDistrict,
+      packing: false,
+      carpentry: false,
+      storage: false
+    });
 
     // 5. Masked PII logging for KVKK compliance
     console.log('LEAD_CAPTURE:', JSON.stringify({
