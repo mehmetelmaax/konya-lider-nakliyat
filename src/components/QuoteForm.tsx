@@ -28,6 +28,7 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [estimate, setEstimate] = useState<{ min: number; max: number } | null>(null);
+  const [kvkkChecked, setKvkkChecked] = useState(false);
   
   // Track if form started event has been fired
   const formStartedRef = useRef(false);
@@ -75,6 +76,11 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!kvkkChecked) {
+      setErrors({ kvkk: 'Devam etmek için KVKK onay kutusunu işaretlemelisiniz.' });
+      setStatus('idle');
+      return;
+    }
     setStatus('submitting');
     setErrors({});
     setErrorMessage('');
@@ -304,6 +310,25 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
             </label>
           </div>
         </div>
+      </div>
+
+      {/* KVKK Onay Kutusu */}
+      <div className="space-y-1 pt-1 pb-1">
+        <label className="flex items-start gap-2.5 cursor-pointer select-none">
+          <input
+            type="checkbox"
+            id="kvkk"
+            name="kvkk"
+            required
+            checked={kvkkChecked}
+            onChange={(e) => setKvkkChecked(e.target.checked)}
+            className="w-4 h-4 mt-0.5 text-orange border-gray-light rounded focus:ring-orange cursor-pointer"
+          />
+          <span className="text-[11px] text-charcoal/80 leading-relaxed">
+            6698 sayılı <Link href="/yasal/kvkk" target="_blank" className="text-orange hover:underline font-bold">KVKK</Link> kapsamında kişisel verilerimin işlenmesini ve resmi tarafıma iletişim kurulmasını kabul ediyorum. *
+          </span>
+        </label>
+        {errors.kvkk && <span id="err-kvkk" role="alert" className="text-[10px] text-rose-500 font-semibold block">{errors.kvkk}</span>}
       </div>
 
       {/* Submit button */}

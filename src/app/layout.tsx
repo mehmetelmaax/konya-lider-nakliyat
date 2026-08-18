@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTAs from '@/components/FloatingCTAs';
 import Analytics from '@/components/Analytics';
+import CookieConsent from '@/components/CookieConsent';
 
 const inter = Inter({
   subsets: ['latin-ext'],
@@ -108,6 +109,7 @@ export default function RootLayout({
         <Footer />
         <FloatingCTAs />
         <Analytics />
+        <CookieConsent />
       </body>
     </html>
   );
