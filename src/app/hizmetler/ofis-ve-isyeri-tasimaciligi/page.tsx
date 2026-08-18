@@ -59,8 +59,8 @@ export default function OfisPage() {
       <main className="pt-24 bg-off-white">
         <Breadcrumb items={[{ name: 'Taşıma Faaliyetleri', url: '/#hizmetlerimiz' }, { name: 'Ofis Taşıma', url: '/hizmetler/ofis-ve-isyeri-tasimaciligi' }]} className="pt-4" />
         {/* Intro */}
-        <section className="py-20 bg-navy text-white text-center space-y-4">
-          <span className="text-orange-text font-bold text-xs tracking-widest">
+        <section className="py-20 bg-forest text-white text-center space-y-4">
+          <span className="text-gold-text font-bold text-xs tracking-widest">
             KURUMSAL LOJİSTİK ÇÖZÜMLERİ
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
@@ -76,7 +76,7 @@ export default function OfisPage() {
           
           {/* Section 1 */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl">
               Kurumsal Ofis Taşıma Süreci Nasıl Planlanır?
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -85,7 +85,7 @@ export default function OfisPage() {
             <div className="overflow-x-auto mt-6">
               <table className="w-full text-left border-collapse border border-gray-300">
                 <thead>
-                  <tr className="bg-navy text-white">
+                  <tr className="bg-forest text-white">
                     <th className="p-3 border border-gray-300 font-semibold">Ofis Taşıma Hizmet Kapsamı</th>
                     <th className="p-3 border border-gray-300 font-semibold text-center w-32">Durum</th>
                   </tr>
@@ -114,7 +114,7 @@ export default function OfisPage() {
 
           {/* Section 2 */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl">
               Ofis Taşınmalarında Asansör Kullanımı Neden Önemlidir?
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -128,13 +128,13 @@ export default function OfisPage() {
           <RelatedLinks currentSlug="ofis-ve-isyeri-tasimaciligi" type="hizmet" />
 
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl border-b border-gray-light pb-3">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl border-b border-gray-light pb-3">
               Ofis Taşıma Hakkında Sıkça Sorulanlar (SSS)
             </h2>
             <div className="space-y-4 text-sm text-charcoal">
               {sss.map((item, idx) => (
                 <div key={idx} className={idx > 0 ? "border-t border-gray-light/60 pt-3" : ""}>
-                  <span className="font-bold text-navy block mb-1">{item.question}</span>
+                  <span className="font-bold text-forest block mb-1">{item.question}</span>
                   <p>{item.answer}</p>
                 </div>
               ))}
@@ -143,7 +143,7 @@ export default function OfisPage() {
 
           {/* Call to Action */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h3 className="font-display font-bold text-navy text-xl md:text-2xl border-b border-gray-light pb-3">
+            <h3 className="font-display font-bold text-forest text-xl md:text-2xl border-b border-gray-light pb-3">
               Hızlı ve Sabit Fiyat Teklifi Hesaplayın
             </h3>
             <QuoteForm isInline={true} />

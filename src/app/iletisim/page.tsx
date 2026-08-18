@@ -22,8 +22,8 @@ export default function IletisimPage() {
       <main className="pt-24 bg-off-white">
         <Breadcrumb items={[{ name: 'İletişim', url: '/iletisim' }]} className="pt-4" />
         {/* Intro */}
-        <section className="py-16 bg-navy text-white text-center space-y-4">
-          <span className="text-orange-text font-bold text-xs tracking-widest">
+        <section className="py-16 bg-forest text-white text-center space-y-4">
+          <span className="text-gold-text font-bold text-xs tracking-widest">
             BİZE ULAŞIN
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
@@ -41,43 +41,43 @@ export default function IletisimPage() {
             {/* Left Column: Direct Info */}
             <div className="lg:col-span-5 space-y-8">
               <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-                <h2 className="font-display font-bold text-navy text-xl border-b border-gray-light pb-3">
+                <h2 className="font-display font-bold text-forest text-xl border-b border-gray-light pb-3">
                   Ofis ve İletişim Detayları
                 </h2>
                 
                 <div className="space-y-4 text-sm text-charcoal">
                   <div className="flex gap-4 items-start">
-                    <MapPin className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />
+                    <MapPin className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-navy block mb-0.5">Adres:</span>
+                      <span className="font-bold text-forest block mb-0.5">Adres:</span>
                       <p>{SITE.address.street}, {SITE.address.locality} / {SITE.address.region}</p>
                     </div>
                   </div>
 
                   <div className="flex gap-4 items-start">
-                    <Phone className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />
+                    <Phone className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-navy block mb-0.5">Telefon / GSM:</span>
-                      <a href={SITE.phoneHref} className="hover:text-orange transition-colors font-bold">
+                      <span className="font-bold text-forest block mb-0.5">Telefon / GSM:</span>
+                      <a href={SITE.phoneHref} className="hover:text-gold transition-colors font-bold">
                         {SITE.phoneDisplay}
                       </a>
                     </div>
                   </div>
 
                   <div className="flex gap-4 items-start">
-                    <Mail className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />
+                    <Mail className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-navy block mb-0.5">E-Posta:</span>
-                      <a href={`mailto:${SITE.email}`} className="hover:text-orange transition-colors">
+                      <span className="font-bold text-forest block mb-0.5">E-Posta:</span>
+                      <a href={`mailto:${SITE.email}`} className="hover:text-gold transition-colors">
                         {SITE.email}
                       </a>
                     </div>
                   </div>
 
                   <div className="flex gap-4 items-start">
-                    <Clock className="w-5 h-5 text-orange flex-shrink-0 mt-0.5" />
+                    <Clock className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-navy block mb-0.5">Çalışma Saatleri:</span>
+                      <span className="font-bold text-forest block mb-0.5">Çalışma Saatleri:</span>
                       <p>Hafta İçi ve Hafta Sonu: {SITE.hours.opens} – {SITE.hours.closes}</p>
                     </div>
                   </div>
@@ -88,7 +88,7 @@ export default function IletisimPage() {
             {/* Right Column: Google Maps Location Embed */}
             <div className="lg:col-span-7 bg-white rounded-xl p-8 border border-gray-light shadow-sm space-y-6 flex flex-col justify-between">
               <div className="space-y-4">
-                <h2 className="font-display font-bold text-navy text-xl border-b border-gray-light pb-3">
+                <h2 className="font-display font-bold text-forest text-xl border-b border-gray-light pb-3">
                   Google Haritalar Ofis Konumumuz
                 </h2>
                 <p className="text-charcoal text-xs md:text-sm leading-relaxed font-semibold">
@@ -97,7 +97,7 @@ export default function IletisimPage() {
               </div>
 
               {/* Map Iframe */}
-              <div className="w-full aspect-video rounded-xl overflow-hidden border border-gray-light shadow-inner bg-navy/5 relative">
+              <div className="w-full aspect-video rounded-xl overflow-hidden border border-gray-light shadow-inner bg-forest/5 relative">
                 <iframe
                   title="Konya Lider Nakliyat Google Harita Konumu"
                   src="https://maps.google.com/maps?q=Konya%20Lider%20Evden%20Eve%20Nakliyat&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -113,7 +113,7 @@ export default function IletisimPage() {
                 href="https://share.google/YoiHqgk0tx65LVd0H"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-orange hover:bg-navy text-navy hover:text-white font-black py-3.5 px-6 rounded-xl transition-all duration-200 text-sm flex items-center justify-center gap-2 cursor-pointer active:scale-95 shadow-md w-full text-center"
+                className="bg-gold hover:bg-forest text-forest hover:text-white font-black py-3.5 px-6 rounded-xl transition-all duration-200 text-sm flex items-center justify-center gap-2 cursor-pointer active:scale-95 shadow-md w-full text-center"
               >
                 <MapPin className="w-4 h-4" />
                 <span>Google Haritalar'da Yol Tarifi Alın</span>

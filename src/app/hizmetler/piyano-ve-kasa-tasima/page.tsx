@@ -74,8 +74,8 @@ export default function PiyanoVeKasaTasimaPage() {
       <main className="pt-24 bg-off-white min-h-screen">
         <Breadcrumb items={[{ name: 'Nakliye Çözümleri', url: '/#hizmetlerimiz' }, { name: 'Piyano ve Kasa Taşıma', url: '/hizmetler/piyano-ve-kasa-tasima' }]} className="pt-4" />
                 {/* Intro Section */}
-        <section className="py-20 bg-navy text-white text-center space-y-4">
-          <span className="text-orange-text font-bold text-xs tracking-widest">
+        <section className="py-20 bg-forest text-white text-center space-y-4">
+          <span className="text-gold-text font-bold text-xs tracking-widest">
             AĞIR YÜK VE DEĞERLİ EŞYA TAŞIMACILIĞI
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight px-4">
@@ -91,8 +91,8 @@ export default function PiyanoVeKasaTasimaPage() {
           
           {/* Section 1: Giriş */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Shield className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Shield className="w-6 h-6 text-gold" />
               <span>Ağır Yük ve Hassas Eşya Taşıma Uzmanlığı Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -102,8 +102,8 @@ export default function PiyanoVeKasaTasimaPage() {
 
           {/* Section 2: Eşya Tipleri */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Truck className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Truck className="w-6 h-6 text-gold" />
               <span>Hizmet Verdiğimiz Özel ve Ağır Eşya Kategorileri Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -111,19 +111,19 @@ export default function PiyanoVeKasaTasimaPage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-charcoal">
               <div className="bg-off-white p-5 rounded-lg border border-gray-light/60 space-y-2">
-                <span className="font-bold text-navy text-sm block">1. Duvar ve Kuyruklu Piyano</span>
+                <span className="font-bold text-forest text-sm block">1. Duvar ve Kuyruklu Piyano</span>
                 <p className="text-xs leading-relaxed text-charcoal/90">Akort mekanizmasının bozulmaması ve dış cilasının çizilmemesi için özel kadife kılıflarla ambalajlanan, askı takımıyla taşınan piyanolar.</p>
               </div>
               <div className="bg-off-white p-5 rounded-lg border border-gray-light/60 space-y-2">
-                <span className="font-bold text-navy text-sm block">2. Çelik Para Kasaları</span>
+                <span className="font-bold text-forest text-sm block">2. Çelik Para Kasaları</span>
                 <p className="text-xs leading-relaxed text-charcoal/90">Ağırlıkları 1 tona kadar çıkabilen kuyumcu, banka veya ev kasalarının zeminlere zarar vermeden hidrolik lift ve kaydırmaz kızaklarla taşınması.</p>
               </div>
               <div className="bg-off-white p-5 rounded-lg border border-gray-light/60 space-y-2">
-                <span className="font-bold text-navy text-sm block">3. Tarihi Antika Mobilyalar</span>
+                <span className="font-bold text-forest text-sm block">3. Tarihi Antika Mobilyalar</span>
                 <p className="text-xs leading-relaxed text-charcoal/90">Eski el oyması, vernikli veya tarihi değeri olan mobilyaların, asitsiz beyaz ambalaj kağıtları ve sert köpük kalıplarla korunarak nakledilmesi.</p>
               </div>
               <div className="bg-off-white p-5 rounded-lg border border-gray-light/60 space-y-2">
-                <span className="font-bold text-navy text-sm block">4. Dev Akvaryumlar ve Camlar</span>
+                <span className="font-bold text-forest text-sm block">4. Dev Akvaryumlar ve Camlar</span>
                 <p className="text-xs leading-relaxed text-charcoal/90">Basınç farkı nedeniyle çatlama riski yüksek olan büyük ölçekli akvaryum ünitelerinin, vakumlu ağır hizmet cam vantuzları ve paletlerle taşınması.</p>
               </div>
             </div>
@@ -131,8 +131,8 @@ export default function PiyanoVeKasaTasimaPage() {
 
           {/* Section 3: Güvenlik ve Riskler */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <AlertOctagon className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <AlertOctagon className="w-6 h-6 text-gold" />
               <span>Ağır Eşya Taşırken Karşılaşılan Riskler ve Çözümlerimiz Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -142,8 +142,8 @@ export default function PiyanoVeKasaTasimaPage() {
 
           {/* Section 4: Fiyatlandırma ve Sigorta */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Coins className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Coins className="w-6 h-6 text-gold" />
               <span>Ağır Yük Nakliye Fiyatları ve Sigorta Detayları Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -153,8 +153,8 @@ export default function PiyanoVeKasaTasimaPage() {
 
           {/* Section 5: Piyano Taşıma Sonrası Akort */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <CheckCircle2 className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <CheckCircle2 className="w-6 h-6 text-gold" />
               <span>Piyano Taşımacılığı Sonrası Akort ve Bakım Süreci Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -164,8 +164,8 @@ export default function PiyanoVeKasaTasimaPage() {
 
           {/* Section 6: Ağır Kasa Taşımada Zemin Koruma */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Shield className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Shield className="w-6 h-6 text-gold" />
               <span>Ağır Kasa Taşımacılığında Zemin Koruma Önlemleri Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -175,36 +175,36 @@ export default function PiyanoVeKasaTasimaPage() {
 
           {/* Section 7: Sanat Eseri ve Sergi Taşımacılığı */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <CheckCircle2 className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <CheckCircle2 className="w-6 h-6 text-gold" />
               <span>Sanat Eseri, Sergi ve Galeri Lojistiği Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">Konya Lider Nakliyat, Müzeler, sanat galerileri ve kişisel koleksiyoncular için resim tabloları, heykeller ve antikaların taşınması yüksek hassasiyet gerektirir. Bu tarz eserlerin nakliyesinde iklimlendirmeli (ısı ve nem ayarlı) kapalı kasa araçlar kullanmaktayız. Eserlerin ambalajlanmasında doğrudan asitsiz müzecilik kağıtları ve darbeleri yutan özel şok emici polietilen köpükler tercih edilmektedir. Taşınma süreci baştan sona özel sigorta poliçesiyle korunarak uzman gözetiminde tamamlanır.</p>
           </div>
 
           {/* Internal Links Navigation Area */}
-          <div className="bg-navy/5 border border-navy/10 rounded-xl p-6 space-y-4">
-            <span className="font-bold text-navy text-sm block">Yararlı Bağlantılar ve Rehberler</span>
+          <div className="bg-forest/5 border border-forest/10 rounded-xl p-6 space-y-4">
+            <span className="font-bold text-forest text-sm block">Yararlı Bağlantılar ve Rehberler</span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-              <Link href="/konya-nakliyat-fiyatlari" className="text-orange-text hover:underline font-bold">
+              <Link href="/konya-nakliyat-fiyatlari" className="text-gold-text hover:underline font-bold">
                 → Konya Evden Eve Nakliyat Fiyatları
               </Link>
-              <Link href="/teklif-al" className="text-orange-text hover:underline font-bold">
+              <Link href="/teklif-al" className="text-gold-text hover:underline font-bold">
                 → Ücretsiz Nakliye Teklif Formu
               </Link>
-              <Link href="/hizmetler/sehirici-evden-eve-nakliyat" className="text-orange-text hover:underline font-bold">
+              <Link href="/hizmetler/sehirici-evden-eve-nakliyat" className="text-gold-text hover:underline font-bold">
                 → Şehiriçi Evden Eve Taşıma Hizmetleri
               </Link>
-              <Link href="/hizmetler/parca-esya-tasima" className="text-orange-text hover:underline font-bold">
+              <Link href="/hizmetler/parca-esya-tasima" className="text-gold-text hover:underline font-bold">
                 → Parça Eşya Taşıma Çözümleri
               </Link>
-              <Link href="/bolgeler/selcuklu-evden-eve-nakliyat" className="text-orange-text hover:underline font-bold">
+              <Link href="/bolgeler/selcuklu-evden-eve-nakliyat" className="text-gold-text hover:underline font-bold">
                 → Selçuklu Bölgesi Nakliye ve Taşımacılık
               </Link>
-              <Link href="/bolgeler/meram-evden-eve-nakliyat" className="text-orange-text hover:underline font-bold">
+              <Link href="/bolgeler/meram-evden-eve-nakliyat" className="text-gold-text hover:underline font-bold">
                 → Meram Bölgesi Nakliye ve Taşımacılık
               </Link>
-              <Link href="/tasinma-kontrol-listesi" className="text-orange-text hover:underline font-bold">
+              <Link href="/tasinma-kontrol-listesi" className="text-gold-text hover:underline font-bold">
                 → İnteraktif Taşınma Kontrol Çizelgesi
               </Link>
             </div>
@@ -212,14 +212,14 @@ export default function PiyanoVeKasaTasimaPage() {
 
           {/* FAQ Section */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <HelpCircle className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <HelpCircle className="w-6 h-6 text-gold" />
               <span>Ağır Eşya Taşımacılığı Hakkında Sıkça Sorulanlar</span>
             </h2>
             <div className="space-y-4 text-sm text-charcoal">
               {piyanoFaqs.map((item, idx) => (
                 <div key={idx} className={idx > 0 ? "border-t border-gray-light/60 pt-4" : ""}>
-                  <span className="font-bold text-navy block mb-1">{item.question}</span>
+                  <span className="font-bold text-forest block mb-1">{item.question}</span>
                   <p className="text-charcoal/95 leading-relaxed">{item.answer}</p>
                 </div>
               ))}
@@ -228,7 +228,7 @@ export default function PiyanoVeKasaTasimaPage() {
 
           {/* CTA Box */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h3 className="font-display font-bold text-navy text-xl md:text-2xl border-b border-gray-light pb-3">
+            <h3 className="font-display font-bold text-forest text-xl md:text-2xl border-b border-gray-light pb-3">
               Hızlı ve Sabit Fiyat Teklifi Hesaplayın
             </h3>
             <QuoteForm isInline={true} />

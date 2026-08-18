@@ -47,7 +47,7 @@ export default function MovingChecklist() {
     const items = CHECKLIST_ITEMS.filter((item) => item.timeframe === timeframe);
     return (
       <div className="space-y-3">
-        <h3 className="font-display font-bold text-navy text-sm md:text-base border-l-4 border-orange pl-3">
+        <h3 className="font-display font-bold text-forest text-sm md:text-base border-l-4 border-gold pl-3">
           {title}
         </h3>
         <ul className="space-y-2 text-xs md:text-sm pl-2">
@@ -58,7 +58,7 @@ export default function MovingChecklist() {
                 id={`check-${item.id}`}
                 checked={!!checkedItems[item.id]}
                 onChange={() => handleToggle(item.id)}
-                className="w-4 h-4 mt-0.5 rounded text-orange-text focus:ring-orange border-gray-light cursor-pointer print:hidden"
+                className="w-4 h-4 mt-0.5 rounded text-gold-text focus:ring-gold border-gray-light cursor-pointer print:hidden"
               />
               <span className="print:before:content-['[__]_'] print:before:font-mono"></span>
               <label
@@ -82,7 +82,7 @@ export default function MovingChecklist() {
       {/* Header section (styled differently for print media) */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-gray-light pb-4 print:border-none">
         <div>
-          <h2 className="font-display font-black text-navy text-xl md:text-2xl">
+          <h2 className="font-display font-black text-forest text-xl md:text-2xl">
             İnteraktif Ev Taşıma Kontrol Listesi
           </h2>
           <p className="text-xs text-charcoal/80 leading-relaxed mt-1">
@@ -91,14 +91,14 @@ export default function MovingChecklist() {
         </div>
 
         <div className="flex items-center gap-3 w-full sm:w-auto shrink-0 print:hidden">
-          <div className="bg-navy/5 border border-navy/10 px-4 py-2 rounded-xl text-center flex-1 sm:flex-none">
-            <span className="text-[10px] font-black text-navy block">TAMAMLANAN</span>
-            <span className="font-display font-black text-navy text-lg">{getPercentage()}%</span>
+          <div className="bg-forest/5 border border-forest/10 px-4 py-2 rounded-xl text-center flex-1 sm:flex-none">
+            <span className="text-[10px] font-black text-forest block">TAMAMLANAN</span>
+            <span className="font-display font-black text-forest text-lg">{getPercentage()}%</span>
           </div>
 
           <button
             onClick={() => window.print()}
-            className="bg-orange hover:bg-navy text-navy hover:text-white font-black py-2.5 px-4 rounded-xl border border-navy transition-all duration-200 text-xs uppercase tracking-wider cursor-pointer active:scale-95 shrink-0"
+            className="bg-gold hover:bg-forest text-forest hover:text-white font-black py-2.5 px-4 rounded-xl border border-forest transition-all duration-200 text-xs uppercase tracking-wider cursor-pointer active:scale-95 shrink-0"
           >
             Yazdır (PDF)
           </button>

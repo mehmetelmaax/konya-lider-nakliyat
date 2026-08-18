@@ -121,7 +121,7 @@ export default function BuildingAnalysis({ districtName }: BuildingAnalysisProps
 
   return (
     <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6 text-charcoal">
-      <h3 className="font-display font-bold text-navy text-lg md:text-xl border-b border-gray-light pb-2">
+      <h3 className="font-display font-bold text-forest text-lg md:text-xl border-b border-gray-light pb-2">
         {cleanName} İlçesi Bina Yapısı ve Nakliye Analiz Tablosu
       </h3>
       <p className="text-xs md:text-sm leading-relaxed text-charcoal/90">
@@ -132,31 +132,31 @@ export default function BuildingAnalysis({ districtName }: BuildingAnalysisProps
         <table className="w-full text-left border-collapse text-xs md:text-sm">
           <caption className="sr-only">{cleanName} Bölgesi Konut Mimarisi ve Asansör İhtiyaç Analizi</caption>
           <thead>
-            <tr className="bg-navy text-white">
+            <tr className="bg-forest text-white">
               <th scope="col" className="p-3 rounded-tl-lg">Kriter</th>
               <th scope="col" className="p-3 rounded-tr-lg">Analiz ve Tespit Sonucu</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-light">
             <tr className="hover:bg-off-white/50">
-              <th scope="row" className="p-3 font-bold text-navy">Mecra / Yapı Tipi</th>
+              <th scope="row" className="p-3 font-bold text-forest">Mecra / Yapı Tipi</th>
               <td className="p-3">{info.buildingType}</td>
             </tr>
             <tr className="hover:bg-off-white/50">
-              <th scope="row" className="p-3 font-bold text-navy">Ortalama Kat Seviyeleri</th>
+              <th scope="row" className="p-3 font-bold text-forest">Ortalama Kat Seviyeleri</th>
               <td className="p-3">{info.typicalFloors}</td>
             </tr>
             <tr className="hover:bg-off-white/50">
-              <th scope="row" className="p-3 font-bold text-navy">Dış Cephe Asansör İhtiyacı</th>
+              <th scope="row" className="p-3 font-bold text-forest">Dış Cephe Asansör İhtiyacı</th>
               <td className="p-3 text-green-600 font-bold">{info.elevatorRequirement}</td>
             </tr>
             <tr className="hover:bg-off-white/50">
-              <th scope="row" className="p-3 font-bold text-navy">Sokak ve Ulaşım Durumu</th>
+              <th scope="row" className="p-3 font-bold text-forest">Sokak ve Ulaşım Durumu</th>
               <td className="p-3">{info.streetWidth}</td>
             </tr>
             <tr className="hover:bg-off-white/50">
-              <th scope="row" className="p-3 font-bold text-navy">Özel Lojistik Tedbirleri</th>
-              <td className="p-3 font-medium text-orange-text">{info.specialCondition}</td>
+              <th scope="row" className="p-3 font-bold text-forest">Özel Lojistik Tedbirleri</th>
+              <td className="p-3 font-medium text-gold-text">{info.specialCondition}</td>
             </tr>
           </tbody>
         </table>

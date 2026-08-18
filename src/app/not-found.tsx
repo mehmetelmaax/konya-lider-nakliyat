@@ -33,9 +33,9 @@ export default function NotFound() {
   return (
     <main className="pt-24 bg-off-white min-h-screen flex flex-col justify-between">
       {/* Hero section */}
-      <section className="py-16 bg-navy text-white text-center space-y-4">
+      <section className="py-16 bg-forest text-white text-center space-y-4">
         <div className="flex justify-center">
-          <ShieldAlert className="w-16 h-16 text-orange animate-bounce" />
+          <ShieldAlert className="w-16 h-16 text-gold animate-bounce" />
         </div>
         <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
           Aradığınız Sayfa Bulunamadı
@@ -51,18 +51,18 @@ export default function NotFound() {
           
           {/* Quick links & Main actions */}
           <div className="bg-white p-6 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-lg border-b border-gray-light pb-2">Hızlı Erişim</h2>
+            <h2 className="font-display font-bold text-forest text-lg border-b border-gray-light pb-2">Hızlı Erişim</h2>
             <div className="flex flex-col gap-3 text-sm font-semibold">
-              <Link href="/" className="text-navy hover:text-orange flex items-center gap-1.5">
-                <Home className="w-4 h-4 text-orange" />
+              <Link href="/" className="text-forest hover:text-gold flex items-center gap-1.5">
+                <Home className="w-4 h-4 text-gold" />
                 <span>Ana Sayfa</span>
               </Link>
-              <Link href="/teklif-al" className="text-navy hover:text-orange flex items-center gap-1.5">
-                <ArrowRight className="w-4 h-4 text-orange" />
+              <Link href="/teklif-al" className="text-forest hover:text-gold flex items-center gap-1.5">
+                <ArrowRight className="w-4 h-4 text-gold" />
                 <span>Fiyat Teklifi Al</span>
               </Link>
-              <Link href="/blog" className="text-navy hover:text-orange flex items-center gap-1.5">
-                <ArrowRight className="w-4 h-4 text-orange" />
+              <Link href="/blog" className="text-forest hover:text-gold flex items-center gap-1.5">
+                <ArrowRight className="w-4 h-4 text-gold" />
                 <span>Blog & Lojistik İpuçları</span>
               </Link>
             </div>
@@ -70,10 +70,10 @@ export default function NotFound() {
 
           {/* Services mapping */}
           <div className="bg-white p-6 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-lg border-b border-gray-light pb-2">Hizmetlerimiz</h2>
+            <h2 className="font-display font-bold text-forest text-lg border-b border-gray-light pb-2">Hizmetlerimiz</h2>
             <div className="flex flex-col gap-2.5 text-sm">
               {services.map((item, idx) => (
-                <Link key={idx} href={item.href} className="text-charcoal hover:text-orange block transition-colors">
+                <Link key={idx} href={item.href} className="text-charcoal hover:text-gold block transition-colors">
                   → {item.name}
                 </Link>
               ))}
@@ -82,10 +82,10 @@ export default function NotFound() {
 
           {/* Main regions mapping */}
           <div className="bg-white p-6 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-lg border-b border-gray-light pb-2">Merkez Bölgelerimiz</h2>
+            <h2 className="font-display font-bold text-forest text-lg border-b border-gray-light pb-2">Merkez Bölgelerimiz</h2>
             <div className="flex flex-col gap-2.5 text-sm">
               {districts.map((item, idx) => (
-                <Link key={idx} href={item.href} className="text-charcoal hover:text-orange block transition-colors">
+                <Link key={idx} href={item.href} className="text-charcoal hover:text-gold block transition-colors">
                   → {item.name}
                 </Link>
               ))}
@@ -95,15 +95,15 @@ export default function NotFound() {
         </div>
 
         {/* Contact CTA */}
-        <div className="mt-12 bg-orange/10 p-8 rounded-2xl border border-orange/20 text-center space-y-4">
-          <h3 className="font-display font-black text-navy text-xl">Aradığınızı bulamadınız mı?</h3>
+        <div className="mt-12 bg-gold/10 p-8 rounded-2xl border border-gold/20 text-center space-y-4">
+          <h3 className="font-display font-black text-forest text-xl">Aradığınızı bulamadınız mı?</h3>
           <p className="text-charcoal text-sm max-w-lg mx-auto">
             Hemen telefon numaramızdan veya WhatsApp destek hattımızdan bize ulaşarak ev taşıma fiyatları ve süreçleri hakkında detaylı bilgi alabilirsiniz.
           </p>
           <div className="flex justify-center">
             <a
               href={SITE.phoneHref}
-              className="bg-navy hover:bg-orange text-white hover:text-navy font-black px-6 py-3.5 rounded-xl transition-all duration-200 shadow-md flex items-center gap-2"
+              className="bg-forest hover:bg-gold text-white hover:text-forest font-black px-6 py-3.5 rounded-xl transition-all duration-200 shadow-md flex items-center gap-2"
             >
               <Phone className="w-5 h-5" />
               <span>{SITE.phoneDisplay}</span>

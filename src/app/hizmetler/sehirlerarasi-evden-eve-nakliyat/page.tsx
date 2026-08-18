@@ -95,8 +95,8 @@ export default function SehirlerarasiPage() {
       <main className="pt-24 bg-off-white">
         <Breadcrumb items={[{ name: 'Hizmet Seçenekleri', url: '/#hizmetlerimiz' }, { name: 'Şehirlerarası Nakliyat', url: '/hizmetler/sehirlerarasi-evden-eve-nakliyat' }]} className="pt-4" />
         {/* Intro */}
-        <section className="py-20 bg-navy text-white text-center space-y-4">
-          <span className="text-orange-text font-bold text-xs tracking-widest">
+        <section className="py-20 bg-forest text-white text-center space-y-4">
+          <span className="text-gold-text font-bold text-xs tracking-widest">
             TÜRKİYE GENELİ LOJİSTİK
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
@@ -112,7 +112,7 @@ export default function SehirlerarasiPage() {
           
           {/* Section 1 */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl">
               Şehirlerarası Ev Taşıma Sigortası Neleri Kapsar?
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -121,7 +121,7 @@ export default function SehirlerarasiPage() {
             <div className="overflow-x-auto mt-6">
               <table className="w-full text-left border-collapse border border-gray-300">
                 <thead>
-                  <tr className="bg-navy text-white">
+                  <tr className="bg-forest text-white">
                     <th className="p-3 border border-gray-300 font-semibold">Şehirlerarası Nakliyat Hizmet Kapsamı</th>
                     <th className="p-3 border border-gray-300 font-semibold text-center w-32">Durum</th>
                   </tr>
@@ -150,7 +150,7 @@ export default function SehirlerarasiPage() {
 
           {/* Section 2 */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl">
               Şehirlerarası Nakliye Fiyatları Nasıl Hesaplanır?
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -162,45 +162,45 @@ export default function SehirlerarasiPage() {
           
           {/* Section: Şehirlerarası Rotalarımız */}
           <div id="rotalar" className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <CheckCircle2 className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <CheckCircle2 className="w-6 h-6 text-gold" />
               <span>Sıkça Hizmet Verdiğimiz Şehirlerarası Nakliyat Rotaları Nelerdir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
               Konya Lider Nakliyat merkezli olarak Türkiye genelinde en çok sefer düzenlediğimiz popüler şehirlerarası 81 il nakliyat hatlarımızı aşağıda bulabilirsiniz. İlgili bağlantılara tıklayarak rota detayları, kilometre mesafeleri, sürüş süreleri ve güncel fiyat listelerine erişebilirsiniz:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Link href="/rotalar/konya-istanbul-evden-eve-nakliyat" className="bg-off-white hover:bg-orange/10 p-4 rounded-lg border border-gray-light/60 font-bold text-navy text-sm flex justify-between items-center transition-colors group">
+              <Link href="/rotalar/konya-istanbul-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
                 <span>Konya - İstanbul Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-orange transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/rotalar/konya-ankara-evden-eve-nakliyat" className="bg-off-white hover:bg-orange/10 p-4 rounded-lg border border-gray-light/60 font-bold text-navy text-sm flex justify-between items-center transition-colors group">
+              <Link href="/rotalar/konya-ankara-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
                 <span>Konya - Ankara Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-orange transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/rotalar/konya-mersin-evden-eve-nakliyat" className="bg-off-white hover:bg-orange/10 p-4 rounded-lg border border-gray-light/60 font-bold text-navy text-sm flex justify-between items-center transition-colors group">
+              <Link href="/rotalar/konya-mersin-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
                 <span>Konya - Mersin Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-orange transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/rotalar/konya-gaziantep-evden-eve-nakliyat" className="bg-off-white hover:bg-orange/10 p-4 rounded-lg border border-gray-light/60 font-bold text-navy text-sm flex justify-between items-center transition-colors group">
+              <Link href="/rotalar/konya-gaziantep-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
                 <span>Konya - Gaziantep Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-orange transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/rotalar/konya-izmir-evden-eve-nakliyat" className="bg-off-white hover:bg-orange/10 p-4 rounded-lg border border-gray-light/60 font-bold text-navy text-sm flex justify-between items-center transition-colors group">
+              <Link href="/rotalar/konya-izmir-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
                 <span>Konya - İzmir Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-orange transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/rotalar/konya-antalya-evden-eve-nakliyat" className="bg-off-white hover:bg-orange/10 p-4 rounded-lg border border-gray-light/60 font-bold text-navy text-sm flex justify-between items-center transition-colors group">
+              <Link href="/rotalar/konya-antalya-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
                 <span>Konya - Antalya Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-orange transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/rotalar/konya-kayseri-evden-eve-nakliyat" className="bg-off-white hover:bg-orange/10 p-4 rounded-lg border border-gray-light/60 font-bold text-navy text-sm flex justify-between items-center transition-colors group">
+              <Link href="/rotalar/konya-kayseri-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
                 <span>Konya - Kayseri Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-orange transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/rotalar/konya-bursa-evden-eve-nakliyat" className="bg-off-white hover:bg-orange/10 p-4 rounded-lg border border-gray-light/60 font-bold text-navy text-sm flex justify-between items-center transition-colors group">
+              <Link href="/rotalar/konya-bursa-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
                 <span>Konya - Bursa Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-orange transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
@@ -209,13 +209,13 @@ export default function SehirlerarasiPage() {
           <RelatedLinks currentSlug="sehirlerarasi-evden-eve-nakliyat" type="hizmet" />
 
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl border-b border-gray-light pb-3">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl border-b border-gray-light pb-3">
               Şehirlerarası Rotalara Göre Sıkça Sorulanlar (İl Bazlı Detaylar)
             </h2>
             <div className="space-y-4 text-sm text-charcoal">
               {sss.map((item, idx) => (
                 <div key={idx} className={idx > 0 ? "border-t border-gray-light/60 pt-3" : ""}>
-                  <span className="font-bold text-navy block mb-1">{item.question}</span>
+                  <span className="font-bold text-forest block mb-1">{item.question}</span>
                   <p>{item.answer}</p>
                 </div>
               ))}
@@ -224,7 +224,7 @@ export default function SehirlerarasiPage() {
 
           {/* Call to Action */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h3 className="font-display font-bold text-navy text-xl md:text-2xl border-b border-gray-light pb-3">
+            <h3 className="font-display font-bold text-forest text-xl md:text-2xl border-b border-gray-light pb-3">
               Hızlı ve Sabit Fiyat Teklifi Hesaplayın
             </h3>
             <QuoteForm isInline={true} />

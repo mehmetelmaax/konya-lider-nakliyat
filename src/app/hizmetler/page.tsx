@@ -70,9 +70,9 @@ export default function HizmetlerPage() {
         <Breadcrumb items={[{ name: 'Hizmetlerimiz', url: '/hizmetler' }]} className="pt-4" />
         
         {/* Banner Section */}
-        <section className="py-16 bg-navy text-white text-center space-y-4">
-          <span className="text-orange font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
-            <Truck className="w-4 h-4 text-orange" />
+        <section className="py-16 bg-forest text-white text-center space-y-4">
+          <span className="text-gold font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
+            <Truck className="w-4 h-4 text-gold" />
             <span>Neler Yapıyoruz?</span>
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
@@ -87,13 +87,13 @@ export default function HizmetlerPage() {
         <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {SERVICES.map((service) => (
-              <div key={service.slug} className="bg-white rounded-2xl p-8 border border-gray-light hover:border-orange/30 transition-all shadow-sm hover:shadow-md flex flex-col justify-between space-y-6">
+              <div key={service.slug} className="bg-white rounded-2xl p-8 border border-gray-light hover:border-gold/30 transition-all shadow-sm hover:shadow-md flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
-                  <div className="w-12 h-12 bg-orange/10 text-orange rounded-xl flex items-center justify-center font-bold">
+                  <div className="w-12 h-12 bg-gold/10 text-gold rounded-xl flex items-center justify-center font-bold">
                     {/* Placeholder icon container */}
                     <Truck className="w-6 h-6" />
                   </div>
-                  <h3 className="font-display font-black text-navy text-xl leading-tight">
+                  <h3 className="font-display font-black text-forest text-xl leading-tight">
                     {service.name}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -104,7 +104,7 @@ export default function HizmetlerPage() {
                 <div className="border-t border-gray-light pt-4">
                   <Link 
                     href={`/hizmetler/${service.slug}`}
-                    className="text-orange hover:text-navy transition-colors font-bold text-sm flex items-center gap-1.5 w-fit"
+                    className="text-gold hover:text-forest transition-colors font-bold text-sm flex items-center gap-1.5 w-fit"
                   >
                     <span>Hizmeti İncele</span>
                     <ArrowRight className="w-4 h-4" />
@@ -119,7 +119,7 @@ export default function HizmetlerPage() {
         <section className="py-12 bg-white border-t border-b border-gray-light">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div className="text-center space-y-2">
-              <h2 className="font-display font-black text-navy text-2xl md:text-3xl">
+              <h2 className="font-display font-black text-forest text-2xl md:text-3xl">
                 Hizmet Karşılaştırma Matrisi
               </h2>
               <p className="text-gray-500 text-sm max-w-xl mx-auto">
@@ -129,7 +129,7 @@ export default function HizmetlerPage() {
 
             <div className="overflow-x-auto rounded-xl border border-gray-light shadow-sm">
               <table className="min-w-full divide-y divide-gray-light text-left text-sm">
-                <thead className="bg-navy text-white text-xs uppercase font-bold tracking-wider">
+                <thead className="bg-forest text-white text-xs uppercase font-bold tracking-wider">
                   <tr>
                     <th scope="col" className="px-6 py-4">Hizmet Türü</th>
                     <th scope="col" className="px-6 py-4">Dış Cephe Asansörü</th>
@@ -141,7 +141,7 @@ export default function HizmetlerPage() {
                 <tbody className="divide-y divide-gray-light text-charcoal bg-white">
                   {comparisonData.map((row, idx) => (
                     <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
-                      <td className="px-6 py-4 font-bold text-navy">{row.name}</td>
+                      <td className="px-6 py-4 font-bold text-forest">{row.name}</td>
                       <td className="px-6 py-4 text-xs">{row.asansor}</td>
                       <td className="px-6 py-4 text-xs font-semibold text-green-700">{row.sigorta}</td>
                       <td className="px-6 py-4 text-xs">{row.paketleme}</td>

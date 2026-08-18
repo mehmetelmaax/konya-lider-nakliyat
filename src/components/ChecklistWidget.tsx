@@ -129,13 +129,13 @@ export default function ChecklistWidget() {
       {/* Progress Bar & Actions (no-print) */}
       <div className="bg-white p-6 rounded-xl border border-gray-light shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 no-print">
         <div className="space-y-2 w-full md:w-2/3">
-          <div className="flex justify-between items-center text-xs font-bold text-navy uppercase">
+          <div className="flex justify-between items-center text-xs font-bold text-forest uppercase">
             <span>Taşınma Hazırlık İlerlemesi</span>
             <span>%{progressPercent} Tamamlandı</span>
           </div>
           <div className="w-full bg-off-white h-3.5 rounded-full overflow-hidden border border-gray-light">
             <div
-              className="bg-orange h-full transition-all duration-300 rounded-full"
+              className="bg-gold h-full transition-all duration-300 rounded-full"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
@@ -145,7 +145,7 @@ export default function ChecklistWidget() {
         <div className="flex gap-3 shrink-0 w-full md:w-auto">
           <button
             onClick={handlePrint}
-            className="flex-1 md:flex-initial bg-navy hover:bg-orange text-white hover:text-navy font-bold px-4 py-2.5 rounded-xl border border-navy transition-all duration-200 text-xs flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
+            className="flex-1 md:flex-initial bg-forest hover:bg-gold text-white hover:text-forest font-bold px-4 py-2.5 rounded-xl border border-forest transition-all duration-200 text-xs flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
           >
             <Printer className="w-4.5 h-4.5" />
             <span>Listeyi Yazdır (PDF)</span>
@@ -167,9 +167,9 @@ export default function ChecklistWidget() {
           <div key={groupIdx} className="bg-white rounded-xl border border-gray-light shadow-sm overflow-hidden print-card">
             
             {/* Group Header */}
-            <div className="bg-navy/5 px-6 py-4 border-b border-gray-light flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-orange" />
-              <h3 className="font-display font-bold text-navy text-sm md:text-base">{group.title}</h3>
+            <div className="bg-forest/5 px-6 py-4 border-b border-gray-light flex items-center gap-3">
+              <CheckCircle2 className="w-5 h-5 text-gold" />
+              <h3 className="font-display font-bold text-forest text-sm md:text-base">{group.title}</h3>
             </div>
 
             {/* Group Items */}
@@ -181,13 +181,13 @@ export default function ChecklistWidget() {
                   className="py-4 flex items-start gap-4 cursor-pointer hover:bg-off-white/40 transition-colors select-none group"
                 >
                   <button
-                    className="shrink-0 mt-0.5 text-navy hover:text-orange transition-colors focus:outline-none"
+                    className="shrink-0 mt-0.5 text-forest hover:text-gold transition-colors focus:outline-none"
                     aria-label={item.task}
                   >
                     {item.checked ? (
-                      <CheckSquare className="w-5 h-5 text-orange fill-orange/15" />
+                      <CheckSquare className="w-5 h-5 text-gold fill-gold/15" />
                     ) : (
-                      <Square className="w-5 h-5 text-gray-400 group-hover:text-navy" />
+                      <Square className="w-5 h-5 text-gray-400 group-hover:text-forest" />
                     )}
                   </button>
                   <span className={`text-xs md:text-sm font-semibold leading-relaxed transition-all ${item.checked ? 'text-gray-400 line-through' : 'text-charcoal'}`}>

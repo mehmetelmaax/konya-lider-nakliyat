@@ -114,7 +114,7 @@ export default function HeroSlider() {
 
   return (
     <section 
-      className="relative w-full min-h-[650px] lg:h-[750px] bg-navy flex items-center overflow-hidden pt-20 focus-visible:outline-2 focus-visible:outline-orange focus-visible:outline-offset-[-2px]"
+      className="relative w-full min-h-[650px] lg:h-[750px] bg-forest flex items-center overflow-hidden pt-20 focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-[-2px]"
       aria-roledescription="carousel"
       aria-label="Konya Lider Nakliyat Hizmet Tanıtımı"
       tabIndex={0}
@@ -131,6 +131,10 @@ export default function HeroSlider() {
           const fileKey = slide.bgImage.split('/').pop()?.replace('.jpg', '') || '';
           const blurDataURL = IMAGE_BLURS[fileKey];
           const isActive = idx === current;
+          const isNext = idx === (current + 1) % slides.length;
+          const isFirst = idx === 0;
+          
+          if (!isActive && !isNext && !isFirst) return null;
           
           return (
             <div
@@ -161,14 +165,14 @@ export default function HeroSlider() {
           );
         })}
         {/* Navy Overlay gradient to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/40 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/90 to-forest/40 z-10"></div>
       </div>
       
       {/* Background Graphic overlay */}
       <div className="absolute inset-0 z-0 opacity-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       
       {/* Design elements */}
-      <div className="absolute right-[-10%] top-[-10%] w-[500px] h-[500px] bg-orange/5 rounded-full blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute right-[-10%] top-[-10%] w-[500px] h-[500px] bg-gold/5 rounded-full blur-3xl z-0 pointer-events-none"></div>
       <div className="absolute left-[-5%] bottom-[-5%] w-[400px] h-[400px] bg-white/5 rounded-full blur-2xl z-0 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-10 lg:py-0">
@@ -178,6 +182,11 @@ export default function HeroSlider() {
           <div className="relative min-h-[260px] flex flex-col justify-center">
             {slides.map((slide, idx) => {
               const isActive = idx === current;
+              const isNext = idx === (current + 1) % slides.length;
+              const isFirst = idx === 0;
+              
+              if (!isActive && !isNext && !isFirst) return null;
+              
               return (
                 <div
                   key={slide.id}
@@ -190,7 +199,7 @@ export default function HeroSlider() {
                     transitionProperty: (prefersReducedMotion || (!hasInteracted && idx === 0)) ? 'none' : 'all'
                   }}
                 >
-                  <span className="text-orange font-bold text-xs md:text-sm tracking-widest mb-3 block">
+                  <span className="text-gold font-bold text-xs md:text-sm tracking-widest mb-3 block">
                     {slide.trustLine}
                   </span>
                   
@@ -220,7 +229,7 @@ export default function HeroSlider() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent('whatsapp_tikla', { konum: 'hero_slider', sayfa: window.location.pathname })}
-              className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-black px-6 py-3.5 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-orange text-sm md:text-base flex items-center gap-2 active:scale-95 cursor-pointer"
+              className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-black px-6 py-3.5 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-gold text-sm md:text-base flex items-center gap-2 active:scale-95 cursor-pointer"
             >
               <MessageCircle className="w-5 h-5 fill-current" />
               <span>Hızlı WhatsApp</span>
@@ -231,7 +240,7 @@ export default function HeroSlider() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent('harita_tikla', { konum: 'hero_slider', sayfa: window.location.pathname })}
-              className="bg-orange hover:bg-white text-navy font-black px-6 py-3.5 rounded-xl border border-orange hover:border-white transition-all duration-200 shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-orange text-sm md:text-base flex items-center gap-2 active:scale-95 cursor-pointer"
+              className="bg-gold hover:bg-white text-forest font-black px-6 py-3.5 rounded-xl border border-gold hover:border-white transition-all duration-200 shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-gold text-sm md:text-base flex items-center gap-2 active:scale-95 cursor-pointer"
             >
               <MapPin className="w-5 h-5" />
               <span>Konuma Git</span>
@@ -260,8 +269,8 @@ export default function HeroSlider() {
         <div className="hidden lg:col-span-5 lg:flex flex-col justify-center pl-4">
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 border border-white/10 text-charcoal w-full max-w-[420px] ml-auto">
             <div className="mb-4">
-              <span className="text-orange-text font-bold text-[10px] tracking-widest block">ÜCRETSİZ HESAPLAMA</span>
-              <h2 className="font-display font-black text-navy text-lg mt-0.5">Anında Tahmini Fiyat Al</h2>
+              <span className="text-gold-text font-bold text-[10px] tracking-widest block">ÜCRETSİZ HESAPLAMA</span>
+              <h2 className="font-display font-black text-forest text-lg mt-0.5">Anında Tahmini Fiyat Al</h2>
             </div>
             <QuoteForm isInline={true} />
           </div>
@@ -276,7 +285,7 @@ export default function HeroSlider() {
               key={slide.id}
               onClick={() => selectSlide(idx)}
               className={`w-3 h-3 rounded-full transition-all cursor-pointer ${
-                idx === current ? 'bg-orange w-8' : 'bg-white/40 hover:bg-white'
+                idx === current ? 'bg-gold w-8' : 'bg-white/40 hover:bg-white'
               }`}
               style={{ minWidth: '12px', minHeight: '12px' }}
               aria-label={`${idx + 1}. slayda git`}
@@ -286,7 +295,7 @@ export default function HeroSlider() {
           {/* Autoplay Play/Pause Button */}
           <button
             onClick={togglePlayPause}
-            className="ml-2 text-white/60 hover:text-white p-1 rounded-full focus:outline-none focus:ring-1 focus:ring-orange cursor-pointer"
+            className="ml-2 text-white/60 hover:text-white p-1 rounded-full focus:outline-none focus:ring-1 focus:ring-gold cursor-pointer"
             aria-label={isPlaying ? "Slayt geçişini duraklat" : "Slayt geçişini başlat"}
           >
             {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}

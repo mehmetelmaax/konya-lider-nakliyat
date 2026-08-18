@@ -57,10 +57,10 @@ export default function GoogleReviews() {
   if (!placeId || !apiKey) {
     return (
       <section className="py-12 bg-white rounded-2xl border border-gray-light p-8 text-center space-y-4">
-        <div className="w-12 h-12 bg-orange/10 text-orange rounded-full flex items-center justify-center mx-auto">
+        <div className="w-12 h-12 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto">
           <MessageCircle className="w-6 h-6" />
         </div>
-        <h3 className="font-display font-bold text-navy text-lg">
+        <h3 className="font-display font-bold text-forest text-lg">
           Google Müşteri Yorumları Entegrasyonu
         </h3>
         <p className="text-gray-500 text-xs max-w-md mx-auto leading-relaxed">
@@ -92,7 +92,7 @@ export default function GoogleReviews() {
                   <Star
                     key={i}
                     className={`w-4 h-4 ${
-                      i < review.rating ? 'text-orange fill-orange' : 'text-gray-200'
+                      i < review.rating ? 'text-gold fill-gold' : 'text-gray-200'
                     }`}
                   />
                 ))}
@@ -111,7 +111,7 @@ export default function GoogleReviews() {
                 />
               )}
               <div>
-                <h4 className="font-display font-bold text-navy text-xs">{review.author_name}</h4>
+                <h4 className="font-display font-bold text-forest text-xs">{review.author_name}</h4>
                 <span className="text-[10px] text-gray-400">{review.relative_time_description}</span>
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function GoogleReviews() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackEvent('google_yorumlar_tumu', { sayfa: window.location.pathname })}
-          className="text-orange hover:text-navy transition-colors font-bold text-xs uppercase tracking-widest"
+          className="text-gold hover:text-forest transition-colors font-bold text-xs uppercase tracking-widest"
         >
           Google'daki Tüm Yorumları Gör ➔
         </a>

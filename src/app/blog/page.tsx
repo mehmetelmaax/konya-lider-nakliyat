@@ -20,8 +20,8 @@ export default function BlogPage() {
       <main className="pt-24 bg-off-white">
         <Breadcrumb items={[{ name: 'Blog', url: '/blog' }]} className="pt-4" />
         {/* Intro */}
-        <section className="py-16 bg-navy text-white text-center space-y-4">
-          <span className="text-orange-text font-bold text-xs tracking-widest font-sans">
+        <section className="py-16 bg-forest text-white text-center space-y-4">
+          <span className="text-gold-text font-bold text-xs tracking-widest font-sans">
             FAYDALI BİLGİLER
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">

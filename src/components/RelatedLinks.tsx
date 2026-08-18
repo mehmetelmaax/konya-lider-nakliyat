@@ -154,7 +154,7 @@ export default function RelatedLinks({ currentSlug, type, title }: RelatedLinksP
 
   return (
     <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6 no-print">
-      <h3 className="font-display font-bold text-navy text-lg border-b border-gray-light pb-3">
+      <h3 className="font-display font-bold text-forest text-lg border-b border-gray-light pb-3">
         {title || 'Alakalı Hizmetlerimiz ve Bölgelerimiz'}
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
@@ -162,7 +162,7 @@ export default function RelatedLinks({ currentSlug, type, title }: RelatedLinksP
           <Link
             key={idx}
             href={link.href}
-            className="text-orange-text hover:underline font-semibold flex items-center gap-1.5"
+            className="text-gold-text hover:underline font-semibold flex items-center gap-1.5"
           >
             <span>➔</span>
             <span>{link.text}</span>

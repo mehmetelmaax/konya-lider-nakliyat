@@ -31,7 +31,7 @@ export default function Breadcrumb({ items, className, dark }: BreadcrumbProps) 
             <React.Fragment key={idx}>
               <Link
                 href={item.url}
-                className={`hover:text-orange transition-colors font-medium ${dark ? 'text-gray-300 hover:text-white' : ''}`}
+                className={`hover:text-gold transition-colors font-medium ${dark ? 'text-gray-300 hover:text-white' : ''}`}
               >
                 {item.name}
               </Link>

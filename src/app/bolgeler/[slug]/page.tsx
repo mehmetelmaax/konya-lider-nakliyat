@@ -109,8 +109,8 @@ export default async function DistrictPage({ params }: RouteParams) {
         />
         
         {/* Intro Section */}
-        <section className="py-20 bg-navy text-white text-center space-y-4">
-          <span className="text-orange-text font-bold text-xs tracking-widest font-sans uppercase">
+        <section className="py-20 bg-forest text-white text-center space-y-4">
+          <span className="text-gold-text font-bold text-xs tracking-widest font-sans uppercase">
             {district.tier === 'merkez' ? 'KONYA MERKEZ İLÇE SERVİSİ' : 'KONYA TAŞRA İLÇE SERVİSİ'}
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
@@ -126,8 +126,8 @@ export default async function DistrictPage({ params }: RouteParams) {
           
           {/* Section 1: Kurumsal Güvence */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Shield className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Shield className="w-6 h-6 text-gold" />
               <span>Güvenilir {content.name} Nakliye Çözümleri</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -142,8 +142,8 @@ export default async function DistrictPage({ params }: RouteParams) {
 
           {/* Section 2: Mahalleler */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <MapPin className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <MapPin className="w-6 h-6 text-gold" />
               <span>{content.name}'da Hizmet Verdiğimiz Mahalleler</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -151,7 +151,7 @@ export default async function DistrictPage({ params }: RouteParams) {
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {content.mahalleler.map((mah, idx) => (
-                <div key={idx} className="bg-off-white p-4 rounded-lg border border-gray-light/60 text-center font-bold text-navy text-sm">
+                <div key={idx} className="bg-off-white p-4 rounded-lg border border-gray-light/60 text-center font-bold text-forest text-sm">
                   {mah}
                 </div>
               ))}
@@ -160,8 +160,8 @@ export default async function DistrictPage({ params }: RouteParams) {
 
           {/* Section 3: Ulaşım ve İntikal */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Building className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Building className="w-6 h-6 text-gold" />
               <span>Ulaşım, Mesafe ve İntikal Bilgileri</span>
             </h2>
             <div className="text-charcoal text-sm md:text-base leading-relaxed space-y-3">
@@ -185,7 +185,7 @@ export default async function DistrictPage({ params }: RouteParams) {
 
           {/* Fast Quote Form */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl text-center mb-6">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl text-center mb-6">
               Hızlı Teklif Al
             </h2>
             <QuoteForm defaultDistrict={content.name} />

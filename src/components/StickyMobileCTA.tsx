@@ -26,14 +26,14 @@ export default function StickyMobileCTA() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 w-full z-30 md:hidden bg-navy/90 backdrop-blur-md border-t border-white/10 px-4 py-3 shadow-xl">
+    <div className="fixed bottom-0 left-0 w-full z-30 md:hidden bg-forest/90 backdrop-blur-md border-t border-white/10 px-4 py-3 shadow-xl">
       <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto pb-[env(safe-area-inset-bottom)]">
         
         {/* Call button */}
         <a
           href={SITE.phoneHref}
           onClick={() => trackEvent('telefon_tikla', { konum: 'sticky', sayfa: window.location.pathname })}
-          className="flex items-center justify-center gap-2 bg-orange text-navy font-black py-3 rounded border border-navy shadow-md active:scale-95 text-sm select-none"
+          className="flex items-center justify-center gap-2 bg-gold text-forest font-black py-3 rounded border border-forest shadow-md active:scale-95 text-sm select-none"
         >
           <Phone className="w-4 h-4" />
           <span>Hemen Ara</span>

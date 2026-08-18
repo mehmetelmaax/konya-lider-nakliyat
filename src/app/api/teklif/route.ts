@@ -241,7 +241,7 @@ export async function POST(req: NextRequest) {
         subject: `Yeni Teklif Talebi - ${escapedName}`,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e9eef2; border-radius: 10px;">
-            <h2 style="color: #102a43; border-bottom: 2px solid #f7931e; padding-bottom: 10px;">Yeni Teklif Talebi Alındı</h2>
+            <h2 style="color: #0D3E30; border-bottom: 2px solid #D4AF37; padding-bottom: 10px;">Yeni Teklif Talebi Alındı</h2>
             <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
               <tr style="background: #f9fafb;">
                 <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #e9eef2; width: 180px;">Ad Soyad:</td>
@@ -267,9 +267,9 @@ export async function POST(req: NextRequest) {
                 <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #e9eef2;">Asansör Kurulumu:</td>
                 <td style="padding: 10px; border-bottom: 1px solid #e9eef2;">${escapedElevator}</td>
               </tr>
-              <tr style="background: #fff8e7;">
-                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #e9eef2; color: #a85b00;">Tahmini Fiyat:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #e9eef2; font-weight: bold; color: #a85b00;">
+              <tr style="background: #FAFDFB;">
+                <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #e9eef2; color: #9B7E20;">Tahmini Fiyat:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #e9eef2; font-weight: bold; color: #9B7E20;">
                   ${est.min.toLocaleString('tr-TR')} TL - ${est.max.toLocaleString('tr-TR')} TL
                 </td>
               </tr>

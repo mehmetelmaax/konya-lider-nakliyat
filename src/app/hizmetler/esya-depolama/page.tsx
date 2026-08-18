@@ -72,8 +72,8 @@ export default function EsyaDepolamaPage() {
         <Breadcrumb items={[{ name: 'Kurumsal Çözümler', url: '/#hizmetlerimiz' }, { name: 'Eşya Depolama', url: '/hizmetler/esya-depolama' }]} className="pt-4" />
         
         {/* Intro Section */}
-        <section className="py-20 bg-navy text-white text-center space-y-4">
-          <span className="text-orange-text font-bold text-xs tracking-widest">
+        <section className="py-20 bg-forest text-white text-center space-y-4">
+          <span className="text-gold-text font-bold text-xs tracking-widest">
             KİRALIK KONTEYNER DEPOLARI
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight px-4">
@@ -89,8 +89,8 @@ export default function EsyaDepolamaPage() {
           
           {/* Section 1: Giriş */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Shield className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Shield className="w-6 h-6 text-gold" />
               <span>Konya Eşya Depolama Hizmetinin Yasal ve Fiziki Güvenceleri Nelerdir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -100,8 +100,8 @@ export default function EsyaDepolamaPage() {
 
           {/* Section 2: Konteyner Ölçüleri */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Warehouse className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Warehouse className="w-6 h-6 text-gold" />
               <span>Farklı Eşya Yoğunlukları İçin Sunulan Konteyner Depo Ölçüleri Nelerdir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -112,7 +112,7 @@ export default function EsyaDepolamaPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-sm">
                 <thead>
-                  <tr className="bg-navy text-white">
+                  <tr className="bg-forest text-white">
                     <th className="p-3 rounded-tl-lg">Depo Tipi</th>
                     <th className="p-3">Boyutlar (En x Boy x Yükseklik)</th>
                     <th className="p-3">Hacim (m³)</th>
@@ -145,8 +145,8 @@ export default function EsyaDepolamaPage() {
 
           {/* Section 3: Nem/Rutubet ve İlaçlama */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Building className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Building className="w-6 h-6 text-gold" />
               <span>Kiralık Nakliye Depolarında Nem ve Rutubet Koruması Nasıl Sağlanır?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -156,8 +156,8 @@ export default function EsyaDepolamaPage() {
 
           {/* Section 4: Giriş Çıkış Prosedürleri */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <ClipboardCheck className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <ClipboardCheck className="w-6 h-6 text-gold" />
               <span>Eşya Depolama Sürecinde Giriş ve Çıkış Prosedürleri Nasıl İşler?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -165,15 +165,15 @@ export default function EsyaDepolamaPage() {
             </p>
             <div className="space-y-4 text-sm text-charcoal">
               <div className="flex gap-3">
-                <CheckCircle2 className="w-5 h-5 text-orange shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-0.5" />
                 <p><strong>Adım 1: Barkodlama ve Liste Hazırlama:</strong> Depoya girecek her koli ve mobilya numaralandırılır, listeye işlenir. Eşyaların mevcut fiziki durumları fotoğraflarla belgelenir.</p>
               </div>
               <div className="flex gap-3">
-                <CheckCircle2 className="w-5 h-5 text-orange shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-0.5" />
                 <p><strong>Adım 2: Sigorta ve Sözleşme İmzası:</strong> Depolama sözleşmesi hazırlanır. Depolanan eşyaların tahmini emtia değeri belirlenerek sigorta poliçesi aktif hale getirilir.</p>
               </div>
               <div className="flex gap-3">
-                <CheckCircle2 className="w-5 h-5 text-orange shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-0.5" />
                 <p><strong>Adım 3: Mühürleme ve Anahtar Teslimi:</strong> Eşyalar konteynere yüklendikten sonra kapaklar mühürlenir. Anahtar yalnızca mülk sahibine (müşteriye) teslim edilir.</p>
               </div>
             </div>
@@ -181,8 +181,8 @@ export default function EsyaDepolamaPage() {
 
           {/* Section 5: Fiyatları Etkileyen Faktörler */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Scale className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Scale className="w-6 h-6 text-gold" />
               <span>Konya Eşya Depolama Fiyatları ve Ödeme Koşulları Nasıl Hesaplanır?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -192,8 +192,8 @@ export default function EsyaDepolamaPage() {
 
           {/* Section 6: Kurumsal Depolama */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Building className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Building className="w-6 h-6 text-gold" />
               <span>Kurumsal Şirketler İçin Ofis ve Arşiv Depolama Çözümleri Neleri Kapsar?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -203,8 +203,8 @@ export default function EsyaDepolamaPage() {
 
           {/* Section 7: Yasaklı Eşyalar */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <AlertOctagon className="w-6 h-6 text-orange" stroke="red" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <AlertOctagon className="w-6 h-6 text-gold" stroke="red" />
               <span>Kiralık Eşya Depolarında Saklanması Yasak Olan Maddeler Nelerdir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -214,8 +214,8 @@ export default function EsyaDepolamaPage() {
 
           {/* Section 8: Depolanan Eşyalara Erişim Koşulları */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <CheckCircle2 className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <CheckCircle2 className="w-6 h-6 text-gold" />
               <span>Depolanan Eşyalara Erişim Koşulları ve Ziyaret Saatleri Nasıl Düzenlenir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -224,19 +224,19 @@ export default function EsyaDepolamaPage() {
           </div>
 
           {/* Internal Links Navigation Area */}
-          <div className="bg-navy/5 border border-navy/10 rounded-xl p-6 space-y-4">
-            <span className="font-bold text-navy text-sm block">Yararlı Bağlantılar ve Rehberler</span>
+          <div className="bg-forest/5 border border-forest/10 rounded-xl p-6 space-y-4">
+            <span className="font-bold text-forest text-sm block">Yararlı Bağlantılar ve Rehberler</span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-              <Link href="/konya-nakliyat-fiyatlari" className="text-orange-text hover:underline font-bold">
+              <Link href="/konya-nakliyat-fiyatlari" className="text-gold-text hover:underline font-bold">
                 → Konya Evden Eve Nakliyat Fiyatları
               </Link>
-              <Link href="/teklif-al" className="text-orange-text hover:underline font-bold">
+              <Link href="/teklif-al" className="text-gold-text hover:underline font-bold">
                 → Ücretsiz Depolama Teklif Formu
               </Link>
-              <Link href="/hizmetler/sehirici-evden-eve-nakliyat" className="text-orange-text hover:underline font-bold">
+              <Link href="/hizmetler/sehirici-evden-eve-nakliyat" className="text-gold-text hover:underline font-bold">
                 → Şehiriçi Evden Eve Taşıma Hizmetleri
               </Link>
-              <Link href="/hizmetler/profesyonel-esya-paketleme" className="text-orange-text hover:underline font-bold">
+              <Link href="/hizmetler/profesyonel-esya-paketleme" className="text-gold-text hover:underline font-bold">
                 → Eşya Paketleme ve Paket Seçenekleri
               </Link>
             </div>
@@ -244,14 +244,14 @@ export default function EsyaDepolamaPage() {
 
           {/* FAQ Section */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <HelpCircle className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <HelpCircle className="w-6 h-6 text-gold" />
               <span>Eşya Depolama Hakkında Sıkça Sorulanlar</span>
             </h2>
             <div className="space-y-4 text-sm text-charcoal">
               {depolamaFaqs.map((item, idx) => (
                 <div key={idx} className={idx > 0 ? "border-t border-gray-light/60 pt-4" : ""}>
-                  <span className="font-bold text-navy block mb-1">{item.question}</span>
+                  <span className="font-bold text-forest block mb-1">{item.question}</span>
                   <p className="text-charcoal/95 leading-relaxed">{item.answer}</p>
                 </div>
               ))}
@@ -260,7 +260,7 @@ export default function EsyaDepolamaPage() {
 
           {/* CTA Box */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h3 className="font-display font-bold text-navy text-xl md:text-2xl border-b border-gray-light pb-3">
+            <h3 className="font-display font-bold text-forest text-xl md:text-2xl border-b border-gray-light pb-3">
               Hızlı ve Sabit Fiyat Teklifi Hesaplayın
             </h3>
             <QuoteForm isInline={true} />

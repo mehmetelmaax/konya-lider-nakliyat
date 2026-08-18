@@ -183,7 +183,7 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Back to Blog index link */}
           <Link
             href="/blog"
-            className="text-navy hover:text-orange font-bold text-xs uppercase tracking-widest flex items-center gap-1.5 mb-8 w-fit"
+            className="text-forest hover:text-gold font-bold text-xs uppercase tracking-widest flex items-center gap-1.5 mb-8 w-fit"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Tüm Yazılar</span>
@@ -194,22 +194,22 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="space-y-4">
               <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400 font-bold">
                 <span className="flex items-center gap-1">
-                  <Calendar className="w-3.5 h-3.5 text-orange" />
+                  <Calendar className="w-3.5 h-3.5 text-gold" />
                   {post.date}
                 </span>
                 <span className="flex items-center gap-1">
-                  <User className="w-3.5 h-3.5 text-orange" />
+                  <User className="w-3.5 h-3.5 text-gold" />
                   {post.author}
                 </span>
               </div>
-              <h1 className="font-display font-black text-navy text-2xl md:text-4xl tracking-tight leading-tight">
+              <h1 className="font-display font-black text-forest text-2xl md:text-4xl tracking-tight leading-tight">
                 {post.title}
               </h1>
             </div>
 
             {/* Featured Image */}
-            <div className="relative aspect-video w-full rounded-xl bg-navy/5 overflow-hidden border border-gray-light flex items-center justify-center">
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-navy/20">
+            <div className="relative aspect-video w-full rounded-xl bg-forest/5 overflow-hidden border border-gray-light flex items-center justify-center">
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-forest/20">
                 <ImageIcon className="w-16 h-16" />
                 <span className="text-xs font-semibold mt-2">[Blog Görseli: {post.image.split('/').pop()}]</span>
               </div>
@@ -227,20 +227,20 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Post Content */}
             <div 
-              className="text-charcoal text-sm md:text-base leading-relaxed space-y-6 prose prose-navy"
+              className="text-charcoal text-sm md:text-base leading-relaxed space-y-6 prose prose-forest"
               dangerouslySetInnerHTML={{ __html: post.contentHtml }}
             />
 
             {/* Customized Blog FAQ */}
             <div className="border-t border-gray-light pt-8 space-y-6">
-              <h2 className="font-display font-bold text-navy text-lg md:text-xl flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-orange" />
+              <h2 className="font-display font-bold text-forest text-lg md:text-xl flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-gold" />
                 <span>Bu Konuda Sıkça Sorulanlar (SSS)</span>
               </h2>
               <div className="space-y-4 text-sm text-charcoal">
                 {post.faqs.map((faq, idx) => (
                   <div key={idx} className="bg-off-white p-5 rounded-lg border border-gray-light/60">
-                    <span className="font-bold text-navy block mb-1">{faq.question}</span>
+                    <span className="font-bold text-forest block mb-1">{faq.question}</span>
                     <p>{faq.answer}</p>
                   </div>
                 ))}

@@ -71,9 +71,9 @@ export default function BolgelerPage() {
         <Breadcrumb items={[{ name: 'Bölgelerimiz', url: '/bolgeler' }]} className="pt-4" />
         
         {/* Banner Section */}
-        <section className="py-16 bg-navy text-white text-center space-y-4">
-          <span className="text-orange font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
-            <MapPin className="w-4 h-4 text-orange" />
+        <section className="py-16 bg-forest text-white text-center space-y-4">
+          <span className="text-gold font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
+            <MapPin className="w-4 h-4 text-gold" />
             <span>Hizmet Ağı</span>
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
@@ -87,7 +87,7 @@ export default function BolgelerPage() {
         {/* Detailed 400-word intro for SEO */}
         <section className="py-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white p-8 rounded-2xl border border-gray-light shadow-sm space-y-6 text-charcoal leading-relaxed text-sm md:text-base">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl">
               Konya'da Nakliye Lojistiği ve Coğrafi Bölge Yapısı
             </h2>
             <p>
@@ -104,8 +104,8 @@ export default function BolgelerPage() {
 
         {/* Merkez İlçeler Section */}
         <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="border-l-4 border-orange pl-3 mb-8">
-            <h2 className="font-display font-black text-navy text-2xl md:text-3xl">
+          <div className="border-l-4 border-gold pl-3 mb-8">
+            <h2 className="font-display font-black text-forest text-2xl md:text-3xl">
               Merkez İlçeler (Aynı Gün Teslim)
             </h2>
             <p className="text-gray-600 text-sm mt-1">Konya şehir merkezinde yer alan, yoğun hizmet verdiğimiz bölgelerimiz.</p>
@@ -113,17 +113,17 @@ export default function BolgelerPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {merkezDistricts.map((district) => (
-              <div key={district.slug} className="bg-white rounded-2xl p-6 border border-gray-light hover:border-orange/30 transition-all shadow-sm hover:shadow-md flex flex-col justify-between">
+              <div key={district.slug} className="bg-white rounded-2xl p-6 border border-gray-light hover:border-gold/30 transition-all shadow-sm hover:shadow-md flex flex-col justify-between">
                 <div className="space-y-3">
                   <div className="flex justify-between items-start">
-                    <span className="bg-orange/10 text-orange font-bold text-[10px] tracking-wider px-2.5 py-1 rounded-full uppercase">
+                    <span className="bg-gold/10 text-gold font-bold text-[10px] tracking-wider px-2.5 py-1 rounded-full uppercase">
                       Merkez Bölge
                     </span>
                     <span className="text-xs text-gray-400 flex items-center gap-1">
                       <Navigation className="w-3.5 h-3.5" /> Merkez
                     </span>
                   </div>
-                  <h3 className="font-display font-bold text-navy text-xl">
+                  <h3 className="font-display font-bold text-forest text-xl">
                     {district.name} Evden Eve Nakliyat
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -133,12 +133,12 @@ export default function BolgelerPage() {
                 
                 <div className="border-t border-gray-light mt-6 pt-4 flex items-center justify-between">
                   <div className="text-xs text-gray-500">
-                    <div>Mesafe: <span className="font-bold text-navy">Şehir İçi</span></div>
-                    <div>Ort. Süre: <span className="font-bold text-navy">4 - 6 Saat</span></div>
+                    <div>Mesafe: <span className="font-bold text-forest">Şehir İçi</span></div>
+                    <div>Ort. Süre: <span className="font-bold text-forest">4 - 6 Saat</span></div>
                   </div>
                   <Link 
                     href={`/bolgeler/${district.slug}`}
-                    className="text-orange hover:text-navy transition-colors font-bold text-sm flex items-center gap-1.5"
+                    className="text-gold hover:text-forest transition-colors font-bold text-sm flex items-center gap-1.5"
                   >
                     <span>Detaylar</span>
                     <ArrowRight className="w-4 h-4" />
@@ -151,8 +151,8 @@ export default function BolgelerPage() {
 
         {/* Taşra İlçeleri Section */}
         <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="border-l-4 border-orange pl-3 mb-8">
-            <h2 className="font-display font-black text-navy text-2xl md:text-3xl">
+          <div className="border-l-4 border-gold pl-3 mb-8">
+            <h2 className="font-display font-black text-forest text-2xl md:text-3xl">
               Çevre İlçeler
             </h2>
             <p className="text-gray-600 text-sm mt-1">Konya dışındaki, düzenli seferlerle hizmet ulaştırdığımız ilçelerimiz.</p>
@@ -160,17 +160,17 @@ export default function BolgelerPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {tasraDistricts.map((district) => (
-              <div key={district.slug} className="bg-white rounded-2xl p-6 border border-gray-light hover:border-orange/30 transition-all shadow-sm hover:shadow-md flex flex-col justify-between">
+              <div key={district.slug} className="bg-white rounded-2xl p-6 border border-gray-light hover:border-gold/30 transition-all shadow-sm hover:shadow-md flex flex-col justify-between">
                 <div className="space-y-3">
                   <div className="flex justify-between items-start">
-                    <span className="bg-navy/5 text-navy/70 font-bold text-[10px] tracking-wider px-2.5 py-1 rounded-full uppercase">
+                    <span className="bg-forest/5 text-forest/70 font-bold text-[10px] tracking-wider px-2.5 py-1 rounded-full uppercase">
                       Çevre İlçe
                     </span>
                     <span className="text-xs text-gray-400 flex items-center gap-1">
                       <Navigation className="w-3.5 h-3.5" /> {district.distanceKm} km
                     </span>
                   </div>
-                  <h3 className="font-display font-bold text-navy text-xl">
+                  <h3 className="font-display font-bold text-forest text-xl">
                     {district.name} Evden Eve Nakliyat
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -180,12 +180,12 @@ export default function BolgelerPage() {
                 
                 <div className="border-t border-gray-light mt-6 pt-4 flex items-center justify-between">
                   <div className="text-xs text-gray-500">
-                    <div>Mesafe: <span className="font-bold text-navy">~{district.distanceKm} km</span></div>
-                    <div>Ort. Süre: <span className="font-bold text-navy">6 - 8 Saat</span></div>
+                    <div>Mesafe: <span className="font-bold text-forest">~{district.distanceKm} km</span></div>
+                    <div>Ort. Süre: <span className="font-bold text-forest">6 - 8 Saat</span></div>
                   </div>
                   <Link 
                     href={`/bolgeler/${district.slug}`}
-                    className="text-orange hover:text-navy transition-colors font-bold text-sm flex items-center gap-1.5"
+                    className="text-gold hover:text-forest transition-colors font-bold text-sm flex items-center gap-1.5"
                   >
                     <span>Detaylar</span>
                     <ArrowRight className="w-4 h-4" />

@@ -29,9 +29,9 @@ export default function HakkimizdaPage() {
       <main className="pt-24 bg-off-white">
         <Breadcrumb items={[{ name: 'Hakkımızda', url: '/hakkimizda' }]} className="pt-4" />
         {/* Intro Section */}
-        <section className="py-20 bg-navy text-white relative">
+        <section className="py-20 bg-forest text-white relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-            <span className="text-orange font-bold text-xs tracking-widest">
+            <span className="text-gold font-bold text-xs tracking-widest">
               KURUMSAL PROFİLİMİZ
             </span>
             <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
@@ -49,8 +49,8 @@ export default function HakkimizdaPage() {
             
             {/* Block 1 */}
             <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-              <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-                <Calendar className="w-6 h-6 text-orange" />
+              <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+                <Calendar className="w-6 h-6 text-gold" />
                 <span>Firmamızın Kuruluş Tarihi ve Tarihçesi</span>
               </h2>
               <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -63,8 +63,8 @@ export default function HakkimizdaPage() {
 
             {/* Block 3 */}
             <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-              <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-                <Users className="w-6 h-6 text-orange" />
+              <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+                <Users className="w-6 h-6 text-gold" />
                 <span>Personel Yapımız ve Kadro Düzeni</span>
               </h2>
               <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -74,8 +74,8 @@ export default function HakkimizdaPage() {
 
             {/* Block 4 */}
             <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-              <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-                <Award className="w-6 h-6 text-orange" />
+              <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+                <Award className="w-6 h-6 text-gold" />
                 <span>Araç ve Asansör Filomuz</span>
               </h2>
               <p className="text-charcoal text-sm md:text-base leading-relaxed">

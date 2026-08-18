@@ -66,9 +66,9 @@ export default function GalleryPage() {
       
       <main className="pt-24 bg-off-white min-h-screen">
         {/* Intro */}
-        <section className="py-16 bg-navy text-white text-center space-y-4">
-          <span className="text-orange font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
-            <Camera className="w-4 h-4 text-orange" />
+        <section className="py-16 bg-forest text-white text-center space-y-4">
+          <span className="text-gold font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
+            <Camera className="w-4 h-4 text-gold" />
             <span>Faaliyetlerimiz</span>
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">

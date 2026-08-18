@@ -61,8 +61,8 @@ export default function EkspertizPage() {
       <main className="pt-24 bg-off-white">
         <Breadcrumb items={[{ name: 'Tüm Hizmetlerimiz', url: '/#hizmetlerimiz' }, { name: 'Ücretsiz Ekspertiz', url: '/hizmetler/ucretsiz-ekspertiz' }]} className="pt-4" />
                 {/* Intro */}
-        <section className="py-20 bg-navy text-white text-center space-y-4">
-          <span className="text-orange-text font-bold text-xs tracking-widest">
+        <section className="py-20 bg-forest text-white text-center space-y-4">
+          <span className="text-gold-text font-bold text-xs tracking-widest">
             DOĞRU MALİYET PLANLAMASI
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
@@ -78,7 +78,7 @@ export default function EkspertizPage() {
           
           {/* Section 1 */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl">
               Nakliye Ekspertiz Raporu Neden Önemlidir?
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -91,7 +91,7 @@ export default function EkspertizPage() {
 
           {/* Section 2 */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl">
               Görüntülü Ekspertiz Nasıl Yapılır?
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">Konya Lider Nakliyat, Yerinde keşif imkanı bulunmayan durumlarda, WhatsApp veya benzeri kanallar üzerinden görüntülü ekspertiz hizmeti vermekteyiz. Odalarınızı, gardırop içlerini ve binanızın dış cephe cephesini görüntülü arama ile ekiplerimize göstererek kısa sürede yazılı fiyat teklifi alabilirsiniz.</p>
@@ -103,14 +103,14 @@ export default function EkspertizPage() {
           <RelatedLinks currentSlug="ucretsiz-ekspertiz" type="hizmet" />
 
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl border-b border-gray-light pb-3">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl border-b border-gray-light pb-3">
               Ekspertiz Hakkında Sıkça Sorulanlar
             </h2>
             
             <div className="space-y-4 text-sm text-charcoal">
               {sss.map((item, idx) => (
                 <div key={idx} className={idx > 0 ? "border-t border-gray-light/60 pt-3" : ""}>
-                  <span className="font-bold text-navy block mb-1">{item.question}</span>
+                  <span className="font-bold text-forest block mb-1">{item.question}</span>
                   <p>{item.answer}</p>
                 </div>
               ))}
@@ -119,7 +119,7 @@ export default function EkspertizPage() {
 
           {/* Call to Action */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h3 className="font-display font-bold text-navy text-xl md:text-2xl border-b border-gray-light pb-3">
+            <h3 className="font-display font-bold text-forest text-xl md:text-2xl border-b border-gray-light pb-3">
               Hızlı ve Sabit Fiyat Teklifi Hesaplayın
             </h3>
             <QuoteForm isInline={true} />

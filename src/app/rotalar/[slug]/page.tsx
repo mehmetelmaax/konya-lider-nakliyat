@@ -92,8 +92,8 @@ export default async function RoutePage({ params }: PageProps) {
         />
 
         {/* Intro Section */}
-        <section className="py-20 bg-navy text-white text-center space-y-4">
-          <span className="text-orange-text font-bold text-xs tracking-widest font-sans">
+        <section className="py-20 bg-forest text-white text-center space-y-4">
+          <span className="text-gold-text font-bold text-xs tracking-widest font-sans">
             ŞEHİRLERARASI ROTA LOJİSTİĞİ
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight px-4">
@@ -105,7 +105,7 @@ export default async function RoutePage({ params }: PageProps) {
           <div className="pt-2">
             <Link
               href="/hizmetler/sehirlerarasi-evden-eve-nakliyat"
-              className="inline-flex items-center gap-1.5 text-xs text-orange hover:text-white font-bold uppercase tracking-wider transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs text-gold hover:text-white font-bold uppercase tracking-wider transition-colors"
             >
               <span>Şehirlerarası Nakliyat Hizmet Detayları</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -117,11 +117,11 @@ export default async function RoutePage({ params }: PageProps) {
         <section className="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Section 1: Distance and Time */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <MapPin className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <MapPin className="w-6 h-6 text-gold" />
               <span>Konya ve {route.city} Arası Mesafe ve Ev Taşıma Süresi Ne Kadardır?</span>
             </h2>
-            <p className="text-charcoal text-sm md:text-base leading-relaxed font-semibold text-navy">
+            <p className="text-charcoal text-sm md:text-base leading-relaxed font-semibold text-forest">
               Konya ile {route.city} arası karayolu mesafesi yaklaşık {route.distanceKm} kilometredir ve ev eşyası taşımacılığında teslimat süresi ortalama {route.distanceKm > 300 ? '2' : '1'} gündür.
             </p>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -134,8 +134,8 @@ export default async function RoutePage({ params }: PageProps) {
 
           {/* Section 2: Pricing Table */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Coins className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Coins className="w-6 h-6 text-gold" />
               <span>Konya ile {route.city} Arası Nakliyat Fiyatları Ne Kadardır?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">Konya Lider Nakliyat, {route.pricingText} Aşağıdaki tabloda, iki şehir arasında farklı daire tipleri için öngörülen ortalama fiyat aralıkları listelenmiştir:</p>
@@ -143,7 +143,7 @@ export default async function RoutePage({ params }: PageProps) {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-sm">
                 <thead>
-                  <tr className="bg-navy text-white">
+                  <tr className="bg-forest text-white">
                     <th className="p-3 font-display rounded-tl-lg">Daire Tipi</th>
                     <th className="p-3 font-display">Mesafe ve Lojistik Kapsamı</th>
                     <th className="p-3 font-display rounded-tr-lg">Ortalama Fiyat Aralığı</th>
@@ -153,21 +153,21 @@ export default async function RoutePage({ params }: PageProps) {
                   <tr className="hover:bg-off-white/50">
                     <td className="p-3 font-bold">1+1 Ev Taşıma</td>
                     <td className="p-3">Hafif Eşya Hacmi (3 Personel + Sigorta)</td>
-                    <td className="p-3 font-bold text-orange-text">
+                    <td className="p-3 font-bold text-gold-text">
                       {route.priceRangeMin.toLocaleString('tr-TR')} TL - {(route.priceRangeMin + 3000).toLocaleString('tr-TR')} TL
                     </td>
                   </tr>
                   <tr className="hover:bg-off-white/50">
                     <td className="p-3 font-bold">2+1 Ev Taşıma</td>
                     <td className="p-3">Standart Eşya Hacmi (4 Personel + Asansör + Sigorta)</td>
-                    <td className="p-3 font-bold text-orange-text">
+                    <td className="p-3 font-bold text-gold-text">
                       {(route.priceRangeMin + 3000).toLocaleString('tr-TR')} TL - {(route.priceRangeMin + 8000).toLocaleString('tr-TR')} TL
                     </td>
                   </tr>
                   <tr className="hover:bg-off-white/50">
                     <td className="p-3 font-bold">3+1 Ev Taşıma</td>
                     <td className="p-3">Geniş Eşya Hacmi (5 Personel + Çift Asansör + Sigorta)</td>
-                    <td className="p-3 font-bold text-orange-text">
+                    <td className="p-3 font-bold text-gold-text">
                       {(route.priceRangeMin + 8000).toLocaleString('tr-TR')} TL - {route.priceRangeMax.toLocaleString('tr-TR')} TL
                     </td>
                   </tr>
@@ -177,11 +177,11 @@ export default async function RoutePage({ params }: PageProps) {
             
             {/* Semantic Route Table Required by Rule 5 */}
             <div className="space-y-2 pt-4">
-              <span className="font-bold text-navy text-sm block">Rota Lojistik Parametreleri Tablosu:</span>
+              <span className="font-bold text-forest text-sm block">Rota Lojistik Parametreleri Tablosu:</span>
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse text-sm">
                   <thead>
-                    <tr className="bg-navy/10 text-navy">
+                    <tr className="bg-forest/10 text-forest">
                       <th className="p-3 rounded-tl-lg">Mesafe (Km)</th>
                       <th className="p-3">Taşıma Süresi</th>
                       <th className="p-3">Sigorta Türü</th>
@@ -193,25 +193,25 @@ export default async function RoutePage({ params }: PageProps) {
                       <td className="p-3 font-semibold">{route.distanceKm} km</td>
                       <td className="p-3">{route.distanceKm > 300 ? '2 Gün' : '1 Gün'}</td>
                       <td className="p-3">{FACTS.insurer} Korumalı</td>
-                      <td className="p-3 font-bold text-orange-text">{route.priceRangeMin.toLocaleString('tr-TR')} TL</td>
+                      <td className="p-3 font-bold text-gold-text">{route.priceRangeMin.toLocaleString('tr-TR')} TL</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
 
-            <p className="text-xs text-charcoal/70 italic border-l-2 border-orange pl-3">
+            <p className="text-xs text-charcoal/70 italic border-l-2 border-gold pl-3">
               Önemli Not: Belirtilen fiyatlar mevsimsel yakıt maliyetleri ve bina kat durumlarına göre küçük değişiklikler gösterebilir. Net ve sabit fiyat garantili teklif almak için lütfen teklif formumuzu doldurun.
             </p>
           </div>
 
           {/* Section 3: Güzergâh */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <MapPin className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <MapPin className="w-6 h-6 text-gold" />
               <span>Konya ve {route.city} Arası Nakliye Güzergâhı ve Taşıma Planı Nasıldır?</span>
             </h2>
-            <p className="text-charcoal text-sm md:text-base leading-relaxed">Konya Lider Nakliyat, Konya ile {route.city} arasındaki nakliye rotasında araçlarımızın kullandığı ana yol hattı: <strong className="text-navy">{route.viaRoute}</strong> güzergâhıdır. {route.routeText} Bu planlı güzergâhlar sayesinde, hem transit geçiş süreleri kısalır hem de otoban kalitesi sayesinde eşyalarınız minimum düzeyde sarsıntıya maruz kalır.</p>
+            <p className="text-charcoal text-sm md:text-base leading-relaxed">Konya Lider Nakliyat, Konya ile {route.city} arasındaki nakliye rotasında araçlarımızın kullandığı ana yol hattı: <strong className="text-forest">{route.viaRoute}</strong> güzergâhıdır. {route.routeText} Bu planlı güzergâhlar sayesinde, hem transit geçiş süreleri kısalır hem de otoban kalitesi sayesinde eşyalarınız minimum düzeyde sarsıntıya maruz kalır.</p>
             <p className="text-charcoal text-sm md:text-base leading-relaxed mt-3 pt-3 border-t border-gray-light/60">
               Sevkiyat öncesinde operasyon merkezimiz karayolları genel müdürlüğünün güncel yol durumu bültenlerini, kapalı yol ve yol yapım çalışması raporlarını inceleyerek güzergâhı günceller. Kamyonlarımızda yer alan araç takip sistemleri sayesinde Konya'dan çıkış yapan eşyalarınızın her kilometrede nerede olduğunu canlı olarak görebilirsiniz.
             </p>
@@ -219,8 +219,8 @@ export default async function RoutePage({ params }: PageProps) {
 
           {/* Section 4: Sigorta */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Shield className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Shield className="w-6 h-6 text-gold" />
               <span>Konya ve {route.city} Arası Eşya Taşımacılığında Sigorta Kapsamı Neleri İçerir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -233,8 +233,8 @@ export default async function RoutePage({ params }: PageProps) {
 
           {/* Section 5: City Specific Tips */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <ClipboardList className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <ClipboardList className="w-6 h-6 text-gold" />
               <span>{route.city} Kentine Taşınırken Dikkat Edilmesi Gereken Önemli Noktalar Nelerdir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">Konya Lider Nakliyat, {route.notes} {route.tipsText} Uzun mesafe evden eve nakliye süreçlerinde adreslerin önceden netleştirilmesi ve taşınma sabahında nakliye kamyonunun yanaşacağı otopark alanının ayrılması hayati önem taşır.</p>
@@ -245,14 +245,14 @@ export default async function RoutePage({ params }: PageProps) {
 
           {/* Section 6: FAQs */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <HelpCircle className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <HelpCircle className="w-6 h-6 text-gold" />
               <span>Konya ile {route.city} Arası Nakliyat Süreci Hakkında Sıkça Sorulan Sorular Nelerdir?</span>
             </h2>
             <div className="space-y-4 text-sm text-charcoal">
               {route.faq.map((item, idx) => (
                 <div key={idx} className={idx > 0 ? "border-t border-gray-light/60 pt-4" : ""}>
-                  <span className="font-bold text-navy block mb-1">{item.question}</span>
+                  <span className="font-bold text-forest block mb-1">{item.question}</span>
                   <p className="text-charcoal/95 leading-relaxed">{item.answer}</p>
                 </div>
               ))}
@@ -263,7 +263,7 @@ export default async function RoutePage({ params }: PageProps) {
 
           {/* CTA Form */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h3 className="font-display font-bold text-navy text-xl md:text-2xl border-b border-gray-light pb-3">
+            <h3 className="font-display font-bold text-forest text-xl md:text-2xl border-b border-gray-light pb-3">
               Konya {route.city} Nakliye Teklifi Alın
             </h3>
             <QuoteForm isInline={true} />

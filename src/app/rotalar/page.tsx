@@ -50,9 +50,9 @@ export default function RotalarPage() {
         <Breadcrumb items={[{ name: 'Rotalarımız', url: '/rotalar' }]} className="pt-4" />
         
         {/* Banner Section */}
-        <section className="py-16 bg-navy text-white text-center space-y-4">
-          <span className="text-orange font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
-            <Route className="w-4 h-4 text-orange" />
+        <section className="py-16 bg-forest text-white text-center space-y-4">
+          <span className="text-gold font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
+            <Route className="w-4 h-4 text-gold" />
             <span>Şehirlerarası Seferler</span>
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
@@ -67,10 +67,10 @@ export default function RotalarPage() {
         <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {ROUTES.map((route) => (
-              <div key={route.slug} className="bg-white rounded-2xl p-6 border border-gray-light hover:border-orange/30 transition-all shadow-sm hover:shadow-md flex flex-col justify-between">
+              <div key={route.slug} className="bg-white rounded-2xl p-6 border border-gray-light hover:border-gold/30 transition-all shadow-sm hover:shadow-md flex flex-col justify-between">
                 <div className="space-y-4">
                   <div className="flex justify-between items-start">
-                    <span className="bg-orange/10 text-orange font-bold text-[10px] tracking-wider px-2.5 py-1 rounded-full uppercase">
+                    <span className="bg-gold/10 text-gold font-bold text-[10px] tracking-wider px-2.5 py-1 rounded-full uppercase">
                       Konya → {route.city}
                     </span>
                     <span className="text-xs text-gray-400 flex items-center gap-1">
@@ -78,7 +78,7 @@ export default function RotalarPage() {
                     </span>
                   </div>
                   
-                  <h3 className="font-display font-bold text-navy text-lg">
+                  <h3 className="font-display font-bold text-forest text-lg">
                     Konya - {route.city} Evden Eve Nakliyat
                   </h3>
                   
@@ -89,13 +89,13 @@ export default function RotalarPage() {
 
                 <div className="border-t border-gray-light mt-6 pt-4 flex items-center justify-between">
                   <div className="text-xs text-gray-500">
-                    <div>Mesafe: <span className="font-bold text-navy">{route.distanceKm} km</span></div>
+                    <div>Mesafe: <span className="font-bold text-forest">{route.distanceKm} km</span></div>
                     <div>Güzergah: <span className="font-semibold text-charcoal">{route.viaRoute.split(' ')[0]}...</span></div>
                   </div>
                   
                   <Link 
                     href={`/rotalar/${route.slug}`}
-                    className="text-orange hover:text-navy transition-colors font-bold text-sm flex items-center gap-1"
+                    className="text-gold hover:text-forest transition-colors font-bold text-sm flex items-center gap-1"
                   >
                     <span>Sefer Detayı</span>
                     <ArrowRight className="w-4 h-4" />
@@ -110,7 +110,7 @@ export default function RotalarPage() {
         <section className="py-12 bg-white border-t border-gray-light">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div className="text-center space-y-2">
-              <h2 className="font-display font-black text-navy text-2xl md:text-3xl">
+              <h2 className="font-display font-black text-forest text-2xl md:text-3xl">
                 Rota Mesafe ve Süre Tablosu
               </h2>
               <p className="text-gray-500 text-sm max-w-xl mx-auto">
@@ -120,7 +120,7 @@ export default function RotalarPage() {
 
             <div className="overflow-x-auto rounded-xl border border-gray-light shadow-sm">
               <table className="min-w-full divide-y divide-gray-light text-left text-sm">
-                <thead className="bg-navy text-white text-xs uppercase font-bold tracking-wider">
+                <thead className="bg-forest text-white text-xs uppercase font-bold tracking-wider">
                   <tr>
                     <th scope="col" className="px-6 py-4">Güzergah</th>
                     <th scope="col" className="px-6 py-4">Mesafe (KM)</th>
@@ -132,11 +132,11 @@ export default function RotalarPage() {
                 <tbody className="divide-y divide-gray-light text-charcoal bg-white">
                   {ROUTES.map((route, idx) => (
                     <tr key={route.slug} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
-                      <td className="px-6 py-4 font-bold text-navy">Konya - {route.city} Hattı</td>
+                      <td className="px-6 py-4 font-bold text-forest">Konya - {route.city} Hattı</td>
                       <td className="px-6 py-4 font-semibold">{route.distanceKm} KM</td>
                       <td className="px-6 py-4">{route.durationHours} Saat</td>
                       <td className="px-6 py-4 text-xs">{route.viaRoute}</td>
-                      <td className="px-6 py-4 text-xs font-bold text-orange-text">
+                      <td className="px-6 py-4 text-xs font-bold text-gold-text">
                         {route.priceRangeMin.toLocaleString('tr-TR')} TL - {route.priceRangeMax.toLocaleString('tr-TR')} TL
                       </td>
                     </tr>

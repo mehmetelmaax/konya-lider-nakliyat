@@ -74,8 +74,8 @@ export default function ParcaEsyaTasimaPage() {
       <main className="pt-24 bg-off-white min-h-screen">
         <Breadcrumb items={[{ name: 'Lojistik Hizmetler', url: '/#hizmetlerimiz' }, { name: 'Parça Eşya Taşıma', url: '/hizmetler/parca-esya-tasima' }]} className="pt-4" />
                 {/* Intro Section */}
-        <section className="py-20 bg-navy text-white text-center space-y-4">
-          <span className="text-orange-text font-bold text-xs tracking-widest">
+        <section className="py-20 bg-forest text-white text-center space-y-4">
+          <span className="text-gold-text font-bold text-xs tracking-widest">
             HIZLI KAMYONET & PARSİYEL TAŞIMA
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight px-4">
@@ -91,8 +91,8 @@ export default function ParcaEsyaTasimaPage() {
           
           {/* Section 1: Giriş */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Shield className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Shield className="w-6 h-6 text-gold" />
               <span>Ekonomik Parça Eşya Taşıma Çözümleri Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -102,8 +102,8 @@ export default function ParcaEsyaTasimaPage() {
 
           {/* Section 2: Örnek Senaryolar */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Package className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Package className="w-6 h-6 text-gold" />
               <span>Sıkça Karşılaşılan Parça Taşıma Senaryoları Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -111,19 +111,19 @@ export default function ParcaEsyaTasimaPage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-charcoal">
               <div className="bg-off-white p-5 rounded-lg border border-gray-light/60 space-y-2">
-                <span className="font-bold text-navy text-sm block">1. Öğrenci ve Bekar Evi Taşıma</span>
+                <span className="font-bold text-forest text-sm block">1. Öğrenci ve Bekar Evi Taşıma</span>
                 <p className="text-xs leading-relaxed text-charcoal/90">Genellikle 1+1 veya sadece yatak odası, buzdolabı, masa gibi kısıtlı hacme sahip evlerin hızlı ve ekonomik kapalı kasa araçlarla taşınması.</p>
               </div>
               <div className="bg-off-white p-5 rounded-lg border border-gray-light/60 space-y-2">
-                <span className="font-bold text-navy text-sm block">2. Tekil Beyaz Eşya veya Mobilya Alımı</span>
+                <span className="font-bold text-forest text-sm block">2. Tekil Beyaz Eşya veya Mobilya Alımı</span>
                 <p className="text-xs leading-relaxed text-charcoal/90">Mağazadan veya ikinci el platformlarından satın aldığınız buzdolabı, çamaşır makinesi, gardırop gibi tekil eşyaların adresten alınıp kurulması.</p>
               </div>
               <div className="bg-off-white p-5 rounded-lg border border-gray-light/60 space-y-2">
-                <span className="font-bold text-navy text-sm block">3. Tek Koltuk Takımı veya Köşe Takımı</span>
+                <span className="font-bold text-forest text-sm block">3. Tek Koltuk Takımı veya Köşe Takımı</span>
                 <p className="text-xs leading-relaxed text-charcoal/90">Evler arası veya hediye olarak gönderilen tekli koltuk, kanepe, oturma grubu gibi hacimli mobilyaların hasarsız ambalajlanıp nakledilmesi.</p>
               </div>
               <div className="bg-off-white p-5 rounded-lg border border-gray-light/60 space-y-2">
-                <span className="font-bold text-navy text-sm block">4. Büro ve Ofis Masası Transferleri</span>
+                <span className="font-bold text-forest text-sm block">4. Büro ve Ofis Masası Transferleri</span>
                 <p className="text-xs leading-relaxed text-charcoal/90">İş yerlerinde departman değişiklikleri veya şubeler arası gönderilmesi gereken evrak dolapları, ofis masaları ve sandalyelerinin taşınması.</p>
               </div>
             </div>
@@ -131,8 +131,8 @@ export default function ParcaEsyaTasimaPage() {
 
           {/* Section 3: Güvenceler ve Paketleme */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Truck className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Truck className="w-6 h-6 text-gold" />
               <span>Parça Eşya Taşırken Hasarsızlık Garantisi Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -142,8 +142,8 @@ export default function ParcaEsyaTasimaPage() {
 
           {/* Section 4: Fiyatlandırma Kriterleri */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Scale className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Scale className="w-6 h-6 text-gold" />
               <span>Parça Eşya Fiyatlarını Belirleyen Kriterler Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -153,8 +153,8 @@ export default function ParcaEsyaTasimaPage() {
 
           {/* Section 5: Şehirlerarası Parsiyel Taşımacılık */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Truck className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Truck className="w-6 h-6 text-gold" />
               <span>Şehirlerarası Parsiyel Eşya Nakliyatı Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">Konya Lider Nakliyat, Konya'dan Türkiye'nin diğer illerine az sayıda eşya göndermek istediğinizde parsiyel taşımacılık hizmetimiz devreye girer. Haftalık olarak İstanbul, Ankara, İzmir, Bursa, Antalya gibi büyükşehirlere sefer düzenleyen geniş hacimli nakliyat tırlarımız, aynı güzergah üzerindeki parça eşyaları belirli bir plan çerçevesinde toplar. Eşyalarınız kasada diğer müşterilerin eşyalarıyla karışmaması için ara bölmelerle ayrılır ve teslimat sırasında listeye göre teker teker indirilerek yerinde kurulumu yapılır. Bu sayede tüm yol masrafları (yakıt, köprü geçişleri) bölündüğü için nakliye ücretiniz yarı yarıya düşmektedir.</p>
@@ -162,8 +162,8 @@ export default function ParcaEsyaTasimaPage() {
 
           {/* Section 6: Kamyonet Kiralama vs Lider Nakliyat */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Scale className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Scale className="w-6 h-6 text-gold" />
               <span>Sahibinden Kamyonet Kiralama ile Profesyonel Hizmet Farkı Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -173,8 +173,8 @@ export default function ParcaEsyaTasimaPage() {
 
           {/* Section 7: Parça Eşya Sigortası */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <Shield className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <Shield className="w-6 h-6 text-gold" />
               <span>Kısmi ve Parça Eşya Taşıma Sigorta Şartları Nedir?</span>
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -183,28 +183,28 @@ export default function ParcaEsyaTasimaPage() {
           </div>
 
           {/* Internal Links Navigation Area */}
-          <div className="bg-navy/5 border border-navy/10 rounded-xl p-6 space-y-4">
-            <span className="font-bold text-navy text-sm block">Yararlı Bağlantılar ve Rehberler</span>
+          <div className="bg-forest/5 border border-forest/10 rounded-xl p-6 space-y-4">
+            <span className="font-bold text-forest text-sm block">Yararlı Bağlantılar ve Rehberler</span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-              <Link href="/konya-nakliyat-fiyatlari" className="text-orange-text hover:underline font-bold">
+              <Link href="/konya-nakliyat-fiyatlari" className="text-gold-text hover:underline font-bold">
                 → Konya Evden Eve Nakliyat Fiyatları
               </Link>
-              <Link href="/teklif-al" className="text-orange-text hover:underline font-bold">
+              <Link href="/teklif-al" className="text-gold-text hover:underline font-bold">
                 → Ücretsiz Nakliye Teklif Formu
               </Link>
-              <Link href="/hizmetler/sehirici-evden-eve-nakliyat" className="text-orange-text hover:underline font-bold">
+              <Link href="/hizmetler/sehirici-evden-eve-nakliyat" className="text-gold-text hover:underline font-bold">
                 → Şehiriçi Evden Eve Taşıma Hizmetleri
               </Link>
-              <Link href="/hizmetler/esya-depolama" className="text-orange-text hover:underline font-bold">
+              <Link href="/hizmetler/esya-depolama" className="text-gold-text hover:underline font-bold">
                 → Kiralık Eşya Depolama Hizmetleri
               </Link>
-              <Link href="/bolgeler/selcuklu-evden-eve-nakliyat" className="text-orange-text hover:underline font-bold">
+              <Link href="/bolgeler/selcuklu-evden-eve-nakliyat" className="text-gold-text hover:underline font-bold">
                 → Selçuklu Bölgesi Nakliye Çözümleri
               </Link>
-              <Link href="/bolgeler/meram-evden-eve-nakliyat" className="text-orange-text hover:underline font-bold">
+              <Link href="/bolgeler/meram-evden-eve-nakliyat" className="text-gold-text hover:underline font-bold">
                 → Meram Bölgesi Nakliye Çözümleri
               </Link>
-              <Link href="/tasinma-kontrol-listesi" className="text-orange-text hover:underline font-bold">
+              <Link href="/tasinma-kontrol-listesi" className="text-gold-text hover:underline font-bold">
                 → İnteraktif Taşınma Kontrol Çizelgesi
               </Link>
             </div>
@@ -212,14 +212,14 @@ export default function ParcaEsyaTasimaPage() {
 
           {/* FAQ Section */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl flex items-center gap-2">
-              <HelpCircle className="w-6 h-6 text-orange" />
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl flex items-center gap-2">
+              <HelpCircle className="w-6 h-6 text-gold" />
               <span>Parça Eşya Taşıma Hakkında Sıkça Sorulanlar</span>
             </h2>
             <div className="space-y-4 text-sm text-charcoal">
               {parcaFaqs.map((item, idx) => (
                 <div key={idx} className={idx > 0 ? "border-t border-gray-light/60 pt-4" : ""}>
-                  <span className="font-bold text-navy block mb-1">{item.question}</span>
+                  <span className="font-bold text-forest block mb-1">{item.question}</span>
                   <p className="text-charcoal/95 leading-relaxed">{item.answer}</p>
                 </div>
               ))}
@@ -228,7 +228,7 @@ export default function ParcaEsyaTasimaPage() {
 
           {/* CTA Box */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h3 className="font-display font-bold text-navy text-xl md:text-2xl border-b border-gray-light pb-3">
+            <h3 className="font-display font-bold text-forest text-xl md:text-2xl border-b border-gray-light pb-3">
               Hızlı ve Sabit Fiyat Teklifi Hesaplayın
             </h3>
             <QuoteForm isInline={true} />

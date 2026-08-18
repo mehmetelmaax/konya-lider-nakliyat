@@ -122,10 +122,10 @@ export default function ServicesGrid() {
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <span className="text-orange-text font-bold text-xs tracking-widest">
+          <span className="text-gold-text font-bold text-xs tracking-widest">
             FAALİYET ALANLARIMIZ
           </span>
-          <h2 className="font-display font-black text-navy text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight">
+          <h2 className="font-display font-black text-forest text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight">
             Profesyonel Taşımacılık Hizmetleri
           </h2>
           <p className="text-charcoal text-base md:text-lg leading-relaxed">
@@ -139,8 +139,8 @@ export default function ServicesGrid() {
           {/* Left Column: Embedded Sticky Quote Calculator Form */}
           <div className="lg:col-span-4 lg:sticky lg:top-24 bg-white rounded-2xl shadow-xl p-6 border border-gray-light">
             <div className="mb-4">
-              <span className="text-orange-text font-bold text-[10px] tracking-widest block">ÜCRETSİZ EKSPERTİZ</span>
-              <h3 className="font-display font-black text-navy text-xl mt-0.5">Taşınma Maliyeti Al</h3>
+              <span className="text-gold-text font-bold text-[10px] tracking-widest block">ÜCRETSİZ EKSPERTİZ</span>
+              <h3 className="font-display font-black text-forest text-xl mt-0.5">Taşınma Maliyeti Al</h3>
             </div>
             <QuoteForm isInline={true} />
           </div>
@@ -152,18 +152,18 @@ export default function ServicesGrid() {
               return (
                 <div 
                   key={service.id}
-                  className="bg-white rounded-xl p-6 md:p-8 border border-gray-light hover:border-orange/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden cursor-pointer"
+                  className="bg-white rounded-xl p-6 md:p-8 border border-gray-light hover:border-gold/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden cursor-pointer"
                 >
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-gray-light/10 rounded-bl-full transition-colors group-hover:bg-orange/5"></div>
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gray-light/10 rounded-bl-full transition-colors group-hover:bg-gold/5"></div>
                   
                   <div>
                     {/* Card Header (Icon & Names) */}
                     <div className="flex gap-4 items-center mb-6">
-                      <div className="bg-navy/5 text-navy p-3 rounded-lg group-hover:bg-orange group-hover:text-navy transition-colors duration-300">
+                      <div className="bg-forest/5 text-forest p-3 rounded-lg group-hover:bg-gold group-hover:text-forest transition-colors duration-300">
                         <Icon className="w-6 h-6" />
                       </div>
                       <div>
-                        <h3 className="font-display font-bold text-navy text-sm group-hover:text-orange-text transition-colors leading-tight">
+                        <h3 className="font-display font-bold text-forest text-sm group-hover:text-gold-text transition-colors leading-tight">
                           {service.name}
                         </h3>
                         <span className="text-gray-400 text-[10px] font-semibold tracking-wider block mt-1">
@@ -181,7 +181,7 @@ export default function ServicesGrid() {
                     <ul className="space-y-3 mb-6 border-t border-b border-gray-light/60 py-4">
                       {service.mechanics.map((bullet, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-xs text-charcoal font-semibold">
-                          <span className="w-1.5 h-1.5 bg-orange rounded-full"></span>
+                          <span className="w-1.5 h-1.5 bg-gold rounded-full"></span>
                           <span>{bullet}</span>
                         </li>
                       ))}
@@ -203,7 +203,7 @@ export default function ServicesGrid() {
                   {/* Card CTA */}
                   <Link
                     href={service.route}
-                    className="bg-navy hover:bg-orange text-white hover:text-navy font-bold py-2.5 px-4 rounded transition-all duration-200 text-center text-xs flex items-center justify-center gap-2 group-hover:shadow-md active:scale-98"
+                    className="bg-forest hover:bg-gold text-white hover:text-forest font-bold py-2.5 px-4 rounded transition-all duration-200 text-center text-xs flex items-center justify-center gap-2 group-hover:shadow-md active:scale-98"
                   >
                     <span>{service.microCTA}</span>
                     <ArrowRight className="w-3.5 h-3.5" />

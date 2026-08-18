@@ -1,11 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0D3E30;
   --color-forest: #0D3E30;
-  --color-orange: #D4AF37;
   --color-gold: #D4AF37;
-  --color-orange-text: #9B7E20;
   --color-gold-text: #9B7E20;
   --color-charcoal: #1B2421;
   --color-gray-light: #EBF0ED;
@@ -39,7 +36,6 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
-  overflow-x: hidden;
 }
 
 /* Custom Scrollbar */

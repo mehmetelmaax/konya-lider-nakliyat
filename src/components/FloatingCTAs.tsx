@@ -23,7 +23,7 @@ export default function FloatingCTAs() {
       
       {/* 1. Location / Yol Tarifi Popup Card */}
       {showLocationPopup && (
-        <div className="bg-navy border border-white/10 text-white rounded-2xl p-4 shadow-2xl max-w-[260px] relative animate-bounce-subtle">
+        <div className="bg-forest border border-white/10 text-white rounded-2xl p-4 shadow-2xl max-w-[260px] relative animate-bounce-subtle">
           <button 
             onClick={() => setShowLocationPopup(false)}
             className="absolute top-2 right-2 text-white/50 hover:text-white cursor-pointer"
@@ -33,11 +33,11 @@ export default function FloatingCTAs() {
           </button>
           
           <div className="flex gap-3 items-start pr-2">
-            <div className="bg-orange/20 text-orange p-2 rounded-lg flex-shrink-0 mt-0.5">
+            <div className="bg-gold/20 text-gold p-2 rounded-lg flex-shrink-0 mt-0.5">
               <MapPin className="w-5 h-5" />
             </div>
             <div className="space-y-1">
-              <span className="text-[10px] font-bold text-orange tracking-wider block">MERKEZ OFİSİMİZ</span>
+              <span className="text-[10px] font-bold text-gold tracking-wider block">MERKEZ OFİSİMİZ</span>
               <h4 className="font-display font-bold text-xs leading-snug">Yol Tarifi Alın</h4>
               <p className="text-[10px] text-gray-300 leading-relaxed">{SITE.address.locality} / {SITE.address.region} adresimize Google Haritalar ile ulaşın.</p>
               <a 
@@ -45,7 +45,7 @@ export default function FloatingCTAs() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackEvent('harita_tikla', { konum: 'floating', sayfa: window.location.pathname })}
-                className="text-orange hover:underline text-[10px] font-bold block pt-1.5"
+                className="text-gold hover:underline text-[10px] font-bold block pt-1.5"
               >
                 Haritada Göster &rarr;
               </a>
@@ -71,7 +71,7 @@ export default function FloatingCTAs() {
             </div>
             <div className="space-y-1">
               <span className="text-[10px] font-bold text-emerald-600 tracking-wider block">WHATSAPP {SITE.hours.whatsapp}</span>
-              <h4 className="font-display font-bold text-navy text-xs leading-snug">WhatsApp Destek</h4>
+              <h4 className="font-display font-bold text-forest text-xs leading-snug">WhatsApp Destek</h4>
               <p className="text-[10px] text-charcoal leading-relaxed">Eşya fotoğraflarınızı atıp anında hızlı fiyat teklifi alabilirsiniz.</p>
               <a 
                 href={`${SITE.whatsappHref}?text=Merhaba,%20evimi%20taşımak%20istiyorum.%20Fiyat%20teklifi%20alabilir%20miyim?`}

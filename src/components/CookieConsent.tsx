@@ -40,9 +40,9 @@ export default function CookieConsent() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md bg-navy text-white p-6 rounded-2xl border border-white/10 shadow-2xl z-50 transition-all duration-300 animate-slide-up flex flex-col gap-4">
+    <div className="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md bg-forest text-white p-6 rounded-2xl border border-white/10 shadow-2xl z-50 transition-all duration-300 animate-slide-up flex flex-col gap-4">
       <div className="flex items-start gap-3">
-        <div className="bg-orange/10 p-2 rounded-lg text-orange shrink-0">
+        <div className="bg-gold/10 p-2 rounded-lg text-gold shrink-0">
           <ShieldAlert className="w-5 h-5" />
         </div>
         <div className="space-y-1">
@@ -62,7 +62,7 @@ export default function CookieConsent() {
         </button>
         <button
           onClick={() => handleConsent('granted')}
-          className="bg-orange hover:bg-white text-navy px-4 py-2 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+          className="bg-gold hover:bg-white text-forest px-4 py-2 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
         >
           Kabul Et
         </button>

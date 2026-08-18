@@ -58,8 +58,8 @@ export default function AsansorluPage() {
         <Breadcrumb items={[{ name: 'Lider Hizmetleri', url: '/#hizmetlerimiz' }, { name: 'Asansörlü Nakliyat', url: '/hizmetler/asansorlu-evden-eve-nakliyat' }]} className="pt-4" />
         
         {/* Intro */}
-        <section className="py-20 bg-navy text-white text-center space-y-4">
-          <span className="text-orange-text font-bold text-xs tracking-widest">
+        <section className="py-20 bg-forest text-white text-center space-y-4">
+          <span className="text-gold-text font-bold text-xs tracking-widest">
             KAT YÜKSEKLİĞİ ÇÖZÜMLERİ
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
@@ -75,7 +75,7 @@ export default function AsansorluPage() {
           
           {/* Section 1 */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl">
               Asansörlü Ev Taşıma Hangi Kat Limitlerine Kadar Ulaşır?
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -85,7 +85,7 @@ export default function AsansorluPage() {
 
           {/* Section 2 */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl">
               Asansörlü Nakliyat Kurulumu Hangi Avantajları Sağlar?
             </h2>
             <p className="text-charcoal text-sm md:text-base leading-relaxed">
@@ -95,11 +95,11 @@ export default function AsansorluPage() {
 
           {/* Service Scope Table (Rule 5) */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-4">
-            <span className="font-bold text-navy text-lg block">Asansörlü Evden Eve Nakliyat Hizmet Kapsamı</span>
+            <span className="font-bold text-forest text-lg block">Asansörlü Evden Eve Nakliyat Hizmet Kapsamı</span>
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-sm">
                 <thead>
-                  <tr className="bg-navy text-white">
+                  <tr className="bg-forest text-white">
                     <th className="p-3 rounded-tl-lg">Hizmet Detayı</th>
                     <th className="p-3">Durum</th>
                     <th className="p-3 rounded-tr-lg">Açıklama</th>
@@ -130,13 +130,13 @@ export default function AsansorluPage() {
           <RelatedLinks currentSlug="asansorlu-evden-eve-nakliyat" type="hizmet" />
 
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h2 className="font-display font-bold text-navy text-xl md:text-2xl border-b border-gray-light pb-3">
+            <h2 className="font-display font-bold text-forest text-xl md:text-2xl border-b border-gray-light pb-3">
               Asansörlü Nakliyat Hakkında Sıkça Sorulanlar (SSS)?
             </h2>
             <div className="space-y-4 text-sm text-charcoal">
               {sss.map((item, idx) => (
                 <div key={idx} className={item.question ? "border-t border-gray-light/60 pt-3" : ""}>
-                  <span className="font-bold text-navy block mb-1">{item.question}</span>
+                  <span className="font-bold text-forest block mb-1">{item.question}</span>
                   <p>{item.answer}</p>
                 </div>
               ))}
@@ -145,7 +145,7 @@ export default function AsansorluPage() {
 
           {/* Call to Action */}
           <div className="bg-white p-8 rounded-xl border border-gray-light shadow-sm space-y-6">
-            <h3 className="font-display font-bold text-navy text-xl md:text-2xl border-b border-gray-light pb-3">
+            <h3 className="font-display font-bold text-forest text-xl md:text-2xl border-b border-gray-light pb-3">
               Hızlı ve Sabit Fiyat Teklifi Hesaplayın
             </h3>
             <QuoteForm isInline={true} />

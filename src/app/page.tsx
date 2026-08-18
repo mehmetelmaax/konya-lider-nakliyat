@@ -52,10 +52,10 @@ export default function Home() {
         <TrustStrip />
 
         {/* Neden Lider Section */}
-        <section className="py-20 bg-navy text-white" id="neden-lider">
+        <section className="py-20 bg-forest text-white" id="neden-lider">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-              <span className="text-orange font-bold text-xs tracking-widest">
+              <span className="text-gold font-bold text-xs tracking-widest">
                 KURUMSAL FARKIMIZ
               </span>
               <h2 className="font-display font-black text-white text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight">
@@ -68,9 +68,9 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Feature 1 */}
-              <div className="bg-white/5 p-8 rounded-xl border border-white/10 hover:border-orange/20 transition-all duration-300 space-y-4">
-                <div className="bg-orange/10 text-orange p-3.5 rounded-lg w-fit">
-                  <BadgeCheck className="w-6 h-6 text-orange" />
+              <div className="bg-white/5 p-8 rounded-xl border border-white/10 hover:border-gold/20 transition-all duration-300 space-y-4">
+                <div className="bg-gold/10 text-gold p-3.5 rounded-lg w-fit">
+                  <BadgeCheck className="w-6 h-6 text-gold" />
                 </div>
                 <h3 className="font-display font-bold text-white text-lg">Sabit Fiyat Sözleşmesi</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
@@ -79,9 +79,9 @@ export default function Home() {
               </div>
 
               {/* Feature 2 */}
-              <div className="bg-white/5 p-8 rounded-xl border border-white/10 hover:border-orange/20 transition-all duration-300 space-y-4">
-                <div className="bg-orange/10 text-orange p-3.5 rounded-lg w-fit">
-                  <Users2 className="w-6 h-6 text-orange" />
+              <div className="bg-white/5 p-8 rounded-xl border border-white/10 hover:border-gold/20 transition-all duration-300 space-y-4">
+                <div className="bg-gold/10 text-gold p-3.5 rounded-lg w-fit">
+                  <Users2 className="w-6 h-6 text-gold" />
                 </div>
                 <h3 className="font-display font-bold text-white text-lg">Eğitimli Kadrolu Personel</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
@@ -90,9 +90,9 @@ export default function Home() {
               </div>
 
               {/* Feature 3 */}
-              <div className="bg-white/5 p-8 rounded-xl border border-white/10 hover:border-orange/20 transition-all duration-300 space-y-4">
-                <div className="bg-orange/10 text-orange p-3.5 rounded-lg w-fit">
-                  <Building2 className="w-6 h-6 text-orange" />
+              <div className="bg-white/5 p-8 rounded-xl border border-white/10 hover:border-gold/20 transition-all duration-300 space-y-4">
+                <div className="bg-gold/10 text-gold p-3.5 rounded-lg w-fit">
+                  <Building2 className="w-6 h-6 text-gold" />
                 </div>
                 <h3 className="font-display font-bold text-white text-lg">Kendi Mobil Asansör Filomuz</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
@@ -107,10 +107,10 @@ export default function Home() {
         <ServicesGrid />
 
         {/* Operational Steps */}
-        <section className="py-20 bg-navy text-white border-t border-white/5" id="surec">
+        <section className="py-20 bg-forest text-white border-t border-white/5" id="surec">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-              <span className="text-orange font-bold text-xs tracking-widest">
+              <span className="text-gold font-bold text-xs tracking-widest">
                 İŞLEYİŞ MODELİ
               </span>
               <h2 className="font-display font-black text-white text-3xl md:text-4xl tracking-tight leading-tight">
@@ -124,7 +124,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
               {/* Step 1 */}
               <div className="space-y-4 text-center md:text-left relative">
-                <span className="font-display font-black text-orange/30 text-5xl md:text-6xl block">01</span>
+                <span className="font-display font-black text-gold/30 text-5xl md:text-6xl block">01</span>
                 <h3 className="font-display font-bold text-white text-lg">Hızlı Keşif ve Fiyatlama</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   Oda sayınızı ve eşya miktarınızı analiz edip net, sabit fiyat teklifimizi sözleşmeyle sunarız.
@@ -133,7 +133,7 @@ export default function Home() {
 
               {/* Step 2 */}
               <div className="space-y-4 text-center md:text-left">
-                <span className="font-display font-black text-orange/30 text-5xl md:text-6xl block">02</span>
+                <span className="font-display font-black text-gold/30 text-5xl md:text-6xl block">02</span>
                 <h3 className="font-display font-bold text-white text-lg">Özenli Paketleme</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   Eşyalarınızı çift katlı havalı balonlu naylonlar ve kalın Kraft karton kutularla darbeye karşı sararız.
@@ -142,7 +142,7 @@ export default function Home() {
 
               {/* Step 3 */}
               <div className="space-y-4 text-center md:text-left">
-                <span className="font-display font-black text-orange/30 text-5xl md:text-6xl block">03</span>
+                <span className="font-display font-black text-gold/30 text-5xl md:text-6xl block">03</span>
                 <h3 className="font-display font-bold text-white text-lg">Asansörlü Yükleme</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   Kendi dış cephe asansörlerimizle eşyaları dar apartman merdivenlerine sokmadan doğrudan araca indiririz.
@@ -151,7 +151,7 @@ export default function Home() {
 
               {/* Step 4 */}
               <div className="space-y-4 text-center md:text-left">
-                <span className="font-display font-black text-orange/30 text-5xl md:text-6xl block">04</span>
+                <span className="font-display font-black text-gold/30 text-5xl md:text-6xl block">04</span>
                 <h3 className="font-display font-bold text-white text-lg">Montaj ve Yerleşim</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   Yeni evinizde gardırop marangoz montajını yapar, beyaz eşyaları bağlar ve çalışır halde teslim ederiz.
@@ -165,10 +165,10 @@ export default function Home() {
         <section className="py-20 bg-white" id="ilcelerimiz">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-              <span className="text-orange-text font-bold text-xs tracking-widest">
+              <span className="text-gold-text font-bold text-xs tracking-widest">
                 GENİŞ HİZMET AĞI
               </span>
-              <h2 className="font-display font-black text-navy text-3xl md:text-4xl tracking-tight leading-tight">
+              <h2 className="font-display font-black text-forest text-3xl md:text-4xl tracking-tight leading-tight">
                 Konya'nın Tüm İlçelerinde Hizmetteyiz
               </h2>
               <p className="text-charcoal text-base leading-relaxed">
@@ -186,14 +186,14 @@ export default function Home() {
                 ];
                 const anchorText = anchors[idx % anchors.length];
                 return (
-                  <div key={d.slug} className="bg-off-white p-6 rounded-xl border border-gray-light hover:border-orange/20 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-3">
-                    <h3 className="font-display font-bold text-navy text-base">{d.name} Şubesi</h3>
+                  <div key={d.slug} className="bg-off-white p-6 rounded-xl border border-gray-light hover:border-gold/20 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-3">
+                    <h3 className="font-display font-bold text-forest text-base">{d.name} Şubesi</h3>
                     <p className="text-charcoal/80 text-xs leading-relaxed">
                       {d.name} ilçesinde yüksek katlı daireler için modüler dış cephe asansörlerimizle sabit fiyatlı ev nakliyat hizmeti vermekteyiz.
                     </p>
                     <Link
                       href={`/bolgeler/${d.slug}`}
-                      className="text-orange-text hover:underline text-xs font-bold block"
+                      className="text-gold-text hover:underline text-xs font-bold block"
                     >
                       {anchorText} ➔
                     </Link>
@@ -205,10 +205,10 @@ export default function Home() {
         </section>
 
         {/* Google Maps Reviews Section */}
-        <section className="py-20 bg-navy text-white border-t border-white/5" id="yorumlar">
+        <section className="py-20 bg-forest text-white border-t border-white/5" id="yorumlar">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center mb-10 space-y-4">
-              <span className="text-orange font-bold text-xs tracking-widest">
+              <span className="text-gold font-bold text-xs tracking-widest">
                 MÜŞTERİ DENEYİMLERİ
               </span>
               <h2 className="font-display font-black text-white text-3xl md:text-4xl tracking-tight leading-tight">
@@ -225,7 +225,7 @@ export default function Home() {
                 href={SITE.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-orange hover:bg-white text-navy font-black px-6 py-3.5 rounded-xl border border-navy transition-all duration-200 text-sm flex items-center gap-2 active:scale-95 shadow-md hover:shadow-lg cursor-pointer"
+                className="bg-gold hover:bg-white text-forest font-black px-6 py-3.5 rounded-xl border border-forest transition-all duration-200 text-sm flex items-center gap-2 active:scale-95 shadow-md hover:shadow-lg cursor-pointer"
               >
                 <Star className="w-4 h-4 fill-current animate-spin-slow" />
                 <span>Google'da Yorum Yazın (Değerlendirin)</span>
@@ -234,7 +234,7 @@ export default function Home() {
                 href={SITE.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-orange font-bold text-sm flex items-center gap-1.5 transition-colors py-3"
+                className="text-white hover:text-gold font-bold text-sm flex items-center gap-1.5 transition-colors py-3"
               >
                 <span>Tüm Yorumları Google Haritalar'da Oku</span>
                 <ArrowRight className="w-4 h-4" />
@@ -244,16 +244,16 @@ export default function Home() {
         </section>
 
         {/* Bottom Call to Action banner */}
-        <section className="py-16 bg-orange text-navy text-center space-y-6">
-          <h2 className="font-display font-black text-2xl md:text-3xl lg:text-4xl tracking-tight max-w-xl mx-auto text-navy">
+        <section className="py-16 bg-gold text-forest text-center space-y-6">
+          <h2 className="font-display font-black text-2xl md:text-3xl lg:text-4xl tracking-tight max-w-xl mx-auto text-forest">
             Hemen Sabit Fiyatlı Teklifinizi Alın
           </h2>
-          <p className="text-navy/85 text-sm max-w-md mx-auto leading-relaxed font-semibold">
+          <p className="text-forest/85 text-sm max-w-md mx-auto leading-relaxed font-semibold">
             Dairenizin oda durumunu seçin, asansör ihtiyacınızı belirterek taşınma bedelinizi hemen hesaplayın.
           </p>
           <Link
             href="/teklif-al"
-            className="bg-navy hover:bg-white text-white hover:text-navy font-black px-8 py-4 rounded border border-navy transition-all duration-200 inline-block text-base shadow-md cursor-pointer active:scale-95"
+            className="bg-forest hover:bg-white text-white hover:text-forest font-black px-8 py-4 rounded border border-forest transition-all duration-200 inline-block text-base shadow-md cursor-pointer active:scale-95"
           >
             Maliyeti Hesapla
           </Link>

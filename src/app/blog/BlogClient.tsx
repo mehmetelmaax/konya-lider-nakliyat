@@ -57,7 +57,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
       case 'Yasal':
         return 'bg-blue-50 text-blue-700 border-blue-200/50';
       case 'Teknik':
-        return 'bg-orange-50 text-orange-text border-orange-200/50';
+        return 'bg-gold-50 text-gold-text border-gold-200/50';
       case 'Bölge':
         return 'bg-purple-50 text-purple-700 border-purple-200/50';
       default:
@@ -69,8 +69,8 @@ export default function BlogClient({ posts }: BlogClientProps) {
     <div className="space-y-12">
       {/* Category Filter Tabs */}
       <div className="bg-white p-4 rounded-2xl border border-gray-light shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex items-center gap-2 text-navy font-bold text-sm">
-          <Filter className="w-4 h-4 text-orange" />
+        <div className="flex items-center gap-2 text-forest font-bold text-sm">
+          <Filter className="w-4 h-4 text-gold" />
           <span>Kategori Seçin:</span>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -80,8 +80,8 @@ export default function BlogClient({ posts }: BlogClientProps) {
               onClick={() => handleCategoryChange(category)}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border cursor-pointer active:scale-95 ${
                 selectedCategory === category
-                  ? 'bg-navy border-navy text-white shadow-md'
-                  : 'bg-off-white hover:bg-white border-gray-light text-charcoal hover:text-navy'
+                  ? 'bg-forest border-forest text-white shadow-md'
+                  : 'bg-off-white hover:bg-white border-gray-light text-charcoal hover:text-forest'
               }`}
             >
               {category} {category === 'Tümü' ? `(${posts.length})` : `(${posts.filter(p => p.category === category).length})`}
@@ -105,7 +105,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
             return (
               <article
                 key={post.id}
-                className="bg-white rounded-2xl border border-gray-light hover:border-orange/20 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+                className="bg-white rounded-2xl border border-gray-light hover:border-gold/20 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group"
               >
                 {/* Header Image */}
                 <div className="relative aspect-video w-full overflow-hidden bg-gray-100 border-b border-gray-light">
@@ -128,7 +128,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                   <div className="space-y-3">
                     <div className="flex flex-wrap items-center gap-3 text-xs text-gray-400 font-bold">
                       <span className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5 text-orange" />
+                        <Calendar className="w-3.5 h-3.5 text-gold" />
                         <time dateTime={post.date}>
                           {new Date(post.date).toLocaleDateString('tr-TR', {
                             year: 'numeric',
@@ -138,13 +138,13 @@ export default function BlogClient({ posts }: BlogClientProps) {
                         </time>
                       </span>
                       <span className="flex items-center gap-1">
-                        <User className="w-3.5 h-3.5 text-orange" />
+                        <User className="w-3.5 h-3.5 text-gold" />
                         {post.author}
                       </span>
                       <span>• {readingTime} dk okuma</span>
                     </div>
 
-                    <h2 className="font-display font-black text-navy text-lg group-hover:text-orange-text transition-colors line-clamp-2 leading-tight">
+                    <h2 className="font-display font-black text-forest text-lg group-hover:text-gold-text transition-colors line-clamp-2 leading-tight">
                       {post.title}
                     </h2>
 
@@ -156,7 +156,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                   <div className="pt-4 border-t border-gray-light/60 mt-4">
                     <Link
                       href={`/blog/${post.id}`}
-                      className="text-orange-text hover:text-navy font-bold text-xs uppercase tracking-widest flex items-center gap-1.5 transition-colors group/link"
+                      className="text-gold-text hover:text-forest font-bold text-xs uppercase tracking-widest flex items-center gap-1.5 transition-colors group/link"
                     >
                       <span>Yazıyı Görüntüle</span>
                       <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
@@ -174,7 +174,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
         <div className="flex justify-center pt-4">
           <button
             onClick={handleLoadMore}
-            className="bg-navy hover:bg-orange text-white hover:text-navy font-bold px-8 py-3.5 rounded-xl border border-navy hover:border-orange transition-all duration-200 shadow-md hover:shadow-lg focus-visible:ring-2 focus-visible:ring-orange active:scale-95 cursor-pointer text-sm"
+            className="bg-forest hover:bg-gold text-white hover:text-forest font-bold px-8 py-3.5 rounded-xl border border-forest hover:border-gold transition-all duration-200 shadow-md hover:shadow-lg focus-visible:ring-2 focus-visible:ring-gold active:scale-95 cursor-pointer text-sm"
           >
             Daha Fazla Yükle
           </button>
