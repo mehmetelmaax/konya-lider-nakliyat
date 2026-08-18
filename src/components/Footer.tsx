@@ -30,7 +30,6 @@ export default function Footer() {
     { name: 'Çumra', href: '/bolgeler/cumra-evden-eve-nakliyat' },
     { name: 'Sarayönü', href: '/bolgeler/sarayonu-evden-eve-nakliyat' },
     { name: 'Karapınar', href: '/bolgeler/karapinar-evden-eve-nakliyat' },
-    { name: 'Karaisalı', href: '/bolgeler/karaisali-evden-eve-nakliyat' },
     { name: 'Beyşehir', href: '/bolgeler/beysehir-evden-eve-nakliyat' },
     { name: 'Ilgın', href: '/bolgeler/ilgin-evden-eve-nakliyat' },
     { name: 'Kulu', href: '/bolgeler/kulu-evden-eve-nakliyat' },
@@ -105,7 +104,7 @@ export default function Footer() {
                   <Link href="/hizmetler/piyano-ve-kasa-tasima" className="hover:text-orange transition-colors">9. Piyano ve Ağır Kasa Taşıma</Link>
                 </li>
                 <li>
-                  <Link href="/hizmetler/sehirlerarasi-evden-eve-nakliyat#rotalar" className="text-orange hover:text-white transition-colors">➔ Şehirlerarası Lojistik Rotalar</Link>
+                  <Link href="/rotalar" className="text-orange hover:text-white transition-colors font-bold">➔ Şehirlerarası Lojistik Rotalar</Link>
                 </li>
               </ul>
             </nav>
@@ -129,7 +128,7 @@ export default function Footer() {
               {/* Desktop View: Always shows all 15 districts in 2 columns */}
               <div className="hidden lg:grid grid-cols-2 gap-x-4 gap-y-2 text-xs text-gray-300 font-semibold">
                 <Link href="/hizmetler/sehirlerarasi-evden-eve-nakliyat" className="text-orange hover:underline col-span-2 font-bold">→ Şehirlerarası Taşımacılık</Link>
-                <Link href="/hizmetler/sehirlerarasi-evden-eve-nakliyat#rotalar" className="text-orange hover:underline col-span-2 border-b border-white/10 pb-1 font-bold">→ Şehirlerarası Lojistik Rotalar</Link>
+                <Link href="/rotalar" className="text-orange hover:underline col-span-2 border-b border-white/10 pb-1 font-bold">→ Şehirlerarası Lojistik Rotalar</Link>
                 {allRegions.map((reg, idx) => (
                   <Link key={idx} href={reg.href} className="hover:text-orange transition-colors">{reg.name}</Link>
                 ))}
@@ -139,7 +138,7 @@ export default function Footer() {
               <div className={`lg:hidden mt-4 ${regionsOpen ? 'block' : 'hidden lg:block'}`}>
                 <div className="space-y-3">
                   <Link href="/hizmetler/sehirlerarasi-evden-eve-nakliyat" className="text-orange hover:underline block pb-1 font-bold text-xs border-b border-white/5">→ Şehirlerarası Taşımacılık</Link>
-                  <Link href="/hizmetler/sehirlerarasi-evden-eve-nakliyat#rotalar" className="text-orange hover:underline block pb-1 font-bold text-xs border-b border-white/5">→ Şehirlerarası Lojistik Rotalar</Link>
+                  <Link href="/rotalar" className="text-orange hover:underline block pb-1 font-bold text-xs border-b border-white/5">→ Şehirlerarası Lojistik Rotalar</Link>
                   
                   {/* 5 regions limit initially */}
                   <div className="grid grid-cols-2 gap-2 text-xs text-gray-300 font-semibold">
@@ -149,7 +148,7 @@ export default function Footer() {
                   </div>
 
                   <Link
-                    href="/hizmetler/sehirlerarasi-evden-eve-nakliyat"
+                    href="/bolgeler"
                     className="mt-3 text-orange hover:underline text-xs font-bold flex items-center gap-1.5 justify-center bg-white/5 py-2.5 rounded-xl border border-white/10"
                   >
                     <span>Konya Ev Taşıma Bölgelerimiz ➔</span>

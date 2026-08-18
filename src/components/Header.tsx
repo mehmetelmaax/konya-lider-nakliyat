@@ -141,6 +141,7 @@ export default function Header() {
                   servicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                 }`}
               >
+                <Link role="menuitem" href="/hizmetler" className="text-orange-text hover:bg-white/5 block px-3 py-2 rounded text-xs font-bold border-b border-white/10 focus:outline-none focus:bg-white/5">→ Tüm Hizmetlerimiz</Link>
                 <Link role="menuitem" href="/hizmetler/sehirici-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-orange block px-3 py-2 rounded text-xs font-semibold focus:outline-none focus:bg-white/5">1. Şehiriçi Evden Eve Nakliyat</Link>
                 <Link role="menuitem" href="/hizmetler/sehirlerarasi-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-orange block px-3 py-2 rounded text-xs font-semibold focus:outline-none focus:bg-white/5">2. Şehirlerarası Evden Eve Nakliyat</Link>
                 <Link role="menuitem" href="/hizmetler/asansorlu-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-orange block px-3 py-2 rounded text-xs font-semibold focus:outline-none focus:bg-white/5">3. Asansörlü Evden Eve Nakliyat</Link>
@@ -187,7 +188,7 @@ export default function Header() {
                 <Link role="menuitem" href="/bolgeler/seydisehir-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-orange block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Seydişehir</Link>
                 <Link role="menuitem" href="/bolgeler/ilgin-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-orange block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Ilgın</Link>
                 <Link role="menuitem" href="/bolgeler/beysehir-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-orange block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Beyşehir</Link>
-                <Link role="menuitem" href="/bolgeler/karaisali-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-orange block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Karaisalı</Link>
+                <Link role="menuitem" href="/bolgeler" className="text-orange-text hover:bg-white/5 block px-2.5 py-1.5 rounded text-[11px] font-bold focus:outline-none focus:bg-white/5">→ Tüm Bölgeler</Link>
                 <Link role="menuitem" href="/bolgeler/cumra-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-orange block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Çumra</Link>
                 <Link role="menuitem" href="/bolgeler/sarayonu-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-orange block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Sarayönü</Link>
                 <Link role="menuitem" href="/bolgeler/karapinar-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-orange block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Karapınar</Link>
@@ -198,7 +199,7 @@ export default function Header() {
               </div>
             </div>
 
-            <Link href="/hizmetler/sehirlerarasi-evden-eve-nakliyat#rotalar" className="text-white hover:text-orange font-medium transition-colors text-sm focus-visible:ring-1 focus-visible:ring-orange rounded">Rotalar</Link>
+            <Link href="/rotalar" className="text-white hover:text-orange font-medium transition-colors text-sm focus-visible:ring-1 focus-visible:ring-orange rounded">Rotalar</Link>
             <Link href="/blog" className="text-white hover:text-orange font-medium transition-colors text-sm focus-visible:ring-1 focus-visible:ring-orange rounded">Blog</Link>
             <Link href="/galeri" className="text-white hover:text-orange font-medium transition-colors text-sm focus-visible:ring-1 focus-visible:ring-orange rounded">Galeri</Link>
             <Link href="/iletisim" className="text-white hover:text-orange font-medium transition-colors text-sm focus-visible:ring-1 focus-visible:ring-orange rounded">İletişim</Link>
@@ -293,7 +294,7 @@ export default function Header() {
                 <Link onClick={toggleMenu} href="/bolgeler/seydisehir-evden-eve-nakliyat" className="text-white hover:text-orange text-[9px] font-semibold border border-white/10 rounded py-1">Seydişehir</Link>
                 <Link onClick={toggleMenu} href="/bolgeler/ilgin-evden-eve-nakliyat" className="text-white hover:text-orange text-[9px] font-semibold border border-white/10 rounded py-1">Ilgın</Link>
                 <Link onClick={toggleMenu} href="/bolgeler/beysehir-evden-eve-nakliyat" className="text-white hover:text-orange text-[9px] font-semibold border border-white/10 rounded py-1">Beyşehir</Link>
-                <Link onClick={toggleMenu} href="/bolgeler/karaisali-evden-eve-nakliyat" className="text-white hover:text-orange text-[9px] font-semibold border border-white/10 rounded py-1">Karaisalı</Link>
+                <Link onClick={toggleMenu} href="/bolgeler" className="text-orange-text hover:text-orange text-[9px] font-bold border border-white/10 rounded py-1">→ Tüm Bölgeler</Link>
                 <Link onClick={toggleMenu} href="/bolgeler/cumra-evden-eve-nakliyat" className="text-white hover:text-orange text-[9px] font-semibold border border-white/10 rounded py-1">Çumra</Link>
                 <Link onClick={toggleMenu} href="/bolgeler/sarayonu-evden-eve-nakliyat" className="text-white hover:text-orange text-[9px] font-semibold border border-white/10 rounded py-1">Sarayönü</Link>
                 <Link onClick={toggleMenu} href="/bolgeler/karapinar-evden-eve-nakliyat" className="text-white hover:text-orange text-[9px] font-semibold border border-white/10 rounded py-1">Karapınar</Link>
@@ -304,7 +305,7 @@ export default function Header() {
             )}
           </div>
 
-          <Link onClick={toggleMenu} href="/hizmetler/sehirlerarasi-evden-eve-nakliyat#rotalar" className="text-white text-base font-bold hover:text-orange transition-colors">Rotalar</Link>
+          <Link onClick={toggleMenu} href="/rotalar" className="text-white text-base font-bold hover:text-orange transition-colors">Rotalar</Link>
           <Link onClick={toggleMenu} href="/blog" className="text-white text-base font-bold hover:text-orange transition-colors">Blog</Link>
           <Link onClick={toggleMenu} href="/iletisim" className="text-white text-base font-bold hover:text-orange transition-colors">İletişim</Link>
 

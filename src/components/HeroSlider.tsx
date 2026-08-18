@@ -193,10 +193,16 @@ export default function HeroSlider() {
                     {slide.trustLine}
                   </span>
                   
-                  {/* Semantic visual headings are H2/paragraphs. H1 is rendered statically outside */}
-                  <p className="font-display font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight whitespace-pre-line mb-4">
-                    {slide.headline}
-                  </p>
+                  {/* The first slide's headline is rendered as a visible H1 for SEO, other slide headlines are paragraphs */}
+                  {idx === 0 ? (
+                    <h1 className="font-display font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight whitespace-pre-line mb-4">
+                      {slide.headline}
+                    </h1>
+                  ) : (
+                    <p className="font-display font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight whitespace-pre-line mb-4">
+                      {slide.headline}
+                    </p>
+                  )}
 
                   <p className="text-gray-200 text-base md:text-lg max-w-xl leading-relaxed mb-6">
                     {slide.subheadline}

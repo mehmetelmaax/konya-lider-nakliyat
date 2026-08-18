@@ -73,7 +73,6 @@ export default function Home() {
       <JsonLd data={graphSchema} />
       
       <main className="flex-1 w-full">
-        <h1 className="sr-only">Konya Evden Eve Nakliyat | Sabit Fiyatlı Asansörlü Taşımacılık</h1>
         {/* Hero Area */}
         <HeroSlider />
 

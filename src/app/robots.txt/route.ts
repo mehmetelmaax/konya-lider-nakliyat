@@ -13,8 +13,8 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Allow: /_next/static/
+Allow: /_next/image
 Disallow: /_next/
-Disallow: /*.json$
 Disallow: /admin/
 
 User-agent: Googlebot
@@ -56,7 +56,6 @@ Crawl-delay: 10
 User-agent: MJ12bot
 Crawl-delay: 10
 
-Host: ${SITE.url}
 Sitemap: ${SITE.url}/sitemap.xml
 
 # AI Agent Context Reference
