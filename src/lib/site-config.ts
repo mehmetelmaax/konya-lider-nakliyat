@@ -20,9 +20,17 @@ export const SITE = {
   },
   geo: { lat: 37.8837, lng: 32.4896 },
   hours: { opens: '08:00', closes: '22:00' },
-  foundingYear: 2012,
+  foundingYear: 2012, // DOĞRULANACAK: Kuruluş yılı 2006 mı 2012 mi? (facts.ts ile çelişiyor)
   priceRange: '₺₺',
-  social: { facebook: '', instagram: '', youtube: '' },
+  googleMapsUrl: 'https://share.google/YoiHqgk0tx65LVd0H', // HeroSlider.tsx içerisinden taşındı
+  social: {
+    facebook: '', // DOĞRULANACAK: Facebook sayfa adresi
+    instagram: '', // DOĞRULANACAK: Instagram profil adresi
+    youtube: '',
+    googleBusinessProfile: '', // DOĞRULANACAK: Google Business Profile URL'i (sameAs için)
+  },
+  k3DocumentNumber: '', // DOĞRULANACAK: K3 Yetki Belge Numarası
+  numberOfEmployees: undefined, // DOĞRULANACAK: Gerçek kadrolu çalışan sayısı
 } as const;
 
 export const SERVICES = [

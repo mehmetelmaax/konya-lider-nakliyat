@@ -226,7 +226,7 @@ export default function HeroSlider() {
             </a>
 
             <a
-              href="https://share.google/YoiHqgk0tx65LVd0H"
+              href={SITE.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent('harita_tikla', { konum: 'hero_slider', sayfa: window.location.pathname })}

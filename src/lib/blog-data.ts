@@ -9,6 +9,7 @@ export interface BlogPostData {
   category: 'Fiyat' | 'Rehber' | 'Yasal' | 'Teknik' | 'Bölge';
   contentHtml: string;
   faqs: { question: string; answer: string }[];
+  updatedAt?: string;
 }
 
 export const blogDatabase: Record<string, BlogPostData> = {

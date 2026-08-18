@@ -2,8 +2,12 @@ import { SITE, SERVICES, DISTRICTS } from './site-config';
 import { FACTS } from './facts';
 
 export function organizationSchema() {
-  const socialFiltered = (Object.values(SITE.social) as string[])
-    .filter((value) => value && value.trim() !== '');
+  const socialFiltered = [
+    SITE.social.facebook as string,
+    SITE.social.instagram as string,
+    SITE.social.youtube as string,
+    SITE.social.googleBusinessProfile as string
+  ].filter((value) => value && value.trim() !== '');
 
   const organization = {
     '@context': 'https://schema.org',
@@ -15,13 +19,13 @@ export function organizationSchema() {
     'logo': {
       '@type': 'ImageObject',
       'url': `${SITE.url}/img/logo.png`,
-      'width': '200',
-      'height': '60'
+      'width': 200,
+      'height': 60
     },
     'image': `${SITE.url}/img/slayt-1.jpg`,
     'telephone': SITE.phone,
     'email': SITE.email,
-    'description': `${SITE.name}, Konya genelinde K3 yetki belgesi ve mobil dış cephe asansörleri ile 2006 yılından bu yana sabit fiyat garantili ve sigortalı evden eve taşımacılık hizmeti sunmaktadır.`,
+    'description': `${SITE.name}, Konya genelinde K3 yetki belgesi ve mobil dış cephe asansörleri ile ${FACTS.foundedYear} yılından bu yana sabit fiyat garantili ve sigortalı evden eve taşımacılık hizmeti sunmaktadır.`,
     'slogan': 'Sabit fiyat garantisiyle sigortalı ve asansörlü evden eve nakliyat.',
     'address': {
       '@type': 'PostalAddress',
@@ -33,9 +37,10 @@ export function organizationSchema() {
     },
     'geo': {
       '@type': 'GeoCoordinates',
-      'latitude': SITE.geo.lat.toString(),
-      'longitude': SITE.geo.lng.toString(),
+      'latitude': SITE.geo.lat,
+      'longitude': SITE.geo.lng,
     },
+    'hasMap': SITE.googleMapsUrl,
     'serviceArea': {
       '@type': 'GeoCircle',
       'geoMidpoint': {
@@ -64,11 +69,32 @@ export function organizationSchema() {
       'name': `${district.name}, Konya`
     })),
     'foundingDate': `${FACTS.foundedYear}-03-15`,
-    'priceRange': '$$',
+    'priceRange': SITE.priceRange,
     'currenciesAccepted': 'TRY',
     'paymentAccepted': 'Nakit, Kredi Kartı, Havale/EFT',
-    // TODO: K3 belge numarası temin edilince eklenecek (hasCredential)
-    // TODO: Çalışan sayısı temin edilince eklenecek (numberOfEmployees)
+    
+    // Professional K3 Certification Schema (DOĞRULANACAK)
+    ...(SITE.k3DocumentNumber ? {
+      'hasCredential': {
+        '@type': 'EducationalOccupationalCredential',
+        'credentialCategory': 'K3 Yetki Belgesi',
+        'educationalLevel': 'K3 Karayolu Eşya Taşımacılığı Yetki Belgesi',
+        'credentialNumber': SITE.k3DocumentNumber,
+        'recognizedBy': {
+          '@type': 'GovernmentOrganization',
+          'name': 'Ulaştırma ve Altyapı Bakanlığı'
+        }
+      }
+    } : {}),
+
+    // Number of Employees (DOĞRULANACAK)
+    ...(SITE.numberOfEmployees ? {
+      'numberOfEmployees': {
+        '@type': 'QuantitativeValue',
+        'value': SITE.numberOfEmployees
+      }
+    } : {}),
+
     'knowsAbout': [
       'evden eve nakliyat',
       'asansörlü nakliyat',

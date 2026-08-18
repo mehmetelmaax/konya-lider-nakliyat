@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: description,
       images: [{ url: `${SITE.url}${post.image}` }],
       publishedTime: post.date,
-      modifiedTime: post.date,
+      modifiedTime: post.updatedAt || post.date,
       authors: [SITE.name],
       section: 'Nakliyat ve Lojistik',
       tags: ['Konya Evden Eve Nakliyat', 'Asansörlü Taşımacılık', 'Ev Taşıma Fiyatları']
@@ -129,6 +129,9 @@ export default async function BlogPostPage({ params }: Props) {
 
   const related = relatedLinks[post.id] || { blogs: [], services: [], districts: [] };
 
+  const wordCount = post.contentHtml.replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+  const dateModified = post.updatedAt || post.date;
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -136,8 +139,8 @@ export default async function BlogPostPage({ params }: Props) {
     'description': post.desc,
     'image': `${SITE.url}${post.image}`,
     'datePublished': post.date,
-    'dateModified': post.date,
-    'wordCount': 650,
+    'dateModified': dateModified,
+    'wordCount': wordCount,
     'articleSection': 'Evden Eve Nakliyat',
     'inLanguage': 'tr-TR',
     'mainEntityOfPage': {
@@ -145,8 +148,10 @@ export default async function BlogPostPage({ params }: Props) {
       '@id': blogPostUrl
     },
     'author': {
-      '@type': 'Person',
-      'name': post.author
+      '@type': 'Organization',
+      'name': SITE.name,
+      'url': SITE.url,
+      '@id': `${SITE.url}/#organization`
     },
     'publisher': {
       '@id': `${SITE.url}/#organization`
