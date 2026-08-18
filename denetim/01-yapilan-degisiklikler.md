@@ -108,3 +108,17 @@ Bu rapor, Next.js 16 App Router altyapısı üzerinde gerçekleştirilen tüm te
 - **Dry Rota Mimarisi:**
   - `ROUTES` config listesi, `routesDatabase` nesnesinden dinamik olarak türetilerek mükerrer rota tanımları engellendi. Faulty `konya-konya` rotası `konya-adana` olarak tüm alt içerikleriyle birlikte düzeltildi.
 
+## 9. Yapay Zeka Destekli Taşınma Asistanı Entegrasyonu (Faz 10)
+- **Kişiselleştirilmiş Planlayıcı Sihirbazı (`src/components/geo/MovingAssistant.tsx`):**
+  - Kullanıcılardan tarih, ev tipi, asansör, evcil hayvan, çocuk ve hassas eşya durumlarını alan, client-side performansı yüksek interaktif sihirbaz aracı kodlandı.
+  - Seçilen taşınma tarihine göre gün bazlı takvim tarihleri dinamik olarak hesaplanacak şekilde geliştirildi.
+  - Plan çıktısının en altında teklif formuna verileri otomatik aktaran (pre-fill) ve WhatsApp'tan doğrudan rezervasyon talep eden akıllı dönüşüm (CTA) bağlantıları kuruldu.
+- **Teknik SEO & GEO (Yapay Zeka Araması) Optimizasyonları:**
+  - **Citability Alıntı Bloğu:** Yapay zeka arama motorlarının (Gemini, ChatGPT Search, Perplexity) doğrudan tarayıp alıntılayabileceği, optimum 145 kelime uzunluğunda, self-contained özgün özet cevap bloğu eklendi.
+  - **WebApplication Şeması:** `/tasinma-kontrol-listesi` sayfasına JSON-LD formatında `WebApplication` yapısal veri şeması enjekte edilerek botlara etkileşimli araç bildirimi yapıldı.
+  - **Recency Sinyali:** Sayfada dinamik "Son Güncelleme" tarih damgaları oluşturularak arama botlarına güncellik tescili sağlandı.
+  - **Local Entity (Yerel Varlık) Eşlemesi:** Seçilen Konya ilçelerine göre Meram (dar sokak), Selçuklu (rezidans asansörü) gibi yerel lojistik ve coğrafi uyarılar dinamik olarak listeye eklenerek yerel otorite (EEAT) güçlendirildi.
+- **Bileşen Temizliği:**
+  - Eski statik `MovingChecklist.tsx` bileşeni silindi ve `/tasinma-kontrol-listesi` sayfasına yeni asistan entegre edildi.
+
+
