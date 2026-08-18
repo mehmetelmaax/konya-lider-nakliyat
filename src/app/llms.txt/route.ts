@@ -2,6 +2,8 @@ import { SITE, SERVICES, DISTRICTS, ROUTES } from '@/lib/site-config';
 import { FACTS } from '@/lib/facts';
 import { blogDatabase } from '@/lib/blog-data';
 
+export const dynamic = 'force-static';
+
 export function GET() {
   const indexableDistricts = DISTRICTS.filter(d => d.indexable);
   const blogs = Object.values(blogDatabase);

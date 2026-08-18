@@ -95,7 +95,6 @@ export default function RootLayout({
       className={`${inter.variable} ${outfit.variable} h-full scroll-smooth antialiased`}
     >
       <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />

@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
+
 
 export const alt = 'Konya Lider Nakliyat | Sabit Fiyatlı Evden Eve Taşımacılık';
 export const size = {

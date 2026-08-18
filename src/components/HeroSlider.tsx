@@ -77,18 +77,7 @@ export default function HeroSlider() {
     setCurrent(index);
   };
 
-  // Keyboard navigation left/right arrow keys
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') {
-        handleNext();
-      } else if (e.key === 'ArrowLeft') {
-        handlePrev();
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+
 
   // Autoplay functionality - stops/pauses based on state
   useEffect(() => {
@@ -115,11 +104,21 @@ export default function HeroSlider() {
     setHasInteracted(true);
   };
 
+  const handleSliderKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'ArrowRight') {
+      handleNext();
+    } else if (e.key === 'ArrowLeft') {
+      handlePrev();
+    }
+  };
+
   return (
     <section 
-      className="relative w-full min-h-[650px] lg:h-[750px] bg-navy flex items-center overflow-hidden pt-20"
+      className="relative w-full min-h-[650px] lg:h-[750px] bg-navy flex items-center overflow-hidden pt-20 focus-visible:outline-2 focus-visible:outline-orange focus-visible:outline-offset-[-2px]"
       aria-roledescription="carousel"
       aria-label="Konya Lider Nakliyat Hizmet Tanıtımı"
+      tabIndex={0}
+      onKeyDown={handleSliderKeyDown}
     >
       {/* Offscreen polite live region for screen readers */}
       <div className="sr-only" aria-live="polite" aria-atomic="true">
@@ -148,14 +147,15 @@ export default function HeroSlider() {
               <Image
                 src={slide.bgImage}
                 alt={slide.imageAlt}
-                fill
+                width={1920}
+                height={1080}
                 priority={idx === 0}
-                fetchPriority={idx === 0 ? ("high" as any) : undefined}
-                sizes="100vw"
+                loading={idx === 0 ? undefined : "lazy"}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
                 quality={80}
                 placeholder={blurDataURL ? "blur" : undefined}
                 blurDataURL={blurDataURL}
-                className="object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
           );
