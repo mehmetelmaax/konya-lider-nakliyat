@@ -81,18 +81,21 @@ Sitenin dinamik ve ölçeklenebilir yapısı gereği, yeni rotalar (hizmetler, b
    ```
 3. `src/app/hizmetler/[slug]/` altındaki dinamik sayfa yapısı bu veriyi otomatik okuyarak static sayfayı, JsonLd şemalarını ve Breadcrumb yapısını derleme anında oluşturacaktır.
 
-### B. Yeni İlçe / Bölge Sayfası Ekleme
-1. `src/lib/site-config.ts` dosyasını açın.
-2. `DISTRICTS` dizisine yeni bölgeyi ekleyin:
+### B. Yeni İlçe / Bölge Sayfası Ekleme ve İndeksleme
+1. `src/lib/site-config.ts` dosyasını açın ve `DISTRICTS` dizisine yeni bölgeyi ekleyin:
    ```typescript
    {
      slug: 'ilce-adi-evden-eve-nakliyat',
      name: 'İlçe Adı',
-     tier: 'ilce', // 'merkez' veya 'ozel'
-     neighbors: ['Komşu1', 'Komşu2'] // RelatedLinks için en az 3 komşu
+     tier: 'ilce', // 'merkez' veya 'ilce'
+     neighbors: ['komsu-1', 'komsu-2'], // RelatedLinks için komşu slug'ları
+     distanceKm: 45, // Merkez depoya uzaklığı
+     indexable: false // İçerik hazır olana kadar Google dizininden gizlemek (noindex) için false yapın
    }
    ```
-3. İlgili ilçenin gerçek mahalle listesini `src/lib/neighborhoods.ts` dosyasına ekleyin.
+2. `src/lib/districts-content.ts` dosyasındaki `DISTRICTS_CONTENT` nesnesine yeni ilçenin anahtarını (slug) ve tüm zorunlu içeriklerini (`intro`, `mahalleler`, `binaStoku`, `asansorNotu`, `ortalamaSure`, `yerelReferans`, `sss`, `gorseller`) ekleyin.
+3. İçerik hazır olduğunda `site-config.ts` içindeki `indexable` bayrağını `true` yaparak sayfayı Google dizinine ve sitemap.xml çıktısına açın.
+
 
 ### C. Yeni Blog Yazısı Ekleme
 1. `src/lib/blog-data.ts` dosyasını açın.
