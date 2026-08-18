@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Shield, Users, Award, Calendar } from 'lucide-react';
 import { SITE } from '@/lib/site-config';
+import { FACTS } from '@/lib/facts';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -9,7 +10,7 @@ import K3InfoBlock from '@/components/geo/K3InfoBlock';
 
 export const metadata: Metadata = {
   title: 'Hakkımızda | Konya Lider Nakliyat',
-  description: "2006 yılından beri Konya Selçuklu merkezli olarak K3 yetki belgesi ve özmal asansör filomuzla profesyonel evden eve nakliye hizmetleri sunuyoruz.",
+  description: `Konya Lider Nakliyat, ${FACTS.foundedYear} yılından beri Konya Selçuklu merkezli olarak K3 yetki belgesi ve özmal asansör filomuzla profesyonel evden eve nakliye hizmetleri sunuyoruz.`,
   alternates: {
     canonical: '/hakkimizda',
   },
@@ -53,7 +54,7 @@ export default function HakkimizdaPage() {
                 <span>Firmamızın Kuruluş Tarihi ve Tarihçesi</span>
               </h2>
               <p className="text-charcoal text-sm md:text-base leading-relaxed">
-                Konya Lider Nakliyat, 2006 yılında Tedik ailesi tarafından Konya Selçuklu merkezli olarak kurulmuş yasal bir ev taşıma şirketidir. Geçen 20 yıllık süre zarfında, Konya şehir içi ve şehirlerarası güzergahlarda binlerce ailenin ev ve ofis taşıma lojistiğini başarıyla yönettik.
+                Konya Lider Nakliyat, {FACTS.foundedYear} yılında Tedik ailesi tarafından Konya Selçuklu merkezli olarak kurulmuş yasal bir ev taşıma şirketidir. Geçen {new Date().getFullYear() - FACTS.foundedYear} yıllık süre zarfında, Konya şehir içi ve şehirlerarası güzergahlarda binlerce ailenin ev ve ofis taşıma lojistiğini başarıyla yönettik.
               </p>
             </div>
 

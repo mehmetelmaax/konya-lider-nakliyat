@@ -56,6 +56,7 @@ const nextConfig: NextConfig = {
       { source: '/257/:path*', destination: '/', permanent: true },
       { source: '/258/:path*', destination: '/', permanent: true },
       { source: '/bolgeler/sehirlerarasi-evden-eve-nakliyat', destination: '/hizmetler/sehirlerarasi-evden-eve-nakliyat', permanent: true },
+      { source: '/rotalar/konya-konya-evden-eve-nakliyat', destination: '/rotalar/konya-adana-evden-eve-nakliyat', permanent: true },
     ];
   },
 };

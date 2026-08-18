@@ -59,7 +59,7 @@ export const DISTRICTS_CONTENT: Record<string, DistrictContent> = {
     "yerelReferans": "Akşehir merkezinde gerçekleştirilen marangozlu ve asansörlü ev taşıma faaliyetimiz.",
     "sss": [
       {
-        "question": "Akşehir'da asansörlü nakliye kurulabilir mi?",
+        "question": "Akşehir'de asansörlü nakliye kurulabilir mi?",
         "answer": "Evet. Dış cephesi mobil yük asansörünün kurulmasına elverişli olan ve rüzgar şiddeti emniyet sınırlarında kalan tüm binalarda asansörlü nakliye yapmaktayız."
       },
       {
@@ -122,7 +122,7 @@ export const DISTRICTS_CONTENT: Record<string, DistrictContent> = {
     "yerelReferans": "Beyşehir merkezinde gerçekleştirilen marangozlu ve asansörlü ev taşıma faaliyetimiz.",
     "sss": [
       {
-        "question": "Beyşehir'da asansörlü nakliye kurulabilir mi?",
+        "question": "Beyşehir'de asansörlü nakliye kurulabilir mi?",
         "answer": "Evet. Dış cephesi mobil yük asansörünün kurulmasına elverişli olan ve rüzgar şiddeti emniyet sınırlarında kalan tüm binalarda asansörlü nakliye yapmaktayız."
       },
       {
@@ -185,7 +185,7 @@ export const DISTRICTS_CONTENT: Record<string, DistrictContent> = {
     "yerelReferans": "Cihanbeyli merkezinde gerçekleştirilen marangozlu ve asansörlü ev taşıma faaliyetimiz.",
     "sss": [
       {
-        "question": "Cihanbeyli'da asansörlü nakliye kurulabilir mi?",
+        "question": "Cihanbeyli'de asansörlü nakliye kurulabilir mi?",
         "answer": "Evet. Dış cephesi mobil yük asansörünün kurulmasına elverişli olan ve rüzgar şiddeti emniyet sınırlarında kalan tüm binalarda asansörlü nakliye yapmaktayız."
       },
       {
@@ -311,7 +311,7 @@ export const DISTRICTS_CONTENT: Record<string, DistrictContent> = {
     "yerelReferans": "Ereğli merkezinde gerçekleştirilen marangozlu ve asansörlü ev taşıma faaliyetimiz.",
     "sss": [
       {
-        "question": "Ereğli'da asansörlü nakliye kurulabilir mi?",
+        "question": "Ereğli'de asansörlü nakliye kurulabilir mi?",
         "answer": "Evet. Dış cephesi mobil yük asansörünün kurulmasına elverişli olan ve rüzgar şiddeti emniyet sınırlarında kalan tüm binalarda asansörlü nakliye yapmaktayız."
       },
       {
@@ -437,7 +437,7 @@ export const DISTRICTS_CONTENT: Record<string, DistrictContent> = {
     "yerelReferans": "Kadınhanı merkezinde gerçekleştirilen marangozlu ve asansörlü ev taşıma faaliyetimiz.",
     "sss": [
       {
-        "question": "Kadınhanı'da asansörlü nakliye kurulabilir mi?",
+        "question": "Kadınhanı'nda asansörlü nakliye kurulabilir mi?",
         "answer": "Evet. Dış cephesi mobil yük asansörünün kurulmasına elverişli olan ve rüzgar şiddeti emniyet sınırlarında kalan tüm binalarda asansörlü nakliye yapmaktayız."
       },
       {
@@ -760,7 +760,7 @@ export const DISTRICTS_CONTENT: Record<string, DistrictContent> = {
     "yerelReferans": "Sarayönü merkezinde gerçekleştirilen marangozlu ve asansörlü ev taşıma faaliyetimiz.",
     "sss": [
       {
-        "question": "Sarayönü'da asansörlü nakliye kurulabilir mi?",
+        "question": "Sarayönü'nde asansörlü nakliye kurulabilir mi?",
         "answer": "Evet. Dış cephesi mobil yük asansörünün kurulmasına elverişli olan ve rüzgar şiddeti emniyet sınırlarında kalan tüm binalarda asansörlü nakliye yapmaktayız."
       },
       {
@@ -890,7 +890,7 @@ export const DISTRICTS_CONTENT: Record<string, DistrictContent> = {
     "yerelReferans": "Seydişehir merkezinde gerçekleştirilen marangozlu ve asansörlü ev taşıma faaliyetimiz.",
     "sss": [
       {
-        "question": "Seydişehir'da asansörlü nakliye kurulabilir mi?",
+        "question": "Seydişehir'de asansörlü nakliye kurulabilir mi?",
         "answer": "Evet. Dış cephesi mobil yük asansörünün kurulmasına elverişli olan ve rüzgar şiddeti emniyet sınırlarında kalan tüm binalarda asansörlü nakliye yapmaktayız."
       },
       {

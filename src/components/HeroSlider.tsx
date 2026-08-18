@@ -1,6 +1,7 @@
 'use client';
 
 import { SITE } from '@/lib/site-config';
+import { FACTS } from '@/lib/facts';
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { MessageCircle, ArrowRight, MapPin, Play, Pause } from 'lucide-react';
@@ -249,7 +250,7 @@ export default function HeroSlider() {
           <div className="border-t border-white/10 mt-8 pt-4 flex flex-wrap gap-4 text-xs md:text-sm text-gray-300 font-semibold">
             <span className="flex items-center gap-1.5">✓ K3 Yetki Belgeli</span>
             <span className="text-white/20">|</span>
-            <span className="flex items-center gap-1.5">✓ 20 Yıllık Konya Firması</span>
+            <span className="flex items-center gap-1.5">✓ {new Date().getFullYear() - FACTS.foundedYear} Yıllık Konya Firması</span>
             <span className="text-white/20">|</span>
             <span className="flex items-center gap-1.5">✓ Sabit Fiyat Garantisi</span>
           </div>

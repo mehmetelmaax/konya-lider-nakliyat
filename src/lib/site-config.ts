@@ -20,7 +20,6 @@ export const SITE = {
   },
   geo: { lat: 37.8837, lng: 32.4896 },
   hours: { opens: '08:00', closes: '22:00' },
-  foundingYear: 2012, // DOĞRULANACAK: Kuruluş yılı 2006 mı 2012 mi? (facts.ts ile çelişiyor)
   priceRange: '₺₺',
   googleMapsUrl: 'https://share.google/YoiHqgk0tx65LVd0H', // HeroSlider.tsx içerisinden taşındı
   social: {
@@ -286,14 +285,14 @@ export const ROUTES: readonly RouteConfig[] = [
     notes: 'Bursa İnegöl mobilya nakliyat trafiği yoğun olduğu için güvenli sürüş kurallarına dikkat edilmektedir.'
   },
   {
-    slug: 'konya-konya-evden-eve-nakliyat',
-    city: 'Konya',
+    slug: 'konya-adana-evden-eve-nakliyat',
+    city: 'Adana', // DOĞRULANACAK: Konya-Konya olarak kalmış hatalı rota Adana olarak düzeltildi.
     distanceKm: 350,
     durationHours: 4.5,
     priceRangeMin: 14500,
     priceRangeMax: 21000,
-    viaRoute: 'D-330 Konya - Karaman - Ereğli - Ilgın otoyol bağlantısı',
-    notes: 'Ilgın geçişindeki dik Toros rampalarında kontrollü sürüş sağlanmaktadır.'
+    viaRoute: 'D-330 Konya - Karaman - Ereğli - Adana otoyol bağlantısı',
+    notes: 'Adana geçişindeki Toros rampalarında araçlarımızın fren ve motor kontrolleri her sefer öncesi titizlikle yapılır.'
   },
   {
     slug: 'konya-kayseri-evden-eve-nakliyat',
@@ -316,3 +315,9 @@ export const ROUTES: readonly RouteConfig[] = [
     notes: 'Eskişehir Tepebaşı ve Odunpazarı dar sokaklarında küçük nakliye kamyonetlerimizle hizmet sunmaktayız.'
   }
 ] as const;
+
+// Rota doğrulama filtresi: Başlangıç şehri (Konya) ile varış şehri aynı olan rotaları engeller
+const invalidRoute = ROUTES.find(r => r.city.toLowerCase() === 'konya');
+if (invalidRoute) {
+  throw new Error(`CRITICAL_CONFIG_ERROR: Intercity route cannot end in starting city 'Konya'! Slug: ${invalidRoute.slug}`);
+}
