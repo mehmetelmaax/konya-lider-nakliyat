@@ -4,16 +4,17 @@ import Script from 'next/script';
 export default function Analytics() {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
+  const gadsId = process.env.NEXT_PUBLIC_GADS_ID;
 
-  if (!gaId && !clarityId) return null;
+  if (!gaId && !clarityId && !gadsId) return null;
 
   return (
     <>
-      {/* 1. Google Analytics 4 */}
-      {gaId && (
+      {/* 1. Google Analytics 4 & Google Ads */}
+      {(gaId || gadsId) && (
         <>
           <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaId || gadsId}`}
             strategy="afterInteractive"
           />
           <Script id="google-analytics" strategy="afterInteractive">
@@ -21,9 +22,10 @@ export default function Analytics() {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${gaId}', {
+              ${gaId ? `gtag('config', '${gaId}', {
                 page_path: window.location.pathname,
-              });
+              });` : ''}
+              ${gadsId ? `gtag('config', '${gadsId}');` : ''}
             `}
           </Script>
         </>
