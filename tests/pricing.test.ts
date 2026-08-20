@@ -1,12 +1,10 @@
+import { describe, it, expect } from 'vitest';
 import { estimatePrice } from '../src/lib/pricing';
 
-console.log('Running Pricing Engine Verification Tests...');
-
-const testCases = [
-  {
-    name: '1+1 Selcuklu to Meram (Central, inner-city)',
-    input: {
-      rooms: '1+1' as const,
+describe('Pricing Engine Verification Tests', () => {
+  it('should estimate price correctly for 1+1 Selcuklu to Meram (Central, inner-city)', () => {
+    const result = estimatePrice({
+      rooms: '1+1',
       fromElevator: false,
       toElevator: false,
       fromDistrict: 'Selçuklu',
@@ -14,14 +12,15 @@ const testCases = [
       packing: false,
       carpentry: false,
       storage: false
-    },
-    expectedMin: 12300, // 12000 base + 300 floor surcharge (1st + 1st floors)
-    expectedMax: 15300
-  },
-  {
-    name: '3+1 Selcuklu to Eregli (Outer district, distance Km = 145)',
-    input: {
-      rooms: '3+1' as const,
+    });
+    // 12000 base + 300 floor surcharge (1st + 1st floors)
+    expect(result.min).toBe(12300);
+    expect(result.max).toBe(15300);
+  });
+
+  it('should estimate price correctly for 3+1 Selcuklu to Eregli (Outer district, distance Km = 145)', () => {
+    const result = estimatePrice({
+      rooms: '3+1',
       fromElevator: true,
       toElevator: false,
       fromDistrict: 'Selçuklu',
@@ -29,21 +28,15 @@ const testCases = [
       packing: true,
       carpentry: true,
       storage: false
-    },
-    // base: 18000
-    // floorSurcharge: (1+1)*150 = 300
-    // elevatorFee: 2500 (fromElevator)
-    // packingFee: 3500 (3+1)
-    // distanceFee: Math.max(1000, 145 * 30) = 4350
-    // storageFee: 0
-    // Expected Min = 18000 + 300 + 2500 + 3500 + 4350 = 28650
-    expectedMin: 28650,
-    expectedMax: 33650
-  },
-  {
-    name: '4+1+ Selcuklu to Istanbul (Intercity, default 500 km)',
-    input: {
-      rooms: '4+1+' as const,
+    });
+    // Expected Min = 18000 (base) + 300 (floor) + 2500 (elevator) + 3500 (packing) + 4350 (distance) = 28650
+    expect(result.min).toBe(28650);
+    expect(result.max).toBe(33650);
+  });
+
+  it('should estimate price correctly for 4+1+ Selcuklu to Istanbul (Intercity, default 500 km)', () => {
+    const result = estimatePrice({
+      rooms: '4+1+',
       fromElevator: true,
       toElevator: true,
       fromDistrict: 'Selçuklu',
@@ -51,39 +44,9 @@ const testCases = [
       packing: true,
       carpentry: false,
       storage: false
-    },
-    // base: 22000
-    // floorSurcharge: (1+1)*150 = 300
-    // elevatorFee: 2500 + 2500 = 5000
-    // packingFee: 4500 (4+1+)
-    // distanceFee: 500 * 35 = 17500
-    // Expected Min = 22000 + 300 + 5000 + 4500 + 17500 = 49300
-    expectedMin: 49300,
-    expectedMax: 55300
-  }
-];
-
-let failed = false;
-
-testCases.forEach((tc) => {
-  const result = estimatePrice(tc.input);
-  const minMatches = result.min === tc.expectedMin;
-  const maxMatches = result.max === tc.expectedMax;
-
-  if (minMatches && maxMatches) {
-    console.log(`[PASS] ${tc.name}`);
-  } else {
-    console.error(`[FAIL] ${tc.name}`);
-    console.error(`  Expected: Min: ${tc.expectedMin}, Max: ${tc.expectedMax}`);
-    console.error(`  Got     : Min: ${result.min}, Max: ${result.max}`);
-    failed = true;
-  }
+    });
+    // Expected Min = 22000 (base) + 300 (floor) + 5000 (elevators) + 4500 (packing) + 17500 (distance) = 49300
+    expect(result.min).toBe(49300);
+    expect(result.max).toBe(55300);
+  });
 });
-
-if (failed) {
-  console.error('\nVerification tests failed!');
-  process.exit(1);
-} else {
-  console.log('\nAll pricing engine verification tests passed successfully!');
-  process.exit(0);
-}

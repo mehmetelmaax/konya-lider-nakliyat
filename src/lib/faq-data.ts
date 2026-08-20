@@ -22,7 +22,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: 'Şehir içi nakliyat süresi ortalama kaç saat sürer?',
-    answer: 'Konya şehir içi ev taşıma işlemleri (Selçuklu, Meram, Karatay, Ereğli) ortalama olarak 6 ile 8 saat arasında tamamlanmaktadır. Sabah 08:00’de başlayan süreç, aynı gün akşamüstü yeni evde eşyaların kurulumuyla anahtar teslim olarak biter.',
+    answer: 'Konya şehir içi ev taşıma işlemleri (Selçuklu, Meram, Karatay) ortalama olarak 6 ile 8 saat arasında tamamlanmaktadır. Sabah 08:00’de başlayan süreç, aynı gün akşamüstü yeni evde eşyaların kurulumuyla anahtar teslim olarak biter.',
   },
   {
     question: 'Şehirlerarası ev taşıma sigortası neleri kapsar?',
@@ -38,7 +38,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: 'Konya dış ilçelerine (Akşehir, Seydişehir, Ilgın vb.) asansörlü araç gönderiyor musunuz?',
-    answer: 'Evet. Konya’nın 15 ilçesinin (Akşehir, Seydişehir, Ilgın, Beyşehir, Karaisalı, Karapınar vb.) tamamına mobil eşya asansörlerimizi sevk ederek yüksek katlı taşınma desteği sunuyoruz.',
+    answer: 'Evet. Konya’nın 31 ilçesinin (Akşehir, Seydişehir, Ilgın, Beyşehir, Karapınar, Çumra vb.) tamamına mobil eşya asansörlerimizi sevk ederek yüksek katlı taşınma desteği sunuyoruz.',
   },
   {
     question: 'Görüntülü ekspertiz hizmeti nasıl yapılır?',

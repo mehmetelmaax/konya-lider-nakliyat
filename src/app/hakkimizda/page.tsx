@@ -79,7 +79,7 @@ export default function HakkimizdaPage() {
                 <span>Araç ve Asansör Filomuz</span>
               </h2>
               <p className="text-charcoal text-sm md:text-base leading-relaxed">
-                Lider Nakliyat araç filosu, çelik kapalı kasa ev eşyası nakliye kamyonları ve 25. kata kadar ulaşabilen mobil dış cephe eşya asansörlerinden oluşmaktadır. Araçlarımızın tamamı logolu olup, periyodik temizlik ve bakımları düzenli olarak yapılmaktadır.
+                Lider Nakliyat araç filosu, çelik kapalı kasa ev eşyası nakliye kamyonları ve {FACTS.maxFloor}. kata kadar ulaşabilen mobil dış cephe eşya asansörlerinden oluşmaktadır. Araçlarımızın tamamı logolu olup, periyodik temizlik ve bakımları düzenli olarak yapılmaktadır.
               </p>
             </div>
 

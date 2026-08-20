@@ -1,16 +1,19 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { SITE, DISTRICTS } from '@/lib/site-config';
 import HeroSlider from '@/components/HeroSlider';
 import TrustStrip from '@/components/TrustStrip';
 import ServicesGrid from '@/components/ServicesGrid';
 import FAQAccordion from '@/components/FAQAccordion';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
+import GoogleReviews from '@/components/GoogleReviews';
 import JsonLd from '@/components/JsonLd';
 import { organizationSchema, websiteSchema, faqSchema } from '@/lib/schema';
 import { faqs } from '@/lib/faq-data';
 import { Star, ShieldAlert, BadgeCheck, Users2, Building2, CheckCircle2, ArrowRight } from 'lucide-react';
+import { FACTS } from '@/lib/facts';
 
 export const metadata: Metadata = {
   title: 'Konya Evden Eve Nakliyat | Lider Nakliyat Sabit Fiyat',
@@ -96,7 +99,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-display font-bold text-white text-lg">Kendi Mobil Asansör Filomuz</h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  Dışarıdan kiralık asansör aramak yerine, 25. kata kadar ulaşan kendi araç filomuzdaki mobil asansör sistemlerini sevk ederek işlerin aksamasını önlüyoruz.
+                  Dışarıdan kiralık asansör aramak yerine, {FACTS.maxFloor}. kata kadar ulaşan kendi araç filomuzdaki mobil asansör sistemlerini sevk ederek işlerin aksamasını önlüyoruz.
                 </p>
               </div>
             </div>
@@ -161,6 +164,86 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Fotoğraflar / Galeri Section */}
+        <section className="py-20 bg-off-white border-t border-gray-light" id="fotograflar">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+              <span className="text-gold-text font-bold text-xs tracking-widest uppercase">
+                GERÇEK HİZMET FOTOĞRAFLARI
+              </span>
+              <h2 className="font-display font-black text-forest text-3xl md:text-4xl tracking-tight leading-tight">
+                Operasyonlarımızdan Kareler
+              </h2>
+              <p className="text-charcoal text-base leading-relaxed">
+                Konya Lider Nakliyat olarak tüm taşımalarımızda kendi özmal araçlarımızı, asansörlerimizi ve kadrolu elemanlarımızı kullanıyoruz.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              {[
+                {
+                  src: '/img/arac-filosu.webp',
+                  title: 'Geniş Araç Filosu',
+                  desc: 'Ev eşyası taşımaya uygun kapalı kasa filomuz.',
+                  alt: 'Konya Lider Nakliyat kapalı kasa nakliye kamyonları ve araç filosu'
+                },
+                {
+                  src: '/img/asansor-kurulum.webp',
+                  title: 'Dış Cephe Asansörleri',
+                  desc: 'Yüksek katlara modüler taşıma asansörleri kurulumu.',
+                  alt: 'Dış cephe teleskopik modüler nakliyat asansörü kurulumu'
+                },
+                {
+                  src: '/img/paketleme-detay.webp',
+                  title: 'Ambalajlama ve Paketleme',
+                  desc: 'Çift katlı koruyucu patpat balonlu sarım.',
+                  alt: 'Eşyaların balonlu naylon malzemeyle koruyucu paketlenmesi'
+                },
+                {
+                  src: '/img/marangozluk.webp',
+                  title: 'Profesyonel Marangozluk',
+                  desc: 'Mobilyaların demontaj ve montaj süreçleri.',
+                  alt: 'Usta marangoz tarafından mobilyaların sökülmesi ve kurulumu'
+                }
+              ].map((img, i) => (
+                <div 
+                  key={i} 
+                  className="group relative overflow-hidden rounded-2xl border border-gray-light bg-white shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+                >
+                  <div className="relative aspect-video sm:aspect-square overflow-hidden bg-gray-100">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col justify-between space-y-2 bg-white">
+                    <h3 className="font-display font-bold text-forest text-lg group-hover:text-gold transition-colors">
+                      {img.title}
+                    </h3>
+                    <p className="text-charcoal/80 text-sm leading-relaxed">
+                      {img.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Link to full gallery page */}
+            <div className="text-center">
+              <Link
+                href="/galeri"
+                className="inline-flex items-center gap-2 bg-forest hover:bg-gold text-white hover:text-forest font-bold px-6 py-3.5 rounded-xl transition-all duration-200 text-sm active:scale-95 shadow-md hover:shadow-lg cursor-pointer"
+              >
+                <span>Hizmet Galerisinin Tamamını Gör</span>
+                <ArrowRight className="w-4.5 h-4.5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Konya'nın Tüm İlçelerinde Hizmetteyiz Section */}
         <section className="py-20 bg-white" id="ilcelerimiz">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -217,6 +300,10 @@ export default function Home() {
               <p className="text-gray-300 text-xs md:text-sm max-w-xl mx-auto leading-relaxed">
                 Müşterilerimizin taşınma süreçleri sonrasında Google Haritalar üzerinde bıraktığı gerçek yorumları okumak veya işletmemizi değerlendirmek için aşağıdaki bağlantıları kullanabilirsiniz.
               </p>
+            </div>
+
+            <div className="mb-12">
+              <GoogleReviews />
             </div>
 
             {/* Direct Google Review action */}

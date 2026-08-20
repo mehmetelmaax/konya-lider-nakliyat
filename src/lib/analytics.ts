@@ -1,15 +1,15 @@
 export function trackEvent(name: string, params?: Record<string, unknown>) {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', name, params);
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', name, params);
   }
 }
 
 export function trackConversion() {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
+  if (typeof window !== 'undefined' && window.gtag) {
     const gadsId = process.env.NEXT_PUBLIC_GADS_ID;
     const label = process.env.NEXT_PUBLIC_GADS_CONVERSION_LABEL;
     if (gadsId && label) {
-      (window as any).gtag('event', 'conversion', {
+      window.gtag('event', 'conversion', {
         'send_to': `${gadsId}/${label}`
       });
     }
@@ -18,7 +18,7 @@ export function trackConversion() {
 
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
-    clarity?: (...args: any[]) => void;
+    gtag?: (...args: unknown[]) => void;
+    clarity?: (...args: unknown[]) => void;
   }
 }

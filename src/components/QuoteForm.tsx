@@ -73,7 +73,7 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
 
   const calculateEstimate = () => {
     const res = estimatePrice({
-      rooms: formData.rooms as any,
+      rooms: formData.rooms as '1+1' | '2+1' | '3+1' | '4+1+' | 'ofis',
       fromElevator: formData.elevator === 'evet',
       toElevator: false,
       fromDistrict: formData.fromDistrict,
@@ -99,11 +99,11 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
     // Zod Client-side Validation
     const validation = QuoteFormSchema.safeParse({ ...formData, kvkkOnay: kvkkChecked });
     if (!validation.success) {
-      const fieldErrors = validation.error.flatten().fieldErrors;
+      const fieldErrors = validation.error.flatten().fieldErrors as Record<string, string[] | undefined>;
       const newErrors: { [key: string]: string } = {};
       
       Object.keys(fieldErrors).forEach((key) => {
-        newErrors[key] = (fieldErrors as any)[key]?.[0] || '';
+        newErrors[key] = fieldErrors[key]?.[0] || '';
       });
 
       setErrors(newErrors);

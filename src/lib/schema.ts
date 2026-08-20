@@ -205,7 +205,7 @@ export function faqSchema(faqsList: { question: string; answer: string }[]) {
 }
 
 export function localBusinessSchema() {
-  const org = { ...organizationSchema() } as any;
+  const org = { ...organizationSchema() } as Record<string, unknown>;
   delete org['@context'];
 
   return {

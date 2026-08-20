@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { MapPin, Navigation, Calendar, ArrowRight } from 'lucide-react';
 import { SITE, DISTRICTS } from '@/lib/site-config';
+import { FACTS } from '@/lib/facts';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -91,7 +92,7 @@ export default function BolgelerPage() {
               Konya'da Nakliye Lojistiği ve Coğrafi Bölge Yapısı
             </h2>
             <p>
-              Türkiye'nin yüz ölçümü bakımından en büyük ili olan Konya, nakliyat lojistiği açısından kendine has dinamiklere sahiptir. Şehrin yerleşim yapısı incelendiğinde, nüfusun ve konut yoğunluğunun büyük bir kısmının <strong>Selçuklu, Meram ve Karatay</strong> gibi merkez ilçelerde toplandığı görülmektedir. Bu bölgelerde son yıllarda inşa edilen 10 kat ve üzeri yüksek binaların oranı artmıştır. Konya Lider Nakliyat olarak bu modern yerleşim planına ayak uydurarak, 25. kata kadar ulaşabilen mobil dış cephe eşya asansörlerimizle hizmet vermekteyiz.
+              Türkiye'nin yüz ölçümü bakımından en büyük ili olan Konya, nakliyat lojistiği açısından kendine has dinamiklere sahiptir. Şehrin yerleşim yapısı incelendiğinde, nüfusun ve konut yoğunluğunun büyük bir kısmının <strong>Selçuklu, Meram ve Karatay</strong> gibi merkez ilçelerde toplandığı görülmektedir. Bu bölgelerde son yıllarda inşa edilen 10 kat ve üzeri yüksek binaların oranı artmıştır. Konya Lider Nakliyat olarak bu modern yerleşim planına ayak uydurarak, {FACTS.maxFloor}. kata kadar ulaşabilen mobil dış cephe eşya asansörlerimizle hizmet vermekteyiz.
             </p>
             <p>
               Merkez dışındaki taşra ilçelerimizde ise durum daha farklıdır. Örneğin, <strong>Ereğli, Akşehir ve Seydişehir</strong> gibi büyük ilçelerimiz Konya merkeze önemli mesafelerde yer alır. Bu mesafeler nakliye araçlarının yakıt, amortisman ve yol güvenliği planlamalarını doğrudan etkiler. Şehirlerarası standartlarda gerçekleştirdiğimiz ilçe taşımacılığında, araçlarımızın Toroslar ve İç Anadolu düzlüklerindeki engebeli yollarda eşyalara zarar vermemesi amacıyla süspansiyon sistemleri ve araç içi sabitleme mekanizmaları periyodik olarak kontrol edilmektedir.

@@ -36,7 +36,6 @@ Aşağıdaki tablo, sitedeki tüm canlı rotaların SEO ve GEO (Generative Engin
 | `/bolgeler/meram-evden-eve-nakliyat` | Bölge Sayfası | Meram Evden Eve Nakliyat | Lider Nakliyat | 1158 | Service, AdministrativeArea, B... | 🟢 Evet | ⭐⭐⭐⭐⭐ (5/5) |
 | `/bolgeler/sarayonu-evden-eve-nakliyat` | Bölge Sayfası | Sarayönü Evden Eve Nakliyat | Lider Nakliyat | 440 | Service, AdministrativeArea, B... | 🔴 Hayır (Noindex) | ⭐⭐⭐⭐ (4/5) |
 | `/bolgeler/karapinar-evden-eve-nakliyat` | Bölge Sayfası | Karapınar Evden Eve Nakliyat | Lider Nakliyat | 441 | Service, AdministrativeArea, B... | 🔴 Hayır (Noindex) | ⭐⭐⭐⭐ (4/5) |
-| `/bolgeler/karaisali-evden-eve-nakliyat` | Bölge Sayfası | Karaisalı Evden Eve Nakliyat | Lider Nakliyat | 452 | Service, AdministrativeArea, B... | 🔴 Hayır (Noindex) | ⭐⭐⭐⭐ (4/5) |
 | `/bolgeler/beysehir-evden-eve-nakliyat` | Bölge Sayfası | Beyşehir Evden Eve Nakliyat | Lider Nakliyat | 454 | Service, AdministrativeArea, B... | 🔴 Hayır (Noindex) | ⭐⭐⭐⭐ (4/5) |
 | `/bolgeler/seydisehir-evden-eve-nakliyat` | Bölge Sayfası | Seydişehir Evden Eve Nakliyat | Lider Nakliyat | 1193 | Service, AdministrativeArea, B... | 🟢 Evet | ⭐⭐⭐⭐⭐ (5/5) |
 | `/bolgeler/ilgin-evden-eve-nakliyat` | Bölge Sayfası | Ilgın Evden Eve Nakliyat | Lider Nakliyat | 1232 | Service, AdministrativeArea, B... | 🟢 Evet | ⭐⭐⭐⭐⭐ (5/5) |

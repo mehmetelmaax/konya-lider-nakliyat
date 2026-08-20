@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-forest: #0D3E30;
-  --color-gold: #D4AF37;
-  --color-gold-text: #9B7E20;
-  --color-charcoal: #1B2421;
-  --color-gray-light: #EBF0ED;
-  --color-off-white: #FAFDFB;
+  --color-forest: #123F42; /* Petrol Yeşili */
+  --color-gold: #D66A2C; /* Bakır Turuncu */
+  --color-gold-text: #D66A2C; /* Bakır Turuncu Text */
+  --color-charcoal: #17292A; /* Koyu Metin Rengi */
+  --color-gray-light: #EBE5D9; /* Kırık Beyaz Border Rengi */
+  --color-off-white: #F7F3EA; /* Kırık Beyaz */
   --color-white: #FFFFFF;
   
   --font-sans: var(--font-sans);
@@ -28,8 +28,8 @@
 }
 
 :root {
-  --background: #F9FAFB;
-  --foreground: #252525;
+  --background: #F7F3EA; /* Kırık Beyaz */
+  --foreground: #17292A; /* Koyu Metin Rengi */
 }
 
 body {
@@ -43,19 +43,19 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #EBF0ED;
+  background: #F7F3EA;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0D3E30;
+  background: #123F42;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+  background: #D66A2C;
 }
 
 /* Accessibility Focus Ring */
 *:focus-visible {
-  outline: 2px solid #D4AF37;
+  outline: 2px solid #D66A2C;
   outline-offset: 2px;
 }
 

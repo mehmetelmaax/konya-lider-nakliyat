@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, MapPin, Mail, Clock, ChevronDown, ChevronUp } from 'lucide-react';
+import { Phone, Mail, Clock, ChevronDown, ChevronUp } from 'lucide-react';
 import { SITE } from '@/lib/site-config';
 import { trackEvent } from '@/lib/analytics';
 
@@ -56,7 +56,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-gray-300 text-sm leading-relaxed max-w-sm">
-              20 yıldır Konya'da evden eve nakliyat, ofis taşımacılığı ve asansörlü nakliye hizmetleri vermekte olan yerel ve güvenilir taşımacılık ortağınız.
+              20 yıldır Konya&apos;da evden eve nakliyat, ofis taşımacılığı ve asansörlü nakliye hizmetleri vermekte olan yerel ve güvenilir taşımacılık ortağınız.
             </p>
           </div>
 
@@ -102,6 +102,9 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="/hizmetler/piyano-ve-kasa-tasima" className="hover:text-gold transition-colors">9. Piyano ve Ağır Kasa Taşıma</Link>
+                </li>
+                <li>
+                  <Link href="/konya-nakliyat-firmalari" className="hover:text-gold transition-colors">10. Konya Nakliyat Firmaları</Link>
                 </li>
                 <li>
                   <Link href="/rotalar" className="text-gold hover:text-white transition-colors font-bold">➔ Şehirlerarası Lojistik Rotalar</Link>

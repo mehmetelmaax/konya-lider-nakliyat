@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, Truck, Repeat, ArrowRight, Briefcase, Package, FileText } from 'lucide-react';
 import QuoteForm from './QuoteForm';
+import { FACTS } from '@/lib/facts';
 
 interface ServiceItem {
   id: string;
@@ -55,7 +56,7 @@ const services: ServiceItem[] = [
     searchableName: 'Asansörlü Ev Taşıma',
     outcomeLine: 'Merdiven hasarlarını sıfıra indiren, hızlı ve güvenli dış cephe taşıma sistemi.',
     mechanics: [
-      '25. kata kadar erişim',
+      `${FACTS.maxFloor}. kata kadar erişim`,
       'Dar sokaklara uygun mobil araçlar',
       'Çift halatlı güvenlik sistemi',
     ],

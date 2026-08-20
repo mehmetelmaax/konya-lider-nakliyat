@@ -272,5 +272,65 @@ export const routesDatabase: Record<string, RouteData> = {
         answer: "Evet, kadrolu marangozumuz gardıroplarınızı, yatak ve ünitelerinizi Eskişehir'deki yeni adresinizde ücretsiz kurar."
       }
     ]
+  },
+  'konya-mersin-evden-eve-nakliyat': {
+    slug: 'konya-mersin-evden-eve-nakliyat',
+    city: 'Mersin',
+    distanceKm: 350,
+    durationHours: 4.5,
+    priceRangeMin: 14500,
+    priceRangeMax: 25500,
+    viaRoute: 'Karaman - Mut - Silifke (D-715) veya D-330 & O-21',
+    notes: 'Sertavul Geçidi veya Pozantı güzergâhı üzerinden yol durumuna göre planlama yapılır.',
+    introText: "Konya Lider Nakliyat, Konya'dan Akdeniz'in önemli liman kentlerinden Mersin'in tüm ilçelerine (Mezitli, Yenişehir, Tarsus, Toroslar, Erdemli, Silifke dahil) profesyonel asansörlü, sigortalı ve marangozlu evden eve nakliyat hizmeti sağlamaktadır. Uzun yıllara dayanan deneyimimizle eşyalarınızı Konya'dan Mersin'e sıfır hasar güvencesiyle taşıyoruz.",
+    distanceText: "Konya ile Mersin arası karayolu mesafesi tercih edilen güzergâha göre yaklaşık 350 kilometredir. Sabah saatlerinde Konya'daki adresinizde başlayan yükleme işleminin ardından yola çıkan kapalı çelik kasa nakliye aracımız ortalama 5 saatlik sürüşün ardından Mersin'deki yeni adresinize ulaşır ve kurulum işlemlerine başlanır.",
+    pricingText: "Konya ile Mersin arası nakliyat fiyatları Konya Lider Nakliyat tarafından 14.500 TL'den başlayarak hesaplanmaktadır. Fiyat teklifimize kapalı kasa kamyon, profesyonel paketleme, de-montaj ve montaj, sigorta ve asansör kurulumu dahildir. 1+1 daire taşıma fiyatı 14.500 TL ile 17.500 TL arasında değişirken; 2+1 daire taşıma 18.500 TL ile 21.500 TL, 3+1 daire taşıma ise 22.500 TL ile 25.500 TL arasında bütçelendirilir.",
+    routeText: "Konya'dan Mersin'e giden nakliye araçlarımız Karaman-Mut-Silifke (D-715) hattını ya da otoyol konforu sunan D-330 & O-21 (Ereğli-Pozantı-Tarsus) hattını kullanmaktadır. Yol durumları mevsimsel şartlara göre şoförlerimizce analiz edilerek en konforlu rota tercih edilir.",
+    insuranceText: "Şehirlerarası nakliyat seferlerimizin tamamı geniş kapsamlı emtia taşıma sigortası kapsamındadır. Eşyalarınız Konya'da kamyona yüklendiği andan itibaren Mersin'deki yeni evinize teslim edilene kadar yaşanabilecek tüm majör risklere karşı sigortalanır.",
+    tipsText: "Mersin'e taşınırken dikkat edilmesi gereken husus, özellikle Mezitli ve Yenişehir sahil şeridindeki çok katlı rezidanslarda deniz rüzgârı durumu ve site içi asansör kurulum izinleridir. Taşınma öncesinde bina yönetimiyle asansör kullanım saatlerinin koordine edilmesi önerilir.",
+    faq: [
+      {
+        question: "Konya Mersin nakliyat kaç saat sürer?",
+        answer: "Yükleme, yolculuk ve boşaltma dahil tüm süreç ortalama 8 ila 10 saat arasında tamamlanarak aynı gün içinde teslim edilir."
+      },
+      {
+        question: "Yazlık bölgelere (Erdemli, Silifke) taşıma yapıyor musunuz?",
+        answer: "Evet, Mersin'in Erdemli, Silifke, Anamur dahil tüm kıyı ve yazlık bölgelerine taşıma hizmetimiz mevcuttur."
+      },
+      {
+        question: "Fiyatlarınıza asansör kurulumu dahil mi?",
+        answer: "Evet, her iki adreste de uygunluk durumuna göre dış cephe nakliye asansörünün kurulması teklif fiyatımıza dahildir."
+      }
+    ]
+  },
+  'konya-gaziantep-evden-eve-nakliyat': {
+    slug: 'konya-gaziantep-evden-eve-nakliyat',
+    city: 'Gaziantep',
+    distanceKm: 590,
+    durationHours: 7.5,
+    priceRangeMin: 19500,
+    priceRangeMax: 30500,
+    viaRoute: 'D-330 & O-21 ve TAG Otoyolu güzergâhı',
+    notes: 'TAG Otoyolu otoyol kalitesinde güvenli sürüş sağlar. Nurdağı geçişinde kontrollü hız sınırlarına uyulur.',
+    introText: "Konya Lider Nakliyat, Konya'dan bölgenin en büyük sanayi ve yerleşim merkezlerinden Gaziantep'in tüm ilçelerine (Şahinbey, Şehitkamil, Nizip, İslahiye dahil) profesyonel asansörlü ve sigortalı evden eve nakliyat çözümleri sunmaktadır. Geniş araç filomuz ve uzman marangoz kadromuzla taşınmanızı stressiz bir deneyime dönüştürüyoruz.",
+    distanceText: "Konya ile Gaziantep arası karayolu mesafesi yaklaşık 590 kilometredir. Sabah Konya'daki dairenizde başlayan de-montaj ve paketleme işlemlerinin ardından yola çıkan nakliye aracımız, ertesi gün sabah saatlerinde Gaziantep'teki yeni adresinize ulaşarak eşyalarınızın asansörle taşınmasını ve kurulumunu gerçekleştirir.",
+    pricingText: "Konya ile Gaziantep arası nakliyat fiyatları Konya Lider Nakliyat tarafından 19.500 TL'den başlayarak hesaplanmaktadır. Tekliflerimize kapalı kasa kamyon, profesyonel paketleme malzemeleri, de-montaj, montaj ve sigorta poliçesi dahildir. 1+1 daire taşıma fiyatı 19.500 TL ile 22.000 TL arasında değişirken; 2+1 daire taşıma 23.000 TL ile 26.000 TL, 3+1 daire taşıma ise 27.000 TL ile 30.500 TL arasında bütçelendirilir.",
+    routeText: "Gaziantep nakliye araçlarımız Konya - Ereğli - Pozantı - Adana - Osmaniye - Gaziantep güzergâhını takip eder. TAG Otoyolu (O-52) bağlantısı kullanılarak konforlu and sarsıntısız bir karayolu sürüşü hedeflenir.",
+    insuranceText: "Şehirlerarası nakliyat operasyonlarımızın tamamı emtia taşıma sigortası ile Anadolu Sigorta güvencesindedir. Eşyalarınız Konya'dan Gaziantep'e ulaşana kadar oluşabilecek kazalara karşı tam bedeli üzerinden teminat altındadır.",
+    tipsText: "Gaziantep'in Şahinbey ve Şehitkamil ilçelerindeki bazı yokuşlu ve dar sokaklarda mobil asansör kurulum açısının önceden kontrol edilmesi, taşınma gününün sorunsuz geçmesi açısından önem taşımaktadır.",
+    faq: [
+      {
+        question: "Konya Gaziantep nakliye kaç gün sürer?",
+        answer: "Eşyaların yüklenmesi, yolculuk ve Gaziantep'te yeni adrese boşaltılıp monte edilmesi toplamda 2 iş günü sürmektedir."
+      },
+      {
+        question: "Nizip veya İslahiye gibi dış ilçelere de hizmet veriyor musunuz?",
+        answer: "Evet, Gaziantep'in Nizip, İslahiye, Nurdağı, Oğuzeli dahil tüm dış ilçelerine nakliyat hizmetimiz mevcuttur."
+      },
+      {
+        question: "Paketleme ve marangozluk işlemlerini kim yapıyor?",
+        answer: "Kendi bünyemizde çalışan kadrolu marangozlarımız ve uzman paketleme ekiplerimiz tüm de-montaj ve koruyucu ambalajlama işlemlerini gerçekleştirmektedir."
+      }
+    ]
   }
 };

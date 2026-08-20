@@ -129,9 +129,9 @@ export async function POST(req: NextRequest) {
     // 4. Server-side validation using Zod
     const validationResult = QuoteFormSchema.safeParse(body);
     if (!validationResult.success) {
-      const fieldErrors = validationResult.error.flatten().fieldErrors;
+      const fieldErrors = validationResult.error.flatten().fieldErrors as Record<string, string[] | undefined>;
       const firstErrorKey = Object.keys(fieldErrors)[0];
-      const errorMessage = (fieldErrors as any)[firstErrorKey]?.[0] || 'Lütfen bilgilerinizi kontrol edin.';
+      const errorMessage = fieldErrors[firstErrorKey]?.[0] || 'Lütfen bilgilerinizi kontrol edin.';
       
       return NextResponse.json(
         { ok: false, message: errorMessage, errors: fieldErrors },
@@ -145,7 +145,7 @@ export async function POST(req: NextRequest) {
     
     // Unified Price Calculation Engine
     const est = estimatePrice({
-      rooms: leadData.rooms as any,
+      rooms: leadData.rooms as '1+1' | '2+1' | '3+1' | '4+1+' | 'ofis',
       fromElevator: leadData.elevator === 'evet',
       toElevator: false,
       fromDistrict: leadData.fromDistrict,
@@ -241,7 +241,7 @@ export async function POST(req: NextRequest) {
         subject: `Yeni Teklif Talebi - ${escapedName}`,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e9eef2; border-radius: 10px;">
-            <h2 style="color: #0D3E30; border-bottom: 2px solid #D4AF37; padding-bottom: 10px;">Yeni Teklif Talebi Alındı</h2>
+            <h2 style="color: #123F42; border-bottom: 2px solid #D66A2C; padding-bottom: 10px;">Yeni Teklif Talebi Alındı</h2>
             <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
               <tr style="background: #f9fafb;">
                 <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #e9eef2; width: 180px;">Ad Soyad:</td>
@@ -319,7 +319,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
 
-  } catch (error: any) {
+  } catch (error) {
     console.error('API_TEKLIF_ERROR:', error);
     return NextResponse.json(
       { ok: false, message: 'Teklif talebiniz işlenirken bir sunucu hatası oluştu.' },

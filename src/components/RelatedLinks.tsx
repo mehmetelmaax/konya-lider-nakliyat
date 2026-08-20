@@ -150,6 +150,11 @@ export default function RelatedLinks({ currentSlug, type, title }: RelatedLinksP
         text: getBlogAnchor(b.title.replace(/\?$/, ''), idx + 9),
       });
     });
+
+    links.push({
+      href: '/konya-nakliyat-firmalari',
+      text: 'Konya En İyi Evden Eve Nakliyat Firmaları',
+    });
   }
 
   return (

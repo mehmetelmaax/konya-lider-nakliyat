@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldCheck, CalendarRange, ArrowUpCircle } from 'lucide-react';
+import { FACTS } from '@/lib/facts';
 
 export default function TrustStrip() {
   return (
@@ -32,7 +33,7 @@ export default function TrustStrip() {
               <div className="font-display font-black text-forest text-2xl md:text-3xl">20 Yıl</div>
               <div className="text-gold-text font-bold text-xs uppercase tracking-wider mt-1">Konya Yerel Tecrübesi</div>
               <p className="text-charcoal text-sm leading-relaxed mt-2">
-                2006 yılından beri Selçuklu merkezli olarak Konya'nın tüm bölgelerinde güvenli taşıma yapıyoruz.
+                2006 yılından beri Selçuklu merkezli olarak Konya&apos;nın tüm bölgelerinde güvenli taşıma yapıyoruz.
               </p>
             </div>
           </div>
@@ -43,7 +44,7 @@ export default function TrustStrip() {
               <ArrowUpCircle className="w-8 h-8 text-forest" />
             </div>
             <div>
-              <div className="font-display font-black text-forest text-2xl md:text-3xl">25. Kat</div>
+              <div className="font-display font-black text-forest text-2xl md:text-3xl">{FACTS.maxFloor}. Kat</div>
               <div className="text-gold-text font-bold text-xs uppercase tracking-wider mt-1">Mobil Asansör Ulaşımı</div>
               <p className="text-charcoal text-sm leading-relaxed mt-2">
                 Dış cephe asansör araçlarımızla, dar sokaklarda bile yüksek katlara hasarsız kurulum sağlıyoruz.
@@ -63,7 +64,7 @@ export default function TrustStrip() {
               SÖZLEŞMELİ FİYAT GÜVENCESİ
             </span>
             <p className="text-white text-base md:text-lg lg:text-xl font-bold font-display leading-relaxed">
-              "Fiyatımız nettir. Yol bittiğinde, eşya kamyona yüklendiğinde ekstra ücret talep etmeyeceğimizi sözleşmeyle taahhüt ediyoruz."
+              &ldquo;Fiyatımız nettir. Yol bittiğinde, eşya kamyona yüklendiğinde ekstra ücret talep etmeyeceğimizi sözleşmeyle taahhüt ediyoruz.&rdquo;
             </p>
           </div>
         </div>

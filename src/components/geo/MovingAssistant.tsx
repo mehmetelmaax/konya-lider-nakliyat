@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Calendar, Shield, Info, ClipboardList, CheckCircle2, RefreshCw, Printer, AlertTriangle, ArrowRight, Check } from 'lucide-react';
+import React, { useState } from 'react';
+import { Calendar, Shield, ClipboardList, CheckCircle2, RefreshCw, Printer, AlertTriangle, ArrowRight, Check } from 'lucide-react';
 import { SITE, DISTRICTS } from '@/lib/site-config';
 
 interface AssistantInput {
@@ -56,40 +56,33 @@ const BASE_CHECKLIST: ChecklistItem[] = [
 
 export default function MovingAssistant() {
   const [isGenerated, setIsGenerated] = useState(false);
-  const [inputs, setInputs] = useState<AssistantInput>({
-    movingDate: '',
-    fromDistrict: 'Selçuklu',
-    toDistrict: 'Meram',
-    homeType: '3+1',
-    hasElevator: true,
-    hasPet: false,
-    hasKids: false,
-    hasSensitive: false
-  });
-
-  const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
-  const [todayDate, setTodayDate] = useState('');
-
-  useEffect(() => {
-    // Set dynamic default date (30 days from now)
+  const [inputs, setInputs] = useState<AssistantInput>(() => {
     const future = new Date();
     future.setDate(future.getDate() + 30);
     const yyyy = future.getFullYear();
     const mm = String(future.getMonth() + 1).padStart(2, '0');
     const dd = String(future.getDate()).padStart(2, '0');
-    
-    setInputs(prev => ({
-      ...prev,
-      movingDate: `${yyyy}-${mm}-${dd}`
-    }));
 
-    // Format current date for recency signal
+    return {
+      movingDate: `${yyyy}-${mm}-${dd}`,
+      fromDistrict: 'Selçuklu',
+      toDistrict: 'Meram',
+      homeType: '3+1',
+      hasElevator: true,
+      hasPet: false,
+      hasKids: false,
+      hasSensitive: false
+    };
+  });
+
+  const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
+  const [todayDate] = useState(() => {
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
     const month = String(today.getMonth() + 1).padStart(2, '0');
     const year = today.getFullYear();
-    setTodayDate(`${day}.${month}.${year}`);
-  }, []);
+    return `${day}.${month}.${year}`;
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;

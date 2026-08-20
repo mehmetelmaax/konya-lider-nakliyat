@@ -15,7 +15,7 @@ export default async function Image() {
     (
       <div
         style={{
-          background: '#0D3E30',
+          background: '#123F42',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -35,7 +35,7 @@ export default async function Image() {
             left: 0,
             right: 0,
             height: '12px',
-            backgroundColor: '#D4AF37',
+            backgroundColor: '#D66A2C',
           }}
         />
 
@@ -44,7 +44,7 @@ export default async function Image() {
           style={{
             fontSize: '24px',
             fontWeight: 'bold',
-            color: '#D4AF37',
+            color: '#D66A2C',
             textTransform: 'uppercase',
             letterSpacing: '4px',
             marginBottom: '20px',
@@ -83,11 +83,11 @@ export default async function Image() {
           }}
         >
           <span>Sabit Fiyat</span>
-          <span style={{ margin: '0 15px', color: '#D4AF37' }}>•</span>
+          <span style={{ margin: '0 15px', color: '#D66A2C' }}>•</span>
           <span>Sigortalı</span>
-          <span style={{ margin: '0 15px', color: '#D4AF37' }}>•</span>
+          <span style={{ margin: '0 15px', color: '#D66A2C' }}>•</span>
           <span>Asansörlü</span>
-          <span style={{ margin: '0 15px', color: '#D4AF37' }}>•</span>
+          <span style={{ margin: '0 15px', color: '#D66A2C' }}>•</span>
           <span>K3 Belgeli</span>
         </div>
 
@@ -100,13 +100,13 @@ export default async function Image() {
             fontSize: '36px',
             fontWeight: 'bold',
             color: '#FFFFFF',
-            backgroundColor: '#D4AF37',
+            backgroundColor: '#D66A2C',
             padding: '16px 40px',
             borderRadius: '16px',
           }}
         >
-          <span style={{ color: '#0D3E30', marginRight: '10px' }}>📞</span>
-          <span style={{ color: '#0D3E30' }}>0554 640 02 05</span>
+          <span style={{ color: '#123F42', marginRight: '10px' }}>📞</span>
+          <span style={{ color: '#123F42' }}>0554 640 02 05</span>
         </div>
       </div>
     ),

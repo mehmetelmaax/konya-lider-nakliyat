@@ -10,6 +10,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { routesDatabase } from '@/lib/routes-data';
 
 export const metadata: Metadata = {
   title: 'Konya Şehirlerarası Ev Taşıma | Lider Nakliyat',
@@ -21,55 +22,59 @@ export const metadata: Metadata = {
 
 export default function SehirlerarasiPage() {
   const sss = [
-  {
-    "question": "Konya - İstanbul evden eve nakliye kaç gün sürer?",
-    "answer": "Konya’dan İstanbul’a taşınmalarımız Aksaray, Ankara, Bolu güzergahı üzerinden yaklaşık 950 km olup, yükleme yapıldıktan 24 saat sonra (ertesi gün sabah) teslim edilmektedir."
-  },
-  {
-    "question": "Konya - Ankara ev taşıma süresi ve montajı nasıl yapılır?",
-    "answer": "Konya - Ankara arası mesafemiz Ilgın tünelleri ve Aksaray yolu üzerinden 490 km’dir. Eşyalarınız aynı gün akşamüstü yeni evinizde marangoz montaj dahil anahtar teslim edilir."
-  },
-  {
-    "question": "Konya - İzmir nakliyat seferleriniz hangi sıklıktadır?",
-    "answer": "İzmir güzergahımıza (Manisa, Uşak, Afyon üzerinden 900 km) haftada 3 gün düzenli parsiyel ve komple eşya taşıma seferleri düzenlenmektedir."
-  },
-  {
-    "question": "Konya - Bursa arası mobilya paketleme standardınız nedir?",
-    "answer": "Bursa yönüne (780 km) olan tüm taşımalarımızda eşyalarınız çift kat patpat naylonlarla sarılır ve yol sarsıntısına karşı araç içinde kilitli gergilerle sabitlenir."
-  },
-  {
-    "question": "Konya - Antalya nakliye fiyatları ne kadardır?",
-    "answer": "Antalya rotası (Alanya, Manavgat geçişli 620 km) için fiyatlar oda sayısına göre ortalama 14.000 TL ile 22.000 TL arasındadır."
-  },
-  {
-    "question": "Konya - Kayseri arası asansörlü nakliye yapıyor musunuz?",
-    "answer": "Evet. Kayseri yönüne (Niğde üzerinden 330 km) 25. kata kadar ulaşabilen kendi mobil eşya asansörlerimizle sigortalı taşımacılık sunmaktadır."
-  },
-  {
-    "question": "Konya - Konya nakliye süresi ne kadardır?",
-    "answer": "Konya (Ereğli geçişli 350 km) ev taşıma operasyonlarımız sabah yüklenip, aynı gün akşamüstü Konya’daki dairenizde sonlandırılır."
-  },
-  {
-    "question": "Konya - Gaziantep arası parça eşya taşır mısınız?",
-    "answer": "Evet. Gaziantep (Nurdağı geçişli 220 km) yönüne parça eşyalarınızı diğer müşterilerimizin eşyalarıyla birleştirerek uygun fiyata sevk ediyoruz."
-  },
-  {
-    "question": "Konya - Mersin ev taşıma operasyonları kaç saat sürer?",
-    "answer": "Konya - Mersin arası (85 km) taşımalarımız sabah 08:00’de Selçuklu’da başlayıp, öğlen 14:00’te Mersin’deki yeni dairenizde montaj dahil biter."
-  },
-  {
-    "question": "Konya - Hatay nakliye hizmeti K3 belgeli mi?",
-    "answer": "Evet. İskenderun ve Antakya (190 km) güzergahındaki tüm ev taşıma kamyonlarımız Ulaştırma Bakanlığı onaylı K3 belgesine sahiptir."
-  },
-  {
-    "question": "Konya - Kahramanmaraş arası asansör kurulabilir mi?",
-    "answer": "Evet. Kahramanmaraş merkez ilçelerine (180 km) kendi mobil asansör araçlarımızla gidip yüksek katlı rezidanslara kurulum sunmaktadır."
-  },
-  {
-    "question": "Konya - Şanlıurfa taşınma fiyatı nasıl belirlenir?",
-    "answer": "Şanlıurfa (360 km) nakliyat bedeli, otoyol geçiş ücretleri, kat numaraları ve oda yoğunluğuna göre sabit fiyatlı sözleşmeyle belirlenir."
-  }
-];
+    {
+      question: "Konya - İstanbul evden eve nakliye kaç gün sürer?",
+      answer: `Konya’dan İstanbul’a taşınmalarımız ${routesDatabase['konya-istanbul-evden-eve-nakliyat'].viaRoute} üzerinden yaklaşık ${routesDatabase['konya-istanbul-evden-eve-nakliyat'].distanceKm} km olup, yükleme yapıldıktan 24 saat sonra (ertesi gün sabah) teslim edilmektedir.`
+    },
+    {
+      question: "Konya - Ankara ev taşıma süresi ve montajı nasıl yapılır?",
+      answer: `Konya - Ankara arası mesafemiz ${routesDatabase['konya-ankara-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-ankara-evden-eve-nakliyat'].distanceKm} km’dir. Eşyalarınız aynı gün akşamüstü veya ertesi gün sabah marangoz montajı dahil anahtar teslim edilir.`
+    },
+    {
+      question: "Konya - İzmir nakliyat seferleriniz hangi sıklıktadır?",
+      answer: `İzmir güzergahımıza (${routesDatabase['konya-izmir-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-izmir-evden-eve-nakliyat'].distanceKm} km) haftada 3 gün düzenli parsiyel ve komple eşya taşıma seferleri düzenlenmektedir.`
+    },
+    {
+      question: "Konya - Bursa arası mobilya paketleme standardınız nedir?",
+      answer: `Bursa yönüne (${routesDatabase['konya-bursa-evden-eve-nakliyat'].distanceKm} km) olan tüm taşımalarımızda eşyalarınız çift kat patpat naylonlarla sarılır ve yol sarsıntısına karşı araç içinde gergilerle sabitlenir.`
+    },
+    {
+      question: "Konya - Antalya nakliye fiyatları ne kadardır?",
+      answer: `Antalya rotası (${routesDatabase['konya-antalya-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-antalya-evden-eve-nakliyat'].distanceKm} km) için fiyatlar oda sayısına göre ortalama ${routesDatabase['konya-antalya-evden-eve-nakliyat'].priceRangeMin.toLocaleString('tr-TR')} TL ile ${routesDatabase['konya-antalya-evden-eve-nakliyat'].priceRangeMax.toLocaleString('tr-TR')} TL arasındadır.`
+    },
+    {
+      question: "Konya - Kayseri arası asansörlü nakliye yapıyor musunuz?",
+      answer: `Evet. Kayseri yönüne (${routesDatabase['konya-kayseri-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-kayseri-evden-eve-nakliyat'].distanceKm} km) kendi mobil eşya asansörlerimizle sigortalı taşımacılık sunmaktayız.`
+    },
+    {
+      question: "Konya - Adana arası ev taşıma ne kadar sürer?",
+      answer: `Konya’dan Adana’ya olan taşınmalarımız ${routesDatabase['konya-adana-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-adana-evden-eve-nakliyat'].distanceKm} km olup, ortalama 8 ila 10 saat arasında montaj dahil tamamlanmaktadır. Detaylı bilgi için <a href="/rotalar/konya-adana-evden-eve-nakliyat" class="text-gold hover:underline">Konya - Adana Nakliyat</a> sayfamızı inceleyebilirsiniz.`
+    },
+    {
+      question: "Konya - Eskişehir evden eve nakliyat kaç saat sürer?",
+      answer: `Eskişehir yönüne (${routesDatabase['konya-eskisehir-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-eskisehir-evden-eve-nakliyat'].distanceKm} km) taşımalarımız yaklaşık 4 saat sürüş mesafesinde olup, yükleme ve boşaltma dahil aynı gün içinde tamamlanmaktadır.`
+    },
+    {
+      question: "Konya - Mersin ev taşıma operasyonları kaç saat sürer?",
+      answer: `Konya - Mersin arası (${routesDatabase['konya-mersin-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-mersin-evden-eve-nakliyat'].distanceKm} km) taşımalarımız sabah saatlerinde başlayıp, ortalama 5-6 saat sürüşün ardından aynı gün içerisinde kurulum dahil teslim edilmektedir.`
+    },
+    {
+      question: "Konya - Gaziantep arası parça eşya taşır mısınız?",
+      answer: `Evet. Gaziantep (${routesDatabase['konya-gaziantep-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-gaziantep-evden-eve-nakliyat'].distanceKm} km) yönüne parça eşyalarınızı diğer müşterilerimizin eşyalarıyla birleştirerek ekonomik fiyatlarla sevk ediyoruz.`
+    },
+    {
+      question: "Konya - Hatay nakliye hizmeti K3 belgeli mi?",
+      answer: "Evet. Hatay (yaklaşık 590 km) güzergahındaki tüm ev taşıma kamyonlarımız Ulaştırma Bakanlığı onaylı K3 yetki belgesine ve tam sigorta güvencesine sahiptir."
+    },
+    {
+      question: "Konya - Kahramanmaraş arası asansör kurulabilir mi?",
+      answer: "Evet. Kahramanmaraş merkez ilçelerine (yaklaşık 490 km) kendi mobil asansör araçlarımızla gidip yüksek katlı rezidanslara kurulum hizmeti sunuyoruz."
+    },
+    {
+      question: "Konya - Şanlıurfa taşınma fiyatı nasıl belirlenir?",
+      answer: "Şanlıurfa (yaklaşık 750 km) nakliyat bedeli, otoyol geçiş ücretleri, kat numaraları ve eşya yoğunluğuna göre sabit fiyat garantili sözleşmeyle belirlenir."
+    }
+  ];
 
   const schemas = {
     '@context': 'https://schema.org',
@@ -216,7 +221,7 @@ export default function SehirlerarasiPage() {
               {sss.map((item, idx) => (
                 <div key={idx} className={idx > 0 ? "border-t border-gray-light/60 pt-3" : ""}>
                   <span className="font-bold text-forest block mb-1">{item.question}</span>
-                  <p>{item.answer}</p>
+                  <p dangerouslySetInnerHTML={{ __html: item.answer }} />
                 </div>
               ))}
             </div>

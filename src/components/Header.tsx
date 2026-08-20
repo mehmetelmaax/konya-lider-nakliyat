@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Phone, Menu, X, MessageCircle, Calculator, ChevronDown } from 'lucide-react';
+import { Phone, Menu, X, Calculator, ChevronDown } from 'lucide-react';
 import { SITE } from '@/lib/site-config';
 import { trackEvent } from '@/lib/analytics';
 
@@ -188,14 +188,9 @@ export default function Header() {
                 <Link role="menuitem" href="/bolgeler/seydisehir-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-gold block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Seydişehir</Link>
                 <Link role="menuitem" href="/bolgeler/ilgin-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-gold block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Ilgın</Link>
                 <Link role="menuitem" href="/bolgeler/beysehir-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-gold block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Beyşehir</Link>
-                <Link role="menuitem" href="/bolgeler" className="text-gold-text hover:bg-white/5 block px-2.5 py-1.5 rounded text-[11px] font-bold focus:outline-none focus:bg-white/5">→ Tüm Bölgeler</Link>
                 <Link role="menuitem" href="/bolgeler/cumra-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-gold block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Çumra</Link>
-                <Link role="menuitem" href="/bolgeler/sarayonu-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-gold block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Sarayönü</Link>
-                <Link role="menuitem" href="/bolgeler/karapinar-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-gold block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Karapınar</Link>
-                <Link role="menuitem" href="/bolgeler/kulu-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-gold block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Kulu</Link>
-                <Link role="menuitem" href="/bolgeler/cihanbeyli-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-gold block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Cihanbeyli</Link>
                 <Link role="menuitem" href="/bolgeler/kadinhani-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-gold block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Kadınhanı</Link>
-                <Link role="menuitem" href="/bolgeler/karatay-evden-eve-nakliyat" className="text-white hover:bg-white/5 hover:text-gold block px-2.5 py-1.5 rounded text-[11px] font-semibold focus:outline-none focus:bg-white/5">Karatay</Link>
+                <Link role="menuitem" href="/bolgeler" className="text-gold-text hover:bg-white/5 block px-2.5 py-1.5 rounded text-[11px] font-bold focus:outline-none focus:bg-white/5 col-span-2 text-center border-t border-white/10 pt-2 mt-1">→ Tüm Bölgeler</Link>
               </div>
             </div>
 
@@ -294,13 +289,9 @@ export default function Header() {
                 <Link onClick={toggleMenu} href="/bolgeler/seydisehir-evden-eve-nakliyat" className="text-white hover:text-gold text-[9px] font-semibold border border-white/10 rounded py-1">Seydişehir</Link>
                 <Link onClick={toggleMenu} href="/bolgeler/ilgin-evden-eve-nakliyat" className="text-white hover:text-gold text-[9px] font-semibold border border-white/10 rounded py-1">Ilgın</Link>
                 <Link onClick={toggleMenu} href="/bolgeler/beysehir-evden-eve-nakliyat" className="text-white hover:text-gold text-[9px] font-semibold border border-white/10 rounded py-1">Beyşehir</Link>
-                <Link onClick={toggleMenu} href="/bolgeler" className="text-gold-text hover:text-gold text-[9px] font-bold border border-white/10 rounded py-1">→ Tüm Bölgeler</Link>
                 <Link onClick={toggleMenu} href="/bolgeler/cumra-evden-eve-nakliyat" className="text-white hover:text-gold text-[9px] font-semibold border border-white/10 rounded py-1">Çumra</Link>
-                <Link onClick={toggleMenu} href="/bolgeler/sarayonu-evden-eve-nakliyat" className="text-white hover:text-gold text-[9px] font-semibold border border-white/10 rounded py-1">Sarayönü</Link>
-                <Link onClick={toggleMenu} href="/bolgeler/karapinar-evden-eve-nakliyat" className="text-white hover:text-gold text-[9px] font-semibold border border-white/10 rounded py-1">Karapınar</Link>
-                <Link onClick={toggleMenu} href="/bolgeler/kulu-evden-eve-nakliyat" className="text-white hover:text-gold text-[9px] font-semibold border border-white/10 rounded py-1">Kulu</Link>
-                <Link onClick={toggleMenu} href="/bolgeler/cihanbeyli-evden-eve-nakliyat" className="text-white hover:text-gold text-[9px] font-semibold border border-white/10 rounded py-1">Cihanbeyli</Link>
-                <Link onClick={toggleMenu} href="/bolgeler/kadinhani-evden-eve-nakliyat" className="text-white hover:text-gold text-[9px] font-semibold border border-white/10 rounded py-1 col-span-2">Kadınhanı</Link>
+                <Link onClick={toggleMenu} href="/bolgeler/kadinhani-evden-eve-nakliyat" className="text-white hover:text-gold text-[9px] font-semibold border border-white/10 rounded py-1">Kadınhanı</Link>
+                <Link onClick={toggleMenu} href="/bolgeler" className="text-gold-text hover:text-gold text-[9px] font-bold border border-white/10 rounded py-1 col-span-2">→ Tüm Bölgeler</Link>
               </div>
             )}
           </div>

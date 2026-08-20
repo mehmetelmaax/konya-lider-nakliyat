@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { estimatePrice, PriceInput, PriceEstimate } from '@/lib/pricing';
+import React, { useState } from 'react';
+import { estimatePrice, PriceInput } from '@/lib/pricing';
 import { SITE } from '@/lib/site-config';
 import { Calculator, MessageCircle, Phone, ArrowRight, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { trackEvent } from '@/lib/analytics';
@@ -22,24 +22,18 @@ export default function PriceCalculator() {
   const [packing, setPacking] = useState<boolean>(true);
   const [carpentry, setCarpentry] = useState<boolean>(true);
 
-  const [estimate, setEstimate] = useState<PriceEstimate | null>(null);
-
-  // Recalculate price whenever inputs change
-  useEffect(() => {
-    const input: PriceInput = {
-      rooms,
-      fromFloor,
-      toFloor,
-      fromElevator,
-      toElevator,
-      distanceType,
-      packing,
-      carpentry,
-      storage
-    };
-    const res = estimatePrice(input);
-    setEstimate(res);
-  }, [rooms, fromFloor, toFloor, fromElevator, toElevator, distanceType, packing, carpentry, storage]);
+  // Calculate estimate directly during render (derived state)
+  const estimate = estimatePrice({
+    rooms,
+    fromFloor,
+    toFloor,
+    fromElevator,
+    toElevator,
+    distanceType,
+    packing,
+    carpentry,
+    storage
+  });
 
   const handleNextStep = () => {
     setStep((prev) => (prev < 3 ? (prev + 1) as 1 | 2 | 3 : prev));

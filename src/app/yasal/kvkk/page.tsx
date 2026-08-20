@@ -46,7 +46,7 @@ export default function KVKKPage() {
           
           <h2 className="font-display font-bold text-forest text-lg">2. Verilerin İşlenme Amacı ve Hukuki Sebebi</h2>
           <p className="leading-relaxed">
-            Kişisel verileriniz, Kanun'un 5/2-c maddesinde düzenlenen "bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması kaydıyla, sözleşmenin taraflarına ait kişisel verilerin işlenmesinin gerekli olması" hukuki sebebine dayanarak, evden eve nakliye hizmetleri sözleşmesinin kurulması, fiyat teklifinin hazırlanması ve taşınma gününün organize edilmesi amacıyla işlenmektedir.
+            Kişisel verileriniz, Kanun&apos;un 5/2-c maddesinde düzenlenen &ldquo;bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması kaydıyla, sözleşmenin taraflarına ait kişisel verilerin işlenmesinin gerekli olması&rdquo; hukuki sebebine dayanarak, evden eve nakliye hizmetleri sözleşmesinin kurulması, fiyat teklifinin hazırlanması ve taşınma gününün organize edilmesi amacıyla işlenmektedir.
           </p>
           
           <h2 className="font-display font-bold text-forest text-lg">3. Verilerin Saklanma Süresi</h2>
@@ -61,7 +61,7 @@ export default function KVKKPage() {
           
           <h2 className="font-display font-bold text-forest text-lg">5. İletişim ve Hak Talepleri</h2>
           <p className="leading-relaxed">
-            Kanun'un 11. maddesi kapsamındaki haklarınızı (silme, düzeltme, bilgi alma, güncelleme) kullanmak için doğrudan veri sorumlusu e-posta adresimiz olan <a href={`mailto:${SITE.email}`} className="text-gold hover:underline font-bold">{SITE.email}</a> veya fiziki ofis adresimiz üzerinden yazılı olarak bizimle iletişime geçebilirsiniz.
+            Kanun&apos;un 11. maddesi kapsamındaki haklarınızı (silme, düzeltme, bilgi alma, güncelleme) kullanmak için doğrudan veri sorumlusu e-posta adresimiz olan <a href={`mailto:${SITE.email}`} className="text-gold hover:underline font-bold">{SITE.email}</a> veya fiziki ofis adresimiz üzerinden yazılı olarak bizimle iletişime geçebilirsiniz.
           </p>
         </div>
       </div>

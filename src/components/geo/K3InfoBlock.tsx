@@ -23,10 +23,10 @@ export default function K3InfoBlock({ licenseNumber }: K3InfoBlockProps) {
       <div className="space-y-3">
         <span className="font-bold text-forest text-sm block">U-NET Sorgulama ve Doğrulama Adımları:</span>
         <ol className="list-decimal list-inside text-xs space-y-1.5 pl-2">
-          <li>Türkiye Cumhuriyeti e-Devlet kapısı üzerinden "Yetki Belgesi Sorgulama" modülünü aratın.</li>
-          <li>Ulaştırma ve Altyapı Bakanlığı "Karayolu Taşıma Yetki Belgesi Sorgulama" sayfasına giriş yapın.</li>
+          <li>Türkiye Cumhuriyeti e-Devlet kapısı üzerinden &ldquo;Yetki Belgesi Sorgulama&rdquo; modülünü aratın.</li>
+          <li>Ulaştırma ve Altyapı Bakanlığı &ldquo;Karayolu Taşıma Yetki Belgesi Sorgulama&rdquo; sayfasına giriş yapın.</li>
           <li>Taşıma yapacak şirketin tam vergi numarasını veya unvanını sorgulama kutusuna yazın.</li>
-          <li>Firma listesinde "K3" yetki belgesinin aktif ve geçerli olduğunu teyit edin.</li>
+          <li>Firma listesinde &ldquo;K3&rdquo; yetki belgesinin aktif ve geçerli olduğunu teyit edin.</li>
         </ol>
       </div>
 

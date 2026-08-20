@@ -44,8 +44,8 @@ function scanHtmlFiles(dir: string) {
       while ((match = jsonLdRegex.exec(html)) !== null) {
         try {
           const json = JSON.parse(match[1].trim());
-          const processGraphNode = (node: any) => {
-            const type = node['@type'];
+          const processGraphNode = (node: Record<string, unknown>) => {
+            const type = node['@type'] as string | undefined;
             if (type) {
               jsonLdStats.typesCount[type] = (jsonLdStats.typesCount[type] || 0) + 1;
               if (type === 'BreadcrumbList') breadcrumbCount++;
@@ -213,7 +213,7 @@ checkLinks(srcDir);
 
 // 4. Generate denetim/00-envanter.md
 const reportPath = path.join(projectDir, 'denetim', '00-envanter.md');
-let report = `# Faz 0 — Detaylı Envanter ve Audit Raporu
+const report = `# Faz 0 — Detaylı Envanter ve Audit Raporu
 
 Rapor Oluşturma Tarihi: ${new Date().toISOString().split('T')[0]}
 

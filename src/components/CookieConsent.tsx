@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { ShieldAlert, X } from 'lucide-react';
+import { ShieldAlert } from 'lucide-react';
 
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,15 +11,16 @@ export default function CookieConsent() {
     const consent = localStorage.getItem('cookie_consent');
     if (!consent) {
       // Set default denied consent state on load (Consent Mode v2)
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('consent', 'default', {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('consent', 'default', {
           'ad_storage': 'denied',
           'ad_user_data': 'denied',
           'ad_personalization': 'denied',
           'analytics_storage': 'denied',
         });
       }
-      setIsVisible(true);
+      // Defer state update to avoid synchronous cascading renders
+      setTimeout(() => setIsVisible(true), 0);
     }
   }, []);
 
@@ -27,8 +28,8 @@ export default function CookieConsent() {
     localStorage.setItem('cookie_consent', status);
     setIsVisible(false);
 
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('consent', 'update', {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('consent', 'update', {
         'ad_storage': status,
         'ad_user_data': status,
         'ad_personalization': status,

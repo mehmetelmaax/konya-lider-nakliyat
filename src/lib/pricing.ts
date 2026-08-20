@@ -1,4 +1,3 @@
-import { FACTS } from './facts';
 import { DISTRICTS } from './site-config';
 
 export interface PriceInput {

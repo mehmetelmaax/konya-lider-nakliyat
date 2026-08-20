@@ -1,19 +1,22 @@
 import React from 'react';
 import { organizationSchema } from '@/lib/schema';
 
-export default function JsonLd({ data }: { data: any }) {
-  let mergedData = { ...data };
+export default function JsonLd({ data }: { data: Record<string, unknown> }) {
+  const mergedData = { ...data };
   if (mergedData && typeof mergedData === 'object') {
-    if (Array.isArray(mergedData['@graph'])) {
-      const hasOrg = mergedData['@graph'].some(
-        (item: any) =>
-          item['@type'] === 'MovingCompany' ||
-          item['@id']?.endsWith('#organization')
+    const graph = mergedData['@graph'];
+    if (Array.isArray(graph)) {
+      const hasOrg = graph.some(
+        (item: unknown) =>
+          item &&
+          typeof item === 'object' &&
+          ((item as Record<string, unknown>)['@type'] === 'MovingCompany' ||
+            String((item as Record<string, unknown>)['@id'] || '').endsWith('#organization'))
       );
       if (!hasOrg) {
-        const org = { ...organizationSchema() } as any;
+        const org = { ...organizationSchema() } as Record<string, unknown>;
         delete org['@context'];
-        mergedData['@graph'] = [org, ...mergedData['@graph']];
+        mergedData['@graph'] = [org, ...graph];
       }
     }
   }

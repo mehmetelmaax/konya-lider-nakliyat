@@ -32,9 +32,9 @@ const slides: Slide[] = [
     id: 2,
     headline: 'Selçuklu ve Meram’da\nAsansörlü Taşıma',
     subheadline: "Konya'nın tüm mahallelerinde yüksek katlı dairelere kendi mobil eşya asansörlerimizle ulaşıyoruz.",
-    trustLine: '25. kata kadar ulaşan eşya asansörü filosu.',
+    trustLine: `${FACTS.maxFloor}. kata kadar ulaşan eşya asansörü filosu.`,
     bgImage: '/img/slayt-2.jpg',
-    imageAlt: "Konya Selçuklu'da çok katlı binalar için 25. kata kadar kurulabilen mobil teleskopik yük ve eşya taşıma asansörü"
+    imageAlt: `Konya Selçuklu'da çok katlı binalar için ${FACTS.maxFloor}. kata kadar kurulabilen mobil teleskopik yük ve eşya taşıma asansörü`
   },
   {
     id: 3,
@@ -50,13 +50,14 @@ export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => 
+    typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false
+  );
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Detect prefers-reduced-motion media query
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
     const listener = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
     mediaQuery.addEventListener('change', listener);
     return () => mediaQuery.removeEventListener('change', listener);

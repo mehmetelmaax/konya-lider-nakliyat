@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Truck, Check, HelpCircle, ArrowRight } from 'lucide-react';
 import { SITE, SERVICES } from '@/lib/site-config';
+import { FACTS } from '@/lib/facts';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -55,7 +56,7 @@ export default function HizmetlerPage() {
   const comparisonData = [
     { name: 'Şehiriçi Evden Eve Nakliyat', asansor: 'Opsiyonel', sigorta: 'Zorunlu / Ücretsiz', paketleme: 'Tam Paketleme Dahil', sure: 'Aynı Gün (4-6 saat)' },
     { name: 'Şehirlerarası Evden Eve', asansor: 'İki Taraflı Kurulum', sigorta: 'Tam Kasko Sigortalı', paketleme: 'Çift Kat Patpat Sarım', sure: '1 - 2 Gün' },
-    { name: 'Asansörlü Ev Taşıma', asansor: '25. Kata Kadar Mobil', sigorta: 'Kurulum Sigortalı', paketleme: 'Opsiyonel', sure: '1 - 2 Saat' },
+    { name: 'Asansörlü Ev Taşıma', asansor: `${FACTS.maxFloor}. Kata Kadar Mobil`, sigorta: 'Kurulum Sigortalı', paketleme: 'Opsiyonel', sure: '1 - 2 Saat' },
     { name: 'Ofis ve İşyeri Taşıma', asansor: 'Gerekliyse Kurulur', sigorta: 'Kurumsal Sigortalı', paketleme: 'Etiketli Koli & Arşiv', sure: 'Planlamaya Göre' },
     { name: 'Eşya Depolama', asansor: 'Opsiyonel', sigorta: 'Depo İçi Yangın/Hırsızlık', paketleme: 'Depolama Tipi Ambalaj', sure: 'Aylık/Yıllık Kiralık' },
     { name: 'Parça Eşya Taşıma', asansor: 'Opsiyonel (Kat durumuna göre)', sigorta: 'Kısmi Nakliye Sigortası', paketleme: 'Opsiyonel (Kısmi)', sure: 'Plana Göre (1-3 gün)' },

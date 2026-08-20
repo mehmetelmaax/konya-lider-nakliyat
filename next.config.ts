@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.googletagmanager.com https://images.unsplash.com; connect-src 'self' https://www.google-analytics.com https://*.clarity.ms https://*.bing.com; font-src 'self' data:; frame-src 'self' https://www.google.com https://*.google.com; frame-ancestors 'self';"
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.clarity.ms https://www.googleadservices.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://*.google.com; connect-src 'self' https://www.google-analytics.com https://*.clarity.ms https://*.bing.com https://googleads.g.doubleclick.net https://maps.googleapis.com; font-src 'self' data:; frame-src 'self' https://www.google.com https://*.google.com; frame-ancestors 'self';"
           },
         ],
       },

@@ -88,7 +88,7 @@ export default function FAQAccordion() {
               Lider Hasar Güvence Taahhütnamesi
             </h3>
             <p className="text-charcoal text-sm md:text-base leading-relaxed font-medium">
-              "Lider Nakliyat olarak taşıdığımız mobilyalarda oluşabilecek darbe veya kırılmaları marangoz ekibimizle yerinde onarır, onarılamayacak hasarları nakit olarak karşılarız."
+              &ldquo;Lider Nakliyat olarak taşıdığımız mobilyalarda oluşabilecek darbe veya kırılmaları marangoz ekibimizle yerinde onarır, onarılamayacak hasarları nakit olarak karşılarız.&rdquo;
             </p>
           </div>
         </div>
