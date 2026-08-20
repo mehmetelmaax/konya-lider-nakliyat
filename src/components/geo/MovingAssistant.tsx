@@ -1,4 +1,5 @@
 'use client';
+// Gerekçe: Dinamik taşınma rehberi sihirbazı, kontrol listesi durum yönetimi (checkedItems) ve girdi form alanları için useState kullanır.
 
 import React, { useState } from 'react';
 import { Calendar, Shield, ClipboardList, CheckCircle2, RefreshCw, Printer, AlertTriangle, ArrowRight, Check } from 'lucide-react';

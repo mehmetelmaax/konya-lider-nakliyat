@@ -29,15 +29,19 @@ export default function HakkimizdaPage() {
       <main className="pt-24 bg-off-white">
         <Breadcrumb items={[{ name: 'Hakkımızda', url: '/hakkimizda' }]} className="pt-4" />
         {/* Intro Section */}
-        <section className="py-20 bg-forest text-white relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
+        <section 
+          className="relative py-20 bg-forest text-white overflow-hidden bg-cover bg-center"
+          style={{ backgroundImage: "url('/img/banner-bg.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-forest/80 z-0" />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
             <span className="text-gold font-bold text-xs tracking-widest">
               KURUMSAL PROFİLİMİZ
             </span>
             <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
               Konya Lider Nakliyat
             </h1>
-            <p className="text-gray-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+            <p className="text-gray-200 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
               2006 yılından bu yana Konya genelinde asansörlü ve sigortalı ev taşıma hizmetleri sunuyoruz.
             </p>
           </div>
@@ -54,7 +58,7 @@ export default function HakkimizdaPage() {
                 <span>Firmamızın Kuruluş Tarihi ve Tarihçesi</span>
               </h2>
               <p className="text-charcoal text-sm md:text-base leading-relaxed">
-                Konya Lider Nakliyat, {FACTS.foundedYear} yılında Tedik ailesi tarafından Konya Selçuklu merkezli olarak kurulmuş yasal bir ev taşıma şirketidir. Geçen {new Date().getFullYear() - FACTS.foundedYear} yıllık süre zarfında, Konya şehir içi ve şehirlerarası güzergahlarda binlerce ailenin ev ve ofis taşıma lojistiğini başarıyla yönettik.
+                Konya Lider Nakliyat, {FACTS.foundedYear} yılında Baş ailesi tarafından Konya Selçuklu merkezli olarak kurulmuş yasal bir ev taşıma şirketidir. Geçen {new Date().getFullYear() - FACTS.foundedYear} yıllık süre zarfında, Konya şehir içi ve şehirlerarası güzergahlarda binlerce ailenin ev ve ofis taşıma lojistiğini başarıyla yönettik.
               </p>
             </div>
 

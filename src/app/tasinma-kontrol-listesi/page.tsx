@@ -87,16 +87,22 @@ export default function TasinmaListesiPage() {
         <Breadcrumb items={[{ name: 'Taşınma Listesi', url: '/tasinma-kontrol-listesi' }]} className="pt-4" />
         
         {/* Intro Section */}
-        <section className="py-20 bg-forest text-white text-center space-y-4 print:hidden">
-          <span className="text-gold-text font-bold text-xs tracking-widest">
-            ADIM ADIM PLANLAMA REHBERİ
-          </span>
-          <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight px-4">
-            İnteraktif Taşınma Kontrol Listesi
-          </h1>
-          <p className="text-gray-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed px-4">
-            Ev veya ofis taşırken hiçbir detayı unutmamanız için hazırladığımız 30 günlük zaman çizelgesi. Maddeleri işaretleyin, PDF olarak yazdırın veya bilgisayarınıza kaydedin.
-          </p>
+        <section 
+          className="relative py-20 bg-forest text-white text-center overflow-hidden bg-cover bg-center print:hidden"
+          style={{ backgroundImage: "url('/img/banner-bg.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-forest/80 z-0" />
+          <div className="relative z-10 space-y-4">
+            <span className="text-gold font-bold text-xs tracking-widest uppercase">
+              ADIM ADIM PLANLAMA REHBERİ
+            </span>
+            <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight px-4">
+              İnteraktif Taşınma Kontrol Listesi
+            </h1>
+            <p className="text-gray-200 text-sm md:text-base max-w-2xl mx-auto leading-relaxed px-4">
+              Ev veya ofis taşırken hiçbir detayı unutmamanız için hazırladığımız 30 günlük zaman çizelgesi. Maddeleri işaretleyin, PDF olarak yazdırın veya bilgisayarınıza kaydedin.
+            </p>
+          </div>
         </section>
 
         {/* Detailed SEO Content Section */}

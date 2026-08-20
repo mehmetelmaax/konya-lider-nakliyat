@@ -1,12 +1,9 @@
-'use client';
-
-import React, { useState } from 'react';
-import { CheckSquare, Square, Printer, RefreshCw, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { Printer, RefreshCw, CheckCircle2 } from 'lucide-react';
 
 interface ChecklistItem {
   id: string;
   task: string;
-  checked: boolean;
 }
 
 interface ChecklistGroup {
@@ -15,88 +12,63 @@ interface ChecklistGroup {
 }
 
 export default function ChecklistWidget() {
-  const initialGroups: ChecklistGroup[] = [
+  const groups: ChecklistGroup[] = [
     {
       title: 'Taşınmaya 30 Gün Kala (Hazırlık Aşaması)',
       items: [
-        { id: '1', task: 'Yeni taşınacağınız ev veya ofis adresinin kat ve sokak durumlarını analiz edin.', checked: false },
-        { id: '2', task: 'Gereksiz, kullanmadığınız ve eskiyen eşyaları ayıklayın; satabileceğiniz veya bağışlayacağınız eşyaları belirleyin.', checked: false },
-        { id: '3', task: 'Lider Nakliyat\'tan ücretsiz ön keşif (ekspertiz) talep edin ve sabit fiyat teklifinizi alın.', checked: false },
-        { id: '4', task: 'Resmi nakliyat sözleşmenizi imzalayarak taşınma tarihini ve saatini netleştirip rezerve edin.', checked: false },
-        { id: '5', task: 'Önemli evrakları, değerli mücevherleri ve tapu/kimlik gibi belgeleri saklayacağınız özel bir çanta hazırlayın.', checked: false },
-        { id: '6', task: 'Okul çağında çocuğunuz varsa yeni adresteki okullara nakil işlemleri için başvuruları başlatın.', checked: false },
+        { id: '1', task: 'Yeni taşınacağınız ev veya ofis adresinin kat ve sokak durumlarını analiz edin.' },
+        { id: '2', task: 'Gereksiz, kullanmadığınız ve eskiyen eşyaları ayıklayın; satabileceğiniz veya bağışlayacağınız eşyaları belirleyin.' },
+        { id: '3', task: "Lider Nakliyat'tan ücretsiz ön keşif (ekspertiz) talep edin ve sabit fiyat teklifinizi alın." },
+        { id: '4', task: "Resmi nakliyat sözleşmenizi imzalayarak taşınma tarihini ve saatini netleştirip rezerve edin." },
+        { id: '5', task: 'Önemli evrakları, değerli mücevherleri ve tapu/kimlik gibi belgeleri saklayacağınız özel bir çanta hazırlayın.' },
+        { id: '6', task: 'Okul çağında çocuğunuz varsa yeni adresteki okullara nakil işlemleri için başvuruları başlatın.' },
       ]
     },
     {
       title: 'Taşınmaya 15 Gün Kala (Resmi ve Teknik İşlemler)',
       items: [
-        { id: '7', task: 'Eski adresteki elektrik, su ve doğalgaz aboneliklerinin kapatılması için ilgili kurumlara (Enerjisa, ASKİ vb.) başvurun.', checked: false },
-        { id: '8', task: 'Yeni adresteki aboneliklerin (elektrik, su, doğalgaz) taşınma gününde aktif olması için başvurularınızı yapın.', checked: false },
-        { id: '9', task: 'Ev interneti (fiber/ADSL) ve sabit telefon hattı nakil başvurularını internet sağlayıcınıza iletin.', checked: false },
-        { id: '10', task: 'Kargo ve posta gönderimlerinizin kaybolmaması için e-Devlet üzerinden resmi ikametgah ve adres değişikliği bildirimini yapın.', checked: false },
-        { id: '11', task: 'Bina yönetimleriyle görüşerek taşınma günü yük asansörünün kullanımını ve bina önü kamyon park alanını rezerve edin.', checked: false },
+        { id: '7', task: 'Eski adresteki elektrik, su ve doğalgaz aboneliklerinin kapatılması için ilgili kurumlara (Enerjisa, ASKİ vb.) başvurun.' },
+        { id: '8', task: 'Yeni adresteki aboneliklerin (elektrik, su, doğalgaz) taşınma gününde aktif olması için başvurularınızı yapın.' },
+        { id: '9', task: 'Ev interneti (fiber/ADSL) ve sabit telefon hattı nakil başvurularını internet sağlayıcınıza iletin.' },
+        { id: '10', task: 'Kargo ve posta gönderimlerinizin kaybolmaması için e-Devlet üzerinden resmi ikametgah ve adres değişikliği bildirimini yapın.' },
+        { id: '11', task: 'Bina yönetimleriyle görüşerek taşınma günü yük asansörünün kullanımını ve bina önü kamyon park alanını rezerve edin.' },
       ]
     },
     {
       title: 'Taşınmaya 7 Gün Kala (Ambalajlama ve Hazırlık)',
       items: [
-        { id: '12', task: 'Eğer paketleme hizmetini kendiniz yapacaksanız, kaliteli karton koliler, koli bantları ve havalı patpatları temin edin.', checked: false },
-        { id: '13', task: 'Kırılacak mutfak eşyalarını gazete kağıtları yerine asitsiz ambalaj kağıtlarına sararak kolileyin ve üzerini etiketleyin.', checked: false },
-        { id: '14', task: 'Yeni evdeki odalara göre kolilerin üzerine belirgin renkli etiketler yapıştırın (Örn: Mutfak, Salon vb.).', checked: false },
-        { id: '15', task: 'Buzdolabı ve derin dondurucudaki donmuş gıdaları tüketmeye özen gösterin, yeni alışveriş yapmayın.', checked: false },
-        { id: '16', task: 'Taşınma günü yanınızda olacak ilk gece acil ihtiyaç çantasını (diş fırçası, şarj cihazı, yedek giysi vb.) hazırlayın.', checked: false },
+        { id: '12', task: 'Eğer paketleme hizmetini kendiniz yapacaksanız, kaliteli karton koliler, koli bantları ve havalı patpatları temin edin.' },
+        { id: '13', task: 'Kırılacak mutfak eşyalarını gazete kağıtları yerine asitsiz ambalaj kağıtlarına sararak kolileyin ve üzerini etiketleyin.' },
+        { id: '14', task: 'Yeni evdeki odalara göre kolilerin üzerine belirgin renkli etiketler yapıştırın (Örn: Mutfak, Salon vb.).' },
+        { id: '15', task: 'Buzdolabı ve derin dondurucudaki donmuş gıdaları tüketmeye özen gösterin, yeni alışveriş yapmayın.' },
+        { id: '16', task: 'Taşınma günü yanınızda olacak ilk gece acil ihtiyaç çantasını (diş fırçası, şarj cihazı, yedek giysi vb.) hazırlayın.' },
       ]
     },
     {
       title: 'Taşınmaya 1 Gün Kala (Son Kontroller)',
       items: [
-        { id: '17', task: 'Buzdolabının fişini taşınmadan en az 12 saat önce çekin, içini tamamen boşaltıp kurulayın.', checked: false },
-        { id: '18', task: 'Lider Nakliyat müşteri temsilcisiyle iletişime geçerek araç varış saatini ve ekibi teyit edin.', checked: false },
-        { id: '19', task: 'Gardırop ve de-monte edilecek diğer mobilyaların içlerini tamamen boşaltın.', checked: false },
-        { id: '20', task: 'Eski evinizde kalan son çöpleri atın, faturaların sayaç son endeks fotoğraflarını cep telefonunuzla çekin.', checked: false },
-        { id: '21', task: 'Yeni evin anahtarlarını yanınıza aldığınızdan emin olun.', checked: false },
+        { id: '17', task: 'Buzdolabının fişini taşınmadan en az 12 saat önce çekin, içini tamamen boşaltıp kurulayın.' },
+        { id: '18', task: 'Lider Nakliyat müşteri temsilcisiyle iletişime geçerek araç varış saatini ve ekibi teyit edin.' },
+        { id: '19', task: 'Gardırop ve de-monte edilecek diğer mobilyaların içlerini tamamen boşaltın.' },
+        { id: '20', task: 'Eski evinizde kalan son çöpleri atın, faturaların sayaç son endeks fotoğraflarını cep telefonunuzla çekin.' },
+        { id: '21', task: 'Yeni evin anahtarlarını yanınıza aldığınızdan emin olun.' },
       ]
     },
     {
       title: 'Taşınma Günü (Büyük Gün)',
       items: [
-        { id: '22', task: 'Nakliye ekibini karşılayın, hassas veya taşınmayacak özel eşyaları şefe göstererek bilgilendirin.', checked: false },
-        { id: '23', task: 'Asansör kurulum açısının ve güvenlik şeritlerinin doğru yerleştirildiğini kontrol edin.', checked: false },
-        { id: '24', task: 'Eşyalar kamyona yüklenirken boşalan odaları son kez kontrol edin, dolap içlerinde unutulan eşya kalmadığından emin olun.', checked: false },
-        { id: '25', task: 'Eski evin doğalgaz, su vanalarını ve elektrik şalterlerini tamamen kapatın.', checked: false },
-        { id: '26', task: 'Yeni eve ulaşıldığında eşyaların odalara doğru yerleştirilmesini koordine edin.', checked: false },
-        { id: '27', task: 'Kurulumu tamamlanan gardırop ve beyaz eşyaları çalıştırıp monte durumlarını kontrol ettikten sonra teslim tutanağını imzalayın.', checked: false },
+        { id: '22', task: 'Nakliye ekibini karşılayın, hassas veya taşınmayacak özel eşyaları şefe göstererek bilgilendirin.' },
+        { id: '23', task: 'Asansör kurulum açısının ve güvenlik şeritlerinin doğru yerleştirildiğini kontrol edin.' },
+        { id: '24', task: 'Eşyalar kamyona yüklenirken boşalan odaları son kez kontrol edin, dolap içlerinde unutulan eşya kalmadığından emin olun.' },
+        { id: '25', task: 'Eski evin doğalgaz, su vanalarını ve elektrik şalterlerini tamamen kapatın.' },
+        { id: '26', task: 'Yeni eve ulaşıldığında eşyaların odalara doğru yerleştirilmesini koordine edin.' },
+        { id: '27', task: 'Kurulumu tamamlanan gardırop ve beyaz eşyaları çalıştırıp monte durumlarını kontrol ettikten sonra teslim tutanağını imzalayın.' },
       ]
     }
   ];
 
-  const [groups, setGroups] = useState<ChecklistGroup[]>(initialGroups);
-
-  const toggleItem = (groupIdx: number, itemIdx: number) => {
-    const newGroups = [...groups];
-    newGroups[groupIdx].items[itemIdx].checked = !newGroups[groupIdx].items[itemIdx].checked;
-    setGroups(newGroups);
-  };
-
-  const resetChecklist = () => {
-    const reset = groups.map(group => ({
-      ...group,
-      items: group.items.map(item => ({ ...item, checked: false }))
-    }));
-    setGroups(reset);
-  };
-
-  const handlePrint = () => {
-    window.print();
-  };
-
-  // Calculate progress
-  const totalItems = groups.reduce((acc, g) => acc + g.items.length, 0);
-  const checkedItems = groups.reduce((acc, g) => acc + g.items.filter(i => i.checked).length, 0);
-  const progressPercent = Math.round((checkedItems / totalItems) * 100);
-
   return (
-    <div className="space-y-8">
+    <div className="space-y-8" id="checklist-root">
       {/* Inject print override styles */}
       <style>{`
         @media print {
@@ -131,12 +103,13 @@ export default function ChecklistWidget() {
         <div className="space-y-2 w-full md:w-2/3">
           <div className="flex justify-between items-center text-xs font-bold text-forest uppercase">
             <span>Taşınma Hazırlık İlerlemesi</span>
-            <span>%{progressPercent} Tamamlandı</span>
+            <span id="checklist-progress-text">%0 Tamamlandı</span>
           </div>
           <div className="w-full bg-off-white h-3.5 rounded-full overflow-hidden border border-gray-light">
             <div
+              id="checklist-progress"
               className="bg-gold h-full transition-all duration-300 rounded-full"
-              style={{ width: `${progressPercent}%` }}
+              style={{ width: '0%' }}
             />
           </div>
           <span className="text-[10px] text-gray-400 block">* Tamamladığınız maddeleri işaretleyerek sürecinizi takip edebilirsiniz.</span>
@@ -144,14 +117,14 @@ export default function ChecklistWidget() {
 
         <div className="flex gap-3 shrink-0 w-full md:w-auto">
           <button
-            onClick={handlePrint}
+            id="checklist-print-btn"
             className="flex-1 md:flex-initial bg-forest hover:bg-gold text-white hover:text-forest font-bold px-4 py-2.5 rounded-xl border border-forest transition-all duration-200 text-xs flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
           >
             <Printer className="w-4.5 h-4.5" />
             <span>Listeyi Yazdır (PDF)</span>
           </button>
           <button
-            onClick={resetChecklist}
+            id="checklist-reset-btn"
             className="bg-off-white hover:bg-gray-light/40 text-charcoal font-bold px-4 py-2.5 rounded-xl border border-gray-light transition-all duration-200 text-xs flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
             aria-label="Listeyi temizle"
           >
@@ -174,26 +147,20 @@ export default function ChecklistWidget() {
 
             {/* Group Items */}
             <div className="divide-y divide-gray-light/60 px-6">
-              {group.items.map((item, itemIdx) => (
-                <div
+              {group.items.map((item) => (
+                <label
                   key={item.id}
-                  onClick={() => toggleItem(groupIdx, itemIdx)}
                   className="py-4 flex items-start gap-4 cursor-pointer hover:bg-off-white/40 transition-colors select-none group"
                 >
-                  <button
-                    className="shrink-0 mt-0.5 text-forest hover:text-gold transition-colors focus:outline-none"
-                    aria-label={item.task}
-                  >
-                    {item.checked ? (
-                      <CheckSquare className="w-5 h-5 text-gold fill-gold/15" />
-                    ) : (
-                      <Square className="w-5 h-5 text-gray-400 group-hover:text-forest" />
-                    )}
-                  </button>
-                  <span className={`text-xs md:text-sm font-semibold leading-relaxed transition-all ${item.checked ? 'text-gray-400 line-through' : 'text-charcoal'}`}>
+                  <input
+                    type="checkbox"
+                    data-id={item.id}
+                    className="w-5 h-5 accent-gold border-gray-300 rounded focus:ring-gold cursor-pointer shrink-0 mt-0.5"
+                  />
+                  <span className="text-xs md:text-sm font-semibold leading-relaxed transition-all text-charcoal label-text">
                     {item.task}
                   </span>
-                </div>
+                </label>
               ))}
             </div>
 
@@ -201,6 +168,54 @@ export default function ChecklistWidget() {
         ))}
       </div>
 
+      <script dangerouslySetInnerHTML={{ __html: `
+        (function() {
+          var root = document.getElementById('checklist-root');
+          if (!root) return;
+          var progress = document.getElementById('checklist-progress');
+          var progressText = document.getElementById('checklist-progress-text');
+          var printBtn = document.getElementById('checklist-print-btn');
+          var resetBtn = document.getElementById('checklist-reset-btn');
+          var checkboxes = root.querySelectorAll('input[type="checkbox"]');
+          
+          function updateProgress() {
+            var checked = root.querySelectorAll('input[type="checkbox"]:checked').length;
+            var total = checkboxes.length;
+            var pct = total > 0 ? Math.round((checked / total) * 100) : 0;
+            if (progress) progress.style.width = pct + '%';
+            if (progressText) progressText.innerText = '%' + pct + ' Tamamlandı';
+          }
+
+          root.addEventListener('change', function(e) {
+            if (e.target && e.target.type === 'checkbox') {
+              var label = e.target.nextElementSibling;
+              if (e.target.checked) {
+                if (label) label.classList.add('text-gray-400', 'line-through');
+              } else {
+                if (label) label.classList.remove('text-gray-400', 'line-through');
+              }
+              updateProgress();
+            }
+          });
+
+          if (printBtn) {
+            printBtn.addEventListener('click', function() {
+              window.print();
+            });
+          }
+
+          if (resetBtn) {
+            resetBtn.addEventListener('click', function() {
+              checkboxes.forEach(function(cb) {
+                cb.checked = false;
+                var label = cb.nextElementSibling;
+                if (label) label.classList.remove('text-gray-400', 'line-through');
+              });
+              updateProgress();
+            });
+          }
+        })();
+      ` }} />
     </div>
   );
 }

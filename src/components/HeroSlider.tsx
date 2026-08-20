@@ -1,4 +1,5 @@
 'use client';
+// Gerekçe: Slayt geçiş zamanlayıcıları (setInterval), otomatik oynatma duraklatma ve aktif slayt durumu kontrolü için useState/useEffect kullanır.
 
 import { SITE } from '@/lib/site-config';
 import { FACTS } from '@/lib/facts';

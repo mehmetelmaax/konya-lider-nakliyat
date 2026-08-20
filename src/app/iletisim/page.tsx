@@ -22,16 +22,22 @@ export default function IletisimPage() {
       <main className="pt-24 bg-off-white">
         <Breadcrumb items={[{ name: 'İletişim', url: '/iletisim' }]} className="pt-4" />
         {/* Intro */}
-        <section className="py-16 bg-forest text-white text-center space-y-4">
-          <span className="text-gold-text font-bold text-xs tracking-widest">
-            BİZE ULAŞIN
-          </span>
-          <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
-            İletişim Bilgilerimiz
-          </h1>
-          <p className="text-gray-300 text-sm md:text-base max-w-xl mx-auto">
-            Taşınma planınız için teklif almak veya rezervasyon yapmak üzere bizimle irtibata geçin.
-          </p>
+        <section 
+          className="relative py-16 bg-forest text-white text-center overflow-hidden bg-cover bg-center"
+          style={{ backgroundImage: "url('/img/banner-bg.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-forest/80 z-0" />
+          <div className="relative z-10 space-y-4">
+            <span className="text-gold font-bold text-xs tracking-widest uppercase">
+              BİZE ULAŞIN
+            </span>
+            <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
+              İletişim Bilgilerimiz
+            </h1>
+            <p className="text-gray-200 text-sm md:text-base max-w-xl mx-auto">
+              Taşınma planınız için teklif almak veya rezervasyon yapmak üzere bizimle irtibata geçin.
+            </p>
+          </div>
         </section>
 
         {/* Contact Info & Simple form */}

@@ -22,10 +22,24 @@ jobs:
           cache: 'npm'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run Quality Checks (TypeScript & ESLint)
         run: npm run check
 
       - name: Build Next.js Production Build
         run: npm run build
+
+      - name: Run Tests
+        run: npm test
+
+      - name: Lighthouse Audit
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            http://localhost:3000/
+            http://localhost:3000/blog
+          startServerCommand: npm run start
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          budgetPath: ./budgets.json

@@ -1,4 +1,5 @@
 'use client';
+// Gerekçe: Kullanıcının çerez izni durumunu tarayıcı depolamasında (localStorage) okumak, yazmak ve göstermek için useState/useEffect kullanır.
 
 import React, { useEffect, useState } from 'react';
 import { ShieldAlert } from 'lucide-react';

@@ -90,3 +90,26 @@ body {
     color: #555;
   }
 }
+
+/* Subpage Header Banner Image Background (Gemini AI generated layout theme) */
+main.pt-24 > section.bg-forest {
+  position: relative;
+  background-image: url('/img/banner-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+main.pt-24 > section.bg-forest::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(18, 63, 66, 0.85); /* Dark petrol green overlay for high readability contrast */
+  z-index: -1;
+}
+
+main.pt-24 > section.bg-forest > * {
+  position: relative;
+  z-index: 10;
+}

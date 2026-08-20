@@ -12,6 +12,16 @@ export interface BlogPostData {
   updatedAt?: string;
 }
 
+export interface BlogPostLite {
+  i: string;
+  t: string;
+  e: string;
+  d: string;
+  m: string;
+  c: 'Fiyat' | 'Rehber' | 'Yasal' | 'Teknik' | 'Bölge';
+  r: number;
+}
+
 export const blogDatabase: Record<string, BlogPostData> = {
   'konya-nakliyat-fiyatlari': {
     id: 'konya-nakliyat-fiyatlari',
@@ -19,7 +29,7 @@ export const blogDatabase: Record<string, BlogPostData> = {
     desc: "Konya'da ev taşıma maliyetlerini etkileyen oda sayısı, kat yükseklikleri ve asansör gereksinimlerini detaylıca inceliyoruz.",
     excerpt: 'Ev taşıma maliyetlerini etkileyen oda sayısı, kat durumları, asansör kurulumu ve yol mesafesi gibi temel parametreleri inceliyoruz.',
     date: '2026-08-01',
-    author: 'Tedik Lojistik Ekibi',
+    author: 'Lider Nakliyat Ekibi',
     image: '/img/slayt-1.jpg',
     category: 'Fiyat',
     faqs: [

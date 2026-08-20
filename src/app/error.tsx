@@ -1,4 +1,5 @@
 'use client';
+// Gerekçe: Next.js hata yakalama sınırları (Error Boundary) ve hata sıfırlama işlevi (reset) için Client Component olmak zorundadır.
 
 import React, { useEffect } from 'react';
 import { SITE } from '@/lib/site-config';

@@ -1,4 +1,5 @@
 'use client';
+// Gerekçe: Mobil gezinme menüsü durumları, dropdown durumları, scroll olayları ve usePathname kancası (hook) kullanımı için Client Component'tir.
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';

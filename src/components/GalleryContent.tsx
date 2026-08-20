@@ -1,4 +1,5 @@
 'use client';
+// Gerekçe: Medya türüne göre filtreleme (activeTab) ve video oynatma modali/overlay'i (selectedVideo) yönetmek için useState kullanır.
 
 import React, { useState } from 'react';
 import Image from 'next/image';

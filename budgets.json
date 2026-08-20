@@ -1,0 +1,27 @@
+[
+  {
+    "path": "/*",
+    "budgets": [
+      {
+        "metric": "first-contentful-paint",
+        "aggregationMethod": "median",
+        "expected": 1500
+      },
+      {
+        "metric": "interactive",
+        "aggregationMethod": "median",
+        "expected": 2500
+      },
+      {
+        "metric": "cumulative-layout-shift",
+        "aggregationMethod": "median",
+        "expected": 0.05
+      },
+      {
+        "metric": "total-blocking-time",
+        "aggregationMethod": "median",
+        "expected": 150
+      }
+    ]
+  }
+]

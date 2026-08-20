@@ -1,21 +1,8 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import { ChevronDown, CheckCircle2 } from 'lucide-react';
 import { faqs } from '@/lib/faq-data';
-import { trackEvent } from '@/lib/analytics';
 
 export default function FAQAccordion() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFAQ = (index: number) => {
-    const isOpening = openIndex !== index;
-    setOpenIndex(isOpening ? index : null);
-    if (isOpening) {
-      trackEvent('sss_acildi', { soru: faqs[index].question });
-    }
-  };
-
   return (
     <section className="py-20 bg-white" id="sorular">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,44 +23,24 @@ export default function FAQAccordion() {
         {/* Accordions List */}
         <div className="space-y-4 mb-16">
           {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
             return (
-              <div 
+              <details 
                 key={idx}
-                className="border border-gray-light rounded-lg overflow-hidden bg-off-white hover:bg-white hover:border-gold/20 transition-all duration-200"
+                className="group border border-gray-light rounded-lg overflow-hidden bg-off-white hover:bg-white hover:border-gold/20 transition-all duration-200"
               >
-                {/* Accordion Trigger button */}
-                <button
-                  id={`faq-btn-${idx}`}
-                  onClick={() => toggleFAQ(idx)}
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-panel-${idx}`}
-                  className="w-full flex justify-between items-center px-6 py-5 text-left text-forest font-display font-bold text-base md:text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-gold select-none cursor-pointer"
-                >
+                <summary className="w-full flex justify-between items-center px-6 py-5 text-left text-forest font-display font-bold text-base md:text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-gold select-none cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   <span>{faq.question}</span>
                   <ChevronDown 
-                    className={`w-5 h-5 text-forest/70 transition-transform duration-200 ${
-                      isOpen ? 'transform rotate-180 text-gold-text' : ''
-                    }`} 
+                    className="w-5 h-5 text-forest/70 transition-transform duration-200 group-open:rotate-180 group-open:text-gold-text" 
                   />
-                </button>
+                </summary>
 
-                {/* Accordion Content wrapper */}
-                <div 
-                  id={`faq-panel-${idx}`}
-                  role="region"
-                  aria-labelledby={`faq-btn-${idx}`}
-                  className={`grid transition-all duration-200 ease-in-out ${
-                    isOpen ? 'grid-rows-[1fr] opacity-100 border-t border-gray-light' : 'grid-rows-[0fr] opacity-0'
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="px-6 py-5 text-charcoal text-sm leading-relaxed bg-white">
-                      {faq.answer}
-                    </p>
-                  </div>
+                <div className="border-t border-gray-light bg-white">
+                  <p className="px-6 py-5 text-charcoal text-sm leading-relaxed bg-white">
+                    {faq.answer}
+                  </p>
                 </div>
-              </div>
+              </details>
             );
           })}
         </div>

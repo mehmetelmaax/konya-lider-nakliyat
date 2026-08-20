@@ -72,17 +72,23 @@ export default function BolgelerPage() {
         <Breadcrumb items={[{ name: 'Bölgelerimiz', url: '/bolgeler' }]} className="pt-4" />
         
         {/* Banner Section */}
-        <section className="py-16 bg-forest text-white text-center space-y-4">
-          <span className="text-gold font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
-            <MapPin className="w-4 h-4 text-gold" />
-            <span>Hizmet Ağı</span>
-          </span>
-          <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
-            Konya Evden Eve Nakliyat — Hizmet Verdiğimiz İlçeler
-          </h1>
-          <p className="text-gray-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-            Konya'nın 14 ilçesinde K3 belgeli araçlarımız ve profesyonel ekiplerimizle kapıdan kapıya taşımacılık sunuyoruz.
-          </p>
+        <section 
+          className="relative py-16 bg-forest text-white text-center overflow-hidden bg-cover bg-center"
+          style={{ backgroundImage: "url('/img/banner-bg.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-forest/80 z-0" />
+          <div className="relative z-10 space-y-4">
+            <span className="text-gold font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
+              <MapPin className="w-4 h-4 text-gold" />
+              <span>Hizmet Ağı</span>
+            </span>
+            <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
+              Konya Evden Eve Nakliyat — Hizmet Verdiğimiz İlçeler
+            </h1>
+            <p className="text-gray-200 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+              Konya'nın 14 ilçesinde K3 belgeli araçlarımız ve profesyonel ekiplerimizle kapıdan kapıya taşımacılık sunuyoruz.
+            </p>
+          </div>
         </section>
 
         {/* Detailed 400-word intro for SEO */}
@@ -195,6 +201,51 @@ export default function BolgelerPage() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Tüm Konya 31 İlçe Hizmet Listesi */}
+        <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-light">
+          <div className="border-l-4 border-gold pl-3 mb-8">
+            <h2 className="font-display font-black text-forest text-2xl md:text-3xl">
+              Hizmet Ulaştırdığımız Tüm Konya İlçeleri (31 Bölge)
+            </h2>
+            <p className="text-gray-600 text-sm mt-1">
+              Konya'nın neresinde olursanız olun, asansörlü araç filomuz ve montaj ekiplerimizle kapınıza kadar geliyoruz.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+            {[
+              'Ahırlı', 'Akören', 'Altınekin', 'Bozkır', 'Çeltik', 'Derbent', 
+              'Derebucak', 'Doğanhisar', 'Emirgazi', 'Güneysınır', 'Hadim', 
+              'Halkapınar', 'Hüyük', 'Taşkent', 'Tuzlukçu', 'Yalıhüyük', 'Yunak'
+            ].map((name) => (
+              <div 
+                key={name} 
+                className="bg-white p-4 rounded-xl border border-gray-light flex items-center gap-2 shadow-sm text-sm font-bold text-charcoal hover:border-forest/20 hover:shadow-md transition-all"
+              >
+                <div className="w-2 h-2 rounded-full bg-gold" />
+                <span>{name}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Şehirlerarası Rotalara Gitme İşareti */}
+        <section className="py-16 bg-forest text-white text-center space-y-6">
+          <h2 className="font-display font-black text-2xl md:text-3xl lg:text-4xl tracking-tight max-w-xl mx-auto text-white">
+            Konya Dışına mı Taşınıyorsunuz?
+          </h2>
+          <p className="text-gray-300 text-sm max-w-xl mx-auto leading-relaxed">
+            Konya'dan Türkiye'nin dört bir yanına gerçekleştirdiğimiz şehirlerarası asansörlü evden eve nakliyat rotalarımızı, mesafe bilgilerini ve güzergâh detaylarını inceleyin.
+          </p>
+          <Link
+            href="/rotalar"
+            className="inline-flex items-center gap-2 bg-gold hover:bg-white text-forest hover:text-forest font-black px-8 py-4 rounded border border-gold hover:border-white transition-all duration-200 text-base shadow-md cursor-pointer active:scale-95"
+          >
+            <span>Şehirlerarası Rotalarımızı Gör</span>
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </section>
       </main>
     </>

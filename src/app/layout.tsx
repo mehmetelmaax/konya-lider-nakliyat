@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Outfit } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { SITE } from '@/lib/site-config';
 import Header from '@/components/Header';
@@ -8,14 +8,76 @@ import FloatingCTAs from '@/components/FloatingCTAs';
 import Analytics from '@/components/Analytics';
 import CookieConsent from '@/components/CookieConsent';
 
-const inter = Inter({
-  subsets: ['latin-ext'],
+const inter = localFont({
+  src: [
+    {
+      path: '../../public/fonts/inter-400-normal-latin.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/inter-400-normal-latin-ext.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/inter-500-normal-latin.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/inter-500-normal-latin-ext.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/inter-700-normal-latin.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/inter-700-normal-latin-ext.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
   variable: '--font-sans',
   display: 'swap',
 });
 
-const outfit = Outfit({
-  subsets: ['latin-ext'],
+const outfit = localFont({
+  src: [
+    {
+      path: '../../public/fonts/outfit-400-normal-latin.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/outfit-400-normal-latin-ext.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/outfit-500-normal-latin.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/outfit-500-normal-latin-ext.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/outfit-700-normal-latin.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/outfit-700-normal-latin-ext.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
   variable: '--font-display',
   display: 'swap',
 });

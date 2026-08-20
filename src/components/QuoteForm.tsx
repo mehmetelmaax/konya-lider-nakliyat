@@ -1,4 +1,5 @@
 'use client';
+// Gerekçe: Teklif isteme formu girdi alanları, doğrulama durumları, yükleniyor/başarılı göstergeleri ve eylem izleme için useState/useRef kullanır.
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Phone, CheckCircle, AlertCircle, MessageCircle } from 'lucide-react';
@@ -143,6 +144,17 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
         });
         trackConversion();
 
+        // Direct WhatsApp redirection
+        const wpText = `Merhaba, Lider Nakliyat web sitenizden yeni bir fiyat teklif talebi oluşturdum:\n\n` +
+          `👤 Ad Soyad: ${formData.name}\n` +
+          `📞 Telefon: ${formData.phone}\n` +
+          `📍 Nereden: ${formData.fromDistrict}\n` +
+          `🏁 Nereye: ${formData.toDistrict}\n` +
+          `🏠 Oda Sayısı: ${formData.rooms}\n` +
+          `🛗 Asansör: ${formData.elevator === 'evet' ? 'Asansörlü' : 'Asansörsüz'}\n` +
+          `💰 Tahmini Fiyat: ${priceRange.min.toLocaleString('tr-TR')} TL - ${priceRange.max.toLocaleString('tr-TR')} TL`;
+        
+        window.location.href = `https://wa.me/905546400205?text=${encodeURIComponent(wpText)}`;
       } else {
         setStatus('error');
         setErrorMessage(data.message || 'Teklif talebi gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');

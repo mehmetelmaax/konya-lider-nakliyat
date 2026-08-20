@@ -7,7 +7,6 @@ import HeroSlider from '@/components/HeroSlider';
 import TrustStrip from '@/components/TrustStrip';
 import ServicesGrid from '@/components/ServicesGrid';
 import FAQAccordion from '@/components/FAQAccordion';
-import StickyMobileCTA from '@/components/StickyMobileCTA';
 import GoogleReviews from '@/components/GoogleReviews';
 import JsonLd from '@/components/JsonLd';
 import { organizationSchema, websiteSchema, faqSchema } from '@/lib/schema';
@@ -346,12 +345,8 @@ export default function Home() {
           </Link>
         </section>
 
-        {/* FAQ Area */}
         <FAQAccordion />
       </main>
-
-      {/* Floating CTA */}
-      <StickyMobileCTA />
     </>
   );
 }

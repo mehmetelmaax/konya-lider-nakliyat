@@ -1,4 +1,5 @@
 'use client';
+// Gerekçe: Kök düzeyde (root level) hata sınırlarının yakalanması ve sıfırlanması için Client Component olmak zorundadır.
 
 import React, { useEffect } from 'react';
 import { SITE } from '@/lib/site-config';

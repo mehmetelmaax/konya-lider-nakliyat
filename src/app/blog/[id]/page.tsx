@@ -11,7 +11,6 @@ import { breadcrumbSchema, faqSchema } from '@/lib/schema';
 import { IMAGE_BLURS } from '@/lib/image-blur';
 import Breadcrumb from '@/components/Breadcrumb';
 import RelatedLinks from '@/components/RelatedLinks';
-import ScrollDepth from '@/components/ScrollDepth';
 
 export function generateStaticParams() {
   return Object.keys(blogDatabase).map((id) => ({ id }));
@@ -174,7 +173,29 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <>
       <JsonLd data={graphSchema} />
-      <ScrollDepth />
+      <script dangerouslySetInnerHTML={{ __html: `
+        (function() {
+          var tracked = {};
+          window.addEventListener('scroll', function() {
+            var winHeight = window.innerHeight;
+            var docHeight = document.documentElement.scrollHeight - winHeight;
+            if (docHeight <= 0) return;
+            var scrollPos = window.scrollY;
+            var pct = Math.round((scrollPos / docHeight) * 100);
+            [25, 50, 75, 100].forEach(function(depth) {
+              if (pct >= depth && !tracked[depth]) {
+                tracked[depth] = true;
+                if (window.gtag) {
+                  if (depth === 75) {
+                    window.gtag('event', 'blog_okundu');
+                  }
+                  window.gtag('event', 'scroll_depth', { depth: depth });
+                }
+              }
+            });
+          }, { passive: true });
+        })();
+      ` }} />
       
       <main className="pt-24 bg-off-white min-h-screen">
         <Breadcrumb items={[{ name: 'Blog', url: '/blog' }, { name: post.title, url: `/blog/${post.id}` }]} className="pt-4" />

@@ -1,63 +1,14 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import Image from 'next/image';
 import { Star, MessageCircle } from 'lucide-react';
-import { trackEvent } from '@/lib/analytics';
 import { SITE } from '@/lib/site-config';
 import JsonLd from '@/components/JsonLd';
+import { fetchGoogleReviews } from '@/lib/reviews';
 
-interface GoogleReview {
-  author_name: string;
-  profile_photo_url: string;
-  rating: number;
-  relative_time_description: string;
-  text: string;
-  time: number;
-}
-
-export default function GoogleReviews() {
-  const [reviews, setReviews] = useState<GoogleReview[]>([]);
-  const [rating, setRating] = useState(4.9);
-  const [ratingsCount, setRatingsCount] = useState(120);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    async function fetchReviews() {
-      try {
-        const res = await fetch('/api/reviews');
-        if (res.ok) {
-          const data = await res.json();
-          if (data.result) {
-            if (data.result.reviews) {
-              setReviews(data.result.reviews);
-            }
-            if (data.result.rating) {
-              setRating(data.result.rating);
-            }
-            if (data.result.user_ratings_total) {
-              setRatingsCount(data.result.user_ratings_total);
-            }
-          }
-        } else {
-          setError(true);
-        }
-      } catch (err) {
-        console.error('GBP_REVIEWS_FETCH_ERROR:', err);
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchReviews();
-  }, []);
-
-  if (loading) {
-    return <div className="text-center py-10 text-xs text-gray-400">Yorumlar yükleniyor...</div>;
-  }
-
-  if (error || reviews.length === 0) {
+export default async function GoogleReviews() {
+  const data = await fetchGoogleReviews();
+  
+  if (!data.configured || !data.result || !data.result.reviews || data.result.reviews.length === 0) {
     return (
       <section className="py-12 bg-white rounded-2xl border border-gray-light p-8 text-center space-y-4 text-charcoal">
         <div className="w-12 h-12 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto">
@@ -67,23 +18,42 @@ export default function GoogleReviews() {
           Google Müşteri Yorumları
         </h3>
         <p className="text-gray-500 text-xs max-w-md mx-auto leading-relaxed">
-          Google Business Profile API bağlantısı kurulamadı. Yorumları görmek için lütfen daha sonra tekrar deneyiniz.
+          Müşteri yorumlarımızın tamamını Google İşletme Profilimiz üzerinden görüntüleyebilirsiniz.
         </p>
+        <a
+          href={SITE.googleMapsUrl}
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          className="inline-block text-xs font-bold text-forest underline underline-offset-4"
+        >
+          Google&rsquo;da yorumları oku
+        </a>
       </section>
     );
   }
 
+  const { rating, user_ratings_total: ratingsCount, reviews } = data.result;
+
   // Schema for MovingCompany AggregateRating & Reviews (EEAT SEO)
+  const hasRealRating =
+    typeof rating === 'number' && rating > 0 &&
+    typeof ratingsCount === 'number' && ratingsCount > 0;
+
   const reviewsSchema = {
     '@context': 'https://schema.org',
     '@type': 'MovingCompany',
     '@id': `${SITE.url}/#organization`,
     'name': SITE.name,
-    'aggregateRating': {
-      '@type': 'AggregateRating',
-      'ratingValue': rating,
-      'reviewCount': ratingsCount
-    },
+    // AggregateRating YALNIZCA Google'dan gelen doğrulanmış veriyle yayınlanır.
+    ...(hasRealRating ? {
+      'aggregateRating': {
+        '@type': 'AggregateRating',
+        'ratingValue': rating,
+        'reviewCount': ratingsCount,
+        'bestRating': 5,
+        'worstRating': 1
+      }
+    } : {}),
     'review': reviews.map((review) => ({
       '@type': 'Review',
       'author': {
@@ -123,9 +93,12 @@ export default function GoogleReviews() {
             
             <div className="flex items-center gap-3 border-t border-gray-light pt-4">
               {review.profile_photo_url ? (
-                <img
+                <Image
                   src={review.profile_photo_url}
                   alt={review.author_name}
+                  width={32}
+                  height={32}
+                  unoptimized
                   className="w-8 h-8 rounded-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -148,7 +121,6 @@ export default function GoogleReviews() {
           href={SITE.googleMapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => trackEvent('google_yorumlar_tumu', { sayfa: window.location.pathname })}
           className="text-gold hover:text-forest transition-colors font-bold text-xs uppercase tracking-widest"
         >
           Google&apos;daki Tüm Yorumları Gör ➔

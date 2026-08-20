@@ -1,20 +1,14 @@
 'use client';
+// Gerekçe: Blog yazısı filtreleme sekmeleri (kategoriler) ve dinamik sayfalama durumu (visibleCount) yönetmek için useState kullanır.
 
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, User, ArrowRight, Grid, Filter } from 'lucide-react';
-import type { BlogPostData } from '@/lib/blog-data';
+import type { BlogPostLite } from '@/lib/blog-data';
 
 interface BlogClientProps {
-  posts: BlogPostData[];
-}
-
-function calculateReadingTime(html: string): number {
-  const text = html.replace(/<[^>]*>/g, ''); // strip HTML tags
-  const words = text.trim().split(/\s+/).length;
-  const wordsPerMinute = 200; // average reading speed
-  return Math.max(1, Math.ceil(words / wordsPerMinute));
+  posts: BlogPostLite[];
 }
 
 const CATEGORIES = ['Tümü', 'Fiyat', 'Rehber', 'Yasal', 'Teknik', 'Bölge'] as const;
@@ -28,12 +22,12 @@ export default function BlogClient({ posts }: BlogClientProps) {
   // Filter posts based on selected category
   const filteredPosts = posts.filter((post) => {
     if (selectedCategory === 'Tümü') return true;
-    return post.category === selectedCategory;
+    return post.c === selectedCategory;
   });
 
   // Sort posts by date descending
   const sortedPosts = [...filteredPosts].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    (a, b) => new Date(b.d).getTime() - new Date(a.d).getTime()
   );
 
   // Paginated posts
@@ -84,7 +78,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                   : 'bg-off-white hover:bg-white border-gray-light text-charcoal hover:text-forest'
               }`}
             >
-              {category} {category === 'Tümü' ? `(${posts.length})` : `(${posts.filter(p => p.category === category).length})`}
+              {category} {category === 'Tümü' ? `(${posts.length})` : `(${posts.filter(p => p.c === category).length})`}
             </button>
           ))}
         </div>
@@ -99,26 +93,26 @@ export default function BlogClient({ posts }: BlogClientProps) {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {paginatedPosts.map((post) => {
-            const readingTime = calculateReadingTime(post.contentHtml);
-            const badgeColor = getCategoryColor(post.category);
+            const readingTime = post.r;
+            const badgeColor = getCategoryColor(post.c);
 
             return (
               <article
-                key={post.id}
+                key={post.i}
                 className="bg-white rounded-2xl border border-gray-light hover:border-gold/20 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group"
               >
                 {/* Header Image */}
                 <div className="relative aspect-video w-full overflow-hidden bg-gray-100 border-b border-gray-light">
                   <Image
-                    src={post.image || '/img/slayt-1.jpg'}
-                    alt={post.title}
+                    src={post.m || '/img/slayt-1.jpg'}
+                    alt={post.t}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4">
                     <span className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wider border shadow-sm ${badgeColor}`}>
-                      {post.category}
+                      {post.c}
                     </span>
                   </div>
                 </div>
@@ -129,8 +123,8 @@ export default function BlogClient({ posts }: BlogClientProps) {
                     <div className="flex flex-wrap items-center gap-3 text-xs text-gray-400 font-bold">
                       <span className="flex items-center gap-1">
                         <Calendar className="w-3.5 h-3.5 text-gold" />
-                        <time dateTime={post.date}>
-                          {new Date(post.date).toLocaleDateString('tr-TR', {
+                        <time dateTime={post.d}>
+                          {new Date(post.d).toLocaleDateString('tr-TR', {
                             year: 'numeric',
                             month: 'long',
                             day: 'numeric'
@@ -139,23 +133,23 @@ export default function BlogClient({ posts }: BlogClientProps) {
                       </span>
                       <span className="flex items-center gap-1">
                         <User className="w-3.5 h-3.5 text-gold" />
-                        {post.author}
+                        Lider Nakliyat
                       </span>
                       <span>• {readingTime} dk okuma</span>
                     </div>
 
                     <h2 className="font-display font-black text-forest text-lg group-hover:text-gold-text transition-colors line-clamp-2 leading-tight">
-                      {post.title}
+                      {post.t}
                     </h2>
 
                     <p className="text-charcoal text-sm leading-relaxed line-clamp-3">
-                      {post.excerpt}
+                      {post.e}
                     </p>
                   </div>
 
                   <div className="pt-4 border-t border-gray-light/60 mt-4">
                     <Link
-                      href={`/blog/${post.id}`}
+                      href={`/blog/${post.i}`}
                       className="text-gold-text hover:text-forest font-bold text-xs uppercase tracking-widest flex items-center gap-1.5 transition-colors group/link"
                     >
                       <span>Yazıyı Görüntüle</span>

@@ -1,4 +1,5 @@
 'use client';
+// Gerekçe: Mobil cihazlarda bölge/hizmet akordiyon menülerini toggle etmek için useState kullanır.
 
 import React, { useState } from 'react';
 import Link from 'next/link';

@@ -83,7 +83,7 @@ const mediaItems: MediaItem[] = [
   },
   {
     type: 'image',
-    src: '/img/galeri/WhatsApp Image 2026-08-19 at 14.54.32 (3).jpeg',
+    src: '/img/galeri/WhatsApp Image 2026-08-19 at 14.55.17.jpeg',
     title: 'Modern Dış Cephe Asansör Kurulumu',
     desc: 'Yüksek katlı binalar için kurulan teleskopik eşya taşıma asansörümüz.',
     alt: 'Bina dış cephesine dayanmış nakliyat asansörü rayları',
@@ -107,7 +107,7 @@ const mediaItems: MediaItem[] = [
   },
   {
     type: 'image',
-    src: '/img/galeri/WhatsApp Image 2026-08-19 at 14.55.17.jpeg',
+    src: '/img/galeri/WhatsApp Image 2026-08-19 at 14.54.32 (3).jpeg',
     title: 'Uzman Kadrolu Taşıma Ekiplerimiz',
     desc: 'Lider Nakliyat üniformalı kadrolu profesyonel taşıma elemanlarımız.',
     alt: 'Lider nakliyat güler yüzlü ve kurumsal üniformalı elemanları',
@@ -231,17 +231,23 @@ export default function GalleryPage() {
       
       <main className="pt-24 bg-off-white min-h-screen">
         {/* Intro */}
-        <section className="py-16 bg-forest text-white text-center space-y-4">
-          <span className="text-gold font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
-            <Camera className="w-4 h-4 text-gold" />
-            <span>Faaliyetlerimiz</span>
-          </span>
-          <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
-            Hizmet Galerisi
-          </h1>
-          <p className="text-gray-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-            Eşya paketleme, asansör kurulumu ve taşıma anlarına ait gerçek operasyon fotoğraflarımız ve videolarımız.
-          </p>
+        <section 
+          className="relative py-16 bg-forest text-white text-center overflow-hidden bg-cover bg-center"
+          style={{ backgroundImage: "url('/img/banner-bg.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-forest/80 z-0" />
+          <div className="relative z-10 space-y-4">
+            <span className="text-gold font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
+              <Camera className="w-4 h-4 text-gold" />
+              <span>Faaliyetlerimiz</span>
+            </span>
+            <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
+              Hizmet Galerisi
+            </h1>
+            <p className="text-gray-200 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+              Eşya paketleme, asansör kurulumu ve taşıma anlarına ait gerçek operasyon fotoğraflarımız ve videolarımız.
+            </p>
+          </div>
         </section>
 
         {/* Gallery Content with Tabs & Video Lightbox */}

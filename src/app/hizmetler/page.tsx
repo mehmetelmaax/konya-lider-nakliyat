@@ -71,17 +71,23 @@ export default function HizmetlerPage() {
         <Breadcrumb items={[{ name: 'Hizmetlerimiz', url: '/hizmetler' }]} className="pt-4" />
         
         {/* Banner Section */}
-        <section className="py-16 bg-forest text-white text-center space-y-4">
-          <span className="text-gold font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
-            <Truck className="w-4 h-4 text-gold" />
-            <span>Neler Yapıyoruz?</span>
-          </span>
-          <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
-            Profesyonel Taşımacılık Hizmetlerimiz
-          </h1>
-          <p className="text-gray-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-            Konya merkezli olarak ev, ofis, parça eşya taşımacılığından asansör kiralama ve eşya depolamaya kadar tüm lojistik ihtiyaçlarınız.
-          </p>
+        <section 
+          className="relative py-16 bg-forest text-white text-center overflow-hidden bg-cover bg-center"
+          style={{ backgroundImage: "url('/img/banner-bg.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-forest/80 z-0" />
+          <div className="relative z-10 space-y-4">
+            <span className="text-gold font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-1">
+              <Truck className="w-4 h-4 text-gold" />
+              <span>Neler Yapıyoruz?</span>
+            </span>
+            <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
+              Profesyonel Taşımacılık Hizmetlerimiz
+            </h1>
+            <p className="text-gray-200 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+              Konya merkezli olarak ev, ofis, parça eşya taşımacılığından asansör kiralama ve eşya depolamaya kadar tüm lojistik ihtiyaçlarınız.
+            </p>
+          </div>
         </section>
 
         {/* Grid of 9 services */}

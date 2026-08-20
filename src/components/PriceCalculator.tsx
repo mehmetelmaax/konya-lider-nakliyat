@@ -1,4 +1,5 @@
 'use client';
+// Gerekçe: Adım adım hesaplama sihirbazı (step) ve dinamik form girdi durumları (inputs) yönetimi için useState kullanır.
 
 import React, { useState } from 'react';
 import { estimatePrice, PriceInput } from '@/lib/pricing';

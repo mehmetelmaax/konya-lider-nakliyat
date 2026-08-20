@@ -19,9 +19,16 @@ export function organizationSchema() {
     'logo': {
       '@type': 'ImageObject',
       'url': `${SITE.url}/img/logo.png`,
-      'width': 200,
-      'height': 60
+      'width': 400,
+      'height': 266
     },
+    'contactPoint': [{
+      '@type': 'ContactPoint',
+      'telephone': SITE.phone,
+      'contactType': 'customer service',
+      'areaServed': 'TR',
+      'availableLanguage': ['Turkish']
+    }],
     'image': `${SITE.url}/img/slayt-1.jpg`,
     'telephone': SITE.phone,
     'email': SITE.email,
