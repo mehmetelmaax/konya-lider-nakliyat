@@ -188,28 +188,28 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
               {[
                 {
-                  src: '/img/arac-filosu.webp',
+                  src: '/img/slayt-1.jpg',
                   title: 'Geniş Araç Filosu',
                   desc: 'Ev eşyası taşımaya uygun kapalı kasa filomuz.',
                   alt: 'Konya Lider Nakliyat kapalı kasa nakliye kamyonları ve araç filosu'
                 },
                 {
-                  src: '/img/asansor-kurulum.webp',
+                  src: '/img/slayt-2.jpg',
                   title: 'Dış Cephe Asansörleri',
                   desc: 'Yüksek katlara modüler taşıma asansörleri kurulumu.',
                   alt: 'Dış cephe teleskopik modüler nakliyat asansörü kurulumu'
                 },
                 {
-                  src: '/img/paketleme-detay.webp',
-                  title: 'Ambalajlama ve Paketleme',
-                  desc: 'Çift katlı koruyucu patpat balonlu sarım.',
-                  alt: 'Eşyaların balonlu naylon malzemeyle koruyucu paketlenmesi'
-                },
-                {
-                  src: '/img/marangozluk.webp',
+                  src: '/img/slayt-3.jpg',
                   title: 'Profesyonel Marangozluk',
                   desc: 'Mobilyaların demontaj ve montaj süreçleri.',
                   alt: 'Usta marangoz tarafından mobilyaların sökülmesi ve kurulumu'
+                },
+                {
+                  src: '/img/ekip.jpg',
+                  title: 'Uzman Taşıma Kadromuz',
+                  desc: 'Güler yüzlü, kadrolu ve deneyimli taşıma ekiplerimiz.',
+                  alt: 'Konya Lider Nakliyat profesyonel taşıma ve montaj ekipleri'
                 }
               ].map((img, i) => (
                 <div 
