@@ -4,7 +4,7 @@ export const SITE = {
   name: 'Konya Lider Nakliyat',
   legalName: 'Konya Lider Evden Eve Nakliyat',
   shortName: 'Lider Nakliyat',
-  url: 'https://www.konyaliderevdeneve.com',
+  url: 'https://konyaliderevdeneve.com',
   locale: 'tr_TR',
   description: "Konya'da sabit fiyat garantili, K3 yetki belgeli, asansörlü ve sigortalı evden eve nakliyat.",
   phone: '+905546400205',
