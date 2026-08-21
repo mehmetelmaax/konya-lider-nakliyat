@@ -34,17 +34,6 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.konyaliderevdeneve.com',
-          },
-        ],
-        destination: 'https://konyaliderevdeneve.com/:path*',
-        permanent: true,
-      },
       { source: '/index.htm', destination: '/', permanent: true },
       { source: '/7.htm', destination: '/hizmetler/sehirlerarasi-evden-eve-nakliyat', permanent: true },
       { source: '/8.htm', destination: '/hizmetler/asansorlu-evden-eve-nakliyat', permanent: true },
