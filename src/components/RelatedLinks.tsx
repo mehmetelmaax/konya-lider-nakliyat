@@ -143,7 +143,7 @@ export default function RelatedLinks({ currentSlug, type, title }: RelatedLinksP
       });
     });
 
-    const otherBlogs = Object.values(blogDatabase).filter(b => b.id !== currentSlug).slice(0, 2);
+    const otherBlogs = Object.values(blogDatabase).filter(b => b.id !== currentSlug).slice(0, 3);
     otherBlogs.forEach((b, idx) => {
       links.push({
         href: `/blog/${b.id}`,

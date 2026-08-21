@@ -13,6 +13,31 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+// Local env loader to support local preflight execution
+function loadEnv() {
+  const envFiles = ['.env.local', '.env.development', '.env'];
+  for (const file of envFiles) {
+    const filePath = path.join(process.cwd(), file);
+    if (fs.existsSync(filePath)) {
+      const content = fs.readFileSync(filePath, 'utf8');
+      const lines = content.split('\n');
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) continue;
+        const index = trimmed.indexOf('=');
+        if (index > 0) {
+          const key = trimmed.substring(0, index).trim();
+          const val = trimmed.substring(index + 1).replace(/^['"]|['"]$/g, '').trim();
+          if (!process.env[key]) {
+            process.env[key] = val;
+          }
+        }
+      }
+    }
+  }
+}
+loadEnv();
+
 const errors = [];
 const warnings = [];
 const passed = [];

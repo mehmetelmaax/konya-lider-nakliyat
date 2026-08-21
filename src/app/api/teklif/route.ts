@@ -54,7 +54,10 @@ function maskPhone(phone: string): string {
 async function redisCmd(cmd: string[]) {
   const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
-  if (!url || !token) return null;
+  if (!url || !token) {
+    console.warn('KV_REDIS_WARNING: KV_REST_API_URL / UPSTASH_REDIS_REST_URL or tokens are not set. Running in serverless without persistent rate limits!');
+    return null;
+  }
   try {
     const res = await fetch(url, {
       method: 'POST',
@@ -328,7 +331,10 @@ export async function POST(req: NextRequest) {
     // Lead is successfully captured if it is saved to KV/Redis, sent via Email, OR sent via Webhook
     const isCaptured = !!kvSaved || emailSuccess || webhookSuccess;
     if (!isCaptured) {
-      throw new Error('Lead could not be saved to any channel (Email, Webhook, or KV Storage)');
+      return NextResponse.json(
+        { ok: false, fallback: 'whatsapp', message: 'Sistem şu an yoğun. Lütfen talebinizi doğrudan WhatsApp ile iletin.' },
+        { status: 503 }
+      );
     }
 
     return NextResponse.json({ ok: true });
@@ -336,8 +342,8 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     console.error('API_TEKLIF_ERROR:', error);
     return NextResponse.json(
-      { ok: false, message: 'Teklif talebiniz işlenirken bir sunucu hatası oluştu.' },
-      { status: 500 }
+      { ok: false, fallback: 'whatsapp', message: 'Teklif talebiniz işlenirken bir sunucu hatası oluştu. Talebinizi WhatsApp ile tamamlayabilirsiniz.' },
+      { status: 503 }
     );
   }
 }

@@ -10,7 +10,7 @@ import K3InfoBlock from '@/components/geo/K3InfoBlock';
 
 export const metadata: Metadata = {
   title: 'Hakkımızda | Konya Lider Nakliyat',
-  description: `Konya Lider Nakliyat, ${FACTS.foundedYear} yılından beri Konya Selçuklu merkezli olarak K3 yetki belgesi ve özmal asansör filomuzla profesyonel evden eve nakliye hizmetleri sunuyoruz.`,
+  description: "Konya Lider Nakliyat, 2006 yılından beri K3 yetki belgesi, özmal araçları ve modüler dış cephe asansörleriyle Konya'da profesyonel evden eve taşıma yapmaktadır.",
   alternates: {
     canonical: '/hakkimizda',
   },

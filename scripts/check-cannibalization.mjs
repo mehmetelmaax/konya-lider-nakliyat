@@ -109,7 +109,8 @@ function runCannibalizationCheck() {
     'asansorlu': ['asansorlu', 'asansorluevdenevenakliyat', 'asansorlunakliyat'],
     'esya depolama': ['esyadepolama', 'depolama'],
     'esya paketleme': ['esyapaketleme', 'paketleme'],
-    'ofis tasima': ['ofistasima', 'ofisveisyeritasimaciligi']
+    'ofis tasima': ['ofistasima', 'ofisveisyeritasimaciligi'],
+    'fiyat/maliyet': ['nakliyatfiyat', 'tasinmamaliyet', 'evtasimafiyat', 'nakliyemaliyet', 'nakliyefiyat']
   };
 
   console.log('\nChecking for Keyword Overlaps (Potential Cannibalization):');

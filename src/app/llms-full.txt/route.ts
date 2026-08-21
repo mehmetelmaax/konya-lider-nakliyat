@@ -86,7 +86,7 @@ export function GET() {
           .replace(/&gt;/g, '>')
           .replace(/\s+/g, ' ') // Normalize spaces
           .trim();
-      } catch (e) {
+      } catch {
         pageText = `İçerik okunamadı: ${item.name} (${item.route})`;
       }
     } else {

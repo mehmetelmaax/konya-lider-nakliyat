@@ -155,23 +155,41 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
           `🛗 Asansör: ${formData.elevator === 'evet' ? 'Asansörlü' : 'Asansörsüz'}\n` +
           `💰 Tahmini Fiyat: ${priceRange.min.toLocaleString('tr-TR')} TL - ${priceRange.max.toLocaleString('tr-TR')} TL`;
         
-        window.location.href = `https://wa.me/905546400205?text=${encodeURIComponent(wpText)}`;
+        window.open(`https://wa.me/905546400205?text=${encodeURIComponent(wpText)}`, '_self');
       } else {
         setStatus('error');
-        setErrorMessage(data.message || 'Teklif talebi gönderilirken bir sunucu hatası oluştu. Lütfen WhatsApp ile iletin.');
+        setErrorMessage(data.message || 'Teklif talebi gönderilirken bir sunucu hatası oluştu. Talebinizi WhatsApp ile tamamlayabilirsiniz.');
         trackEvent('teklif_formu_hata', { hataAlani: 'server_api', status: response.status });
+        
+        // Auto redirect to WhatsApp fallback if 503 is returned
+        if (response.status === 503 || data.fallback === 'whatsapp') {
+          const wpLink = getWhatsAppLink();
+          window.open(wpLink, '_blank');
+        }
       }
     } catch (err) {
       console.error(err);
       setStatus('error');
       setErrorMessage('Bağlantı hatası oluştu. Talebinizi doğrudan WhatsApp ile iletebilirsiniz.');
       trackEvent('teklif_formu_hata', { hataAlani: 'network_error' });
+      
+      // Auto redirect to WhatsApp fallback on network error
+      const wpLink = getWhatsAppLink();
+      window.open(wpLink, '_blank');
     }
   };
 
   const getWhatsAppLink = () => {
-    const text = `Merhaba, siteden teklif talebi oluşturdum.\nAd: ${formData.name}\nNereden: ${formData.fromDistrict}\nNereye: ${formData.toDistrict}\nOda: ${formData.rooms}\nAsansör: ${formData.elevator === 'evet' ? 'Asansörlü' : 'Asansörsüz'}`;
-    return `${SITE.whatsappHref}?text=${encodeURIComponent(text)}`;
+    const priceRange = calculateEstimate();
+    const text = `Merhaba, Lider Nakliyat sitesinden fiyat teklif talebi oluştururken bir aksaklık oldu. Talebim:\n\n` +
+      `👤 Ad Soyad: ${formData.name}\n` +
+      `📞 Telefon: ${formData.phone}\n` +
+      `📍 Nereden: ${formData.fromDistrict}\n` +
+      `🏁 Nereye: ${formData.toDistrict}\n` +
+      `🏠 Oda Sayısı: ${formData.rooms}\n` +
+      `🛗 Asansör: ${formData.elevator === 'evet' ? 'Asansörlü' : 'Asansörsüz'}\n` +
+      `💰 Tahmini Fiyat: ${priceRange.min.toLocaleString('tr-TR')} TL - ${priceRange.max.toLocaleString('tr-TR')} TL`;
+    return `https://wa.me/905546400205?text=${encodeURIComponent(text)}`;
   };
 
   const formFieldsHtml = (

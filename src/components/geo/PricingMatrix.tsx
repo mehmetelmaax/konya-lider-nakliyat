@@ -8,7 +8,7 @@ export default function PricingMatrix() {
         Konya Ev Taşıma Oda, Mesafe ve Kat Fiyat Matrisi
       </h2>
       <p className="text-xs md:text-sm text-charcoal leading-relaxed">
-        Konya genelindeki evden eve nakliyat operasyonlarında tahmini maliyet aralıkları daire büyüklüğüne (oda sayısına), gidilecek yol mesafesine ve kat yüksekliklerine göre belirlenmektedir. Aşağıda, Konya Lider Nakliyat tarafından sunulan 2026 yılı güncel lojistik fiyat aralıkları listelenmiştir:
+        Konya genelindeki evden eve nakliyat operasyonlarında tahmini maliyet aralıkları daire büyüklüğüne (oda sayısına), gidilecek yol mesafesine ve kat yüksekliklerine göre belirlenmektedir. Aşağıda, Konya Lider Nakliyat tarafından sunulan Ağustos 2026 tarihi itibarıyla güncel lojistik fiyat aralıkları listelenmiştir:
       </p>
       
       <div className="overflow-x-auto">

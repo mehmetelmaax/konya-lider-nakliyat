@@ -85,21 +85,24 @@ export default function BlogClient({ posts }: BlogClientProps) {
       </div>
 
       {/* Grid List */}
-      {paginatedPosts.length === 0 ? (
+      {sortedPosts.length === 0 ? (
         <div className="bg-white rounded-2xl border border-gray-light p-12 text-center space-y-4">
           <Grid className="w-12 h-12 text-gray-300 mx-auto" />
           <p className="text-gray-500 font-medium">Bu kategoride henüz yazı bulunmamaktadır.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {paginatedPosts.map((post) => {
+          {sortedPosts.map((post, idx) => {
             const readingTime = post.r;
             const badgeColor = getCategoryColor(post.c);
+            const isHidden = idx >= visibleCount;
 
             return (
               <article
                 key={post.i}
-                className="bg-white rounded-2xl border border-gray-light hover:border-gold/20 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+                className={`bg-white rounded-2xl border border-gray-light hover:border-gold/20 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group ${
+                  isHidden ? 'hidden' : ''
+                }`}
               >
                 {/* Header Image */}
                 <div className="relative aspect-video w-full overflow-hidden bg-gray-100 border-b border-gray-light">

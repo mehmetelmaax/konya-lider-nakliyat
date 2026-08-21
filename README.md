@@ -38,14 +38,24 @@ Geliştirme veya canlı ortama geçişte kök dizinde bir `.env.local` dosyası 
 
 | Değişken Adı | Açıklama | Nereden Alınır? |
 | :--- | :--- | :--- |
-| `RESEND_API_KEY` | Form bildirim e-postalarını göndermek için kullanılan Resend şifresi. | [resend.com](https://resend.com) panelinden ücretsiz API anahtarı olarak oluşturulur. |
-| `NOTIFY_EMAIL` | Teklifler geldiğinde bildirim gönderilecek yönetici adresi. | firmanın resmi e-postası (örn: `info@konyaliderevdeneve.com`). |
+| `RESEND_API_KEY` | Form bildirim e-postalarını göndermek için kullanılan Resend API anahtarı. | [resend.com](https://resend.com) panelinden ücretsiz API anahtarı olarak oluşturulur. |
+| `NOTIFY_EMAIL` | Teklifler geldiğinde bildirim gönderilecek yönetici adresi. | Firmanın resmi e-postası (örn: `info@konyaliderevdeneve.com`). |
+| `RESEND_FROM` | Gönderici e-posta başlığı ve adresi. | Resend üzerinde doğrulanmış alan adı üzerinden tanımlanır (örn: `Lider Nakliyat <bilgi@konyaliderevdeneve.com>`). |
+| `LEAD_WEBHOOK_URL` | Lead verilerini push etmek için webhook uç noktası (Opsiyonel). | Müşteri CRM sistemi, Zapier veya Slack webhook URL'i. |
+| `KV_REST_API_URL` / `UPSTASH_REDIS_REST_URL` | Serverless spam koruması (Rate Limit) için KV veritabanı API adresi. | Vercel KV entegrasyonu kurulduğunda veya Upstash panelinden oluşturulur. |
+| `KV_REST_API_TOKEN` / `UPSTASH_REDIS_REST_TOKEN` | KV veritabanı bağlantı yetkilendirme token'ı. | Vercel KV entegrasyonu kurulduğunda veya Upstash panelinden oluşturulur. |
+| `GBP_API_KEY` | Google Yorumları / Places API bağlantı anahtarı (Opsiyonel). | Google Cloud Console üzerinden Places API etkinleştirilerek alınır. |
+| `NEXT_PUBLIC_GBP_PLACE_ID` | İşletmenin Google Places kimliği (Opsiyonel). | Google Place ID bulucu aracından işletme aranarak alınır. |
 | `NEXT_PUBLIC_GA_ID` | Google Analytics 4 Ölçüm Kimliği. | [analytics.google.com](https://analytics.google.com) adresinden mülk kurulumunda verilen `G-XXXXXXXXXX` kodu. |
-| `NEXT_PUBLIC_CLARITY_ID`| Microsoft Clarity Proje Kimliği. | [clarity.microsoft.com](https://clarity.microsoft.com) panelinden alınan 10 haneli proje kodu. |
-| `NEXT_PUBLIC_GSC_VERIFICATION`| Google Search Console doğrulama kodu. | Search Console mülk doğrulama adımındaki `<meta>` etiketinin `content` değeri. |
-| `NEXT_PUBLIC_YANDEX_VERIFICATION`| Yandex Webmaster doğrulama kodu. | Yandex Webmaster panelindeki doğrulama meta etiketi içeriği. |
+| `NEXT_PUBLIC_CLARITY_ID` | Microsoft Clarity Proje Kimliği. | [clarity.microsoft.com](https://clarity.microsoft.com) panelinden alınan 10 haneli proje kodu. |
+| `NEXT_PUBLIC_GADS_ID` | Google Ads Dönüşüm Kimliği (Opsiyonel). | Google Ads Dönüşümler panelinden alınan `AW-123456789` formatındaki kod. |
+| `NEXT_PUBLIC_GADS_CONVERSION_LABEL_QUOTE` | Form Gönderimi için Google Ads dönüşüm etiketi. | Google Ads teklif al dönüşüm ayarlarından alınır. |
+| `NEXT_PUBLIC_GADS_CONVERSION_LABEL_PHONE` | Telefon tıklaması için Google Ads dönüşüm etiketi. | Google Ads telefon tıklandı dönüşüm ayarlarından alınır. |
+| `NEXT_PUBLIC_GADS_CONVERSION_LABEL_WHATSAPP` | WhatsApp tıklaması için Google Ads dönüşüm etiketi. | Google Ads whatsapp tıklandı dönüşüm ayarlarından alınır. |
+| `NEXT_PUBLIC_GSC_VERIFICATION` | Google Search Console doğrulama kodu. | Search Console mülk doğrulama adımındaki `<meta>` etiketinin `content` değeri. |
+| `NEXT_PUBLIC_YANDEX_VERIFICATION` | Yandex Webmaster doğrulama kodu. | Yandex Webmaster panelindeki doğrulama meta etiketi içeriği. |
 
-*Örnek şablon için [.env.example](file:///.env.example) dosyasını inceleyin.*
+*Örnek şablon için [.env.example](file:///C:/Users/mehme/.gemini/antigravity/scratch/konya-lider-nakliyat/.env.example) dosyasını inceleyin.*
 
 ---
 

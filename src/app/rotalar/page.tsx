@@ -10,7 +10,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Şehirlerarası Nakliyat Rotaları | Lider Nakliyat Konya',
-  description: "Konya çıkışlı olarak İstanbul, Ankara, İzmir, Antalya ve Bursa başta olmak üzere Türkiye'nin 81 iline sunduğumuz şehirlerarası nakliyat seferleri ve mesafe/fiyat tablosu.",
+  description: "Konya şehirlerarası evden eve nakliyat rotaları, mesafe bilgileri, tahmini taşıma süreleri ve 2026 yılı güncel şehirlerarası ev taşıma fiyat tablosu rehberi.",
   alternates: {
     canonical: '/rotalar',
   },

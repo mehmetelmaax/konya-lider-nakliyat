@@ -32,7 +32,7 @@ Canlıya alım bittikten sonra sitenin Google botları tarafından hızlıca ke�
 3. DNS sağlayıcınıza (örn. Cloudflare, GoDaddy) GSC panelinin verdiği TXT kaydını ekleyerek mülkü doğrulayın. (Alternatif olarak **"URL Öneki"** seçeneğiyle `.env.local` dosyasına eklediğiniz `NEXT_PUBLIC_GSC_VERIFICATION` meta tag doğrulamasını da kullanabilirsiniz).
 4. Sol menüden **"Site Haritaları" (Sitemaps)** sayfasına gidin.
 5. **"Yeni bir site haritası ekleyin"** kısmına `sitemap.xml` yazın ve **"Gönder"** butonuna basın.
-6. Gönderim sonrası durumun **"Başarılı"** olduğunu teyit edin. Haritada tam olarak **50 adet URL** listelenmelidir.
+6. Gönderim sonrası durumun **"Başarılı"** olduğunu teyit edin. Haritada tam olarak **58 adet URL** listelenmelidir.
 
 ---
 

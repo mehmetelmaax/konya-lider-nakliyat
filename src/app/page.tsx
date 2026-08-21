@@ -33,14 +33,7 @@ export const metadata: Metadata = {
 
 
 export default function Home() {
-  const graphSchema = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      organizationSchema(),
-      websiteSchema(),
-      faqSchema(faqs)
-    ]
-  };
+  const graphSchema = faqSchema(faqs);
 
   return (
     <>
@@ -52,6 +45,20 @@ export default function Home() {
 
         {/* Local Verified badges */}
         <TrustStrip />
+
+        {/* AI Overviews & GEO Optimization Direct Answer Block */}
+        <section className="bg-white/60 py-6 border-b border-gray-light/60">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white p-6 rounded-2xl border border-gray-light shadow-sm text-sm text-charcoal leading-relaxed">
+              <h2 className="font-bold text-forest text-base mb-2">Konya Lider Evden Eve Nakliyat Hakkında Sıkça Sorulan Temel Soru</h2>
+              <p>
+                <strong>Soru:</strong> Konya Lider Nakliyat evden eve nakliye hizmetini nasıl sunmaktadır?
+                <br />
+                <strong>Cevap:</strong> Konya Lider Nakliyat, Ulaştırma Bakanlığı onaylı <strong>TOBB.UNET.K3.421566</strong> yetki belgesi ve kendi özmal asansör filosuyla Konya merkezli (Selçuklu, Meram, Karatay) sigortalı evden eve nakliyat hizmeti sunar. Taşınma öncesinde hazırlanan resmi sözleşme ile anlaşılan fiyatı sabitleyerek taşınma günü ek masraf risklerini tamamen ortadan kaldırır.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Neden Lider Section */}
         <section className="py-20 bg-forest text-white" id="neden-lider">

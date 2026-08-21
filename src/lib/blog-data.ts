@@ -25,8 +25,8 @@ export interface BlogPostLite {
 export const blogDatabase: Record<string, BlogPostData> = {
   'konya-nakliyat-fiyatlari': {
     id: 'konya-nakliyat-fiyatlari',
-    title: 'Konya Evden Eve Nakliyat Fiyatları Nasıl Belirlenir?',
-    desc: "Konya'da ev taşıma maliyetlerini etkileyen oda sayısı, kat yükseklikleri ve asansör gereksinimlerini detaylıca inceliyoruz.",
+    title: 'Konya Ev Taşıma Bütçesi Planlama Rehberi',
+    desc: "Konya'da evinizi taşırken bütçe planlaması yapmanın yolları, nakliyat masraflarını kontrol altında tutma ve adım adım bütçe hazırlama rehberi.",
     excerpt: 'Ev taşıma maliyetlerini etkileyen oda sayısı, kat durumları, asansör kurulumu ve yol mesafesi gibi temel parametreleri inceliyoruz.',
     date: '2026-08-01',
     author: 'Lider Nakliyat Ekibi',
@@ -43,7 +43,7 @@ export const blogDatabase: Record<string, BlogPostData> = {
       }
     ],
     contentHtml: `
-      <p>Konya genelinde ev taşıma maliyetlerini belirleyen temel parametreler oda sayısı, binaların kat durumları ve dış cephe asansörünün kurulup kurulmayacağıdır. Selçuklu merkezli garajımızdan sevk edilen araçların yakıt giderleri ve çalışacak personel yevmiyeleri bu maliyetin ana omurgasını oluşturur.</p>
+      <p>Konya genelinde ev taşıma maliyetlerini belirleyen temel parametreler oda sayısı, binaların kat durumları ve dış cephe asansörünün kurulup kurulmayacağıdır. Selçuklu merkezli garajımızdan sevk edilen araçların yakıt giderleri ve çalışacak personel yevmiyeleri bu maliyetin ana omurgasını oluşturur. Konya genelinde 1+1, 2+1, 3+1 ve 4+1 dairelerin güncel fiyat aralıklarını görmek için <a href="/konya-nakliyat-fiyatlari">Konya evden eve nakliyat fiyatları</a> sayfamızı inceleyebilirsiniz.</p>
       
       <h2>1. Dairenin Oda Sayısı ve Eşya Hacmi</h2>
       <p>Dairenizdeki oda sayısı (1+1, 2+1, 3+1, 4+1) kullanılacak ambalaj malzemesi miktarını ve operasyonda görev alacak personel sayısını doğrudan belirler. Örneğin, 1+1 dairelerin taşınması için 3 personel yeterli olurken, 3+1 dairelerde marangoz ve tesisat ustası dahil en az 5 kişilik bir ekiple çalışılması gerekmektedir.</p>
@@ -113,9 +113,9 @@ export const blogDatabase: Record<string, BlogPostData> = {
 
   'konya-tasinma-maliyeti-2026': {
     id: 'konya-tasinma-maliyeti-2026',
-    title: "Konya Taşınma Maliyeti 2026: Fiyatlar & Masraflar",
-    desc: "Konya evden eve nakliyat fiyatları 2026 maliyet rehberi. Selçuklu ve Meram taşınma giderleri, asansör kiralama ve gizli nakliye masrafları dökümü.",
-    excerpt: "2026 yılı Konya evden eve nakliyat fiyatları, gizli masraflar, asansör kurulum maliyetleri ve taşınma bütçesi hazırlama rehberi.",
+    title: "Ev Taşımada Maliyet Kalemleri ve Gizli Giderler Nelerdir?",
+    desc: "Ev taşınma sürecinde ortaya çıkan marangozluk, asansör kiralama ve diğer nakliyat maliyet kalemleri ile sürpriz gizli giderleri önleme rehberi.",
+    excerpt: "2026 yılı ev taşıma maliyet kalemleri, nakliyat asansörü kurulum fiyatları, yol mesafesi ve taşınmada sürpriz gizli giderleri önleme yolları.",
     date: '2026-02-10',
     author: 'Lider Lojistik Editör',
     image: '/img/slayt-1.jpg',
@@ -725,7 +725,7 @@ export const blogDatabase: Record<string, BlogPostData> = {
       <p>Nakliyat ekipleri iş bitiminde size "Eşyalarımı hasarsız teslim aldım" yazılı bir iş teslim belgesi imzalatmak ister. Eğer hasarlı eşyanız varsa, bu belgeyi kesinlikle olduğu gibi imzalamayın. Belgenin üzerine ıslak kalemle **"Ekteki hasar tespit tutanağında belirtilen hasarlar saklı kalmak kaydıyla teslim aldım"** ibaresini (şerhini) yazarak imzalayın. Şerh düşülmeden atılan imzalar, yasal olarak eşyayı kusursuz kabul ettiğiniz anlamına gelir ve sigorta şirketlerinin tazminat ödemeyi reddetmesine sebep olur. Paketleme ve koruma kalitemiz için <a href="/hizmetler/profesyonel-esya-paketleme">Profesyonel Eşya Paketleme</a> sayfamızı inceleyebilirsiniz.</p>
 
       <h2>3. Sigorta Şirketine İhbar ve Dosya Açma Süreci</h2>
-      <p>Şehirlerarası taşımalarda eşyalarınız Anadolu Sigorta emtia poliçesiyle korunur. Kamyonun seyir halindeyken kaza yapması, devrilmesi veya yanması sonucu oluşan hasarların karşılanması için kaza tarihinden itibaren en geç 5 iş günü içerisinde sigorta acentesine ihbarda bulunulmalıdır. İhbar için kaza raporu, hasar fotoğrafları, poliçe numarası ve hasar tutanağı talep edilir. Şehirlerarası operasyonel detaylarımız için <a href="/hizmetler/sehirlerarasi-evden-eve-nakliyat">Şehirlerarası Evden Eve Nakliyat</a> sayfamıza bakabilirsiniz.</p>
+      <p>Şehirlerarası taşımalarda eşyalarınız Anadolu Sigorta emtia poliçesiyle korunur. Kamyonun seyir halindeyken kaza yapması, devrilmesi veya yanması sonucu oluşan hasarların karşılanması için kaza tarihinden itibaren en geç 5 iş günü içerisinde sigorta acentesine ihbarda bulunulmalıdır. İhbar için kaza raporu, hasar fotoğrafları, poliçe numarası ve hasar tutanağı talep edilir. Şehirlerarası operasyonel detaylarımız için <a href="/hizmetler/sehirlerarasi-evden-eve-nakliyat">Şehirlerarası Evden Eve Nakliyat</a> sayfamıza bakabilirsiniz. Örneğin, <a href="/rotalar/konya-istanbul-evden-eve-nakliyat">Konya İstanbul evden eve nakliyat</a> veya <a href="/rotalar/konya-ankara-evden-eve-nakliyat">Konya Ankara evden eve nakliyat</a> gibi yoğun rotalarımızda eşyalarınızın her türlü uzun yol hasarına karşı sigortalanarak güvence altına alındığından emin olabilirsiniz.</p>
 
       <h2>4. Ekspertiz İncelemesi ve Değer Tespiti</h2>
       <p>Sigorta ihbarı sonrasında sigorta şirketi hasarın boyutunu belirlemek üzere bağımsız bir sigorta eksperi görevlendirir. Eksper eve gelerek eşyadaki hasarı inceler, faturalarını ve satın alma belgelerini talep eder. Eksper raporu doğrultusunda belirlenen tazminat bedeli, sigortalının banka hesabına yatırılır.</p>

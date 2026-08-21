@@ -12,6 +12,15 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [servicesOpen, setServicesOpen] = useState(false);
   const [regionsOpen, setRegionsOpen] = useState(false);
+  const [routesOpen, setRoutesOpen] = useState(false);
+
+  const popularRoutes = [
+    { name: 'Konya - İstanbul Nakliyat', href: '/rotalar/konya-istanbul-evden-eve-nakliyat' },
+    { name: 'Konya - Ankara Nakliyat', href: '/rotalar/konya-ankara-evden-eve-nakliyat' },
+    { name: 'Konya - İzmir Nakliyat', href: '/rotalar/konya-izmir-evden-eve-nakliyat' },
+    { name: 'Konya - Antalya Nakliyat', href: '/rotalar/konya-antalya-evden-eve-nakliyat' },
+    { name: 'Konya - Bursa Nakliyat', href: '/rotalar/konya-bursa-evden-eve-nakliyat' },
+  ];
 
   const mainRegions = [
     { name: 'Selçuklu', href: '/bolgeler/selcuklu-evden-eve-nakliyat' },
@@ -44,7 +53,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           
           {/* Column 1: Brand & NAP */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-3 space-y-6">
             <Link href="/" className="flex items-center gap-2 group bg-white px-5 py-3 rounded-2xl shadow-xl border border-gray-light/20 w-fit">
               <Image
                 src="/img/logo.png"
@@ -62,7 +71,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Services */}
-          <div className="lg:col-span-3 space-y-4">
+          <div className="lg:col-span-2 space-y-4">
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
               className="w-full lg:w-auto flex justify-between items-center lg:pointer-events-none text-left focus:outline-none border-b border-white/5 pb-2 lg:border-none lg:pb-0 cursor-pointer"
@@ -115,7 +124,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Service Areas */}
-          <div className="lg:col-span-3 space-y-4">
+          <div className="lg:col-span-2 space-y-4">
             <button
               onClick={() => setRegionsOpen(!regionsOpen)}
               className="w-full lg:w-auto flex justify-between items-center lg:pointer-events-none text-left focus:outline-none border-b border-white/5 pb-2 lg:border-none lg:pb-0 cursor-pointer"
@@ -162,7 +171,32 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Column 4: Contact details */}
+          {/* Column 4: Popular Routes */}
+          <div className="lg:col-span-3 space-y-4">
+            <button
+              onClick={() => setRoutesOpen(!routesOpen)}
+              className="w-full lg:w-auto flex justify-between items-center lg:pointer-events-none text-left focus:outline-none border-b border-white/5 pb-2 lg:border-none lg:pb-0 cursor-pointer"
+            >
+              <h4 className="font-display font-bold text-base tracking-wider uppercase border-l-2 border-gold pl-3 text-white">
+                Popüler Rotalar
+              </h4>
+              <span className="lg:hidden text-white/65">
+                {routesOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+              </span>
+            </button>
+            
+            <nav aria-label="Footer Rota Linkleri">
+              <ul className={`space-y-2 text-xs md:text-sm text-gray-300 font-semibold mt-4 lg:mt-0 ${routesOpen ? 'block' : 'hidden lg:block'}`}>
+                {popularRoutes.map((route, idx) => (
+                  <li key={idx}>
+                    <Link href={route.href} className="hover:text-gold transition-colors">{route.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          {/* Column 5: Contact details */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="font-display font-bold text-base tracking-wider uppercase border-l-2 border-gold pl-3 text-white border-b border-white/5 pb-2 lg:border-none lg:pb-0">
               İletişim

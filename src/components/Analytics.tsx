@@ -19,8 +19,6 @@ export default function Analytics() {
           />
           <Script id="google-analytics" strategy="afterInteractive">
             {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               ${gaId ? `gtag('config', '${gaId}', {
                 page_path: window.location.pathname,

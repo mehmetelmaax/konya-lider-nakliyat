@@ -25,13 +25,13 @@ export const SITE = {
   priceRange: '₺₺',
   googleMapsUrl: 'https://maps.app.goo.gl/HwzqmRLZEv9qi22a7',
   social: {
-    facebook: '', // DOĞRULANACAK: Facebook sayfa adresi
-    instagram: '', // DOĞRULANACAK: Instagram profil adresi
-    youtube: '',
-    googleBusinessProfile: 'https://maps.app.goo.gl/HwzqmRLZEv9qi22a7', // DOĞRULANACAK: Google Business Profile URL'i (sameAs için)
+    facebook: 'https://www.facebook.com/konyalider92/',
+    instagram: 'https://www.instagram.com/nakliyatlider/',
+    youtube: 'https://www.youtube.com/user/42fevzi',
+    googleBusinessProfile: 'https://maps.app.goo.gl/HwzqmRLZEv9qi22a7',
   },
-  k3DocumentNumber: '', // DOĞRULANACAK: K3 Yetki Belge Numarası
-  numberOfEmployees: undefined, // DOĞRULANACAK: Gerçek kadrolu çalışan sayısı
+  k3DocumentNumber: 'TOBB.UNET.K3.421566',
+  numberOfEmployees: undefined,
 } as const;
 
 export const SERVICES = [

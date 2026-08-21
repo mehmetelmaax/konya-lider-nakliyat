@@ -150,10 +150,10 @@ function getPageType(route) {
 
 function getKeywordsForPage(route) {
   if (route === '/') return 'konya evden eve nakliyat, konya nakliyat';
-  if (route.includes('meram')) return 'çukurova evden eve nakliyat, çukurova nakliyat fiyatları';
+  if (route.includes('meram')) return 'meram evden eve nakliyat, meram nakliyat fiyatları';
   if (route.includes('selcuklu')) return 'selcuklu evden eve nakliyat, selcuklu nakliyat';
-  if (route.includes('karatay')) return 'yüreğir evden eve nakliyat';
-  if (route.includes('eregli')) return 'sarıçam evden eve nakliyat';
+  if (route.includes('karatay')) return 'karatay evden eve nakliyat, karatay nakliyat';
+  if (route.includes('eregli')) return 'eregli evden eve nakliyat, eregli nakliyat';
   if (route.includes('asansorlu')) return 'konya asansörlü nakliyat, kiralık asansör konya';
   if (route.includes('fiyatlari')) return 'konya nakliyat fiyatları, ev taşıma fiyatları konya';
   if (route.includes('firmalari')) return 'konya nakliyat firmaları, en iyi konya nakliye';

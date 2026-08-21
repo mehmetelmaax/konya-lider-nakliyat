@@ -11,7 +11,7 @@ import RelatedLinks from '@/components/RelatedLinks';
 
 export const metadata: Metadata = {
   title: 'Yapay Zeka Destekli Taşınma Asistanı ve Planlayıcı | Lider',
-  description: "Konya Lider Nakliyat'tan yapay zeka destekli interaktif taşınma asistanı. Ev tipinize, taşınma gününüze, çocuk ve evcil hayvan durumunuza göre kişiselleştirilmiş gün bazlı takvim ve abonelik iptal/nakil yapılacaklar listesi oluşturun.",
+  description: "Konya evden eve nakliyat planlayıcı ile taşınma kontrol listenizi hemen hazırlayın. Ev tipi ve tarihe göre kişiselleştirilmiş gün bazlı yapılacaklar rehberi.",
   alternates: {
     canonical: '/tasinma-kontrol-listesi',
   },

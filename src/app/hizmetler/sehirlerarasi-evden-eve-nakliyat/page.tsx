@@ -10,7 +10,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { routesDatabase } from '@/lib/routes-data';
+import { routesDatabase, ROUTES } from '@/lib/routes-data';
 
 export const metadata: Metadata = {
   title: 'Konya Şehirlerarası Ev Taşıma | Lider Nakliyat',
@@ -21,74 +21,28 @@ export const metadata: Metadata = {
 };
 
 export default function SehirlerarasiPage() {
-  const sss = [
-    {
-      question: "Konya - İstanbul evden eve nakliye kaç gün sürer?",
-      answer: `Konya’dan İstanbul’a taşınmalarımız ${routesDatabase['konya-istanbul-evden-eve-nakliyat'].viaRoute} üzerinden yaklaşık ${routesDatabase['konya-istanbul-evden-eve-nakliyat'].distanceKm} km olup, yükleme yapıldıktan 24 saat sonra (ertesi gün sabah) teslim edilmektedir.`
-    },
-    {
-      question: "Konya - Ankara ev taşıma süresi ve montajı nasıl yapılır?",
-      answer: `Konya - Ankara arası mesafemiz ${routesDatabase['konya-ankara-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-ankara-evden-eve-nakliyat'].distanceKm} km’dir. Eşyalarınız aynı gün akşamüstü veya ertesi gün sabah marangoz montajı dahil anahtar teslim edilir.`
-    },
-    {
-      question: "Konya - İzmir nakliyat seferleriniz hangi sıklıktadır?",
-      answer: `İzmir güzergahımıza (${routesDatabase['konya-izmir-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-izmir-evden-eve-nakliyat'].distanceKm} km) haftada 3 gün düzenli parsiyel ve komple eşya taşıma seferleri düzenlenmektedir.`
-    },
-    {
-      question: "Konya - Bursa arası mobilya paketleme standardınız nedir?",
-      answer: `Bursa yönüne (${routesDatabase['konya-bursa-evden-eve-nakliyat'].distanceKm} km) olan tüm taşımalarımızda eşyalarınız çift kat patpat naylonlarla sarılır ve yol sarsıntısına karşı araç içinde gergilerle sabitlenir.`
-    },
-    {
-      question: "Konya - Antalya nakliye fiyatları ne kadardır?",
-      answer: `Antalya rotası (${routesDatabase['konya-antalya-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-antalya-evden-eve-nakliyat'].distanceKm} km) için fiyatlar oda sayısına göre ortalama ${routesDatabase['konya-antalya-evden-eve-nakliyat'].priceRangeMin.toLocaleString('tr-TR')} TL ile ${routesDatabase['konya-antalya-evden-eve-nakliyat'].priceRangeMax.toLocaleString('tr-TR')} TL arasındadır.`
-    },
-    {
-      question: "Konya - Kayseri arası asansörlü nakliye yapıyor musunuz?",
-      answer: `Evet. Kayseri yönüne (${routesDatabase['konya-kayseri-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-kayseri-evden-eve-nakliyat'].distanceKm} km) kendi mobil eşya asansörlerimizle sigortalı taşımacılık sunmaktayız.`
-    },
-    {
-      question: "Konya - Adana arası ev taşıma ne kadar sürer?",
-      answer: `Konya’dan Adana’ya olan taşınmalarımız ${routesDatabase['konya-adana-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-adana-evden-eve-nakliyat'].distanceKm} km olup, ortalama 8 ila 10 saat arasında montaj dahil tamamlanmaktadır. Detaylı bilgi için <a href="/rotalar/konya-adana-evden-eve-nakliyat" class="text-gold hover:underline">Konya - Adana Nakliyat</a> sayfamızı inceleyebilirsiniz.`
-    },
-    {
-      question: "Konya - Eskişehir evden eve nakliyat kaç saat sürer?",
-      answer: `Eskişehir yönüne (${routesDatabase['konya-eskisehir-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-eskisehir-evden-eve-nakliyat'].distanceKm} km) taşımalarımız yaklaşık 4 saat sürüş mesafesinde olup, yükleme ve boşaltma dahil aynı gün içinde tamamlanmaktadır.`
-    },
-    {
-      question: "Konya - Mersin ev taşıma operasyonları kaç saat sürer?",
-      answer: `Konya - Mersin arası (${routesDatabase['konya-mersin-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-mersin-evden-eve-nakliyat'].distanceKm} km) taşımalarımız sabah saatlerinde başlayıp, ortalama 5-6 saat sürüşün ardından aynı gün içerisinde kurulum dahil teslim edilmektedir.`
-    },
-    {
-      question: "Konya - Gaziantep arası parça eşya taşır mısınız?",
-      answer: `Evet. Gaziantep (${routesDatabase['konya-gaziantep-evden-eve-nakliyat'].viaRoute} üzerinden ${routesDatabase['konya-gaziantep-evden-eve-nakliyat'].distanceKm} km) yönüne parça eşyalarınızı diğer müşterilerimizin eşyalarıyla birleştirerek ekonomik fiyatlarla sevk ediyoruz.`
-    },
-    {
-      question: "Konya - Hatay nakliye hizmeti K3 belgeli mi?",
-      answer: "Evet. Hatay (yaklaşık 590 km) güzergahındaki tüm ev taşıma kamyonlarımız Ulaştırma Bakanlığı onaylı K3 yetki belgesine ve tam sigorta güvencesine sahiptir."
-    },
-    {
-      question: "Konya - Kahramanmaraş arası asansör kurulabilir mi?",
-      answer: "Evet. Kahramanmaraş merkez ilçelerine (yaklaşık 490 km) kendi mobil asansör araçlarımızla gidip yüksek katlı rezidanslara kurulum hizmeti sunuyoruz."
-    },
-    {
-      question: "Konya - Şanlıurfa taşınma fiyatı nasıl belirlenir?",
-      answer: "Şanlıurfa (yaklaşık 750 km) nakliyat bedeli, otoyol geçiş ücretleri, kat numaraları ve eşya yoğunluğuna göre sabit fiyat garantili sözleşmeyle belirlenir."
-    }
-  ];
+  const schema = serviceSchema({
+    name: 'Şehirlerarası Evden Eve Nakliyat',
+    description: "Konya'dan Türkiye genelinde 81 ile sigortalı, marangozlu ve sözleşmeli şehirlerarası evden eve nakliyat hizmeti.",
+    slug: 'sehirlerarasi-evden-eve-nakliyat'
+  });
+
+  const breadcrumb = breadcrumbSchema([
+    { name: 'Ana Sayfa', url: '/' },
+    { name: 'Hizmetler', url: '/hizmetler' },
+    { name: 'Şehirlerarası Nakliyat', url: '/hizmetler/sehirlerarasi-evden-eve-nakliyat' }
+  ]);
+
+  const sss = Object.values(routesDatabase).map(r => ({
+    question: `Konya ${r.city} arası nakliyat ne kadar sürer ve fiyatı nedir?`,
+    answer: `${r.introText} ${r.pricingText}`
+  }));
 
   const schemas = {
     '@context': 'https://schema.org',
     '@graph': [
-      serviceSchema({
-        name: 'Şehirlerarası Evden Eve Nakliyat',
-        description: "Konya'dan Türkiye genelinde 81 ile sigortalı, marangozlu ve sözleşmeli şehirlerarası evden eve nakliyat hizmeti. Sabit fiyat garantisiyle taşının.",
-        slug: 'hizmetler/sehirlerarasi-evden-eve-nakliyat'
-      }),
-      breadcrumbSchema([
-        { name: 'Ana Sayfa', url: '/' },
-        { name: 'Hizmetlerimiz', url: '/#hizmetler' },
-        { name: 'Şehirlerarası Evden Eve Nakliyat', url: '/hizmetler/sehirlerarasi-evden-eve-nakliyat' }
-      ]),
+      schema,
+      breadcrumb,
       faqSchema(sss)
     ]
   };
@@ -98,11 +52,18 @@ export default function SehirlerarasiPage() {
       <JsonLd data={schemas} />
       
       <main className="pt-24 bg-off-white">
-        <Breadcrumb items={[{ name: 'Hizmet Seçenekleri', url: '/#hizmetlerimiz' }, { name: 'Şehirlerarası Nakliyat', url: '/hizmetler/sehirlerarasi-evden-eve-nakliyat' }]} className="pt-4" />
-        {/* Intro */}
+        <Breadcrumb 
+          items={[
+            { name: 'Hizmetlerimiz', url: '/hizmetler' },
+            { name: 'Şehirlerarası Nakliyat', url: '/hizmetler/sehirlerarasi-evden-eve-nakliyat' }
+          ]} 
+          className="pt-4"
+        />
+
+        {/* Intro Banner */}
         <section className="py-20 bg-forest text-white text-center space-y-4">
-          <span className="text-gold-text font-bold text-xs tracking-widest">
-            TÜRKİYE GENELİ LOJİSTİK
+          <span className="text-gold-text font-bold text-xs tracking-widest uppercase">
+            UZUN YOL LOJİSTİĞİ
           </span>
           <h1 className="font-display font-black text-3xl md:text-5xl tracking-tight leading-tight">
             Şehirlerarası Evden Eve Nakliyat
@@ -125,27 +86,28 @@ export default function SehirlerarasiPage() {
             </p>
             <div className="overflow-x-auto mt-6">
               <table className="w-full text-left border-collapse border border-gray-300">
+                <caption>Konya Lider Şehirlerarası Nakliyat Hizmet Kapsamı Tablosu</caption>
                 <thead>
                   <tr className="bg-forest text-white">
-                    <th className="p-3 border border-gray-300 font-semibold">Şehirlerarası Nakliyat Hizmet Kapsamı</th>
-                    <th className="p-3 border border-gray-300 font-semibold text-center w-32">Durum</th>
+                    <th scope="col" className="p-3 border border-gray-300 font-semibold">Şehirlerarası Nakliyat Hizmet Kapsamı</th>
+                    <th scope="col" className="p-3 border border-gray-300 font-semibold text-center w-32">Durum</th>
                   </tr>
                 </thead>
                 <tbody className="text-sm">
                   <tr className="bg-white">
-                    <td className="p-3 border border-gray-300">Şehirlerarası Yolda Emtia Nakliyat Sigortası</td>
+                    <th scope="row" className="p-3 border border-gray-300 font-normal">Şehirlerarası Yolda Emtia Nakliyat Sigortası</th>
                     <td className="p-3 border border-gray-300 text-center text-green-600 font-bold">Dahil</td>
                   </tr>
                   <tr className="bg-off-white">
-                    <td className="p-3 border border-gray-300">Köprü ve Otoyol Geçiş Ücretleri</td>
+                    <th scope="row" className="p-3 border border-gray-300 font-normal">Köprü ve Otoyol Geçiş Ücretleri</th>
                     <td className="p-3 border border-gray-300 text-center text-green-600 font-bold">Dahil</td>
                   </tr>
                   <tr className="bg-white">
-                    <td className="p-3 border border-gray-300">Mobilya Demontaj ve Yeni Evde Kurulum</td>
+                    <th scope="row" className="p-3 border border-gray-300 font-normal">Mobilya Demontaj ve Yeni Evde Kurulum</th>
                     <td className="p-3 border border-gray-300 text-center text-green-600 font-bold">Dahil</td>
                   </tr>
                   <tr className="bg-off-white">
-                    <td className="p-3 border border-gray-300">Yeni Eve Avize ve Korniş Montajı</td>
+                    <th scope="row" className="p-3 border border-gray-300 font-normal">Yeni Eve Avize ve Korniş Montajı</th>
                     <td className="p-3 border border-gray-300 text-center text-red-600 font-bold">Hariç</td>
                   </tr>
                 </tbody>
@@ -175,38 +137,16 @@ export default function SehirlerarasiPage() {
               Konya Lider Nakliyat merkezli olarak Türkiye genelinde en çok sefer düzenlediğimiz popüler şehirlerarası 81 il nakliyat hatlarımızı aşağıda bulabilirsiniz. İlgili bağlantılara tıklayarak rota detayları, kilometre mesafeleri, sürüş süreleri ve güncel fiyat listelerine erişebilirsiniz:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Link href="/rotalar/konya-istanbul-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
-                <span>Konya - İstanbul Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/rotalar/konya-ankara-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
-                <span>Konya - Ankara Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/rotalar/konya-mersin-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
-                <span>Konya - Mersin Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/rotalar/konya-gaziantep-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
-                <span>Konya - Gaziantep Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/rotalar/konya-izmir-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
-                <span>Konya - İzmir Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/rotalar/konya-antalya-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
-                <span>Konya - Antalya Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/rotalar/konya-kayseri-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
-                <span>Konya - Kayseri Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/rotalar/konya-bursa-evden-eve-nakliyat" className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group">
-                <span>Konya - Bursa Nakliyat</span>
-                <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
-              </Link>
+              {ROUTES.map((route) => (
+                <Link
+                  key={route.slug}
+                  href={`/rotalar/${route.slug}`}
+                  className="bg-off-white hover:bg-gold/10 p-4 rounded-lg border border-gray-light/60 font-bold text-forest text-sm flex justify-between items-center transition-colors group"
+                >
+                  <span>Konya - {route.city} Evden Eve Nakliyat</span>
+                  <ArrowRight className="w-4 h-4 text-gold transition-transform group-hover:translate-x-1" />
+                </Link>
+              ))}
             </div>
           </div>
 

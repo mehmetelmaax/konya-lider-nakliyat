@@ -1,6 +1,14 @@
 import { SITE } from '@/lib/site-config';
 
 export function GET() {
+  if (process.env.VERCEL_ENV !== 'production') {
+    return new Response(`User-agent: *\nDisallow: /\n`, {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+      },
+    });
+  }
+
   const content = `# ROBOTS.TXT YAPILANDIRMASI
 # 
 # KRİTİK KARAR GEREKÇELERİ:
@@ -8,6 +16,7 @@ export function GET() {
 # 2. ClaudeBot: Anthropic yapay zeka entegrasyonu için izin verilmiştir.
 # 3. CCBot (Common Crawl): Ticari değeri olmayan kazıma işlemlerini engellemek için engellenmiştir.
 # 4. Ahrefs/Semrush/MJ12bot: Aşırı kaynak tüketimini önlemek için tarama gecikmesi (Crawl-delay) eklenmiştir.
+# 5. Bytespider: Aşırı kaynak tüketimi ve SEO değeri olmadığı için engellenmiştir.
 
 User-agent: *
 Allow: /
@@ -38,6 +47,12 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
@@ -45,6 +60,9 @@ User-agent: YandexBot
 Allow: /
 
 User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
 Disallow: /
 
 User-agent: AhrefsBot

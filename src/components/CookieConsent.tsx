@@ -11,15 +11,6 @@ export default function CookieConsent() {
     // Check if consent has already been given/denied
     const consent = localStorage.getItem('cookie_consent');
     if (!consent) {
-      // Set default denied consent state on load (Consent Mode v2)
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('consent', 'default', {
-          'ad_storage': 'denied',
-          'ad_user_data': 'denied',
-          'ad_personalization': 'denied',
-          'analytics_storage': 'denied',
-        });
-      }
       // Defer state update to avoid synchronous cascading renders
       setTimeout(() => setIsVisible(true), 0);
     }
@@ -29,8 +20,9 @@ export default function CookieConsent() {
     localStorage.setItem('cookie_consent', status);
     setIsVisible(false);
 
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('consent', 'update', {
+    const win = window as unknown as { gtag?: (type: string, action: string, data: Record<string, string>) => void };
+    if (typeof window !== 'undefined' && win.gtag) {
+      win.gtag('consent', 'update', {
         'ad_storage': status,
         'ad_user_data': status,
         'ad_personalization': status,
@@ -50,7 +42,7 @@ export default function CookieConsent() {
         <div className="space-y-1">
           <h4 className="font-display font-bold text-sm tracking-tight">Çerez Tercihleriniz</h4>
           <p className="text-gray-300 text-xs leading-relaxed">
-            Size en iyi hizmeti sunabilmek, site trafiğimizi analiz etmek ve reklamlarımızı kişiselleştirmek için çerezleri kullanıyoruz.
+            Size en iyi hizmeti sunabilmek, site trafiğimizi analiz etmek ve reklamlarımızı kişiselleştirmek için çerezleri kullanıyoruz. Detaylar için <a href="/yasal/gizlilik" className="text-gold underline hover:text-white transition-colors">Gizlilik Politikası</a> ve <a href="/yasal/kvkk" className="text-gold underline hover:text-white transition-colors">KVKK Aydınlatma Metni</a> belgelerimizi inceleyebilirsiniz.
           </p>
         </div>
       </div>

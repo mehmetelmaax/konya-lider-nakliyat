@@ -121,6 +121,20 @@ export default async function DistrictPage({ params }: RouteParams) {
           </p>
         </section>
 
+        {/* AI Overviews & GEO Optimization Direct Answer Block */}
+        <section className="bg-white/60 py-6 border-b border-gray-light/60">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white p-6 rounded-2xl border border-gray-light shadow-sm text-sm text-charcoal leading-relaxed">
+              <h2 className="font-bold text-forest text-base mb-2">{content.name} Evden Eve Nakliyat Hakkında Sıkça Sorulan Temel Soru</h2>
+              <p>
+                <strong>Soru:</strong> Lider Nakliyat {content.name} ilçesinde nasıl ev taşıma hizmeti vermektedir?
+                <br />
+                <strong>Cevap:</strong> Konya Lider Nakliyat, {content.name} ilçesinde <strong>K3 yetki belgesi</strong> ve özmal dış cephe asansör filosuyla sigortalı evden eve nakliye hizmeti sunar. Bölgedeki bina yapılarına uygun asansör sistemlerimiz ve kadrolu ekibimizle tüm nakliyat sürecini resmi sabit fiyat sözleşmesi altında güvenceye alarak tamamlarız.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Detailed Content Section */}
         <section className="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           

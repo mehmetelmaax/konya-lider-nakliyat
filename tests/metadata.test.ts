@@ -37,15 +37,34 @@ describe('SEO Metadata Completeness Tests', () => {
       const content = fs.readFileSync(filePath, 'utf-8');
       
       // Match title (checking standard patterns)
-      const titleMatch = content.match(/title:\s*['"`]([^'"`]+)['"`]/) || content.match(/title:\s*SITE\.\w+/);
+      const titleMatch = content.match(/title:\s*'(.*?)'/) || 
+                         content.match(/title:\s*"(.*?)"/) || 
+                         content.match(/title:\s*`(.*?)`/) ||
+                         content.match(/title:\s*(SITE\.\w+)/);
+
       // Match description
-      const descMatch = content.match(/description:\s*['"`]([^'"`]+)['"`]/) || content.match(/description:\s*SITE\.\w+/);
+      const descMatch = content.match(/description:\s*'(.*?)'/) || 
+                        content.match(/description:\s*"(.*?)"/) || 
+                        content.match(/description:\s*`(.*?)`/) ||
+                        content.match(/description:\s*(SITE\.\w+)/);
+
       // Match canonical
-      const canonicalMatch = content.match(/canonical:\s*['"`]([^'"`]+)['"`]/) || content.match(/canonical:\s*SITE\.\w+/);
+      const canonicalMatch = content.match(/canonical:\s*'(.*?)'/) || 
+                             content.match(/canonical:\s*"(.*?)"/) || 
+                             content.match(/canonical:\s*`(.*?)`/) ||
+                             content.match(/canonical:\s*(SITE\.\w+)/);
 
       expect(titleMatch, `Title is missing in ${relativePath}`).not.toBeNull();
       expect(descMatch, `Description is missing in ${relativePath}`).not.toBeNull();
       expect(canonicalMatch, `Canonical URL is missing in ${relativePath}`).not.toBeNull();
+
+      if (descMatch && descMatch[1]) {
+        const descText = descMatch[1];
+        if (!descText.startsWith('SITE.') && !descText.startsWith('FACTS.')) {
+          expect(descText.length).toBeGreaterThanOrEqual(70);
+          expect(descText.length).toBeLessThanOrEqual(165);
+        }
+      }
     });
   });
 

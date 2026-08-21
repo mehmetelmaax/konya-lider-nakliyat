@@ -39,6 +39,17 @@ describe('JSON-LD Schema Verification Tests', () => {
     expect(schema.name).toContain('Asansörlü');
   });
 
+  it('should generate valid serviceSchema with provider reference to organization', () => {
+    const schema = serviceSchema({
+      name: 'Asansörlü Evden Eve Nakliyat',
+      description: 'Test açıklama',
+      slug: 'asansorlu-evden-eve-nakliyat',
+      areaName: 'Konya'
+    }) as unknown as { provider?: { '@id'?: string } };
+    expect(schema.provider).toBeDefined();
+    expect(schema.provider?.['@id']).toContain('#organization');
+  });
+
   it('should generate valid faqSchema', () => {
     const schema = faqSchema([
       { question: 'Soru 1', answer: 'Cevap 1' }

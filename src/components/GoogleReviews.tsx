@@ -49,7 +49,7 @@ export default async function GoogleReviews() {
       'aggregateRating': {
         '@type': 'AggregateRating',
         'ratingValue': rating,
-        'reviewCount': ratingsCount,
+        'ratingCount': ratingsCount,
         'bestRating': 5,
         'worstRating': 1
       }
@@ -121,10 +121,11 @@ export default async function GoogleReviews() {
           href={SITE.googleMapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gold hover:text-forest transition-colors font-bold text-xs uppercase tracking-widest"
+          className="text-gold hover:text-forest transition-colors font-bold text-xs uppercase tracking-widest block"
         >
           Google&apos;daki Tüm Yorumları Gör ➔
         </a>
+        <p className="text-[10px] text-gray-400 mt-2">Powered by Google</p>
       </div>
     </section>
   );
