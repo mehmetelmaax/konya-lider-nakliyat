@@ -2,44 +2,105 @@ name: Konya Lider Nakliyat CI
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
+
+# Aynı dala arka arkaya push atılırsa önceki koşuyu iptal et (runner dakikası tasarrufu)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build:
-    name: Build & Validate
+  # ============================================================
+  # JOB 1 — KALİTE KAPISI (BLOKLAYICI)
+  # Deterministik adımlar. Kırmızıysa gerçekten bir şey bozulmuştur.
+  # ============================================================
+  quality:
+    name: Kalite Kapısı
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
-      - name: Checkout Repository
+      - name: Repoyu çek
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Node.js kur
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20.18.0'   # Kesin sürüm: runner güncellemesi build'i bozmasın
           cache: 'npm'
 
-      - name: Install Dependencies
+      - name: Bağımlılıkları kur
         run: npm ci
 
-      - name: Run Quality Checks (TypeScript & ESLint)
-        run: npm run check
+      - name: TypeScript denetimi
+        run: npm run typecheck
 
-      - name: Build Next.js Production Build
+      - name: ESLint denetimi
+        run: npm run lint
+
+      - name: Production build
         run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
 
-      - name: Run Tests
+      - name: Testler
         run: npm test
 
-      - name: Lighthouse Audit
+      - name: Build çıktısını sakla
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-build
+          path: |
+            .next
+            !.next/cache
+          retention-days: 3
+
+  # ============================================================
+  # JOB 2 — PERFORMANS ÖLÇÜMÜ (BLOKLAMAZ)
+  # Lighthouse paylaşımlı runner'da ±15 puan oynar. Bunu bloklayıcı
+  # yapmak, mükemmel bir sitede bile rastgele kırmızı üretir.
+  # Amaç: eğilimi görmek, deploy'u durdurmak değil.
+  # ============================================================
+  performance:
+    name: Performans Ölçümü (bilgilendirme)
+    runs-on: ubuntu-latest
+    needs: quality
+    timeout-minutes: 20
+    continue-on-error: true   # << CI'ı ASLA kırmaz
+
+    steps:
+      - name: Repoyu çek
+        uses: actions/checkout@v4
+
+      - name: Node.js kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.18.0'
+          cache: 'npm'
+
+      - name: Bağımlılıkları kur
+        run: npm ci
+
+      - name: Build çıktısını indir
+        uses: actions/download-artifact@v4
+        with:
+          name: next-build
+          path: .next
+
+      - name: Lighthouse denetimi
         uses: treosh/lighthouse-ci-action@v12
+        continue-on-error: true
         with:
           urls: |
             http://localhost:3000/
             http://localhost:3000/blog
+            http://localhost:3000/hizmetler/asansorlu-evden-eve-nakliyat
           startServerCommand: npm run start
+          startServerReadyPattern: 'Ready in|started server on'
+          startServerReadyTimeout: 60000
+          runs: 3                    # 3 koşu, medyan alınır -> gürültü azalır
           uploadArtifacts: true
           temporaryPublicStorage: true
-          budgetPath: ./budgets.json
+          configPath: ./lighthouserc.json
