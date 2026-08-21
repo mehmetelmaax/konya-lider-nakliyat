@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
-import { SITE, SERVICES, DISTRICTS, ROUTES } from '@/lib/site-config';
+import { SITE, SERVICES, DISTRICTS } from '@/lib/site-config';
+import { ROUTES } from '@/lib/routes-data';
 import { blogDatabase } from '@/lib/blog-data';
 import { CONTENT_DATES } from '@/lib/content-dates';
 

@@ -130,3 +130,12 @@ Siteyi Vercel veya başka bir sunucuya yüklemeden önce son kontrolleri yapın:
 3. **Resim Boyutları:** `node scripts/optimize-images.mjs` komutunu çalıştırarak tüm responsive görsellerin üretildiğini ve 200 KB alt sınırını koruduğunu teyit edin.
 4. **Kod Derleme ve Tip Kontrolü:** `npx tsc --noEmit` ve `npm run build` komutlarının hatasız bittiğini görün.
 5. **SEO Rapor Üretimi:** `npm run build` sonrasında `node scripts/generate-seo-report.mjs` komutunu çalıştırarak güncel `SEO-DURUM.md` dosyasını oluşturun ve commit edin.
+
+---
+
+## 7. Geliştirme Ortamı
+
+Projenin Node.js çalışma sürümü `.nvmrc` dosyasından okunmaktadır.
+
+- **Node.js Sürümü:** Bu proje Node.js `22` ailesini (LTS) temel alır. Yerelde geliştirmeye başlamadan önce terminalinizde `nvm use` çalıştırarak Node sürümünüzü eşitleyin.
+- **Sürüm Kısıtı Denetimi:** Herhangi bir bağımlılık güncellemesi sonrasında Node.js sürüm uyumluluğunu kontrol etmek için `npm run check:node` komutunu çalıştırabilirsiniz. Bu araç, tüm paketlerin `engines.node` kısıtlarını tarayarak çalışan Node ortamının uyumluluğunu doğrular.

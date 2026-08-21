@@ -121,30 +121,52 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
       return;
     }
 
-    const priceRange = calculateEstimate();
-    setEstimate(priceRange);
-    setStatus('success');
+    setStatus('submitting');
+    try {
+      const response = await fetch('/api/teklif', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, kvkkOnay: kvkkChecked })
+      });
 
-    // Track Form Submit Event
-    trackEvent('teklif_formu_gonderildi', {
-      fromDistrict: formData.fromDistrict,
-      toDistrict: formData.toDistrict,
-      rooms: formData.rooms,
-      tahminiFiyat: `${priceRange.min}-${priceRange.max}`
-    });
-    trackConversion();
+      const data = await response.json();
 
-    // Direct WhatsApp redirection
-    const wpText = `Merhaba, Lider Nakliyat web sitenizden yeni bir fiyat teklif talebi oluşturdum:\n\n` +
-      `👤 Ad Soyad: ${formData.name}\n` +
-      `📞 Telefon: ${formData.phone}\n` +
-      `📍 Nereden: ${formData.fromDistrict}\n` +
-      `🏁 Nereye: ${formData.toDistrict}\n` +
-      `🏠 Oda Sayısı: ${formData.rooms}\n` +
-      `🛗 Asansör: ${formData.elevator === 'evet' ? 'Asansörlü' : 'Asansörsüz'}\n` +
-      `💰 Tahmini Fiyat: ${priceRange.min.toLocaleString('tr-TR')} TL - ${priceRange.max.toLocaleString('tr-TR')} TL`;
-    
-    window.location.href = `https://wa.me/905546400205?text=${encodeURIComponent(wpText)}`;
+      if (response.ok && data.ok) {
+        const priceRange = calculateEstimate();
+        setEstimate(priceRange);
+        setStatus('success');
+
+        // Track Form Submit Event
+        trackEvent('teklif_formu_gonderildi', {
+          fromDistrict: formData.fromDistrict,
+          toDistrict: formData.toDistrict,
+          rooms: formData.rooms,
+          tahminiFiyat: `${priceRange.min}-${priceRange.max}`
+        });
+        trackConversion();
+
+        // Direct WhatsApp redirection
+        const wpText = `Merhaba, Lider Nakliyat web sitenizden yeni bir fiyat teklif talebi oluşturdum:\n\n` +
+          `👤 Ad Soyad: ${formData.name}\n` +
+          `📞 Telefon: ${formData.phone}\n` +
+          `📍 Nereden: ${formData.fromDistrict}\n` +
+          `🏁 Nereye: ${formData.toDistrict}\n` +
+          `🏠 Oda Sayısı: ${formData.rooms}\n` +
+          `🛗 Asansör: ${formData.elevator === 'evet' ? 'Asansörlü' : 'Asansörsüz'}\n` +
+          `💰 Tahmini Fiyat: ${priceRange.min.toLocaleString('tr-TR')} TL - ${priceRange.max.toLocaleString('tr-TR')} TL`;
+        
+        window.location.href = `https://wa.me/905546400205?text=${encodeURIComponent(wpText)}`;
+      } else {
+        setStatus('error');
+        setErrorMessage(data.message || 'Teklif talebi gönderilirken bir sunucu hatası oluştu. Lütfen WhatsApp ile iletin.');
+        trackEvent('teklif_formu_hata', { hataAlani: 'server_api', status: response.status });
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+      setErrorMessage('Bağlantı hatası oluştu. Talebinizi doğrudan WhatsApp ile iletebilirsiniz.');
+      trackEvent('teklif_formu_hata', { hataAlani: 'network_error' });
+    }
   };
 
   const getWhatsAppLink = () => {

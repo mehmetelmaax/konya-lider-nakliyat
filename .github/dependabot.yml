@@ -4,4 +4,13 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 5
+      day: "monday"
+      time: "06:00"
+      timezone: "UTC"
+    groups:
+      devDependencies:
+        dependency-type: "development"
+        update-types:
+          - "patch"
+          - "minor"
+          - "major"

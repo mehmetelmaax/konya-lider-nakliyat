@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'fs';
 import * as path from 'path';
-import { DISTRICTS, ROUTES } from '../src/lib/site-config';
+import { DISTRICTS } from '../src/lib/site-config';
+import { ROUTES } from '../src/lib/routes-data';
 import { blogDatabase } from '../src/lib/blog-data';
 import { generateMetadata as generateDistrictMetadata } from '../src/app/bolgeler/[slug]/page';
 import { generateMetadata as generateRouteMetadata } from '../src/app/rotalar/[slug]/page';

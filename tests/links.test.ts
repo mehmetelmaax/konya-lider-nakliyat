@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'fs';
 import * as path from 'path';
-import { DISTRICTS, SERVICES, ROUTES } from '../src/lib/site-config';
+import { DISTRICTS, SERVICES } from '../src/lib/site-config';
+import { ROUTES } from '../src/lib/routes-data';
 import { blogDatabase } from '../src/lib/blog-data';
 
 // Helper to walk directory and find all page.tsx files

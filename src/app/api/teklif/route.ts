@@ -140,6 +140,20 @@ export async function POST(req: NextRequest) {
     }
 
     const leadData = validationResult.data;
+
+    // Check if at least one lead channel is configured
+    const hasKVConfig = !!(process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL);
+    const hasWebhookConfig = !!process.env.LEAD_WEBHOOK_URL;
+    const hasEmailConfig = !!(process.env.RESEND_API_KEY && process.env.NOTIFY_EMAIL);
+
+    if (!hasKVConfig && !hasWebhookConfig && !hasEmailConfig) {
+      console.warn('LEAD_CAPTURE_FALLBACK: No lead channels configured in environment variables.');
+      return NextResponse.json(
+        { ok: false, fallback: 'whatsapp', message: 'Hiçbir lead kanalı yapılandırılmamış. Lütfen WhatsApp ile iletin.' },
+        { status: 503 }
+      );
+    }
+
     const referrer = req.headers.get('referer') || '/teklif-al';
     const timestamp = new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' });
     

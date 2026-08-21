@@ -173,7 +173,8 @@ const allRoutes = new Set([
 ]);
 
 // Read SITE_CONFIG to dynamically populate routes
-import { SERVICES as configServices, DISTRICTS as configDistricts, ROUTES as configRoutes } from '../src/lib/site-config';
+import { SERVICES as configServices, DISTRICTS as configDistricts } from '../src/lib/site-config';
+import { ROUTES as configRoutes } from '../src/lib/routes-data';
 import { blogDatabase } from '../src/lib/blog-data';
 
 configServices.forEach(s => allRoutes.add(`/hizmetler/${s.slug}`));

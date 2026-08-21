@@ -10,10 +10,11 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
-    "check": "npm run typecheck && npm run lint && npm test",
+    "check": "npm run check:node && npm run typecheck && npm run lint && npm test",
     "test": "vitest run",
-    "verify": "npm run check && npm run build",
-    "preflight": "node scripts/preflight.mjs"
+    "verify": "npm run check:node && npm run typecheck && npm run lint && npm test && npm run build",
+    "preflight": "node scripts/preflight.mjs",
+    "check:node": "node scripts/check-node-engines.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.30.0",
@@ -29,13 +30,14 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
+    "semver": "^7.8.5",
     "sharp": "^0.35.3",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.11"
   },
   "engines": {
-    "node": ">=22.12.0",
+    "node": ">=22.13.0",
     "npm": ">=10"
   }
 }

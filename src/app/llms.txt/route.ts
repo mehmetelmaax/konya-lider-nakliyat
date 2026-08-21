@@ -1,4 +1,5 @@
-import { SITE, SERVICES, DISTRICTS, ROUTES } from '@/lib/site-config';
+import { SITE, SERVICES, DISTRICTS } from '@/lib/site-config';
+import { ROUTES } from '@/lib/routes-data';
 import { FACTS } from '@/lib/facts';
 import { blogDatabase } from '@/lib/blog-data';
 

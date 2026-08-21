@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [main, master]
   workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -51,6 +53,12 @@ jobs:
       # net bir mesajla patlar; gizemli bir test hatası olarak değil.
       - name: Bağımlılıkları kur
         run: npm ci
+
+      # Node sürüm tabanını MAKİNE hesaplar, insan tahmin etmez.
+      # Bir bağımlılık tabanı yükseltirse burada, hangi paket olduğu
+      # ve hangi sürüme geçileceği yazılı olarak patlar.
+      - name: Node sürüm tabanı denetimi
+        run: npm run check:node
 
       - name: TypeScript denetimi
         run: npm run typecheck

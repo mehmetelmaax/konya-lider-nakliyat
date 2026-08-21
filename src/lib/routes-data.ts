@@ -334,3 +334,39 @@ export const routesDatabase: Record<string, RouteData> = {
     ]
   }
 };
+
+export interface RouteConfig {
+  slug: string;
+  city: string;
+  distanceKm: number;
+  durationHours: number;
+  priceRangeMin: number;
+  priceRangeMax: number;
+  viaRoute: string;
+  notes: string;
+}
+
+export const ROUTES: readonly RouteConfig[] = Object.values(routesDatabase).map((r) => ({
+  slug: r.slug,
+  city: r.city,
+  distanceKm: r.distanceKm,
+  durationHours: r.durationHours,
+  priceRangeMin: r.priceRangeMin,
+  priceRangeMax: r.priceRangeMax,
+  viaRoute: r.viaRoute,
+  notes: r.notes
+}));
+
+// Rota doğrulama filtresi: Başlangıç şehri (Konya) ile varış şehri aynı olan rotaları engeller
+const invalidRoute = ROUTES.find(r => r.city.toLowerCase() === 'konya');
+if (invalidRoute) {
+  throw new Error(`CRITICAL_CONFIG_ERROR: Intercity route cannot end in starting city 'Konya'! Slug: ${invalidRoute.slug}`);
+}
+
+// Rota mesafe ve fiyat aralığı doğrulaması
+const invalidRangeRoute = ROUTES.find(
+  r => !r.distanceKm || r.distanceKm <= 0 || !r.priceRangeMin || r.priceRangeMin <= 0 || !r.priceRangeMax || r.priceRangeMax <= 0 || r.priceRangeMin >= r.priceRangeMax
+);
+if (invalidRangeRoute) {
+  throw new Error(`CRITICAL_CONFIG_ERROR: Route has invalid distance or price ranges! Slug: ${invalidRangeRoute.slug}`);
+}

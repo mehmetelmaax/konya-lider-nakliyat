@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { organizationSchema, breadcrumbSchema, faqSchema } from '../src/lib/schema';
-import { SITE, SERVICES, DISTRICTS, ROUTES } from '../src/lib/site-config';
+import { SITE, SERVICES, DISTRICTS } from '../src/lib/site-config';
+import { ROUTES } from '../src/lib/routes-data';
 
 describe('Organization schema bütünlüğü', () => {
   const org = organizationSchema() as Record<string, unknown>;
