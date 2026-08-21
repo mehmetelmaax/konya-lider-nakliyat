@@ -17,7 +17,8 @@ const photos = [
   'paketleme-detay',
   'slayt-1',
   'slayt-2',
-  'slayt-3'
+  'slayt-3',
+  'banner-bg'
 ];
 
 async function run() {
@@ -128,9 +129,9 @@ async function run() {
       .toBuffer();
     blurs[name] = `data:image/webp;base64,${blurBuffer.toString('base64')}`;
 
-    // 3b. Re-encode original JPG in place with quality 78
+    // 3b. Re-encode original JPG in place with quality 70
     await sharp(tempJpgPath)
-      .jpeg({ quality: 78, progressive: true })
+      .jpeg({ quality: 70, progressive: true })
       .toFile(origJpgPath);
 
     const optSize = fs.statSync(origJpgPath).size;
@@ -164,11 +165,11 @@ async function run() {
       const avifSize = fs.statSync(avifPath).size;
       totalOptimizedSize += avifSize;
 
-      // jpeg (quality 78)
+      // jpeg (quality 50 for 1920, 75 for others)
       const jpegPath = path.join(imgDir, `${name}-${w}.jpg`);
       await sharp(tempJpgPath)
         .resize(w)
-        .jpeg({ quality: 78, progressive: true })
+        .jpeg({ quality: w >= 1920 ? 50 : 75, progressive: true })
         .toFile(jpegPath);
       const jpegSize = fs.statSync(jpegPath).size;
       totalOptimizedSize += jpegSize;

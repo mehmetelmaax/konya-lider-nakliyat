@@ -1,6 +1,25 @@
-# Yayım Sonrası SEO ve Arama Motoru İşlemleri Kılavuzu (DEPLOY-SONRASI.md)
+# Canlıya Çıkış Kontrol Listesi & Yayım Sonrası SEO Kılavuzu (DEPLOY-SONRASI.md)
 
-Bu kılavuz, web sitesinin başarıyla canlı sunucuya (Vercel) aktarılmasından hemen sonra yapılması gereken **resmi arama motoru tescil, dizin (index) ekleme ve 4 haftalık periyodik kontrol** adımlarını içermektedir.
+Bu kılavuz, web sitesinin başarıyla canlıya alınmadan önceki son doğrulamalarını ve canlı sunucuya (Vercel) aktarılmasından hemen sonra yapılması gereken **resmi arama motoru tescil, dizin (index) ekleme ve 4 haftalık periyodik kontrol** adımlarını içermektedir.
+
+---
+
+## 🚀 Canlıya Çıkış Öncesi ve Sonrası Kontrol Listesi
+
+### Deploy ÖNCESİ Son Kontroller:
+- [ ] **`npm run verify` yeşil:** Yerel derleme, TypeScript ve Vitest testlerinin tamamı sıfır hata ile geçmelidir.
+- [ ] **`npm run preflight` sıfır hata:** Ön uçuş denetim scriptindeki bloklayıcı hatalar (lead kanalı vb.) tamamen giderilmiş olmalıdır.
+- [ ] **Tüm Env Değişkenleri Tanımlı:** Hosting panelinde (Vercel/Netlify) `RESEND_API_KEY`, `LEAD_WEBHOOK_URL` veya `KV_REST_API_URL` gibi lead kanalları, `GBP_API_KEY` (Google yorumları için) ve `NEXT_PUBLIC_GA_ID` tanımlanmış olmalıdır.
+- [ ] **Test Teklifi Doğrulaması:** Canlıya çıkmadan önce test teklifi gönderilip e-posta/webhook veya veritabanına sorunsuz düştüğü doğrulanmalıdır.
+
+### Deploy SONRASI İlk 24 Saat:
+- [ ] **`/robots.txt` ve `/sitemap.xml` Kontrolü:** Tarayıcıda bu adresler açılmalı ve Next.js dinamik yönlendirmeleriyle doğru XML/metin çıktısı ürettiği doğrulanmalıdır.
+- [ ] **Search Console Sitemap Gönderimi:** Google Search Console'a `sitemap.xml` başarıyla gönderilmeli ve durum teyit edilmelidir.
+- [ ] **Rich Results Test Doğrulaması:** Ana sayfa ve en az bir hizmet sayfası Google Zengin Sonuç Testi ile taranıp yapısal verilerin hatasız olduğu onaylanmalıdır.
+- [ ] **Google İşletme Profili Güncellemesi:** Google Business Profile üzerindeki web sitesi bağlantısı yeni URL ile güncellenmelidir.
+- [ ] **301 Yönlendirme Testleri:** Eski site URL'lerinden (`/7.htm`, `/8.htm` vb.) gelen yönlendirmelerin yeni rotalara kayıpsız 301 döndürdüğü doğrulanmalıdır.
+- [ ] **GA4 Canlı Trafik Testi:** Google Analytics 4 panelinde gerçek zamanlı (Real-Time) kullanıcı trafiği akışı teyit edilmelidir.
+- [ ] **Mobil İletişim Butonları Testi:** Akıllı telefon üzerinden hem doğrudan telefon arama butonu hem de WhatsApp yönlendirme butonları tıklanarak doğrulanmalıdır.
 
 ---
 

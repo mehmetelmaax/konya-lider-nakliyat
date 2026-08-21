@@ -121,51 +121,30 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
       return;
     }
 
-    try {
-      const response = await fetch('/api/teklif', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, kvkkOnay: kvkkChecked }),
-      });
+    const priceRange = calculateEstimate();
+    setEstimate(priceRange);
+    setStatus('success');
 
-      const data = await response.json();
+    // Track Form Submit Event
+    trackEvent('teklif_formu_gonderildi', {
+      fromDistrict: formData.fromDistrict,
+      toDistrict: formData.toDistrict,
+      rooms: formData.rooms,
+      tahminiFiyat: `${priceRange.min}-${priceRange.max}`
+    });
+    trackConversion();
 
-      if (response.ok && data.ok) {
-        const priceRange = calculateEstimate();
-        setEstimate(priceRange);
-        setStatus('success');
-
-        // Track Form Submit Event
-        trackEvent('teklif_formu_gonderildi', {
-          fromDistrict: formData.fromDistrict,
-          toDistrict: formData.toDistrict,
-          rooms: formData.rooms,
-          tahminiFiyat: `${priceRange.min}-${priceRange.max}`
-        });
-        trackConversion();
-
-        // Direct WhatsApp redirection
-        const wpText = `Merhaba, Lider Nakliyat web sitenizden yeni bir fiyat teklif talebi oluşturdum:\n\n` +
-          `👤 Ad Soyad: ${formData.name}\n` +
-          `📞 Telefon: ${formData.phone}\n` +
-          `📍 Nereden: ${formData.fromDistrict}\n` +
-          `🏁 Nereye: ${formData.toDistrict}\n` +
-          `🏠 Oda Sayısı: ${formData.rooms}\n` +
-          `🛗 Asansör: ${formData.elevator === 'evet' ? 'Asansörlü' : 'Asansörsüz'}\n` +
-          `💰 Tahmini Fiyat: ${priceRange.min.toLocaleString('tr-TR')} TL - ${priceRange.max.toLocaleString('tr-TR')} TL`;
-        
-        window.location.href = `https://wa.me/905546400205?text=${encodeURIComponent(wpText)}`;
-      } else {
-        setStatus('error');
-        setErrorMessage(data.message || 'Teklif talebi gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
-        trackEvent('teklif_formu_hata', { hataAlani: 'server_api' });
-      }
-    } catch (err) {
-      console.error(err);
-      setStatus('error');
-      setErrorMessage('Bağlantı hatası. Lütfen internetinizi kontrol edin veya doğrudan bizi arayın.');
-      trackEvent('teklif_formu_hata', { hataAlani: 'connection_error' });
-    }
+    // Direct WhatsApp redirection
+    const wpText = `Merhaba, Lider Nakliyat web sitenizden yeni bir fiyat teklif talebi oluşturdum:\n\n` +
+      `👤 Ad Soyad: ${formData.name}\n` +
+      `📞 Telefon: ${formData.phone}\n` +
+      `📍 Nereden: ${formData.fromDistrict}\n` +
+      `🏁 Nereye: ${formData.toDistrict}\n` +
+      `🏠 Oda Sayısı: ${formData.rooms}\n` +
+      `🛗 Asansör: ${formData.elevator === 'evet' ? 'Asansörlü' : 'Asansörsüz'}\n` +
+      `💰 Tahmini Fiyat: ${priceRange.min.toLocaleString('tr-TR')} TL - ${priceRange.max.toLocaleString('tr-TR')} TL`;
+    
+    window.location.href = `https://wa.me/905546400205?text=${encodeURIComponent(wpText)}`;
   };
 
   const getWhatsAppLink = () => {
@@ -442,9 +421,22 @@ export default function QuoteForm({ isInline = false, defaultDistrict = '' }: Qu
         <p className="text-charcoal text-xs font-semibold">{errorMessage}</p>
       </div>
 
-      <p className="text-xs text-charcoal font-medium">Alternatif olarak doğrudan bize ulaşarak anında fiyat alabilirsiniz:</p>
+      <p className="text-xs text-charcoal font-medium">Talebinizin kaybolmaması için doğrudan WhatsApp ile gönderebilir veya bizi arayabilirsiniz:</p>
 
       <div className="flex flex-col gap-2.5 w-full pt-2">
+        {/* WhatsApp Fallback */}
+        <a
+          href={getWhatsAppLink()}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackEvent('whatsapp_tikla', { konum: 'form_hata_fallback', sayfa: window.location.pathname })}
+          className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-black py-3 rounded-xl border border-forest transition-all duration-200 shadow-md text-xs flex items-center justify-center gap-2 w-full"
+        >
+          <MessageCircle className="w-4 h-4 fill-current" />
+          <span>Talebi WhatsApp ile İletin</span>
+        </a>
+
+        {/* Call Button */}
         <a
           href={SITE.phoneHref}
           onClick={() => trackEvent('telefon_tikla', { konum: 'form_hata_cta', sayfa: window.location.pathname })}
