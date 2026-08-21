@@ -114,9 +114,8 @@ export default function IletisimPage() {
                 ></iframe>
               </div>
 
-              {/* Yol Tarifi Button */}
               <a
-                href="https://share.google/YoiHqgk0tx65LVd0H"
+                href={SITE.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gold hover:bg-forest text-forest hover:text-white font-black py-3.5 px-6 rounded-xl transition-all duration-200 text-sm flex items-center justify-center gap-2 cursor-pointer active:scale-95 shadow-md w-full text-center"

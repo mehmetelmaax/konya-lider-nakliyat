@@ -3,13 +3,17 @@ import { organizationSchema, breadcrumbSchema, serviceSchema, faqSchema } from '
 
 describe('JSON-LD Schema Verification Tests', () => {
   it('should generate valid organizationSchema', () => {
-    const schema: any = organizationSchema();
+    const schema = organizationSchema() as unknown as Record<string, unknown>;
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('MovingCompany');
-    expect(schema.logo.width).toBe(400);
-    expect(schema.logo.height).toBe(266);
-    // Strict requirement: verify that no unverified aggregateRating is hardcoded
+
+    const logo = schema.logo as { width: number; height: number };
+    expect(logo.width).toBe(400);
+    expect(logo.height).toBe(266);
+
+    // Katı kural: doğrulanmamış aggregateRating asla yayınlanmamalı
     expect(schema.aggregateRating).toBeUndefined();
+    expect(schema.review).toBeUndefined();
   });
 
   it('should generate valid breadcrumbSchema', () => {

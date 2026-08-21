@@ -17,7 +17,7 @@ export type GAEventName =
   | 'blog_okundu'
   | 'scroll_depth';
 
-export function trackEvent(name: GAEventName, params?: Record<string, any>) {
+export function trackEvent(name: GAEventName, params?: Record<string, unknown>) {
   if (process.env.NEXT_PUBLIC_GA_ID && typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', name, params);
 

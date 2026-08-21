@@ -14,24 +14,23 @@ export const SITE = {
   whatsappHref: 'https://wa.me/905546400205',
   email: 'info@konyaliderevdeneve.com',
   address: {
-    // DOĞRULANACAK: Nişantaş Mahallesi, Dr. M. Hulusi Baybal Cd. No:31/F Selçuklu mu, yoksa Fatih Mahallesi 73258 Sk. No:9/1 Selçuklu mu?
-    street: 'Nişantaş Mahallesi, Doktor Mehmet Hulusi Baybal Caddesi, No:31/F D:1',
+    street: 'Nişantaş Mahallesi, Dr. Mehmet Hulusi Baybal Caddesi, No:31 D:F',
     locality: 'Selçuklu',
     region: 'Konya',
     postalCode: '42060',
     country: 'TR',
   },
-  geo: { lat: 37.8837, lng: 32.4896 },
+  geo: { lat: 37.882412, lng: 32.485329 },
   // DOĞRULANACAK: 08:00 – 22:00 mü yoksa 07:00 – 22:00 mi?
   // DOĞRULANACAK: WhatsApp hattı gerçekten 7/24 aktif mi?
   hours: { opens: '08:00', closes: '22:00', whatsapp: '7/24' },
   priceRange: '₺₺',
-  googleMapsUrl: 'https://share.google/YoiHqgk0tx65LVd0H', // HeroSlider.tsx içerisinden taşındı
+  googleMapsUrl: 'https://maps.app.goo.gl/HwzqmRLZEv9qi22a7',
   social: {
     facebook: '', // DOĞRULANACAK: Facebook sayfa adresi
     instagram: '', // DOĞRULANACAK: Instagram profil adresi
     youtube: '',
-    googleBusinessProfile: '', // DOĞRULANACAK: Google Business Profile URL'i (sameAs için)
+    googleBusinessProfile: 'https://maps.app.goo.gl/HwzqmRLZEv9qi22a7', // DOĞRULANACAK: Google Business Profile URL'i (sameAs için)
   },
   k3DocumentNumber: '', // DOĞRULANACAK: K3 Yetki Belge Numarası
   numberOfEmployees: undefined, // DOĞRULANACAK: Gerçek kadrolu çalışan sayısı

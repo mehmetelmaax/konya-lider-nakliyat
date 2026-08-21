@@ -1,3 +1,12 @@
+/** Google Places API (New) ham yorum nesnesi */
+interface PlacesApiReview {
+  authorAttribution?: { displayName?: string; photoUri?: string };
+  rating?: number;
+  relativePublishTimeDescription?: string;
+  text?: { text?: string };
+  publishTime?: string;
+}
+
 export interface GoogleReview {
   author_name: string;
   profile_photo_url: string;
@@ -50,7 +59,7 @@ export async function fetchGoogleReviews(): Promise<ReviewsData> {
         user_ratings_total: typeof data.userRatingCount === 'number' ? data.userRatingCount : null,
         googleMapsUri: data.googleMapsUri ?? null,
         reviews: Array.isArray(data.reviews)
-          ? data.reviews.map((r: any) => ({
+          ? (data.reviews as PlacesApiReview[]).map((r) => ({
               author_name: r.authorAttribution?.displayName ?? 'Google Kullanıcısı',
               profile_photo_url: r.authorAttribution?.photoUri ?? '',
               rating: typeof r.rating === 'number' ? r.rating : 0,
