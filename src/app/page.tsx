@@ -200,13 +200,13 @@ export default function Home() {
                   alt: 'Dış cephe teleskopik modüler nakliyat asansörü kurulumu'
                 },
                 {
-                  src: '/img/slayt-3.jpg',
+                  src: '/img/marangozluk.jpg',
                   title: 'Profesyonel Marangozluk',
                   desc: 'Mobilyaların demontaj ve montaj süreçleri.',
                   alt: 'Usta marangoz tarafından mobilyaların sökülmesi ve kurulumu'
                 },
                 {
-                  src: '/img/ekip.jpg',
+                  src: '/img/slayt-3.jpg',
                   title: 'Uzman Taşıma Kadromuz',
                   desc: 'Güler yüzlü, kadrolu ve deneyimli taşıma ekiplerimiz.',
                   alt: 'Konya Lider Nakliyat profesyonel taşıma ve montaj ekipleri'
